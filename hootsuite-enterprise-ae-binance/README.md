@@ -35,6 +35,7 @@ Versión alternativa del assignment de Hootsuite usando a **Binance LATAM** (Bra
 | [`03_guion_presentacion.md`](03_guion_presentacion.md) | Guion en inglés con tiempos |
 | [`04_demo_social_listening.md`](04_demo_social_listening.md) | Demo de 10 min con queries en ES/PT |
 | [`05_preguntas_y_objeciones.md`](05_preguntas_y_objeciones.md) | Objeciones específicas de Binance + preguntas de entrevista |
+| [`06_mapa_contenidos.md`](06_mapa_contenidos.md) | Qué publicó Binance desde el 29 oct (LinkedIn, X, WhatsApp), métricas, qué funcionó y oportunidades. También es slide de apéndice |
 | `deck/fill_template.py` | Regenera el deck: `python3 fill_template.py template_base.pptx salida.pptx` |
 
 ## Datos para tener en la punta de la lengua

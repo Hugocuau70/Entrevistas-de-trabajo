@@ -22,11 +22,11 @@
 *Si sientes que el panel es serio/formal, omite el chiste y empieza directo con el contexto.*
 
 ## Who Am I (0:45-3:00)
-> "I'm Diego, based in Mexico City. Three things that matter for this role.
-> **One:** at Más Gallo Media I ran full sales cycles with enterprise accounts — including **Bitso**, the Mexican crypto exchange, plus GBM and Televisa — about a million dollars a month in pipeline. I know how crypto and fintech brands buy, and how many people sit at the table: marketing, security, legal, procurement.
-> **Two:** at Pinterest I doubled **Marriott's** monthly investment, from 50 to 100 thousand dollars, with a country-specific proposal for **Brazil and Mexico** — the two markets that matter most for Binance LATAM.
-> **Three:** I lead growth at LAPZO, a B2B SaaS — **118 SQLs and 1.4 million pesos in new MRR** in a quarter.
-> Why Hootsuite: I've sat next to marketing leaders on both sides, in Spanish and Portuguese markets. I want to bring that to an enterprise territory."
+> "I'm Diego, based in Mexico City. I'll go from most recent.
+> **Today** I lead growth at LAPZO, a B2B SaaS — **118 SQLs and 1.4 million pesos in new MRR** in a quarter.
+> **Before that, at Pinterest,** I doubled **Marriott's** monthly investment, from 50 to 100 thousand dollars, with a country-specific proposal for **Brazil and Mexico** — the two markets that matter most for Binance LATAM.
+> **And before that I was Head of Sales at Más Gallo Media,** running full sales cycles with enterprise accounts — including **Bitso**, the Mexican crypto exchange, plus GBM and Televisa — about a million dollars a month in pipeline. I know how crypto and fintech brands buy, and who sits at the table: marketing, security, legal, procurement.
+> **Why Hootsuite:** I actually started my career as a **community manager using Hootsuite every day**. Today I can pitch it as the tool that turns social listening into business impact — that's a full circle for me."
 
 ## What we heard (3:00-7:00)
 > "Let me play back what I heard — **tell me if I got anything wrong.**
@@ -36,6 +36,7 @@
 > **First, the scam wave.** With **323 million** users, every one is a target: fake support accounts, fake 'compensation' forms, fake 'withdrawals reopened' posts, 'priority processing' fees. Your own co-CEO had to warn users publicly. In LATAM it runs in Spanish and Portuguese, across WhatsApp, Telegram, X and Instagram — and your team finds it by hand, often when a victim sends it to you.
 > **Second, the good news isn't landing.** 98% replenished is a strong story, but in Brazilian and Mexican feeds it competes with fear, rumors and competitors' ads — and you don't have an hourly view by country.
 > **Third, speed with control.** The market's benchmark is Bybit: its CEO posted within about **30 minutes** of its 2025 hack. And in Brazil, Binance applied for its crypto license six days before the hack — so every public message is under regulator scrutiny, and Legal approvals can't take a day.
+> I also looked at what you've published since the 29th: your 'Initial Findings' post got two to five times the engagement of the routine recovery updates. People want the explanation — ideally in their own language.
 > **Did I capture that right? What would you add?**"
 
 ## Three outcomes, one Social OS (7:00-13:00)

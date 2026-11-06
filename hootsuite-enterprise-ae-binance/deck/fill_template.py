@@ -6,7 +6,7 @@ Uso:
 
 `base.pptx` = la plantilla exportada de Google Slides, ya reordenada a 10 slides
 (1 portada, 2 Who Am I, 3 agenda con tiempos, 12 stats, 15 tres columnas, 12 duplicada,
-14 dos columnas, 8 "Listen", 5 divisor, 13 bullets). Todo el formato (fuentes Montserrat,
+14 dos columnas, 8 "Listen", 5 divisor, 12 duplicada (mapa de contenidos), 13 bullets). Todo el formato (fuentes Montserrat,
 colores del tema, layouts) viene de la plantilla; aquí solo se cambia texto, foto y notas.
 """
 import copy
@@ -162,8 +162,8 @@ def main(src, out):
     fill(tb(s, 85), [
         [("Diego Cuauhtémoc Guerrero", {"sz": 16})],
         [("Consultative seller · growth & performance leader · Mexico City · Spanish / English", {})],
-        [("Why Hootsuite: ", {"b": True}), ("I’ve worked with crypto and fintech brands like Bitso, sold into Brazil and "
-                                            "Mexico, and I speak the language of the marketing leaders I’d sell to.", {})],
+        [("Why Hootsuite: ", {"b": True}), ("I started my career as a community manager using Hootsuite every day. "
+                                            "Today I can pitch it as the tool that turns social listening into business impact.", {})],
     ], ppr_from=1)
 
     # Career highlights in the empty dark column, styled like the template's light text
@@ -178,9 +178,9 @@ def main(src, out):
         body.remove(p)
     body.append(title_p)
     hl = [
-        ("Más Gallo Media", "Head of Industry · 2022–24", "USD 1M/month pipeline with Bitso, GBM and Televisa — crypto and fintech from the inside"),
-        ("Pinterest", "Sr. Performance Solutions Partner · 2024–26", "Marriott USD 50K → 100K/month with a Brazil + Mexico proposal; Coppel 4.4×"),
         ("LAPZO", "Head of Growth · 2026", "118 SQLs and MXN 1.4M in new MRR in one quarter"),
+        ("Pinterest", "Sr. Performance Solutions Partner · 2024–26", "Marriott USD 50K → 100K/month with a Brazil + Mexico proposal; Coppel 4.4×"),
+        ("Más Gallo Media", "Head of Sales · 2022–24", "USD 1M/month pipeline with Bitso, GBM and Televisa — crypto and fintech from the inside"),
     ]
     paras = []
     for co, role, line in hl:
@@ -196,15 +196,15 @@ def main(src, out):
         if sb is not None:
             sb.set("val", "1400" if (i % 2 == 0 and i > 0) else "200")
     notes(s,
-          "[0:30–3:00] Quick intro. I'm Diego, based in Mexico City. Three things about my background that matter for this role. "
-          "One: at Más Gallo Media I ran the full sales cycle with enterprise accounts — including Bitso, the Mexican crypto exchange, plus GBM and Televisa — "
-          "managing about a million dollars a month in pipeline. So I know how crypto and fintech brands buy, and how many people sit at that table: "
-          "marketing, compliance, IT, procurement. "
-          "Two: at Pinterest I grew enterprise investment by selling business outcomes, not ad products — for example doubling "
-          "Marriott's monthly investment from 50 to 100 thousand dollars with a country-specific proposal for Brazil and Mexico — the markets that matter most for Binance LATAM. "
-          "Three: today I lead growth at LAPZO, a B2B SaaS, where my campaigns fed 118 SQLs and 1.4 million pesos in new MRR "
-          "in a quarter. "
-          "Why Hootsuite: the people I'd sell to — heads of social, CMOs — are people I've worked alongside for years.")
+          "[0:45–3:00] Quick intro. I'm Diego, based in Mexico City. I'll go from most recent. "
+          "Today I lead growth at LAPZO, a B2B SaaS, where my campaigns fed 118 SQLs and 1.4 million pesos in new MRR in a quarter. "
+          "Before that, at Pinterest, I doubled Marriott's monthly investment from 50 to 100 thousand dollars with a country-specific proposal "
+          "for Brazil and Mexico — the markets that matter most for Binance LATAM. "
+          "And before that I was Head of Sales at Más Gallo Media, running full sales cycles with enterprise accounts — including Bitso, "
+          "the Mexican crypto exchange, plus GBM and Televisa — about a million dollars a month in pipeline. So I know how crypto and fintech "
+          "brands buy, and who sits at the table: marketing, security, legal, procurement. "
+          "Why Hootsuite: I actually started my career as a community manager using Hootsuite every day. Today I can pitch it as the tool "
+          "that turns social listening into business impact — that's a full circle for me.")
 
     # ---------------- 3 · Agenda ----------------
     s = S[2]
@@ -266,6 +266,8 @@ def main(src, out):
           "Third, speed and control. The benchmark is Bybit's CEO, who posted within about 30 minutes of its 2025 hack and livestreamed soon after. "
           "And in Brazil, Binance just applied for its crypto license — so every public message is now under regulator scrutiny, which means approvals "
           "with Legal can't take days. "
+          "I also looked at what you've published since the 29th: the 'Initial Findings' post got two to five times the engagement of the "
+          "routine recovery updates — people want the explanation, ideally in their own language (see appendix). "
           "Did I capture that right? Anything you'd add or re-prioritize? [pause]")
 
     # ---------------- 5 · How Hootsuite helps (three columns) ----------------
@@ -384,8 +386,33 @@ def main(src, out):
             p.remove(r)
     notes(s, "Q&A. Have 2–3 questions ready for the panel (see 05_preguntas_y_objeciones.md).")
 
-    # ---------------- 10 · Appendix: sources ----------------
+    # ---------------- 10 · Appendix: Binance content map ----------------
     s = S[9]
+    stats_table(
+        s, "Appendix: what Binance posted after Oct 29",
+        big=["602", "300", "123", "117", "3"],
+        small=["", "", "", "", " chats"],
+        desc=[
+            "reactions + 124 reposts — ‘Initial Findings and Response Update’: the post that explains what happened",
+            "reactions — Recovery Update #7: 98% of stolen assets replenished + new Proof of Reserves snapshot",
+            "reactions — Recovery Update #8: withdrawals reopen for more assets. Routine updates engage less",
+            "reactions — ‘Withdrawal data update’: deposits vs. withdrawals chart",
+            "official WhatsApp channels: Binance Argentina (ES), Brasil (PT), LATAM (ES), checked via Binance Verify",
+        ],
+    )
+    notes(s,
+          "Content map (Binance LinkedIn page as of Nov 6, plus regional channels). Use it in discovery and in the demo. "
+          "What they did well: a numbered 'Security Incident | Recovery Update' series on X and LinkedIn (#4 Nov 1 phase-one withdrawals; "
+          "#6 Nov 3; #7 Nov 4 98% replenished + Proof of Reserves; #8 Nov 5 more assets), a data post showing deposits vs. withdrawals, "
+          "an apology, scam warnings, and regional WhatsApp channels in Spanish and Portuguese. "
+          "What the data suggests: the explanatory 'Initial Findings' post got about 602 reactions and 124 reposts — two to five times the routine "
+          "updates (300, 123, 117), and engagement on the numbered series is fading. Every post uses the same black 'ANNOUNCEMENT' image, "
+          "and the global posts are in English only (LATAM users see 'Show translation'). "
+          "Opportunity: localized Spanish/Portuguese versions, a human face or livestream (the Bybit benchmark), dedicated anti-scam creatives, "
+          "and listening to learn which update actually reassures each country.")
+
+    # ---------------- 10 · Appendix: sources ----------------
+    s = S[10]
     fill(tb(s, 167), ["Appendix: where the numbers come from"])
     fill(tb(s, 166), [
         "All Binance and market figures are public; the discovery call is a role-play assumption.",

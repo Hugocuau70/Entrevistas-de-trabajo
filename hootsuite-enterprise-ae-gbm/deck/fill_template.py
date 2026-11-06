@@ -160,8 +160,8 @@ def main(src, out):
     fill(tb(s, 85), [
         [("Diego Cuauhtémoc Guerrero", {"sz": 16})],
         [("Consultative seller · growth & performance leader · Mexico City · Spanish / English", {})],
-        [("Why Hootsuite: ", {"b": True}), ("I’ve sat on GBM’s side of the table, and I speak the language of the "
-                                            "marketing leaders I’d sell to — because I’ve been one.", {})],
+        [("Why Hootsuite: ", {"b": True}), ("I started my career as a community manager using Hootsuite every day. "
+                                            "Today I can pitch it as the tool that turns social listening into business impact.", {})],
     ], ppr_from=1)
 
     # Career highlights in the empty dark column, styled like the template's light text
@@ -176,9 +176,9 @@ def main(src, out):
         body.remove(p)
     body.append(title_p)
     hl = [
-        ("Más Gallo Media", "Head of Industry · 2022–24", "USD 1M/month pipeline with GBM, Bitso and Televisa — full cycle, discovery to close"),
-        ("Pinterest", "Sr. Performance Solutions Partner · 2024–26", "Marriott USD 50K → 100K/month; Coppel 4.4× daily budget"),
         ("LAPZO", "Head of Growth · 2026", "118 SQLs and MXN 1.4M in new MRR in one quarter"),
+        ("Pinterest", "Sr. Performance Solutions Partner · 2024–26", "Marriott USD 50K → 100K/month; Coppel 4.4× daily budget"),
+        ("Más Gallo Media", "Head of Sales · 2022–24", "USD 1M/month pipeline with GBM, Bitso and Televisa — full cycle, discovery to close"),
     ]
     paras = []
     for co, role, line in hl:
@@ -194,15 +194,15 @@ def main(src, out):
         if sb is not None:
             sb.set("val", "1400" if (i % 2 == 0 and i > 0) else "200")
     notes(s,
-          "[0:30–3:00] Quick intro. I'm Diego, based in Mexico City. Three things about my background that matter for this role. "
-          "One: at Más Gallo Media I ran the full sales cycle with enterprise accounts — including GBM, Bitso and Televisa — "
-          "managing about a million dollars a month in pipeline. So I know how GBM buys and how many people sit at that table: "
-          "marketing, compliance, IT, procurement. "
-          "Two: at Pinterest I grew enterprise investment by selling business outcomes, not ad products — for example doubling "
+          "[0:30–3:00] Quick intro. I'm Diego, based in Mexico City. I'll go from most recent. "
+          "Today I lead growth at LAPZO, a B2B SaaS, where my campaigns fed 118 SQLs and 1.4 million pesos in new MRR in a quarter — "
+          "so I live SaaS metrics and pipeline discipline every day. "
+          "Before that, at Pinterest, I grew enterprise investment by selling business outcomes, not ad products — for example doubling "
           "Marriott's monthly investment from 50 to 100 thousand dollars with a country-specific proposal. "
-          "Three: today I lead growth at LAPZO, a B2B SaaS, where my campaigns fed 118 SQLs and 1.4 million pesos in new MRR "
-          "in a quarter. "
-          "Why Hootsuite: the people I'd sell to — heads of social, CMOs — are people I've worked alongside for years.")
+          "And before that I was Head of Sales at Más Gallo Media, running full sales cycles with enterprise accounts — including GBM, Bitso and Televisa — "
+          "about a million dollars a month in pipeline. So I know how GBM buys and who sits at that table: marketing, compliance, IT, procurement. "
+          "Why Hootsuite: I actually started my career as a community manager using Hootsuite every day. Today I can pitch it as the tool "
+          "that turns social listening into business impact — that's a full circle for me.")
 
     # ---------------- 3 · Agenda ----------------
     s = S[2]

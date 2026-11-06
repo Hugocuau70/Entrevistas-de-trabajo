@@ -27,15 +27,15 @@ Si vas atrasado al minuto 13: en la slide 4 menciona solo el número de activaci
 
 ## Slide "Who Am I" (0:30-3:00)
 
-> "Quick intro. I'm Diego, based in Mexico City. Three things about my background that matter for this role.
+> "Quick intro. I'm Diego, based in Mexico City. I'll go from most recent.
 >
-> **One:** at Más Gallo Media I ran the full sales cycle with enterprise accounts — **including GBM**, Bitso and Televisa — managing about **a million dollars a month in pipeline**. So I know how GBM buys and how many people sit at that table: marketing, compliance, IT, procurement.
+> **Today** I lead growth at LAPZO, a B2B SaaS company, where my campaigns fed **118 SQLs and 1.4 million pesos in new MRR in a quarter** — so I live SaaS metrics and pipeline discipline every day.
 >
-> **Two:** at Pinterest I grew enterprise investment by selling business outcomes, not ad products — for example, **doubling Marriott's monthly investment from 50 to 100 thousand dollars** with a country-specific proposal for Brazil and Mexico.
+> **Before that, at Pinterest,** I grew enterprise investment by selling business outcomes, not ad products — for example, **doubling Marriott's monthly investment from 50 to 100 thousand dollars** with a country-specific proposal for Brazil and Mexico.
 >
-> **Three:** today I lead growth at LAPZO, a B2B SaaS company, where my campaigns fed **118 SQLs and 1.4 million pesos in new MRR in a quarter** — so I live SaaS metrics and pipeline discipline every day.
+> **And before that I was Head of Sales at Más Gallo Media,** running the full sales cycle with enterprise accounts — **including GBM**, Bitso and Televisa — about **a million dollars a month in pipeline**. So I know how GBM buys and how many people sit at that table: marketing, compliance, IT, procurement.
 >
-> **Why Hootsuite:** the people I'd sell to — heads of social, CMOs — are people I've worked alongside for years. I want to bring that empathy, plus a consultative process, to an enterprise territory in Spanish- and Portuguese-speaking markets."
+> **Why Hootsuite:** I actually started my career as a **community manager using Hootsuite every day**. Today I can pitch it as the tool that turns social listening into business impact — that's a full circle for me."
 
 *Tip:* sonríe en "including GBM". Es tu momento.
 
