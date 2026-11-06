@@ -411,8 +411,70 @@ def main(src, out):
           "Opportunity: localized Spanish/Portuguese versions, a human face or livestream (the Bybit benchmark), dedicated anti-scam creatives, "
           "and listening to learn which update actually reassures each country.")
 
+    # ---------------- 11-15 · Appendix: Lumen screenshots (query "binance") ----------------
+    LUMEN_SRC = "Source: Hootsuite Lumen · Quick Search “binance” · 30 Oct – 6 Nov 2026"
+    lumen = [
+        ("lumen_1_key_metrics.png", "Lumen: 1.3M Binance mentions in one week",
+         [[("1.3M results ", {"b": True}), ("(+102%) and ", {}), ("8.1M interactions", {"b": True}), (" in the first week.", {})],
+          [("Peak on Oct 30 ", {"b": True}), ("(~470K mentions in a day); Friday hit 32K mentions in a single hour.", {})],
+          [("12.7% positive vs. 35.8% negative", {"b": True}), (" — 178.8B potential reach.", {})]],
+         "Key Metrics view. Talk track: the crisis is a reach event of historic size — 1.3 million mentions and 8.1 million interactions in a week. "
+         "Volume peaked on October 30 and decays every day; the question is what replaces it: fear or the recovery story."),
+        ("lumen_2_sentiment.png", "Negative outweighs positive almost 3 to 1",
+         [[("Share: ", {"b": True}), ("35.8% negative · 51.5% neutral · 12.7% positive.", {})],
+          [("Negative drivers: ", {"b": True}), ("size of the heist, attribution to North Korea, fear for the whole system.", {})],
+          [("No positive themes detected", {"b": True}), (" — the 98% recovery isn’t generating positive conversation yet.", {})]],
+         "Sentiment view. The AI summary finds three negative drivers — the magnitude of the heist, North Korea attribution, systemic insecurity — "
+         "and no documents expressing positive sentiment. That is the gap: Binance's good news (98% replenished) isn't showing up as positive conversation. "
+         "Note the spikes around Nov 1 and Nov 2, when withdrawals reopened."),
+        ("lumen_3_themes.png", "Themes: the hack drowns Binance’s voice",
+         [[("Top themes: ", {"b": True}), ("hack, crypto, billion, North Korea, funds, security.", {})],
+          [("binance.com: 2.4K shares", {"b": True}), (" vs. 91.2K links on X (t.co) and Reuters, AP, TradingView.", {})],
+          [("#Binance 12.9K posts", {"b": True}), (" (+106%); FBI and Coinbase appear among smart themes.", {})]],
+         "Themes view. The word cloud is the narrative: hack, billion, North Korea, funds. Binance's own site was shared 2.4 thousand times "
+         "versus 91 thousand links on X and major media — the official source is a small voice in its own crisis."),
+        ("lumen_4_results.png", "In LATAM, creators set the narrative",
+         [[("Chumel Torres", {"b": True}), (" (MX): “el peor hackeo de la historia” — 48.5K engagement, negative.", {})],
+          [("g1 Globo", {"b": True}), (" (BR) in Portuguese; Al Jazeera 73.4K; Watcher.Guru 48.1K on X.", {})],
+          [("None of the top posts are Binance’s", {"b": True}), (" — the story is told by others, in ES and PT.", {})]],
+         "Results sorted by engagement. The most engaged posts come from media and creators: Al Jazeera, Watcher.Guru — and for LATAM, "
+         "Chumel Torres in Mexico and g1 Globo in Brazil. Binance isn't in the top results of its own crisis. This is why localized, "
+         "human content and creator relationships matter."),
+        ("lumen_5_influencers.png", "X is ~92% of volume, much of it automated",
+         [[("137.3K authors", {"b": True}), (" (+112%) across 123.3K sites.", {})],
+          [("X: 1.2M of 1.3M results", {"b": True}), ("; then online news 65K, Bluesky 26K, YouTube 9K.", {})],
+          [("Top “authors” are automated aggregators", {"b": True}), (" (thebittimes.com) — filter noise to find real voices.", {})]],
+         "Influencers view. 137 thousand authors, but the top ones by volume are automated news aggregators — noise. X carries about 92% of results. "
+         "With Lumen you filter that out to find the real voices to engage, and the forums like bitcointalk where sentiment is most negative."),
+    ]
+    for k, (img, title, bullets, note) in enumerate(lumen):
+        s = S[10 + k]
+        fill(tb(s, 167), [title])
+        body_sh = shape(s, 166)
+        body_sh.left, body_sh.top = Emu(int(6.05 * 914400)), Emu(int(1.25 * 914400))
+        body_sh.width, body_sh.height = Emu(int(3.6 * 914400)), Emu(int(3.7 * 914400))
+        fill(body_sh._element.txBody, bullets, ppr_from=1, first_ppr_from=1)
+        for p in body_sh._element.txBody.findall("a:p", NS):
+            sb = p.find("a:pPr/a:spcBef/a:spcPts", NS)
+            if sb is not None:
+                sb.set("val", "1200")
+            for r in p.findall("a:r/a:rPr", NS):
+                r.set("sz", "1200")
+        fill(tb(s, 168), [LUMEN_SRC])
+        im_path = os.path.join(HERE, "assets", img)
+        with Image.open(im_path) as im:
+            iw, ih = im.size
+        max_w, max_h = 5.6, 3.85
+        w_in = min(max_w, max_h * iw / ih)
+        h_in = w_in * ih / iw
+        pic = s.shapes.add_picture(im_path, Inches(0.25), Inches(1.2), Inches(w_in), Inches(h_in))
+        pic.name = "Lumen screenshot"
+        pic.line.color.rgb = __import__("pptx").dml.color.RGBColor(0xC9, 0xD3, 0xD0)
+        pic.line.width = Pt(0.75)
+        notes(s, note + " (Screenshot from my Hootsuite trial — also my backup if the live demo fails.)")
+
     # ---------------- 10 · Appendix: sources ----------------
-    s = S[10]
+    s = S[15]
     fill(tb(s, 167), ["Appendix: where the numbers come from"])
     fill(tb(s, 166), [
         "All Binance and market figures are public; the discovery call is a role-play assumption.",

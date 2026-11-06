@@ -52,4 +52,11 @@ OR "es seguro" OR "é seguro" OR "FTX")
 - **No hagas clic en links de estafas** durante la demo (ni para "mostrar"). Muestra el post, no el destino.
 - Si sale contenido ofensivo o muy negativo: *"This is exactly the noise your team is dealing with; let me filter to what's actionable."*
 - No afirmes que un post es de Corea del Norte ni nada técnico; quédate en lo que la herramienta muestra.
-- Plan B / C: igual que en el caso GBM (screenshots + slide "Let's listen" con los pasos en las notas).
+- **Plan B / C:** el anexo del deck ya trae tus 5 screenshots de Lumen (Key Metrics, Sentimiento, Temáticas, Resultados, Influencers) con los hallazgos. Si la demo en vivo falla, recórrelos en ese orden: es la misma historia.
+
+## Hallazgos de tus screenshots (30 oct – 6 nov, query "binance")
+- **1.3M resultados** (+102%), **8.1M interacciones**, alcance potencial 178.8B; pico el 30 oct (~470K en un día; 32K en una sola hora el viernes).
+- **Sentimiento:** 35.8% negativo · 51.5% neutral · 12.7% positivo. Temas negativos: magnitud del robo, atribución a Corea del Norte, miedo sistémico (CZ: "banks are in a worse position"). **Ningún tema positivo detectado** → el 98% repuesto no está generando conversación positiva.
+- **Temáticas:** hack, crypto, billion, North Korea, funds, security. binance.com compartido 2.4K veces vs. 91.2K links de X; #Binance 12.9K posts (+106%).
+- **Resultados por engagement:** Al Jazeera (73.4K), **Chumel Torres** (MX, 48.5K, negativo), Watcher.Guru (48.1K), **g1 Globo** (BR). Ningún post top es de Binance.
+- **Canales y autores:** X = 1.2M de 1.3M resultados (~92%); 137.3K autores; los "autores" con más volumen son agregadores automáticos (thebittimes.com) → hay que filtrar ruido.

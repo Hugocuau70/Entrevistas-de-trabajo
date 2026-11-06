@@ -28,7 +28,7 @@ Versión alternativa del assignment de Hootsuite usando a **Binance LATAM** (Bra
 
 | Archivo | Para qué |
 |---|---|
-| [`deck/Hootsuite_x_Binance_LATAM_Value_Presentation_Diego_Cuauhtemoc.pptx`](deck/Hootsuite_x_Binance_LATAM_Value_Presentation_Diego_Cuauhtemoc.pptx) | Deck sobre la **plantilla oficial de Hootsuite**, con notas del orador |
+| [`deck/Hootsuite_x_Binance_LATAM_Value_Presentation_Diego_Cuauhtemoc.pptx`](deck/Hootsuite_x_Binance_LATAM_Value_Presentation_Diego_Cuauhtemoc.pptx) | **Deck final para enviar** (16 slides) sobre la plantilla oficial de Hootsuite, con notas del orador. Anexo: mapa de contenidos de Binance + 5 screenshots reales de **Lumen** (query "binance", 30 oct–6 nov) con hallazgos |
 | [`deck/...pdf`](deck/Hootsuite_x_Binance_LATAM_Value_Presentation_Diego_Cuauhtemoc.pdf) | Respaldo PDF (fuentes sustitutas; en Google Slides se ve con Montserrat) |
 | [`01_investigacion.md`](01_investigacion.md) | El hackeo, cronología, estafas, Binance en LATAM, el caso Bybit como referencia, fuentes |
 | [`02_discovery_y_estrategia.md`](02_discovery_y_estrategia.md) | Notas del discovery (role play), stakeholders, MEDDICC |
