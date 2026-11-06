@@ -9,7 +9,7 @@
 | Min | Slide | Meta |
 |---|---|---|
 | 0:00-0:30 | Portada | Encuadre del role play |
-| 0:30-3:00 | 1 · Who I am | Credibilidad + gancho GBM |
+| 0:30-3:00 | Who Am I (+ agenda, 10 seg) | Credibilidad + gancho GBM |
 | 3:00-7:00 | 2 · What we heard | Tesis de activación + 3 dolores + confirmación |
 | 7:00-13:00 | 3 · How Hootsuite helps | 3 resultados, ~2 min cada uno |
 | 13:00-16:30 | 4 · Business impact | Números + KPIs |
@@ -25,7 +25,7 @@ Si vas atrasado al minuto 13: en la slide 4 menciona solo el número de activaci
 > "Thank you all for the time today. For this role play I chose **GBM, Grupo Bursátil Mexicano** — Mexico's largest brokerage by number of accounts. I chose it for a reason I'll explain in a second.
 > Context: last week I ran discovery with GBM's Director of Social Media. Today I'm coming back to show how Hootsuite connects to the business goals she shared — this is not a feature tour."
 
-## Slide 1 · Who I am (0:30-3:00)
+## Slide "Who Am I" (0:30-3:00)
 
 > "Quick intro. I'm Diego, based in Mexico City. Three things about my background that matter for this role.
 >
@@ -39,7 +39,7 @@ Si vas atrasado al minuto 13: en la slide 4 menciona solo el número de activaci
 
 *Tip:* sonríe en "including GBM". Es tu momento.
 
-## Slide 2 · What we heard (3:00-7:00)
+## Slide "What we heard in discovery" (3:00-7:00)
 
 > "Let me play back what I heard in discovery — **tell me if I got anything wrong.**
 >
@@ -59,7 +59,7 @@ Si vas atrasado al minuto 13: en la slide 4 menciona solo el número de activaci
 
 *Pausa real de 3-5 segundos. Si alguien del panel (actuando como cliente) responde, agradece y conecta: "That's exactly why the first phase of the pilot focuses on…"*
 
-## Slide 3 · How Hootsuite helps (7:00-13:00)
+## Slide "Three outcomes, one Social OS" (7:00-13:00)
 
 > "Here's how Hootsuite maps to those three outcomes — organized by **your** business outcomes, not by our product menu.
 >
@@ -73,7 +73,7 @@ Si vas atrasado al minuto 13: en la slide 4 menciona solo el número de activaci
 >
 > **Which of these three would make the biggest difference for your team next quarter?**"
 
-## Slide 4 · Business impact (13:00-16:30)
+## Slide "What success could look like" (13:00-16:30)
 
 > "What does this mean in business terms? These numbers are **illustrative** — I'd rather build the real ones with your data — but they show the order of magnitude.
 >
@@ -87,7 +87,7 @@ Si vas atrasado al minuto 13: en la slide 4 menciona solo el número de activaci
 >
 > **How does your leadership measure success for social today — and which of these would resonate most with your CMO?**"
 
-## Slide 5 · Path forward (16:30-19:30)
+## Slide "A 90-day pilot" (16:30-19:30)
 
 > "To make this low-risk, I propose a **90-day pilot**.
 >
@@ -103,7 +103,7 @@ Si vas atrasado al minuto 13: en la slide 4 menciona solo el número de activaci
 
 *Cállate y escucha. El silencio después de una pregunta de cierre es tu amigo.*
 
-## Transición a la demo (19:30-20:00)
+## Transición a la demo — slide "Let’s listen" (19:30-20:00)
 
 > "If it's helpful, let me show you what this looks like live. I'll spend ten minutes in our listening tool with GBM's real conversation."
 

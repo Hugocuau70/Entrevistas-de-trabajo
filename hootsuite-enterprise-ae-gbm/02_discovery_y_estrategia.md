@@ -50,7 +50,7 @@ Estructura **"Why change → Why now → Why Hootsuite → Why it's safe to say 
 4. **Slide 4 – Impacto:** números en lenguaje del CMO, explícitamente ilustrativos, más los KPIs que medirían juntos. Demuestra business acumen sin inventar datos del cliente.
 5. **Slide 5 – Camino propuesto:** piloto de 90 días que empieza por lo que más le importa a Compliance (riesgo primero) + next steps con fecha relativa + **pregunta de cierre**. **Why it's safe to say yes.**
 
-Apéndice: roadmap de la demo (puente perfecto: "let me show you") y fuentes.
+Después: divisor "Let’s listen" (puente a la demo), "Thank you / Questions" y apéndice de fuentes. Todo sobre la plantilla oficial de Hootsuite (portada con búho, Who Am I, agenda con tiempos, tabla de stats, tres columnas, dos columnas).
 
 ### Principios que el panel va a buscar (y dónde están en tu deck)
 - **Value vs. features:** nunca digas "Nest has X feature" sin decir para qué le sirve a GBM.

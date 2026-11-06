@@ -27,18 +27,18 @@ Entrega: subir el deck al link de Greenhouse **antes** de la entrevista (link en
 
 | Archivo | Para qué |
 |---|---|
-| [`deck/Hootsuite_x_GBM_Value_Presentation_Diego_Cuauhtemoc.pptx`](deck/Hootsuite_x_GBM_Value_Presentation_Diego_Cuauhtemoc.pptx) | **El deck para subir y presentar** (portada + 5 slides + 2 de apéndice). Notas del orador incluidas en cada slide. Se importa a Google Slides sin problema. |
+| [`deck/Hootsuite_x_GBM_Value_Presentation_Diego_Cuauhtemoc.pptx`](deck/Hootsuite_x_GBM_Value_Presentation_Diego_Cuauhtemoc.pptx) | **El deck para subir y presentar**, construido sobre la **plantilla oficial de Hootsuite** ("Hootsuite Interview Assignment - Slide Deck Template"): portada con el búho, Who Am I, agenda, 4 slides de valor, divisor "Let’s listen" para la demo, cierre y apéndice. Notas del orador en cada slide. |
 | [`deck/Hootsuite_x_GBM_Value_Presentation_Diego_Cuauhtemoc.pdf`](deck/Hootsuite_x_GBM_Value_Presentation_Diego_Cuauhtemoc.pdf) | Versión PDF (respaldo / para Greenhouse si piden PDF) |
 | [`01_investigacion.md`](01_investigacion.md) | Investigación profunda: GBM, mercado, fraude, Hootsuite 2026 (Social OS), fuentes |
 | [`02_discovery_y_estrategia.md`](02_discovery_y_estrategia.md) | Notas del discovery (role play), stakeholders, MEDDICC, lógica de la narrativa |
 | [`03_guion_presentacion.md`](03_guion_presentacion.md) | Guion palabra por palabra en inglés, con tiempos y transiciones |
 | [`04_demo_social_listening.md`](04_demo_social_listening.md) | Guion de la demo de 10 min, queries booleanas, plan B |
 | [`05_preguntas_y_objeciones.md`](05_preguntas_y_objeciones.md) | "Cómo te preparaste", autoevaluación, preguntas probables, objeciones, preguntas para el panel |
-| `deck/build_deck.js` | Script que genera el deck (por si quieres regenerarlo con cambios) |
+| `deck/fill_template.py` + `deck/template_base.pptx` | Script que rellena la plantilla de Hootsuite (`python3 fill_template.py template_base.pptx salida.pptx`) |
 
 ## Checklist antes de la entrevista
 
-- [ ] Abrir el `.pptx` en Google Slides (Drive → Subir → Abrir con Google Slides) y revisar que fuentes y notas se vean bien.
+- [ ] Abrir el `.pptx` en Google Slides (Drive → Subir → Abrir con Google Slides): la plantilla usa Montserrat / Montserrat Alternates, que Google Slides tiene nativas. Revisa que todo cuadre (el PDF de respaldo se generó con fuentes sustitutas, por eso puede verse ligeramente distinto).
 - [ ] Crear cuenta **free trial** en hootsuite.com y practicar la demo (Wisdom está disponible en trial). **Cancelar/downgradear** el trial después, como pide el assignment.
 - [ ] Tomar **screenshots de respaldo** de cada paso de la demo (por si falla la conexión o el trial no incluye Lumen completo).
 - [ ] Ensayar la presentación **2 veces con cronómetro** (meta: 18-19 min, deja 1-2 min de colchón para interacción).

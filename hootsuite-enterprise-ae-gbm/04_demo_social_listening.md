@@ -63,7 +63,7 @@ OR "no puedo retirar" OR "rendimiento garantizado" OR "duplica tu dinero" OR "as
 ## Plan B / C
 
 - **Plan B (trial limitado):** usa Quick Search de 7 días + Wisdom, y muestra las capacidades Enterprise con screenshots: *"This is what you'd see in Lumen Enterprise."*
-- **Plan C (todo falla: internet, login):** slide de apéndice "Demo roadmap" + screenshots. Di: *"Live demos have a mind of their own — let me walk you through what I prepared."* Mantén la calma; evalúan cómo comunicas, no el Wi-Fi.
+- **Plan C (todo falla: internet, login):** quédate en la slide "Let’s listen" y recorre tus screenshots (las notas de esa slide tienen los 5 pasos). Di: *"Live demos have a mind of their own — let me walk you through what I prepared."* Mantén la calma; evalúan cómo comunicas, no el Wi-Fi.
 - Si aparece un resultado vergonzoso o irrelevante en vivo: *"That's actually a good example of why we refine queries — let me exclude that."* → convierte el problema en demostración.
 
 ## Qué evitar
