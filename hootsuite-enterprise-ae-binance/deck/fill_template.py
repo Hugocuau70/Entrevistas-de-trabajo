@@ -248,7 +248,7 @@ def main(src, out):
             "net outflows in the first 3 days after withdrawals reopened (Nov 1–3)",
             "of stolen assets already replenished by Nov 3 — a story competing with fear and rumors",
             "registered users — every one a target for fake ‘compensation’ and ‘priority withdrawal’ scams",
-            "Bybit’s CEO posted within ~30 min of its 2025 hack — today’s bar for crisis response on social",
+            "Bybit, another exchange hacked for $1.5B in 2025: its CEO posted in ~30 min — today’s bar for crisis response",
         ],
     )
     notes(s,
@@ -482,7 +482,7 @@ def main(src, out):
         "Withdrawals reopened Nov 1; ~$5.3B net outflows Nov 1–3; 98% replenished — CNBC, FinanceFeeds, CNN",
         "Scam warnings (fake compensation, priority processing) — Binance statements via Bitcoin.com, Crypto Times",
         "323M registered users (Jul 2026) — Binance 9th anniversary release",
-        "Bybit CEO posted within ~30 min of its 2025 hack — Cointelegraph, CryptoSlate",
+        "Benchmark: after its US$1.5B hack (Feb 2025), Bybit’s CEO posted on X within ~30 min, then livestreamed — Cointelegraph, CryptoSlate",
         "Social OS, Wisdom, 150M+ sources, 187 languages — Hootsuite press release, 24 Jun 2026; SIX Group — Hootsuite story",
     ], ppr_from=1, first_ppr_from=0)
     fill(tb(s, 168), ["Impact targets are illustrative and would be baselined with Binance data during the pilot."])
