@@ -1,0 +1,20 @@
+code,industry,group,travel_intensity,eats_fit,h1_2027_trigger,rationale
+5412,"Audit, accounting & tax",Professional services,5,5,5,"Busy season Jan-Apr: shareholder meetings by Apr 30 (LGSM art. 181), annual corporate tax return Mar 31. Auditors work on client sites."
+5416,Management consulting,Professional services,5,4,3,New-year budgets open Q1; consultants work on client sites.
+5413,Engineering & architecture,Professional services,4,3,5,Queretaro data center build-out: CloudHQ first phases due Q2 2027; ODATA and KIO expansions.
+5411,Legal services,Professional services,3,4,2,Court and transaction calendars; no strong H1 driver.
+5415,IT services & software,Professional services,2,4,2,Hybrid and remote work lowers ride intensity.
+5418,Advertising & agencies,Professional services,2,4,3,Hot Sale (May-Jun) campaign production.
+5182,Data processing & hosting,Tech & infrastructure,3,3,5,Data center commissioning in Queretaro through 2027.
+5173,Telecom operators,Tech & infrastructure,3,2,2,Mostly enterprise-size operators.
+5613,Staffing & employment services,Business support,3,2,2,Recruiter and field visits; headcount ramps into Q4.
+5616,Security services,Business support,2,2,1,Shift guards rarely expense rides.
+4931,Warehousing,Logistics,2,3,3,Nearshoring warehouses run night shifts; T-MEC review slows new projects.
+4841,Freight trucking,Logistics,1,2,1,Drivers travel in company trucks.
+3254,Pharmaceutical manufacturing,Healthcare & pharma,5,3,4,Plan Mexico plant investments; Q1 is the sales peak; field reps visit doctors daily.
+6215,Medical & diagnostic labs,Healthcare & pharma,3,2,2,Home sample collection and branch visits.
+6221,General hospitals,Healthcare & pharma,2,4,1,Night-shift staff rides home; flat seasonality.
+3363,Auto parts,Manufacturing,3,3,1,T-MEC review: new investment down 23% y/y in 1H26.
+3344,Electronic components,Manufacturing,3,3,2,Plant engineers and supplier visits.
+311,Food manufacturing,Manufacturing,3,2,2,Sales force visits retail chains.
+23,Construction (total),Construction,3,3,3,Site visits; value of output peaks in Q4.

@@ -1,0 +1,49 @@
+row_id,code,industry,group,view,metric,source,window,jan,feb,mar,apr,may,jun,jul,aug,sep,oct,nov,dec,h1_share,peak_month,low_month,amplitude
+5412|activity,5412,"Audit, accounting & tax",Professional services,activity,Revenue,INEGI EMS,2022-01 to 2025-12,96.4,101.9,104.5,98.6,106.8,99.6,89.3,93.9,91.3,97.1,104.2,116.5,50.6,Dec,Jul,27.2
+5412|people,5412,"Audit, accounting & tax",Professional services,people,Headcount,INEGI EMS,2022-01 to 2025-12,102.5,102.7,102.1,99.8,100.3,99.8,99.3,98.7,99.5,98.8,98.4,98.2,50.6,Feb,Dec,4.5
+5416|activity,5416,Management consulting,Professional services,activity,Revenue,INEGI EMS,2022-01 to 2025-12,82.6,88.9,101.3,89.1,94.9,97.8,99.8,112.6,96.7,109.3,104.0,123.1,46.2,Dec,Jan,40.5
+5416|people,5416,Management consulting,Professional services,people,Headcount,INEGI EMS,2022-01 to 2025-12,95.1,97.4,97.6,98.6,100.0,98.7,101.8,105.5,103.4,101.3,100.3,100.2,49.0,Aug,Jan,10.4
+5413|activity,5413,Engineering & architecture,Professional services,activity,Revenue,INEGI EMS,2022-01 to 2025-12,86.7,85.3,95.1,97.9,99.3,96.7,98.6,100.1,102.3,104.7,109.5,123.8,46.8,Dec,Feb,38.5
+5413|people,5413,Engineering & architecture,Professional services,people,Headcount,INEGI EMS,2022-01 to 2025-12,100.9,102.3,101.7,101.2,101.3,101.6,101.1,98.4,98.4,98.8,97.4,96.9,50.7,Feb,Dec,5.4
+5411|activity,5411,Legal services,Professional services,activity,Revenue,INEGI EMS,2022-01 to 2025-12,86.6,88.2,100.3,91.8,95.8,104.4,97.8,100.1,97.6,100.8,108.3,128.5,47.3,Dec,Jan,41.9
+5411|people,5411,Legal services,Professional services,people,Headcount,INEGI EMS,2022-01 to 2025-12,99.3,100.8,101.1,99.6,100.3,99.5,99.2,98.7,98.4,107.5,97.8,97.7,50.1,Oct,Dec,9.8
+5415|activity,5415,IT services & software,Professional services,activity,Revenue,INEGI EMS,2022-01 to 2025-12,97.1,94.1,94.0,97.6,103.1,98.8,94.6,100.3,95.3,97.9,110.5,116.7,48.7,Dec,Mar,22.7
+5415|people,5415,IT services & software,Professional services,people,Headcount,INEGI EMS,2022-01 to 2025-12,103.1,101.0,100.3,100.9,99.0,98.9,98.8,99.9,99.6,101.1,98.7,98.6,50.3,Jan,Dec,4.5
+5418|activity,5418,Advertising & agencies,Professional services,activity,Revenue,INEGI EMS,2022-01 to 2025-12,71.4,82.5,86.3,92.1,94.2,98.6,105.8,108.3,107.5,106.3,116.7,130.4,43.8,Dec,Jan,59.0
+5418|people,5418,Advertising & agencies,Professional services,people,Headcount,INEGI EMS,2022-01 to 2025-12,92.6,101.5,99.9,101.2,100.3,99.5,101.9,103.4,97.3,101.8,100.2,100.6,49.6,Aug,Jan,10.8
+5182|activity,5182,Data processing & hosting,Tech & infrastructure,activity,Revenue,INEGI EMS,2022-01 to 2025-12,98.6,95.5,104.0,86.9,110.8,97.5,104.9,90.6,96.6,99.9,101.7,113.1,49.4,Dec,Apr,26.1
+5182|people,5182,Data processing & hosting,Tech & infrastructure,people,Headcount,INEGI EMS,2022-01 to 2025-12,102.0,98.5,97.0,97.3,97.1,98.9,99.9,101.4,100.9,101.6,102.1,103.2,49.2,Dec,Mar,6.2
+5173|activity,5173,Telecom operators,Tech & infrastructure,activity,Revenue,INEGI EMS,2022-01 to 2025-12,100.5,96.6,100.8,98.8,100.3,98.0,98.4,98.9,99.4,101.8,101.4,105.1,49.6,Dec,Feb,8.5
+5173|people,5173,Telecom operators,Tech & infrastructure,people,Headcount,INEGI EMS,2022-01 to 2025-12,99.9,99.3,99.1,99.0,99.5,99.7,100.1,100.5,100.5,100.0,101.0,101.4,49.7,Dec,Apr,2.3
+5613|activity,5613,Staffing & employment services,Business support,activity,Revenue,INEGI EMS,2022-01 to 2025-12,86.0,88.8,99.9,95.8,100.8,101.0,100.1,98.1,100.0,104.5,103.9,121.0,47.7,Dec,Jan,35.0
+5613|people,5613,Staffing & employment services,Business support,people,Headcount,INEGI EMS,2022-01 to 2025-12,83.7,89.1,98.4,97.1,98.6,101.5,99.1,99.7,103.7,108.3,111.3,109.6,47.4,Nov,Jan,27.6
+5616|activity,5616,Security services,Business support,activity,Revenue,INEGI EMS,2022-01 to 2025-12,95.8,96.1,97.6,97.3,100.3,99.3,100.9,100.1,99.1,100.3,107.4,105.8,48.9,Nov,Jan,11.6
+5616|people,5616,Security services,Business support,people,Headcount,INEGI EMS,2022-01 to 2025-12,101.2,101.8,102.4,100.5,100.8,98.7,100.1,100.4,99.2,98.6,98.3,97.9,50.5,Mar,Dec,4.5
+4931|activity,4931,Warehousing,Logistics,activity,Revenue,INEGI EMS,2022-01 to 2025-12,105.9,99.9,106.9,100.5,106.6,103.0,106.1,104.4,90.7,93.8,90.1,92.0,51.9,Mar,Nov,16.8
+4931|people,4931,Warehousing,Logistics,people,Headcount,INEGI EMS,2022-01 to 2025-12,112.2,104.7,99.9,98.1,97.4,98.9,104.8,104.8,94.0,96.7,94.6,94.0,50.9,Jan,Dec,18.2
+4841|activity,4841,Freight trucking,Logistics,activity,Revenue,INEGI EMS,2022-01 to 2025-12,92.9,91.3,101.0,99.1,103.2,102.7,103.9,102.9,99.9,101.6,100.3,101.3,49.2,Jul,Feb,12.5
+4841|people,4841,Freight trucking,Logistics,people,Headcount,INEGI EMS,2022-01 to 2025-12,96.8,97.6,97.7,101.1,99.7,103.0,101.7,101.1,100.9,100.7,100.1,99.5,49.7,Jun,Jan,6.2
+3254|activity,3254,Pharmaceutical manufacturing,Healthcare & pharma,activity,Sales volume,INEGI EMIM,2022-01 to 2024-09,103.8,104.9,121.3,93.4,94.4,95.1,92.4,97.9,97.5,101.0,96.8,101.3,51.1,Mar,Jul,28.9
+3254|people,3254,Pharmaceutical manufacturing,Healthcare & pharma,people,Hours worked,INEGI EMIM,2022-01 to 2024-09,100.5,94.6,100.0,96.4,101.2,101.0,102.4,106.2,99.9,103.2,98.6,95.9,49.5,Aug,Feb,11.6
+6215|activity,6215,Medical & diagnostic labs,Healthcare & pharma,activity,Revenue,INEGI EMS,2022-01 to 2025-12,100.4,96.6,104.6,94.6,106.3,101.8,105.3,103.2,96.7,102.7,97.9,89.8,50.4,May,Dec,16.5
+6215|people,6215,Medical & diagnostic labs,Healthcare & pharma,people,Headcount,INEGI EMS,2022-01 to 2025-12,96.5,99.6,99.8,100.3,99.8,100.7,101.6,100.5,100.7,99.9,100.9,99.5,49.7,Jul,Jan,5.1
+6221|activity,6221,General hospitals,Healthcare & pharma,activity,Revenue,INEGI EMS,2022-01 to 2025-12,99.5,95.4,105.2,99.1,102.7,100.0,100.7,100.2,96.8,100.4,98.7,101.3,50.2,Mar,Feb,9.8
+6221|people,6221,General hospitals,Healthcare & pharma,people,Headcount,INEGI EMS,2022-01 to 2025-12,99.9,100.9,100.6,100.3,100.3,100.5,99.8,99.3,99.5,100.1,99.4,99.4,50.2,Feb,Aug,1.6
+3363|activity,3363,Auto parts,Manufacturing,activity,Sales volume,INEGI EMIM,2022-01 to 2024-09,98.1,97.7,105.4,99.8,103.5,99.6,97.4,105.1,102.3,101.0,100.0,90.0,50.3,Mar,Dec,15.4
+3363|people,3363,Auto parts,Manufacturing,people,Hours worked,INEGI EMIM,2022-01 to 2024-09,98.5,94.7,102.9,98.4,101.8,102.6,100.0,105.2,101.0,101.9,99.6,93.4,49.9,Aug,Dec,11.9
+3344|activity,3344,Electronic components,Manufacturing,activity,Sales volume,INEGI EMIM,2022-01 to 2024-09,93.6,96.9,103.3,98.4,99.9,100.6,101.4,99.5,103.0,103.9,98.0,101.4,49.4,Oct,Jan,10.4
+3344|people,3344,Electronic components,Manufacturing,people,Hours worked,INEGI EMIM,2022-01 to 2024-09,96.7,94.0,102.7,97.3,101.8,102.4,101.4,105.3,100.0,100.2,101.2,97.1,49.6,Aug,Feb,11.4
+311|activity,311,Food manufacturing,Manufacturing,activity,Sales volume,INEGI EMIM,2022-01 to 2024-09,100.3,99.0,103.4,101.1,101.9,99.4,99.7,100.3,96.8,98.2,99.7,100.2,50.4,Mar,Sep,6.6
+311|people,311,Food manufacturing,Manufacturing,people,Hours worked,INEGI EMIM,2022-01 to 2024-09,101.1,95.7,101.6,99.1,101.6,99.2,100.8,101.9,98.8,100.8,99.3,100.1,49.9,Aug,Feb,6.1
+23|activity,23,Construction (total),Construction,activity,Value of output,INEGI ENEC,2022-01 to 2025-12,94.8,92.7,97.7,96.5,97.7,97.6,100.1,102.3,103.2,105.9,104.1,107.5,48.1,Dec,Feb,14.9
+23|people,23,Construction (total),Construction,people,Hours worked,INEGI ENEC,2022-01 to 2025-12,99.7,95.7,100.4,99.3,100.9,100.1,102.1,103.0,99.8,102.1,98.6,98.4,49.7,Aug,Feb,7.3
+4811|activity,4811,Scheduled air transport,Travel pulse,activity,Revenue,INEGI EMS,2022-01 to 2025-12,126.4,94.2,87.7,101.6,102.8,101.4,105.5,111.2,91.9,94.0,92.5,90.8,51.2,Jan,Mar,38.7
+4811|people,4811,Scheduled air transport,Travel pulse,people,Headcount,INEGI EMS,2022-01 to 2025-12,99.6,99.7,100.0,99.6,99.8,100.1,100.3,100.0,99.9,100.3,100.4,100.2,49.9,Nov,Jan,0.8
+5615|activity,5615,Travel agencies & reservations,Travel pulse,activity,Revenue,INEGI EMS,2022-01 to 2025-12,92.5,94.8,104.6,95.8,107.2,104.1,103.5,105.5,97.8,99.6,99.1,95.4,49.9,May,Jan,14.7
+5615|people,5615,Travel agencies & reservations,Travel pulse,people,Headcount,INEGI EMS,2022-01 to 2025-12,100.1,99.5,99.1,96.1,97.1,98.2,100.3,100.8,100.8,102.4,102.3,103.2,49.2,Dec,Apr,7.0
+7211|activity,7211,Hotels,Travel pulse,activity,Revenue,INEGI EMS,2022-01 to 2025-12,96.7,96.7,113.6,104.5,99.0,99.3,105.7,92.9,79.5,92.8,102.9,116.2,50.8,Dec,Sep,36.8
+7211|people,7211,Hotels,Travel pulse,people,Headcount,INEGI EMS,2022-01 to 2025-12,99.9,98.7,99.9,100.3,99.9,100.3,102.9,100.3,98.3,99.3,99.7,100.6,49.9,Jul,Sep,4.6
+4854|activity,4854,Employee & school transport (substitute),Travel pulse,activity,Revenue,INEGI EMS,2022-01 to 2025-12,99.3,95.2,107.3,98.0,102.7,101.6,103.6,103.0,98.4,98.1,97.2,95.7,50.3,Mar,Feb,12.1
+4854|people,4854,Employee & school transport (substitute),Travel pulse,people,Headcount,INEGI EMS,2022-01 to 2025-12,100.7,101.8,101.0,99.7,101.2,99.6,99.1,98.2,100.2,100.8,99.9,97.9,50.3,Feb,Dec,3.9
+7225|activity,7225,Restaurants & food service (Eats context),Travel pulse,activity,Revenue,INEGI EMS,2022-01 to 2025-12,96.6,94.0,101.2,99.6,102.9,98.0,102.9,97.6,94.9,97.6,100.9,113.9,49.4,Dec,Feb,19.9
+7225|people,7225,Restaurants & food service (Eats context),Travel pulse,people,Headcount,INEGI EMS,2022-01 to 2025-12,99.7,100.0,100.1,100.4,99.6,99.8,100.7,99.6,99.5,100.5,99.4,100.7,50.0,Jul,Nov,1.4

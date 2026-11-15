@@ -1,0 +1,25 @@
+code,industry,group,establishments_total,employees_total,establishments_251plus,employees_251plus,avg_employees_251plus
+5412,"Audit, accounting & tax",Professional services,16391.0,99830.0,22.0,10088.0,459
+5416,Management consulting,Professional services,6395.0,97553.0,56.0,27259.0,487
+5413,Engineering & architecture,Professional services,8219.0,94655.0,46.0,20043.0,436
+5411,Legal services,Professional services,33351.0,140078.0,6.0,2606.0,434
+5415,IT services & software,Professional services,2820.0,92366.0,81.0,46853.0,578
+5418,Advertising & agencies,Professional services,5939.0,54028.0,43.0,17074.0,397
+5182,Data processing & hosting,Tech & infrastructure,144.0,13372.0,17.0,9466.0,557
+5173,Telecom operators,Tech & infrastructure,310.0,149837.0,33.0,141780.0,4296
+5613,Staffing & employment services,Business support,1889.0,131085.0,87.0,93400.0,1074
+5616,Security services,Business support,4341.0,239373.0,191.0,88708.0,464
+4931,Warehousing,Logistics,1188.0,31291.0,21.0,8300.0,395
+4841,Freight trucking,Logistics,4104.0,278825.0,216.0,150221.0,695
+3254,Pharmaceutical manufacturing,Healthcare & pharma,898.0,88829.0,108.0,62893.0,582
+6215,Medical & diagnostic labs,Healthcare & pharma,18142.0,87301.0,13.0,6370.0,490
+6221,General hospitals,Healthcare & pharma,1945.0,134552.0,140.0,79921.0,571
+3363,Auto parts,Manufacturing,2091.0,1203759.0,937.0,1131888.0,1208
+3344,Electronic components,Manufacturing,478.0,247502.0,179.0,227896.0,1273
+311,Food manufacturing,Manufacturing,223412.0,1214261.0,612.0,443862.0,725
+23,Construction (total),Construction,17438.0,711553.0,368.0,292871.0,796
+4811,Scheduled air transport,Travel pulse,36.0,33615.0,16.0,32919.0,2057
+5615,Travel agencies & reservations,Travel pulse,8162.0,40935.0,13.0,4799.0,369
+7211,Hotels,Travel pulse,23710.0,424965.0,292.0,139633.0,478
+4854,Employee & school transport (substitute),Travel pulse,454.0,40721.0,30.0,23643.0,788
+7225,Restaurants & food service (Eats context),Travel pulse,689683.0,2392489.0,53.0,18686.0,353
