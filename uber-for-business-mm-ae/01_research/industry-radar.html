@@ -1,0 +1,336 @@
+<title>U4B Industry Radar MX</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: single column report-tool — summary, heatmap, findings, scorer, market depth, method. Monochrome after Uber's Base system; ink density encodes intensity; one blue accent for "our pick". */
+:root {
+  --ink: #000000; --paper: #FFFFFF; --muted: #545454; --tertiary: #757575;
+  --surface: #F6F6F6; --surface-2: #EEEEEE; --line: #E2E2E2; --accent: #276EF1;
+  --font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --ink: #FFFFFF; --paper: #000000; --muted: #AFAFAF; --tertiary: #8A8A8A;
+  --surface: #141414; --surface-2: #1F1F1F; --line: #2B2B2B; --accent: #5B91F5; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --ink: #FFFFFF; --paper: #000000; --muted: #AFAFAF; --tertiary: #8A8A8A;
+  --surface: #141414; --surface-2: #1F1F1F; --line: #2B2B2B; --accent: #5B91F5; color-scheme: dark; }
+body { background: var(--paper); color: var(--ink); font-family: var(--font); font-size: 15px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 32px 64px; }
+.page { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px; }
+.eyebrow { font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--tertiary); margin: 0; }
+h1 { font-size: clamp(1.9rem, 4.6vw, 3rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; margin: 10px 0 16px; text-wrap: balance; max-width: 22ch; }
+.lede { font-size: 17px; max-width: 68ch; margin: 0; }
+.lede b { font-variant-numeric: tabular-nums; }
+.meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.chip { font-size: 12px; font-weight: 500; border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; color: var(--muted); }
+section { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
+.note { color: var(--muted); font-size: 13px; margin: 0; max-width: 82ch; }
+.controls { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+.seg { display: inline-flex; border: 1.5px solid var(--ink); border-radius: 999px; overflow: hidden; flex-wrap: wrap; }
+.seg button { font: inherit; font-size: 13px; font-weight: 500; padding: 7px 14px; border: 0; background: var(--paper); color: var(--ink); cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.lbl { font-size: 13px; color: var(--muted); display: inline-flex; gap: 8px; align-items: center; }
+select { font: inherit; font-size: 13px; color: var(--ink); background-color: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; }
+.wrap { position: relative; overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; }
+table.heat { border-collapse: separate; border-spacing: 2px; width: 100%; font-variant-numeric: tabular-nums; font-size: 12px; }
+.heat th { font-weight: 600; color: var(--tertiary); padding: 8px 4px 6px; text-align: center; white-space: nowrap; }
+.heat th.ind { text-align: left; min-width: 180px; padding-left: 8px; }
+.heat th.h1 { color: var(--ink); box-shadow: inset 0 -2px 0 var(--ink); }
+.heat td { padding: 0; text-align: center; }
+.heat td.name { text-align: left; padding: 4px 10px 4px 8px; white-space: nowrap; font-size: 13px; font-weight: 500; }
+.heat td.name small { display: block; color: var(--tertiary); font-size: 11px; font-weight: 400; }
+.heat td.c { height: 36px; min-width: 40px; border-radius: 4px; }
+.heat td.stat { padding: 0 8px; white-space: nowrap; font-size: 12px; }
+.heat tr.grp td { text-align: left; padding: 14px 8px 2px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--tertiary); }
+.heat tr.hl td.name { color: var(--accent); }
+.legend { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); flex-wrap: wrap; }
+.sw { display: inline-block; width: 26px; height: 14px; border-radius: 3px; border: 1px solid var(--line); }
+.tip { position: absolute; pointer-events: none; background: var(--paper); color: var(--ink); border: 1px solid var(--line); box-shadow: 0 6px 24px rgba(0,0,0,.18); border-radius: 8px; padding: 8px 10px; font-size: 12px; line-height: 1.4; width: 240px; z-index: 5; }
+.tip .k { color: var(--tertiary); }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.card { background: var(--surface); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.card h3 { margin: 0; font-size: 15px; font-weight: 600; }
+.card p { margin: 0; font-size: 14px; color: var(--muted); }
+.card p b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.big { font-size: 44px; font-weight: 700; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.big small { font-size: 14px; font-weight: 500; color: var(--tertiary); letter-spacing: 0; margin-left: 6px; }
+.score { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 24px; align-items: start; }
+@media (max-width: 760px) { .score { grid-template-columns: 1fr; } }
+.weights { display: flex; flex-direction: column; gap: 16px; background: var(--surface); border-radius: 8px; padding: 20px; }
+.w { display: flex; flex-direction: column; gap: 4px; }
+.wh { display: flex; justify-content: space-between; gap: 8px; font-size: 13px; font-weight: 500; }
+.wh b { font-variant-numeric: tabular-nums; }
+.w small { color: var(--tertiary); font-size: 11.5px; line-height: 1.35; }
+input[type=range] { width: 100%; accent-color: var(--ink); }
+.reset { align-self: flex-start; font: inherit; font-size: 12px; font-weight: 500; background: transparent; color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; cursor: pointer; }
+table.rank { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; }
+.rank th { text-align: left; color: var(--tertiary); font-weight: 600; font-size: 12px; padding: 8px 6px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.rank td { padding: 8px 6px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.rank td.num { text-align: right; width: 3.2em; }
+.rank tr.top td { font-weight: 600; }
+.rank tr.top td.ind { color: var(--accent); }
+.rank td.ind small { display: block; font-weight: 400; color: var(--tertiary); font-size: 11.5px; white-space: normal; max-width: 46ch; }
+.bar { display: flex; height: 14px; border-radius: 3px; overflow: hidden; background: var(--surface-2); min-width: 120px; }
+.bar i { display: block; height: 100%; }
+.keys { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 12px; color: var(--muted); }
+.keys span { display: inline-flex; align-items: center; gap: 6px; }
+.keys i { width: 12px; height: 12px; border-radius: 2px; display: inline-block; }
+table.tbl { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; }
+.tbl th { text-align: right; color: var(--tertiary); font-weight: 600; font-size: 12px; padding: 8px 6px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.tbl th:first-child, .tbl td:first-child { text-align: left; }
+.tbl td { text-align: right; padding: 8px 6px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.scroll { overflow-x: auto; }
+details { border-top: 1px solid var(--line); padding-top: 16px; }
+summary { cursor: pointer; font-weight: 600; }
+details li { margin-block: 6px; max-width: 82ch; font-size: 14px; color: var(--muted); }
+details li b { color: var(--ink); }
+.sources { font-size: 12px; color: var(--tertiary); }
+.sources a { color: var(--ink); }
+@media (prefers-reduced-motion: no-preference) { .bar i { transition: width .25s ease-out; } }
+</style>
+
+<div class="page">
+  <header id="intro">
+    <p class="eyebrow">Uber for Business · Mid-Market Mexico · H1 2027 account selection</p>
+    <h1>Where corporate travel moves in H1 2027</h1>
+    <p class="lede">Across 19 B2B industries, the typical gap between the busiest and the quietest month for headcount and hours worked is only <b id="medAmp">—</b> index points (100 = an average month). National seasonality is mild, so the H1 2027 case rests on company-specific triggers and on closing early enough for usage to ramp inside the semester.</p>
+    <div class="meta-row"><span class="chip">Source: INEGI monthly surveys 2022–2025</span><span class="chip">Economic Census 2024</span><span class="chip">Analyst scores flagged as assumptions</span></div>
+  </header>
+
+  <section id="seasonality">
+    <h2>Monthly intensity by industry</h2>
+    <p class="note">Each cell is that month versus an average month (100), with trend and inflation removed. Every row uses the same scale, so a pale row means a flat year. The six H1 months carry the quota.</p>
+    <div class="controls">
+      <div class="seg" role="group" aria-label="What to measure">
+        <button type="button" id="view-people" data-view="people" aria-pressed="true">People moving (headcount / hours)</button>
+        <button type="button" id="view-activity" data-view="activity" aria-pressed="false">Business activity (revenue / sales)</button>
+      </div>
+      <label class="lbl" for="grp">Group
+        <select id="grp"><option value="">All groups</option></select>
+      </label>
+      <label class="lbl" for="sort">Sort
+        <select id="sort">
+          <option value="group">By group</option>
+          <option value="h1">H1 share, high to low</option>
+          <option value="amp">Swing, high to low</option>
+        </select>
+      </label>
+    </div>
+    <div class="wrap" id="heatWrap"><div id="heat"></div><div class="tip" id="tip" hidden></div></div>
+    <div class="legend" aria-hidden="true">
+      <span>Below average</span>
+      <span class="sw" style="background: color-mix(in srgb, var(--ink) 0%, var(--paper))"></span>
+      <span class="sw" style="background: color-mix(in srgb, var(--ink) 25%, var(--paper))"></span>
+      <span class="sw" style="background: color-mix(in srgb, var(--ink) 50%, var(--paper))"></span>
+      <span class="sw" style="background: color-mix(in srgb, var(--ink) 85%, var(--paper))"></span>
+      <span>Busiest (≥112)</span>
+      <span>· H1 share = Jan–Jun as % of the year (50% = even) · Swing = peak minus low month</span>
+    </div>
+  </section>
+
+  <section id="findings">
+    <h2>What the data says about the shortlist</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>Audit firms staff up in Q1 but bill in December</h3>
+        <span class="big" data-v="5412|people|jan">—</span>
+        <p>January headcount index for audit, accounting and tax, the highest of the year. Revenue peaks in December at <b data-v="5412|activity|dec">—</b>. People move in Q1; invoices land at year-end.</p>
+      </article>
+      <article class="card">
+        <h3>Pharma's commercial peak is March</h3>
+        <span class="big" data-v="3254|activity|mar">—</span>
+        <p>March sales-volume index for pharmaceutical manufacturing, versus <b data-v="3254|activity|jul">—</b> in July. Field forces push hardest in Q1.</p>
+      </article>
+      <article class="card">
+        <h3>Engineering keeps its crews through July</h3>
+        <span class="big" data-v="5413|people|h1_share|pct">—</span>
+        <p>Share of the year's engineering and architecture headcount that falls in H1; the low month is <b data-v="5413|people|low_month|txt">—</b>. Querétaro's data center phases due in Q2 2027 add on top.</p>
+      </article>
+      <article class="card">
+        <h3>March is H1's travel high point</h3>
+        <span class="big" data-v="7211|activity|mar">—</span>
+        <p>March hotel revenue index, the H1 maximum. Easter week 2027 falls on March 21–28, so plan go-lives before mid-March.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="scorer">
+    <h2>Opportunity scorer</h2>
+    <p class="note">Move the weights to test how the ranking changes. Travel intensity, Eats fit and H1 2027 trigger are analyst scores (1–5) to be validated in discovery; H1 share and market depth come from INEGI. Hover an industry for the rationale.</p>
+    <div class="score">
+      <div class="weights" id="weights">
+        <div class="w"><div class="wh"><label for="w_travel">Travel intensity</label><b id="v_w_travel">—</b></div><input type="range" id="w_travel" min="0" max="50" step="5" value="30"><small>Rides per employee: on-site client work, field sales, plant visits.</small></div>
+        <div class="w"><div class="wh"><label for="w_trigger">H1 2027 trigger</label><b id="v_w_trigger">—</b></div><input type="range" id="w_trigger" min="0" max="50" step="5" value="30"><small>A dated event that makes them sign before January.</small></div>
+        <div class="w"><div class="wh"><label for="w_eats">Uber Eats fit</label><b id="v_w_eats">—</b></div><input type="range" id="w_eats" min="0" max="50" step="5" value="15"><small>Overtime, night shifts, team events.</small></div>
+        <div class="w"><div class="wh"><label for="w_h1">H1 seasonality</label><b id="v_w_h1">—</b></div><input type="range" id="w_h1" min="0" max="50" step="5" value="10"><small>H1 share of headcount or hours (INEGI).</small></div>
+        <div class="w"><div class="wh"><label for="w_depth">Market depth</label><b id="v_w_depth">—</b></div><input type="range" id="w_depth" min="0" max="50" step="5" value="15"><small>Establishments with 251+ employees (Census 2024).</small></div>
+        <button type="button" class="reset" id="reset">Reset weights</button>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px; min-width:0;">
+        <div class="keys" aria-hidden="true">
+          <span><i style="background: color-mix(in srgb, var(--ink) 100%, var(--paper))"></i>Travel</span>
+          <span><i style="background: color-mix(in srgb, var(--ink) 75%, var(--paper))"></i>Trigger</span>
+          <span><i style="background: color-mix(in srgb, var(--ink) 52%, var(--paper))"></i>Eats</span>
+          <span><i style="background: color-mix(in srgb, var(--ink) 34%, var(--paper))"></i>H1</span>
+          <span><i style="background: color-mix(in srgb, var(--ink) 20%, var(--paper))"></i>Depth</span>
+        </div>
+        <div class="scroll" id="rank"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="depth">
+    <h2>How many large employers each industry has</h2>
+    <p class="note">Economic Census 2024. An establishment is one office or plant, so a multi-office firm counts several times, and the 251+ band also includes enterprise accounts. Read it as relative depth, not as a list of mid-market companies.</p>
+    <div class="scroll" id="census"></div>
+  </section>
+
+  <details id="method">
+    <summary>Method, accuracy and what each source can and cannot tell us</summary>
+    <ul>
+      <li><b>People moving</b> uses INEGI headcount (services) or hours worked (manufacturing and construction), the closest official proxy for when employees are on the road. <b>Business activity</b> uses revenue, sales volume or value of output, which follows invoicing and can lag the work.</li>
+      <li>Seasonal index: ratio to a centered 12-month moving average, averaged by calendar month from 2022 (post-pandemic), rescaled so the 12 months average 100. This removes growth and inflation, which would otherwise make every December look like a peak.</li>
+      <li>National series hide company-level events. A data center contract, a plant opening or a statutory deadline moves one account far more than its industry's average.</li>
+      <li>Search tools (Google Trends, Keyword Planner, SEMrush) measure when people search, usually the buyer's research moment, not the moment employees travel. They help time prospecting, not size usage.</li>
+      <li>Analyst scores are judgments from public research and must be confirmed in discovery before they appear on a slide.</li>
+    </ul>
+    <p class="sources">Sources: <a href="https://www.inegi.org.mx/programas/ems/2018/" target="_blank" rel="noopener">INEGI EMS</a> · <a href="https://www.inegi.org.mx/programas/emim/2018/" target="_blank" rel="noopener">INEGI EMIM</a> · <a href="https://www.inegi.org.mx/programas/enec/2018/" target="_blank" rel="noopener">INEGI ENEC</a> · <a href="https://www.inegi.org.mx/programas/ce/2024/" target="_blank" rel="noopener">INEGI Censos Económicos 2024</a>. Data downloaded 15 Nov 2026.</p>
+  </details>
+</div>
+
+<script>
+const SEAS = [{"row_id":"5412|activity","code":"5412","industry":"Audit, accounting & tax","group":"Professional services","view":"activity","metric":"Revenue","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":96.4,"feb":101.9,"mar":104.5,"apr":98.6,"may":106.8,"jun":99.6,"jul":89.3,"aug":93.9,"sep":91.3,"oct":97.1,"nov":104.2,"dec":116.5,"h1_share":50.6,"peak_month":"Dec","low_month":"Jul","amplitude":27.2},{"row_id":"5412|people","code":"5412","industry":"Audit, accounting & tax","group":"Professional services","view":"people","metric":"Headcount","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":102.5,"feb":102.7,"mar":102.1,"apr":99.8,"may":100.3,"jun":99.8,"jul":99.3,"aug":98.7,"sep":99.5,"oct":98.8,"nov":98.4,"dec":98.2,"h1_share":50.6,"peak_month":"Feb","low_month":"Dec","amplitude":4.5},{"row_id":"5416|activity","code":"5416","industry":"Management consulting","group":"Professional services","view":"activity","metric":"Revenue","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":82.6,"feb":88.9,"mar":101.3,"apr":89.1,"may":94.9,"jun":97.8,"jul":99.8,"aug":112.6,"sep":96.7,"oct":109.3,"nov":104.0,"dec":123.1,"h1_share":46.2,"peak_month":"Dec","low_month":"Jan","amplitude":40.5},{"row_id":"5416|people","code":"5416","industry":"Management consulting","group":"Professional services","view":"people","metric":"Headcount","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":95.1,"feb":97.4,"mar":97.6,"apr":98.6,"may":100.0,"jun":98.7,"jul":101.8,"aug":105.5,"sep":103.4,"oct":101.3,"nov":100.3,"dec":100.2,"h1_share":49.0,"peak_month":"Aug","low_month":"Jan","amplitude":10.4},{"row_id":"5413|activity","code":"5413","industry":"Engineering & architecture","group":"Professional services","view":"activity","metric":"Revenue","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":86.7,"feb":85.3,"mar":95.1,"apr":97.9,"may":99.3,"jun":96.7,"jul":98.6,"aug":100.1,"sep":102.3,"oct":104.7,"nov":109.5,"dec":123.8,"h1_share":46.8,"peak_month":"Dec","low_month":"Feb","amplitude":38.5},{"row_id":"5413|people","code":"5413","industry":"Engineering & architecture","group":"Professional services","view":"people","metric":"Headcount","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":100.9,"feb":102.3,"mar":101.7,"apr":101.2,"may":101.3,"jun":101.6,"jul":101.1,"aug":98.4,"sep":98.4,"oct":98.8,"nov":97.4,"dec":96.9,"h1_share":50.7,"peak_month":"Feb","low_month":"Dec","amplitude":5.4},{"row_id":"5411|activity","code":"5411","industry":"Legal services","group":"Professional services","view":"activity","metric":"Revenue","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":86.6,"feb":88.2,"mar":100.3,"apr":91.8,"may":95.8,"jun":104.4,"jul":97.8,"aug":100.1,"sep":97.6,"oct":100.8,"nov":108.3,"dec":128.5,"h1_share":47.3,"peak_month":"Dec","low_month":"Jan","amplitude":41.9},{"row_id":"5411|people","code":"5411","industry":"Legal services","group":"Professional services","view":"people","metric":"Headcount","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":99.3,"feb":100.8,"mar":101.1,"apr":99.6,"may":100.3,"jun":99.5,"jul":99.2,"aug":98.7,"sep":98.4,"oct":107.5,"nov":97.8,"dec":97.7,"h1_share":50.1,"peak_month":"Oct","low_month":"Dec","amplitude":9.8},{"row_id":"5415|activity","code":"5415","industry":"IT services & software","group":"Professional services","view":"activity","metric":"Revenue","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":97.1,"feb":94.1,"mar":94.0,"apr":97.6,"may":103.1,"jun":98.8,"jul":94.6,"aug":100.3,"sep":95.3,"oct":97.9,"nov":110.5,"dec":116.7,"h1_share":48.7,"peak_month":"Dec","low_month":"Mar","amplitude":22.7},{"row_id":"5415|people","code":"5415","industry":"IT services & software","group":"Professional services","view":"people","metric":"Headcount","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":103.1,"feb":101.0,"mar":100.3,"apr":100.9,"may":99.0,"jun":98.9,"jul":98.8,"aug":99.9,"sep":99.6,"oct":101.1,"nov":98.7,"dec":98.6,"h1_share":50.3,"peak_month":"Jan","low_month":"Dec","amplitude":4.5},{"row_id":"5418|activity","code":"5418","industry":"Advertising & agencies","group":"Professional services","view":"activity","metric":"Revenue","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":71.4,"feb":82.5,"mar":86.3,"apr":92.1,"may":94.2,"jun":98.6,"jul":105.8,"aug":108.3,"sep":107.5,"oct":106.3,"nov":116.7,"dec":130.4,"h1_share":43.8,"peak_month":"Dec","low_month":"Jan","amplitude":59.0},{"row_id":"5418|people","code":"5418","industry":"Advertising & agencies","group":"Professional services","view":"people","metric":"Headcount","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":92.6,"feb":101.5,"mar":99.9,"apr":101.2,"may":100.3,"jun":99.5,"jul":101.9,"aug":103.4,"sep":97.3,"oct":101.8,"nov":100.2,"dec":100.6,"h1_share":49.6,"peak_month":"Aug","low_month":"Jan","amplitude":10.8},{"row_id":"5182|activity","code":"5182","industry":"Data processing & hosting","group":"Tech & infrastructure","view":"activity","metric":"Revenue","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":98.6,"feb":95.5,"mar":104.0,"apr":86.9,"may":110.8,"jun":97.5,"jul":104.9,"aug":90.6,"sep":96.6,"oct":99.9,"nov":101.7,"dec":113.1,"h1_share":49.4,"peak_month":"Dec","low_month":"Apr","amplitude":26.1},{"row_id":"5182|people","code":"5182","industry":"Data processing & hosting","group":"Tech & infrastructure","view":"people","metric":"Headcount","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":102.0,"feb":98.5,"mar":97.0,"apr":97.3,"may":97.1,"jun":98.9,"jul":99.9,"aug":101.4,"sep":100.9,"oct":101.6,"nov":102.1,"dec":103.2,"h1_share":49.2,"peak_month":"Dec","low_month":"Mar","amplitude":6.2},{"row_id":"5173|activity","code":"5173","industry":"Telecom operators","group":"Tech & infrastructure","view":"activity","metric":"Revenue","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":100.5,"feb":96.6,"mar":100.8,"apr":98.8,"may":100.3,"jun":98.0,"jul":98.4,"aug":98.9,"sep":99.4,"oct":101.8,"nov":101.4,"dec":105.1,"h1_share":49.6,"peak_month":"Dec","low_month":"Feb","amplitude":8.5},{"row_id":"5173|people","code":"5173","industry":"Telecom operators","group":"Tech & infrastructure","view":"people","metric":"Headcount","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":99.9,"feb":99.3,"mar":99.1,"apr":99.0,"may":99.5,"jun":99.7,"jul":100.1,"aug":100.5,"sep":100.5,"oct":100.0,"nov":101.0,"dec":101.4,"h1_share":49.7,"peak_month":"Dec","low_month":"Apr","amplitude":2.3},{"row_id":"5613|activity","code":"5613","industry":"Staffing & employment services","group":"Business support","view":"activity","metric":"Revenue","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":86.0,"feb":88.8,"mar":99.9,"apr":95.8,"may":100.8,"jun":101.0,"jul":100.1,"aug":98.1,"sep":100.0,"oct":104.5,"nov":103.9,"dec":121.0,"h1_share":47.7,"peak_month":"Dec","low_month":"Jan","amplitude":35.0},{"row_id":"5613|people","code":"5613","industry":"Staffing & employment services","group":"Business support","view":"people","metric":"Headcount","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":83.7,"feb":89.1,"mar":98.4,"apr":97.1,"may":98.6,"jun":101.5,"jul":99.1,"aug":99.7,"sep":103.7,"oct":108.3,"nov":111.3,"dec":109.6,"h1_share":47.4,"peak_month":"Nov","low_month":"Jan","amplitude":27.6},{"row_id":"5616|activity","code":"5616","industry":"Security services","group":"Business support","view":"activity","metric":"Revenue","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":95.8,"feb":96.1,"mar":97.6,"apr":97.3,"may":100.3,"jun":99.3,"jul":100.9,"aug":100.1,"sep":99.1,"oct":100.3,"nov":107.4,"dec":105.8,"h1_share":48.9,"peak_month":"Nov","low_month":"Jan","amplitude":11.6},{"row_id":"5616|people","code":"5616","industry":"Security services","group":"Business support","view":"people","metric":"Headcount","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":101.2,"feb":101.8,"mar":102.4,"apr":100.5,"may":100.8,"jun":98.7,"jul":100.1,"aug":100.4,"sep":99.2,"oct":98.6,"nov":98.3,"dec":97.9,"h1_share":50.5,"peak_month":"Mar","low_month":"Dec","amplitude":4.5},{"row_id":"4931|activity","code":"4931","industry":"Warehousing","group":"Logistics","view":"activity","metric":"Revenue","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":105.9,"feb":99.9,"mar":106.9,"apr":100.5,"may":106.6,"jun":103.0,"jul":106.1,"aug":104.4,"sep":90.7,"oct":93.8,"nov":90.1,"dec":92.0,"h1_share":51.9,"peak_month":"Mar","low_month":"Nov","amplitude":16.8},{"row_id":"4931|people","code":"4931","industry":"Warehousing","group":"Logistics","view":"people","metric":"Headcount","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":112.2,"feb":104.7,"mar":99.9,"apr":98.1,"may":97.4,"jun":98.9,"jul":104.8,"aug":104.8,"sep":94.0,"oct":96.7,"nov":94.6,"dec":94.0,"h1_share":50.9,"peak_month":"Jan","low_month":"Dec","amplitude":18.2},{"row_id":"4841|activity","code":"4841","industry":"Freight trucking","group":"Logistics","view":"activity","metric":"Revenue","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":92.9,"feb":91.3,"mar":101.0,"apr":99.1,"may":103.2,"jun":102.7,"jul":103.9,"aug":102.9,"sep":99.9,"oct":101.6,"nov":100.3,"dec":101.3,"h1_share":49.2,"peak_month":"Jul","low_month":"Feb","amplitude":12.5},{"row_id":"4841|people","code":"4841","industry":"Freight trucking","group":"Logistics","view":"people","metric":"Headcount","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":96.8,"feb":97.6,"mar":97.7,"apr":101.1,"may":99.7,"jun":103.0,"jul":101.7,"aug":101.1,"sep":100.9,"oct":100.7,"nov":100.1,"dec":99.5,"h1_share":49.7,"peak_month":"Jun","low_month":"Jan","amplitude":6.2},{"row_id":"3254|activity","code":"3254","industry":"Pharmaceutical manufacturing","group":"Healthcare & pharma","view":"activity","metric":"Sales volume","source":"INEGI EMIM","window":"2022-01 to 2024-09","jan":103.8,"feb":104.9,"mar":121.3,"apr":93.4,"may":94.4,"jun":95.1,"jul":92.4,"aug":97.9,"sep":97.5,"oct":101.0,"nov":96.8,"dec":101.3,"h1_share":51.1,"peak_month":"Mar","low_month":"Jul","amplitude":28.9},{"row_id":"3254|people","code":"3254","industry":"Pharmaceutical manufacturing","group":"Healthcare & pharma","view":"people","metric":"Hours worked","source":"INEGI EMIM","window":"2022-01 to 2024-09","jan":100.5,"feb":94.6,"mar":100.0,"apr":96.4,"may":101.2,"jun":101.0,"jul":102.4,"aug":106.2,"sep":99.9,"oct":103.2,"nov":98.6,"dec":95.9,"h1_share":49.5,"peak_month":"Aug","low_month":"Feb","amplitude":11.6},{"row_id":"6215|activity","code":"6215","industry":"Medical & diagnostic labs","group":"Healthcare & pharma","view":"activity","metric":"Revenue","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":100.4,"feb":96.6,"mar":104.6,"apr":94.6,"may":106.3,"jun":101.8,"jul":105.3,"aug":103.2,"sep":96.7,"oct":102.7,"nov":97.9,"dec":89.8,"h1_share":50.4,"peak_month":"May","low_month":"Dec","amplitude":16.5},{"row_id":"6215|people","code":"6215","industry":"Medical & diagnostic labs","group":"Healthcare & pharma","view":"people","metric":"Headcount","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":96.5,"feb":99.6,"mar":99.8,"apr":100.3,"may":99.8,"jun":100.7,"jul":101.6,"aug":100.5,"sep":100.7,"oct":99.9,"nov":100.9,"dec":99.5,"h1_share":49.7,"peak_month":"Jul","low_month":"Jan","amplitude":5.1},{"row_id":"6221|activity","code":"6221","industry":"General hospitals","group":"Healthcare & pharma","view":"activity","metric":"Revenue","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":99.5,"feb":95.4,"mar":105.2,"apr":99.1,"may":102.7,"jun":100.0,"jul":100.7,"aug":100.2,"sep":96.8,"oct":100.4,"nov":98.7,"dec":101.3,"h1_share":50.2,"peak_month":"Mar","low_month":"Feb","amplitude":9.8},{"row_id":"6221|people","code":"6221","industry":"General hospitals","group":"Healthcare & pharma","view":"people","metric":"Headcount","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":99.9,"feb":100.9,"mar":100.6,"apr":100.3,"may":100.3,"jun":100.5,"jul":99.8,"aug":99.3,"sep":99.5,"oct":100.1,"nov":99.4,"dec":99.4,"h1_share":50.2,"peak_month":"Feb","low_month":"Aug","amplitude":1.6},{"row_id":"3363|activity","code":"3363","industry":"Auto parts","group":"Manufacturing","view":"activity","metric":"Sales volume","source":"INEGI EMIM","window":"2022-01 to 2024-09","jan":98.1,"feb":97.7,"mar":105.4,"apr":99.8,"may":103.5,"jun":99.6,"jul":97.4,"aug":105.1,"sep":102.3,"oct":101.0,"nov":100.0,"dec":90.0,"h1_share":50.3,"peak_month":"Mar","low_month":"Dec","amplitude":15.4},{"row_id":"3363|people","code":"3363","industry":"Auto parts","group":"Manufacturing","view":"people","metric":"Hours worked","source":"INEGI EMIM","window":"2022-01 to 2024-09","jan":98.5,"feb":94.7,"mar":102.9,"apr":98.4,"may":101.8,"jun":102.6,"jul":100.0,"aug":105.2,"sep":101.0,"oct":101.9,"nov":99.6,"dec":93.4,"h1_share":49.9,"peak_month":"Aug","low_month":"Dec","amplitude":11.9},{"row_id":"3344|activity","code":"3344","industry":"Electronic components","group":"Manufacturing","view":"activity","metric":"Sales volume","source":"INEGI EMIM","window":"2022-01 to 2024-09","jan":93.6,"feb":96.9,"mar":103.3,"apr":98.4,"may":99.9,"jun":100.6,"jul":101.4,"aug":99.5,"sep":103.0,"oct":103.9,"nov":98.0,"dec":101.4,"h1_share":49.4,"peak_month":"Oct","low_month":"Jan","amplitude":10.4},{"row_id":"3344|people","code":"3344","industry":"Electronic components","group":"Manufacturing","view":"people","metric":"Hours worked","source":"INEGI EMIM","window":"2022-01 to 2024-09","jan":96.7,"feb":94.0,"mar":102.7,"apr":97.3,"may":101.8,"jun":102.4,"jul":101.4,"aug":105.3,"sep":100.0,"oct":100.2,"nov":101.2,"dec":97.1,"h1_share":49.6,"peak_month":"Aug","low_month":"Feb","amplitude":11.4},{"row_id":"311|activity","code":"311","industry":"Food manufacturing","group":"Manufacturing","view":"activity","metric":"Sales volume","source":"INEGI EMIM","window":"2022-01 to 2024-09","jan":100.3,"feb":99.0,"mar":103.4,"apr":101.1,"may":101.9,"jun":99.4,"jul":99.7,"aug":100.3,"sep":96.8,"oct":98.2,"nov":99.7,"dec":100.2,"h1_share":50.4,"peak_month":"Mar","low_month":"Sep","amplitude":6.6},{"row_id":"311|people","code":"311","industry":"Food manufacturing","group":"Manufacturing","view":"people","metric":"Hours worked","source":"INEGI EMIM","window":"2022-01 to 2024-09","jan":101.1,"feb":95.7,"mar":101.6,"apr":99.1,"may":101.6,"jun":99.2,"jul":100.8,"aug":101.9,"sep":98.8,"oct":100.8,"nov":99.3,"dec":100.1,"h1_share":49.9,"peak_month":"Aug","low_month":"Feb","amplitude":6.1},{"row_id":"23|activity","code":"23","industry":"Construction (total)","group":"Construction","view":"activity","metric":"Value of output","source":"INEGI ENEC","window":"2022-01 to 2025-12","jan":94.8,"feb":92.7,"mar":97.7,"apr":96.5,"may":97.7,"jun":97.6,"jul":100.1,"aug":102.3,"sep":103.2,"oct":105.9,"nov":104.1,"dec":107.5,"h1_share":48.1,"peak_month":"Dec","low_month":"Feb","amplitude":14.9},{"row_id":"23|people","code":"23","industry":"Construction (total)","group":"Construction","view":"people","metric":"Hours worked","source":"INEGI ENEC","window":"2022-01 to 2025-12","jan":99.7,"feb":95.7,"mar":100.4,"apr":99.3,"may":100.9,"jun":100.1,"jul":102.1,"aug":103.0,"sep":99.8,"oct":102.1,"nov":98.6,"dec":98.4,"h1_share":49.7,"peak_month":"Aug","low_month":"Feb","amplitude":7.3},{"row_id":"4811|activity","code":"4811","industry":"Scheduled air transport","group":"Travel pulse","view":"activity","metric":"Revenue","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":126.4,"feb":94.2,"mar":87.7,"apr":101.6,"may":102.8,"jun":101.4,"jul":105.5,"aug":111.2,"sep":91.9,"oct":94.0,"nov":92.5,"dec":90.8,"h1_share":51.2,"peak_month":"Jan","low_month":"Mar","amplitude":38.7},{"row_id":"4811|people","code":"4811","industry":"Scheduled air transport","group":"Travel pulse","view":"people","metric":"Headcount","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":99.6,"feb":99.7,"mar":100.0,"apr":99.6,"may":99.8,"jun":100.1,"jul":100.3,"aug":100.0,"sep":99.9,"oct":100.3,"nov":100.4,"dec":100.2,"h1_share":49.9,"peak_month":"Nov","low_month":"Jan","amplitude":0.8},{"row_id":"5615|activity","code":"5615","industry":"Travel agencies & reservations","group":"Travel pulse","view":"activity","metric":"Revenue","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":92.5,"feb":94.8,"mar":104.6,"apr":95.8,"may":107.2,"jun":104.1,"jul":103.5,"aug":105.5,"sep":97.8,"oct":99.6,"nov":99.1,"dec":95.4,"h1_share":49.9,"peak_month":"May","low_month":"Jan","amplitude":14.7},{"row_id":"5615|people","code":"5615","industry":"Travel agencies & reservations","group":"Travel pulse","view":"people","metric":"Headcount","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":100.1,"feb":99.5,"mar":99.1,"apr":96.1,"may":97.1,"jun":98.2,"jul":100.3,"aug":100.8,"sep":100.8,"oct":102.4,"nov":102.3,"dec":103.2,"h1_share":49.2,"peak_month":"Dec","low_month":"Apr","amplitude":7.0},{"row_id":"7211|activity","code":"7211","industry":"Hotels","group":"Travel pulse","view":"activity","metric":"Revenue","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":96.7,"feb":96.7,"mar":113.6,"apr":104.5,"may":99.0,"jun":99.3,"jul":105.7,"aug":92.9,"sep":79.5,"oct":92.8,"nov":102.9,"dec":116.2,"h1_share":50.8,"peak_month":"Dec","low_month":"Sep","amplitude":36.8},{"row_id":"7211|people","code":"7211","industry":"Hotels","group":"Travel pulse","view":"people","metric":"Headcount","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":99.9,"feb":98.7,"mar":99.9,"apr":100.3,"may":99.9,"jun":100.3,"jul":102.9,"aug":100.3,"sep":98.3,"oct":99.3,"nov":99.7,"dec":100.6,"h1_share":49.9,"peak_month":"Jul","low_month":"Sep","amplitude":4.6},{"row_id":"4854|activity","code":"4854","industry":"Employee & school transport (substitute)","group":"Travel pulse","view":"activity","metric":"Revenue","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":99.3,"feb":95.2,"mar":107.3,"apr":98.0,"may":102.7,"jun":101.6,"jul":103.6,"aug":103.0,"sep":98.4,"oct":98.1,"nov":97.2,"dec":95.7,"h1_share":50.3,"peak_month":"Mar","low_month":"Feb","amplitude":12.1},{"row_id":"4854|people","code":"4854","industry":"Employee & school transport (substitute)","group":"Travel pulse","view":"people","metric":"Headcount","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":100.7,"feb":101.8,"mar":101.0,"apr":99.7,"may":101.2,"jun":99.6,"jul":99.1,"aug":98.2,"sep":100.2,"oct":100.8,"nov":99.9,"dec":97.9,"h1_share":50.3,"peak_month":"Feb","low_month":"Dec","amplitude":3.9},{"row_id":"7225|activity","code":"7225","industry":"Restaurants & food service (Eats context)","group":"Travel pulse","view":"activity","metric":"Revenue","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":96.6,"feb":94.0,"mar":101.2,"apr":99.6,"may":102.9,"jun":98.0,"jul":102.9,"aug":97.6,"sep":94.9,"oct":97.6,"nov":100.9,"dec":113.9,"h1_share":49.4,"peak_month":"Dec","low_month":"Feb","amplitude":19.9},{"row_id":"7225|people","code":"7225","industry":"Restaurants & food service (Eats context)","group":"Travel pulse","view":"people","metric":"Headcount","source":"INEGI EMS","window":"2022-01 to 2025-12","jan":99.7,"feb":100.0,"mar":100.1,"apr":100.4,"may":99.6,"jun":99.8,"jul":100.7,"aug":99.6,"sep":99.5,"oct":100.5,"nov":99.4,"dec":100.7,"h1_share":50.0,"peak_month":"Jul","low_month":"Nov","amplitude":1.4}];
+const CEN = [{"code":"5412","industry":"Audit, accounting & tax","group":"Professional services","establishments_total":16391.0,"employees_total":99830.0,"establishments_251plus":22.0,"employees_251plus":10088.0,"avg_employees_251plus":459},{"code":"5416","industry":"Management consulting","group":"Professional services","establishments_total":6395.0,"employees_total":97553.0,"establishments_251plus":56.0,"employees_251plus":27259.0,"avg_employees_251plus":487},{"code":"5413","industry":"Engineering & architecture","group":"Professional services","establishments_total":8219.0,"employees_total":94655.0,"establishments_251plus":46.0,"employees_251plus":20043.0,"avg_employees_251plus":436},{"code":"5411","industry":"Legal services","group":"Professional services","establishments_total":33351.0,"employees_total":140078.0,"establishments_251plus":6.0,"employees_251plus":2606.0,"avg_employees_251plus":434},{"code":"5415","industry":"IT services & software","group":"Professional services","establishments_total":2820.0,"employees_total":92366.0,"establishments_251plus":81.0,"employees_251plus":46853.0,"avg_employees_251plus":578},{"code":"5418","industry":"Advertising & agencies","group":"Professional services","establishments_total":5939.0,"employees_total":54028.0,"establishments_251plus":43.0,"employees_251plus":17074.0,"avg_employees_251plus":397},{"code":"5182","industry":"Data processing & hosting","group":"Tech & infrastructure","establishments_total":144.0,"employees_total":13372.0,"establishments_251plus":17.0,"employees_251plus":9466.0,"avg_employees_251plus":557},{"code":"5173","industry":"Telecom operators","group":"Tech & infrastructure","establishments_total":310.0,"employees_total":149837.0,"establishments_251plus":33.0,"employees_251plus":141780.0,"avg_employees_251plus":4296},{"code":"5613","industry":"Staffing & employment services","group":"Business support","establishments_total":1889.0,"employees_total":131085.0,"establishments_251plus":87.0,"employees_251plus":93400.0,"avg_employees_251plus":1074},{"code":"5616","industry":"Security services","group":"Business support","establishments_total":4341.0,"employees_total":239373.0,"establishments_251plus":191.0,"employees_251plus":88708.0,"avg_employees_251plus":464},{"code":"4931","industry":"Warehousing","group":"Logistics","establishments_total":1188.0,"employees_total":31291.0,"establishments_251plus":21.0,"employees_251plus":8300.0,"avg_employees_251plus":395},{"code":"4841","industry":"Freight trucking","group":"Logistics","establishments_total":4104.0,"employees_total":278825.0,"establishments_251plus":216.0,"employees_251plus":150221.0,"avg_employees_251plus":695},{"code":"3254","industry":"Pharmaceutical manufacturing","group":"Healthcare & pharma","establishments_total":898.0,"employees_total":88829.0,"establishments_251plus":108.0,"employees_251plus":62893.0,"avg_employees_251plus":582},{"code":"6215","industry":"Medical & diagnostic labs","group":"Healthcare & pharma","establishments_total":18142.0,"employees_total":87301.0,"establishments_251plus":13.0,"employees_251plus":6370.0,"avg_employees_251plus":490},{"code":"6221","industry":"General hospitals","group":"Healthcare & pharma","establishments_total":1945.0,"employees_total":134552.0,"establishments_251plus":140.0,"employees_251plus":79921.0,"avg_employees_251plus":571},{"code":"3363","industry":"Auto parts","group":"Manufacturing","establishments_total":2091.0,"employees_total":1203759.0,"establishments_251plus":937.0,"employees_251plus":1131888.0,"avg_employees_251plus":1208},{"code":"3344","industry":"Electronic components","group":"Manufacturing","establishments_total":478.0,"employees_total":247502.0,"establishments_251plus":179.0,"employees_251plus":227896.0,"avg_employees_251plus":1273},{"code":"311","industry":"Food manufacturing","group":"Manufacturing","establishments_total":223412.0,"employees_total":1214261.0,"establishments_251plus":612.0,"employees_251plus":443862.0,"avg_employees_251plus":725},{"code":"23","industry":"Construction (total)","group":"Construction","establishments_total":17438.0,"employees_total":711553.0,"establishments_251plus":368.0,"employees_251plus":292871.0,"avg_employees_251plus":796},{"code":"4811","industry":"Scheduled air transport","group":"Travel pulse","establishments_total":36.0,"employees_total":33615.0,"establishments_251plus":16.0,"employees_251plus":32919.0,"avg_employees_251plus":2057},{"code":"5615","industry":"Travel agencies & reservations","group":"Travel pulse","establishments_total":8162.0,"employees_total":40935.0,"establishments_251plus":13.0,"employees_251plus":4799.0,"avg_employees_251plus":369},{"code":"7211","industry":"Hotels","group":"Travel pulse","establishments_total":23710.0,"employees_total":424965.0,"establishments_251plus":292.0,"employees_251plus":139633.0,"avg_employees_251plus":478},{"code":"4854","industry":"Employee & school transport (substitute)","group":"Travel pulse","establishments_total":454.0,"employees_total":40721.0,"establishments_251plus":30.0,"employees_251plus":23643.0,"avg_employees_251plus":788},{"code":"7225","industry":"Restaurants & food service (Eats context)","group":"Travel pulse","establishments_total":689683.0,"employees_total":2392489.0,"establishments_251plus":53.0,"employees_251plus":18686.0,"avg_employees_251plus":353}];
+const SCORES = [{"code":"5412","industry":"Audit, accounting & tax","group":"Professional services","travel_intensity":5,"eats_fit":5,"h1_2027_trigger":5,"rationale":"Busy season Jan-Apr: shareholder meetings by Apr 30 (LGSM art. 181), annual corporate tax return Mar 31. Auditors work on client sites."},{"code":"5416","industry":"Management consulting","group":"Professional services","travel_intensity":5,"eats_fit":4,"h1_2027_trigger":3,"rationale":"New-year budgets open Q1; consultants work on client sites."},{"code":"5413","industry":"Engineering & architecture","group":"Professional services","travel_intensity":4,"eats_fit":3,"h1_2027_trigger":5,"rationale":"Queretaro data center build-out: CloudHQ first phases due Q2 2027; ODATA and KIO expansions."},{"code":"5411","industry":"Legal services","group":"Professional services","travel_intensity":3,"eats_fit":4,"h1_2027_trigger":2,"rationale":"Court and transaction calendars; no strong H1 driver."},{"code":"5415","industry":"IT services & software","group":"Professional services","travel_intensity":2,"eats_fit":4,"h1_2027_trigger":2,"rationale":"Hybrid and remote work lowers ride intensity."},{"code":"5418","industry":"Advertising & agencies","group":"Professional services","travel_intensity":2,"eats_fit":4,"h1_2027_trigger":3,"rationale":"Hot Sale (May-Jun) campaign production."},{"code":"5182","industry":"Data processing & hosting","group":"Tech & infrastructure","travel_intensity":3,"eats_fit":3,"h1_2027_trigger":5,"rationale":"Data center commissioning in Queretaro through 2027."},{"code":"5173","industry":"Telecom operators","group":"Tech & infrastructure","travel_intensity":3,"eats_fit":2,"h1_2027_trigger":2,"rationale":"Mostly enterprise-size operators."},{"code":"5613","industry":"Staffing & employment services","group":"Business support","travel_intensity":3,"eats_fit":2,"h1_2027_trigger":2,"rationale":"Recruiter and field visits; headcount ramps into Q4."},{"code":"5616","industry":"Security services","group":"Business support","travel_intensity":2,"eats_fit":2,"h1_2027_trigger":1,"rationale":"Shift guards rarely expense rides."},{"code":"4931","industry":"Warehousing","group":"Logistics","travel_intensity":2,"eats_fit":3,"h1_2027_trigger":3,"rationale":"Nearshoring warehouses run night shifts; T-MEC review slows new projects."},{"code":"4841","industry":"Freight trucking","group":"Logistics","travel_intensity":1,"eats_fit":2,"h1_2027_trigger":1,"rationale":"Drivers travel in company trucks."},{"code":"3254","industry":"Pharmaceutical manufacturing","group":"Healthcare & pharma","travel_intensity":5,"eats_fit":3,"h1_2027_trigger":4,"rationale":"Plan Mexico plant investments; Q1 is the sales peak; field reps visit doctors daily."},{"code":"6215","industry":"Medical & diagnostic labs","group":"Healthcare & pharma","travel_intensity":3,"eats_fit":2,"h1_2027_trigger":2,"rationale":"Home sample collection and branch visits."},{"code":"6221","industry":"General hospitals","group":"Healthcare & pharma","travel_intensity":2,"eats_fit":4,"h1_2027_trigger":1,"rationale":"Night-shift staff rides home; flat seasonality."},{"code":"3363","industry":"Auto parts","group":"Manufacturing","travel_intensity":3,"eats_fit":3,"h1_2027_trigger":1,"rationale":"T-MEC review: new investment down 23% y/y in 1H26."},{"code":"3344","industry":"Electronic components","group":"Manufacturing","travel_intensity":3,"eats_fit":3,"h1_2027_trigger":2,"rationale":"Plant engineers and supplier visits."},{"code":"311","industry":"Food manufacturing","group":"Manufacturing","travel_intensity":3,"eats_fit":2,"h1_2027_trigger":2,"rationale":"Sales force visits retail chains."},{"code":"23","industry":"Construction (total)","group":"Construction","travel_intensity":3,"eats_fit":3,"h1_2027_trigger":3,"rationale":"Site visits; value of output peaks in Q4."}];
+const M = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
+const ML = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const G = ['Professional services','Tech & infrastructure','Business support','Logistics','Healthcare & pharma','Manufacturing','Construction','Travel pulse'];
+const DEF = { w_travel: 30, w_trigger: 30, w_eats: 15, w_h1: 10, w_depth: 15 };
+const state = { view: 'people', group: '', sort: 'group' };
+const ink = (t) => `color-mix(in srgb, var(--ink) ${Math.round(t * 100)}%, var(--paper))`;
+const f0 = (v) => Math.round(v).toString();
+const f1 = (v) => (Math.round(v * 10) / 10).toFixed(1);
+const num = (v) => Number(v).toLocaleString('en-US');
+const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; };
+const byKey = {}; SEAS.forEach((r) => { byKey[r.row_id] = r; });
+
+// Takeaway
+(() => {
+  const a = SEAS.filter((r) => r.view === 'people' && r.group !== 'Travel pulse').map((r) => r.amplitude).sort((x, y) => x - y);
+  const m = Math.floor(a.length / 2);
+  document.getElementById('medAmp').textContent = f1(a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2);
+})();
+
+// Finding values
+document.querySelectorAll('[data-v]').forEach((e) => {
+  const [code, view, field, fmt] = e.dataset.v.split('|');
+  const r = byKey[`${code}|${view}`]; if (!r) return;
+  const v = r[field];
+  e.textContent = fmt === 'pct' ? f1(v) + '%' : fmt === 'txt' ? v : f0(v);
+});
+
+// Group options
+const grp = document.getElementById('grp');
+G.forEach((g) => grp.appendChild(new Option(g, g)));
+
+// Heatmap
+function drawHeat() {
+  let rows = SEAS.filter((r) => r.view === state.view && (!state.group || r.group === state.group));
+  if (state.sort === 'h1') rows.sort((a, b) => b.h1_share - a.h1_share);
+  else if (state.sort === 'amp') rows.sort((a, b) => b.amplitude - a.amplitude);
+  else rows.sort((a, b) => G.indexOf(a.group) - G.indexOf(b.group));
+  const top3 = new Set(rankRows().slice(0, 3).map((r) => r.code));
+  const t = el('table', 'heat');
+  const hr = t.createTHead().insertRow();
+  const h0 = el('th', 'ind', 'Industry'); h0.scope = 'col'; hr.appendChild(h0);
+  ML.forEach((m, i) => { const th = el('th', i < 6 ? 'h1' : '', m); th.scope = 'col'; hr.appendChild(th); });
+  ['H1 share', 'Peak', 'Swing'].forEach((x) => { const th = el('th', '', x); th.scope = 'col'; hr.appendChild(th); });
+  const tb = t.createTBody(); let last = null;
+  rows.forEach((r) => {
+    if (state.sort === 'group' && r.group !== last) { const g = tb.insertRow(); g.className = 'grp'; const c = g.insertCell(); c.colSpan = 16; c.textContent = r.group; last = r.group; }
+    const tr = tb.insertRow(); if (top3.has(r.code)) tr.className = 'hl';
+    const nm = tr.insertCell(); nm.className = 'name'; nm.textContent = r.industry; nm.appendChild(el('small', '', `${r.metric} · ${r.source}`));
+    M.forEach((m, i) => {
+      const v = r[m]; const k = Math.max(0, Math.min(1, (v - 88) / 24)) * 0.85;
+      const td = tr.insertCell(); td.className = 'c'; td.style.background = ink(k); td.style.color = k > 0.45 ? 'var(--paper)' : 'var(--ink)';
+      td.textContent = f0(v); td.tabIndex = 0;
+      td.setAttribute('aria-label', `${r.industry}, ${ML[i]}: ${f1(v)}`);
+      const show = () => showTip(td, r, i, v); td.addEventListener('mouseenter', show); td.addEventListener('focus', show);
+      td.addEventListener('mouseleave', hideTip); td.addEventListener('blur', hideTip);
+    });
+    tr.insertCell().textContent = f1(r.h1_share) + '%'; tr.insertCell().textContent = r.peak_month; tr.insertCell().textContent = f1(r.amplitude);
+    [...tr.cells].slice(-3).forEach((c) => { c.className = 'stat'; });
+  });
+  document.getElementById('heat').replaceChildren(t);
+}
+const tip = document.getElementById('tip'), wrapEl = document.getElementById('heatWrap');
+function showTip(td, r, i, v) {
+  tip.replaceChildren(el('div', '', r.industry), el('div', '', `${ML[i]}: ${f1(v)} vs. an average month (100)`), el('div', 'k', `${r.metric} · ${r.source} · ${r.window}`));
+  tip.firstChild.style.fontWeight = '600'; tip.hidden = false;
+  const wr = wrapEl.getBoundingClientRect(), cr = td.getBoundingClientRect();
+  let x = cr.left - wr.left + wrapEl.scrollLeft + cr.width / 2 - 120;
+  x = Math.max(wrapEl.scrollLeft + 4, Math.min(x, wrapEl.scrollLeft + wr.width - 248));
+  tip.style.left = x + 'px'; tip.style.top = (cr.bottom - wr.top + 6) + 'px';
+}
+function hideTip() { tip.hidden = true; }
+
+// Scorer
+const WK = Object.keys(DEF);
+function weights() { const w = {}; WK.forEach((k) => { w[k] = Number(document.getElementById(k).value); }); return w; }
+function rankRows() {
+  const w = weights(); const sumW = Object.values(w).reduce((a, b) => a + b, 0) || 1;
+  const h1 = {}; SEAS.filter((r) => r.view === 'people').forEach((r) => { h1[r.code] = r.h1_share; });
+  const dep = {}; CEN.forEach((r) => { dep[r.code] = r.establishments_251plus; });
+  const hv = SCORES.map((r) => h1[r.code]); const dv = SCORES.map((r) => Math.log10(1 + (dep[r.code] || 0)));
+  const n = (v, lo, hi) => (hi > lo ? (v - lo) / (hi - lo) : 0.5);
+  const [hlo, hhi, dlo, dhi] = [Math.min(...hv), Math.max(...hv), Math.min(...dv), Math.max(...dv)];
+  return SCORES.map((r) => {
+    const c = [(r.travel_intensity - 1) / 4, (r.h1_2027_trigger - 1) / 4, (r.eats_fit - 1) / 4, n(h1[r.code], hlo, hhi), n(Math.log10(1 + (dep[r.code] || 0)), dlo, dhi)];
+    const parts = c.map((x, i) => w[WK[i]] * x / sumW * 100);
+    return { ...r, parts, score: parts.reduce((a, b) => a + b, 0) };
+  }).sort((a, b) => b.score - a.score);
+}
+const SHADES = [1, 0.75, 0.52, 0.34, 0.2];
+function drawRank() {
+  const w = weights(); const sum = Object.values(w).reduce((a, b) => a + b, 0) || 1;
+  WK.forEach((k) => { document.getElementById('v_' + k).textContent = Math.round(w[k] / sum * 100) + '%'; });
+  const rows = rankRows();
+  const t = el('table', 'rank'); const hr = t.createTHead().insertRow();
+  ['#', 'Industry', 'Score build-up', 'Score'].forEach((x) => { const th = el('th', '', x); th.scope = 'col'; hr.appendChild(th); });
+  const tb = t.createTBody();
+  rows.forEach((r, i) => {
+    const tr = tb.insertRow(); if (i < 3) tr.className = 'top';
+    const c0 = tr.insertCell(); c0.className = 'num'; c0.textContent = i + 1;
+    const c1 = tr.insertCell(); c1.className = 'ind'; c1.textContent = r.industry; c1.title = r.rationale;
+    if (i < 3) c1.appendChild(el('small', '', r.rationale));
+    const c2 = tr.insertCell(); const bar = el('div', 'bar'); bar.setAttribute('role', 'img'); bar.setAttribute('aria-label', `${r.industry}: ${f1(r.score)} of 100`);
+    r.parts.forEach((p, j) => { const s = document.createElement('i'); s.style.width = Math.max(0, p) + '%'; s.style.background = ink(SHADES[j]); bar.appendChild(s); });
+    c2.appendChild(bar);
+    const c3 = tr.insertCell(); c3.className = 'num'; c3.textContent = f1(r.score);
+  });
+  document.getElementById('rank').replaceChildren(t);
+}
+
+// Census
+(() => {
+  const rows = CEN.filter((r) => r.group !== 'Travel pulse').sort((a, b) => b.establishments_251plus - a.establishments_251plus);
+  const t = el('table', 'tbl'); const hr = t.createTHead().insertRow();
+  ['Industry', 'Establishments 251+', 'Employees in them', 'Avg. size', 'All establishments'].forEach((x) => { const th = el('th', '', x); th.scope = 'col'; hr.appendChild(th); });
+  const tb = t.createTBody();
+  rows.forEach((r) => { const tr = tb.insertRow(); [r.industry, num(r.establishments_251plus), num(r.employees_251plus), num(r.avg_employees_251plus), num(r.establishments_total)].forEach((v) => { tr.insertCell().textContent = v; }); });
+  document.getElementById('census').replaceChildren(t);
+})();
+
+// Wiring
+document.querySelectorAll('.seg button').forEach((b) => b.addEventListener('click', () => {
+  state.view = b.dataset.view; document.querySelectorAll('.seg button').forEach((o) => o.setAttribute('aria-pressed', String(o === b))); drawHeat();
+}));
+grp.addEventListener('change', () => { state.group = grp.value; drawHeat(); });
+document.getElementById('sort').addEventListener('change', (e) => { state.sort = e.target.value; drawHeat(); });
+WK.forEach((k) => document.getElementById(k).addEventListener('input', () => { drawRank(); drawHeat(); }));
+document.getElementById('reset').addEventListener('click', () => { WK.forEach((k) => { document.getElementById(k).value = DEF[k]; }); drawRank(); drawHeat(); });
+drawRank(); drawHeat();
+</script>

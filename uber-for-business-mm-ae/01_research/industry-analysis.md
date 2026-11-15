@@ -1,6 +1,6 @@
 # Análisis de industrias: estacionalidad, tamaño y scorer
 
-Dashboard interactivo: https://claude.ai/artifact/VByXM4daawSd27nmznpuRe (privado hasta que lo compartas).
+Dashboard interactivo (HTML autónomo): https://claude.ai/artifact/H9eZe6BpyDzxFuG8nEDYGC · archivo local: `industry-radar.html`. Versión anterior (tipo Data): https://claude.ai/artifact/VByXM4daawSd27nmznpuRe
 Datos en `data/` y código reproducible en `scripts/`.
 
 ## 1. Qué medimos y por qué (accuracy)
