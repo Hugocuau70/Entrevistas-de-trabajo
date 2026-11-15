@@ -42,3 +42,20 @@ Método: razón contra una media móvil centrada de 12 meses (quita crecimiento 
 | **Similarweb** | No | Tráfico web de las empresas: no dice nada de viajes | Baja |
 | **Apify** | No, por ahora | Podría contar vacantes por mes como proxy de contratación, pero no da tiempo antes de mañana y scrapear LinkedIn rompe sus términos | — |
 | **Supermetrics** | No | Solo conecta Keyword Planner; exportar el CSV directo es más rápido | — |
+
+## 5. Google Keyword Planner (México, ago-2024 a ago-2026)
+
+Datos en `data/keyword_planner_mx.csv`. Comparación de ene–ago 2026 contra ene–ago 2025:
+
+| Keyword | Promedio 2025 | Promedio 2026 | Variación anual | Pico |
+|---|---|---|---|---|
+| uber empresas | 2,588 | 3,425 | **+32%** | oct-2025 |
+| uber for business | 704 | 860 | +22% | oct-2025 |
+| didi empresas | 276 | 218 | **−21%** | sep-2024 |
+| transporte de personal | 3,162 | 3,538 | +12% | ago-2024 / jun-2026 |
+| declaración anual personas morales | 3,142 | 2,449 | −22% | **mar-2025 (9,900, ~10x la base)** |
+| auditoría externa | 1,332 | 745 | −44% | feb-2025 |
+| dictamen fiscal | 1,358 | 834 | −39% | may-2025 |
+| data center querétaro | 496 | 581 | +17% | may-2026 |
+
+Lectura: la demanda corporativa de movilidad crece y se inclina hacia Uber. Los detonadores fiscales caen en una fecha precisa cada año (marzo y mayo). Los volúmenes vienen redondeados en rangos y los últimos meses llegan con 2 a 4 meses de rezago.

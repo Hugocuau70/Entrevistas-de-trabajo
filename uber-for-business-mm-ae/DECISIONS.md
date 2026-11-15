@@ -10,5 +10,5 @@
 | 2026-11-15 | Herramienta final: Google Slides | Se entrega como link de Drive |
 | 2026-11-15 | Dashboard interactivo con los datos del análisis | https://claude.ai/artifact/VByXM4daawSd27nmznpuRe |
 | 2026-11-15 | Métrica para el timing: "gente moviéndose" (personal ocupado / horas), no ingresos ni búsquedas | Los ingresos siguen a la facturación (auditoría factura en diciembre pero se mueve en Q1) |
-| _pendiente_ | Sector y empresa: comparar a fondo los 2–3 primeros del scorer | Ver `01_research/industry-analysis.md` |
+| 2026-11-15 | Cuenta recomendada: Salles Sainz Grant Thornton (alternativa: BDO México), pendiente de validación del usuario | Ver `02_account/recommendation.md` |
 | _pendiente_ | Empresa real vs. anónima | Recomendación: real, con supuestos marcados (ver respuesta del 15-nov) |
