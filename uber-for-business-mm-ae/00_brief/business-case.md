@@ -1,0 +1,150 @@
+# Mid Market Account Executive - Business Case
+
+## Overview
+
+Uber For Business (U4B), launched in July 2014, allows employees to bill
+their trips directly to their company. A centralized billing system
+provides administrators, team leads, and small business owners a
+reliable transportation option backed by detailed trip information. It
+minimizes the administrative needs behind travel by allowing admins to
+set groups and permissions, ensuring compliance with expense and travel
+policies for all employees. Furthermore, it saves time and reduces
+errors on expenses through trip flagging and manager approval. The
+solution also helps employees by connecting them with safe, reliable
+Uber rides without the hassle of filing and reconciling expenses.
+
+## Solutions Available to Clients
+
+- **Travel:** Same app, separate business rides with just a tap for easy
+  > expenses by having a corporate payment method.
+
+- **Central:** Request a ride for someone else, setting departure and
+  > dropoff location, date, and time.
+
+- **Vouchers:** Vouchers are offered for fully or partially paid Uber
+  > rides and meals (Uber Eats) that can be used on applicable trips and
+  > orders.
+
+## Additional Features Include
+
+- **SFTP:** SFTP allows the secure import and export of data between a
+  > company's system(s) and the Uber for Business platform. With SFTP,
+  > employee access on Uber for Business will automatically update to
+  > match a company's current employee list, significantly minimizing
+  > administrative involvement.
+
+- **Expense Code Policies:** Through SFTP, companies can also manage
+  > their expense code list, which employees can choose from when
+  > requesting a ride. This guarantees expense code compliance.
+
+- **Ride Policies:** The Ride Policies feature allows account
+  > administrators to limit when and from where employees can take
+  > trips, enabling automated account restrictions.
+
+- **Concur Integration:** Sync the employee roster directly from Concur,
+  > and use your Concur policies to manage rides.
+
+## Please Consider This
+
+- You have a Book of Business (BoB) of 150 Accounts (focused on Net-New
+  > Acquisition).
+
+- In your BoB, you have all types of industries.
+
+- Mid Market Accounts at Uber mean you will sell to companies with 250
+  > to 2,500 employees.
+
+- You are accountable for selling new solutions/products: Uber Travel,
+  > Uber Central, Uber Vouchers (applicable for both Eats and/or Rides).
+
+- Your Gross Bookings quota for H1 2027 will be \$350,000 USD.
+
+- The average Uber ride cost is \$10 USD.
+
+- The average Uber Eats basket size is \$15 USD.
+
+## Panel Logistics
+
+- **Panel Duration:** 1 hour. Be prepared to end your presentation in 40
+  > to 45 minutes, to finalize with a Q&A session.
+
+- **Language:** The content of the presentation (slides/materials) must
+  > be in English, but the oral presentation will be delivered in
+  > Spanish.
+
+## Exercise
+
+Create an executive-level presentation based on the prompt below. The
+output should be a 40-45 minute presentation during the panel.
+
+### 1. Company Profile & Role Play Execution (Est. 20 min)
+
+Pick a company that you think would be an ideal Uber for Business Mid
+Market customer. The company must have 250-2,500 employees in Chile.
+
+- Describe the company profile and explain why they are an ideal Uber
+  > for Business client.
+
+- Outline your strategy for approaching an acquisition opportunity with
+  > this company, with corporate business travel as the core of our
+  > business. Please provide detailed solutions and revenue analysis (we
+  > expect a forecast of how many Gross Bookings the client is worth and
+  > how much GB you could bring with your strategy based on your
+  > assumptions).
+
+**Role Play Element:** This section will be evaluated as a Role Play.
+
+**Scenario:** Assume your BDR has already conducted the initial
+discovery call. You are now joining a meeting with the stakeholders who
+are potentially the decision-makers.
+
+**Your Goal:** Be prepared to identify the specific role each
+interviewer is playing in the buying committee. You must ask targeted
+discovery questions to deeply understand their purchasing process
+("paper process") and successfully navigate objections, doubts, and
+pushbacks (e.g., legal constraints, regulatory status, stakeholder
+pushback).
+
+**Preparation:** Before starting the role play, you must have the
+following points already identified (you may base this on real research
+or state them as assumptions for the chosen company):
+
+- Number of employees.
+
+- Main use cases.
+
+- Estimated potential spend on Travel and/or Eats.
+
+- Urgency (or lack thereof) to close the deal.
+
+### 2. Mutual Success Plan (Est. 10 min)
+
+Outside of the role play, present an ideal Mutual Success Plan. Detail
+what a best-in-class onboarding process looks like for a new U4B client
+to ensure rapid adoption and time-to-value. Feel free to use your
+creativity and imagination for the format you choose to showcase this
+ideal plan.
+
+### 3. Book of Business and Sales Strategy (Est. 15 min)
+
+You have a Book of Business of 150 prospect accounts. Present a top-line
+account plan strategy: how would you prioritize acquisition for your
+Book of Business, and which products would you promote the most?
+
+**Forecasting & Business Model:** When building your strategy, carefully
+consider how our platform's business model works. Think about how value
+is generated and recognized over time once a client signs. You will need
+to factor in how the specific timing of your closed deals throughout the
+semester will impact your actual H1 quota attainment.
+
+We expect to see a forecast of the total potential value of your
+portfolio, and how your strategy will help to achieve a \$350k Gross
+Bookings Quota for H1 2027.
+
+- Please outline how much pipeline you'll need to create, how much
+  > pipeline you'll need to close, and what closing ratio you are
+  > considering.
+
+- What are the external and internal factors that could affect/benefit
+  > your attainment for this quota (e.g., client ramping period,
+  > seasonality, etc.)?
