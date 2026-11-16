@@ -12,3 +12,4 @@
 | 2026-11-15 | Métrica para el timing: "gente moviéndose" (personal ocupado / horas), no ingresos ni búsquedas | Los ingresos siguen a la facturación (auditoría factura en diciembre pero se mueve en Q1) |
 | 2026-11-15 | Cuenta recomendada: Salles Sainz Grant Thornton (alternativa: BDO México), pendiente de validación del usuario | Ver `02_account/recommendation.md` |
 | _pendiente_ | Empresa real vs. anónima | Recomendación: real, con supuestos marcados (ver respuesta del 15-nov) |
+| 2026-11-16 | Cuenta final: Salles Sainz Grant Thornton. Dos decks: Client deck (panel = SSGT, role play) e Internal brief (equipo Uber), como pestañas del Radar | Decisión del usuario |
