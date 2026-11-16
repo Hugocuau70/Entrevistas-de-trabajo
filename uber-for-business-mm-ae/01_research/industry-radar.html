@@ -204,6 +204,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
   <nav class="tabs" role="tablist" aria-label="Views">
     <button type="button" role="tab" data-go="radar" aria-selected="true">Industry radar</button>
     <button type="button" role="tab" data-go="panel-deck" aria-selected="false">Panel deck</button>
+    <button type="button" role="tab" data-go="book-of-business" aria-selected="false">Book of Business</button>
     <button type="button" role="tab" data-go="salles-review" aria-selected="false">Salles Sainz review</button>
     <button type="button" role="tab" data-go="internal-brief" aria-selected="false">Internal brief</button>
   </nav>
@@ -568,7 +569,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
         <div class="s-cards">
           <div class="s-card"><span class="k">01 · Make it the default</span><b>Retire the taxi claim</b><span>From Feb 1, claims for client-visit rides need an exception. Defaults beat discounts.</span><span class="prod">Travel policy</span></div>
           <div class="s-card"><span class="k">02 · Lead with dinner</span><b>First touch is a meal</b><span>Closing-night Eats vouchers require a linked business profile; rides follow.</span><span class="prod">Vouchers · Uber Eats</span></div>
-          <div class="s-card"><span class="k">03 · Book it for them</span><b>A zero-effort first ride</b><span>Assistants schedule closing-night rides home for the team.</span><span class="prod">Uber Central</span></div>
+          <div class="s-card"><span class="k">03 · Book it for them</span><b>A zero-effort first ride</b><span>Assistants schedule closing-night rides home; late trips are shared with a trusted contact.</span><span class="prod">Uber Central</span></div>
           <div class="s-card"><span class="k">04 · Reward the right behavior</span><b>Milestones, not mileage</b><span>5 coded trips unlock a 3-month Uber One trial; rides after 10 p.m. get priority pickup.</span><span class="prod">Uber-funded, capped</span></div>
           <div class="s-card"><span class="k">05 · Make managers pull</span><b>Recovery they can see</b><span>Trip reports by engagement; office with the highest activation wins a team dinner.</span><span class="prod">Engagement reports</span></div>
         </div>
@@ -654,6 +655,134 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
       </div>
       <div class="s-foot"><span>Sources: INEGI EMS, EMIM, ENEC and Economic Census 2024; Google Keyword Planner MX · Appendix</span><span class="pg"></span></div>
     </article>
+  </div>
+</div>
+<div class="tabpanel" id="book-of-business" data-tab="book-of-business" hidden>
+  <div class="deck-bar">
+    <p class="deck-intro">Section 3 · Book of Business and sales strategy: 150 net-new accounts, prioritized with the Industry radar, and the path to a USD 350K Gross Bookings quota in H1 2027. Use ← → to move between slides.</p>
+    <div class="nav"><button type="button" data-act="prev">Previous</button><span class="count"></span><button type="button" data-act="next">Next</button><button type="button" data-act="all" aria-pressed="false">Show all</button></div>
+  </div>
+  <div class="slides" data-deck="bob">
+
+    <article class="slide inv" data-title="Cover">
+      <p class="s-eyebrow">Section 3</p>
+      <div class="s-body" style="justify-content:center">
+        <h2 class="s-title" style="font-size:calc(var(--fs-title)*1.35)">Book of Business: 150 accounts to USD 350K in H1 2027</h2>
+        <p class="s-sub">Prioritization, products, forecast and what can move the number.</p>
+      </div>
+      <div class="s-foot"><span>Diego Cuauhtémoc · Mid-Market Account Executive</span><span class="pg"></span></div>
+    </article>
+
+    <article class="slide" data-title="Prioritization">
+      <p class="s-eyebrow">Section 3 · Prioritization</p>
+      <h2 class="s-title">Prioritize by trigger, not by size: three tiers from the Industry radar</h2>
+      <div class="s-body">
+        <table class="s-table">
+          <thead><tr><th>Tier</th><th>Industries</th><th>Accounts</th><th>Why now</th><th>Motion</th></tr></thead>
+          <tbody>
+            <tr><td>Tier 1</td><td>Audit and tax, engineering, pharma, consulting, data centers, construction</td><td>40</td><td>Busy seasons and projects that start in Q1</td><td>AE-led with BDR support; work all 40 by January</td></tr>
+            <tr><td>Tier 2</td><td>Food, electronics, advertising, auto parts, warehousing, IT, legal</td><td>60</td><td>Steady travel; auto parts and warehousing slowed by the T-MEC review</td><td>BDR sequences; AE joins from the first meeting</td></tr>
+            <tr><td>Tier 3</td><td>Telecom, hospitals, labs, staffing, security, trucking</td><td>50</td><td>Low ride intensity or enterprise-size players</td><td>Automated nurture with intent signals; builds H2 pipeline</td></tr>
+          </tbody>
+        </table>
+        <p class="s-small">Tiers come from the opportunity scorer (Tier 1 ≥ 55, Tier 2 40–55, Tier 3 &lt; 40). The split of the 150 accounts by industry is an assumption to replace with the real book in Salesforce.</p>
+      </div>
+      <div class="s-foot"><span>Sources: Industry radar (INEGI, Economic Census 2024, Google Keyword Planner) · Section 3</span><span class="pg"></span></div>
+    </article>
+
+    <article class="slide" data-title="Timing">
+      <p class="s-eyebrow">Section 3 · Business model</p>
+      <h2 class="s-title">In H1, when a deal closes matters more than how big it is</h2>
+      <div class="s-body">
+        <div class="s-cols c3">
+          <div class="s-col s-chart"><span class="s-small">Months of GB captured in H1 per USD 1 of a client's monthly potential, by close month</span><div id="chartMult"></div></div>
+          <div class="s-col">
+            <div class="s-card"><span class="k">Why</span><b>GB is recognized when people ride, not at signature. Adoption ramps from 20% in month 1 to 70% by month 6.</b></div>
+            <div class="s-card accent"><span class="k">So</span><span class="s-hero">15x</span><span>A December close is worth 15 times a May close inside H1.</span></div>
+            <div class="s-card"><span class="k">Rule</span><b>About 90% of H1 GB has to come from deals closed by February.</b></div>
+          </div>
+        </div>
+      </div>
+      <div class="s-foot"><span>Go-live the month after close; adoption curve from the account model · Section 3</span><span class="pg"></span></div>
+    </article>
+
+    <article class="slide" data-title="Pipeline">
+      <p class="s-eyebrow">Section 3 · Portfolio and pipeline</p>
+      <h2 class="s-title">A USD 16M portfolio; 47 opportunities and 13 wins reach the quota</h2>
+      <div class="s-body">
+        <div class="kpis" style="grid-template-columns:repeat(4,1fr)">
+          <div class="kpi"><span class="v" data-kb3="portfolio">—</span><span class="l">Portfolio potential a year (all 150 at full adoption)</span></div>
+          <div class="kpi"><span class="v" data-kb3="pipe">—</span><span class="l">Pipeline to create: <b data-kb3="opps">—</b> opportunities</span></div>
+          <div class="kpi"><span class="v" data-kb3="won">—</span><span class="l">Pipeline to close: <b data-kb3="wins">—</b> deals at <b data-kb3="rate">—</b></span></div>
+          <div class="kpi main"><span class="v" data-kb3="h1">—</span><span class="l">GB recognized in H1 · <b data-kb3="quota">—</b> of quota</span></div>
+        </div>
+        <table class="s-table">
+          <thead><tr><th>Tier</th><th>Accounts</th><th>Meetings</th><th>Opportunities</th><th>Win rate</th><th>Wins</th><th>Closes</th><th>H1 GB</th></tr></thead>
+          <tbody id="bobFunnel"></tbody>
+        </table>
+        <p class="s-small">Annual potential per account = employees × GB per employee a year at full adoption (Tier 1: 950 × USD 240, calibrated on Salles Sainz Grant Thornton; Tier 2: 700 × USD 130; Tier 3: 500 × USD 70). Salles Sainz is one of the Tier 1 December wins, counted at the Tier 1 average; its extra value is upside.</p>
+      </div>
+      <div class="s-foot"><span>Section 3 · Book of Business</span><span class="pg"></span></div>
+    </article>
+
+    <article class="slide" data-title="Forecast">
+      <p class="s-eyebrow">Section 3 · Forecast</p>
+      <h2 class="s-title">The forecast: front-load Tier 1, exit June with a strong run-rate</h2>
+      <div class="s-body">
+        <div class="calc">
+          <div class="inputs">
+            <div class="inp"><label for="q_w1">Tier 1 win rate</label><b data-o="q_w1"></b><input type="range" id="q_w1" min="15" max="50" step="1" value="33"></div>
+            <div class="inp"><label for="q_w2">Tier 2 win rate</label><b data-o="q_w2"></b><input type="range" id="q_w2" min="10" max="40" step="1" value="25"></div>
+            <div class="inp"><label for="q_m1">Tier 1 accounts that take a meeting</label><b data-o="q_m1"></b><input type="range" id="q_m1" min="40" max="95" step="5" value="75"></div>
+            <div class="inp"><label for="q_e1">Tier 1 average employees</label><b data-o="q_e1"></b><input type="range" id="q_e1" min="400" max="1500" step="50" value="950"></div>
+            <div class="inp"><label for="q_slip">Closes slip by</label><select id="q_slip"><option value="0">0 months (plan)</option><option value="1">1 month</option><option value="2">2 months</option></select></div>
+          </div>
+          <div class="out">
+            <div class="kpis">
+              <div class="kpi main"><span class="v" data-kb3="h1">—</span><span class="l">H1 GB · <b data-kb3="quota">—</b> of the USD 350K quota</span></div>
+              <div class="kpi"><span class="v" data-kb3="wins">—</span><span class="l">Wins from <b data-kb3="opps">—</b> opportunities</span></div>
+              <div class="kpi"><span class="v" data-kb3="jun">—</span><span class="l">June monthly run-rate, the base for H2</span></div>
+            </div>
+            <div class="s-chart" id="chartCum"></div>
+          </div>
+        </div>
+      </div>
+      <div class="s-foot"><span>Cumulative GB recognized vs. quota, Jan–Jun 2027 · Section 3</span><span class="pg"></span></div>
+    </article>
+
+    <article class="slide" data-title="Products">
+      <p class="s-eyebrow">Section 3 · Products</p>
+      <h2 class="s-title">Lead with Uber Travel, open doors with Vouchers, scale with Central</h2>
+      <div class="s-body">
+        <div class="s-cards c3">
+          <div class="s-card accent"><span class="k">Core · all tiers</span><b>Uber Travel</b><span>Recurring rides are where GB compounds month after month. Expense codes and Ride Policies make it a CFO decision, not an app.</span><span class="prod">Most of the GB</span></div>
+          <div class="s-card"><span class="k">Door opener · Tier 3 and adoption</span><b>Vouchers (Eats and rides)</b><span>Low-friction first deal for events, overtime and closing nights; the fastest way to get profiles linked.</span><span class="prod">Fast to sign, fast to use</span></div>
+          <div class="s-card"><span class="k">Scale · Tier 1 and 2</span><b>Uber Central</b><span>Assistants and front desks book for guests, candidates and staff without the app.</span><span class="prod">Expands use beyond app users</span></div>
+        </div>
+        <div class="s-card"><span class="k">Land and expand</span><b>Land with Travel for the busiest team, expand with Vouchers and Central once the first invoice proves the control story.</b></div>
+      </div>
+      <div class="s-foot"><span>Section 3 · Book of Business</span><span class="pg"></span></div>
+    </article>
+
+    <article class="slide" data-title="Factors">
+      <p class="s-eyebrow">Section 3 · Risks and tailwinds</p>
+      <h2 class="s-title">What can move the number, and what I do about it</h2>
+      <div class="s-body">
+        <table class="s-table">
+          <thead><tr><th>Factor</th><th>Type</th><th>Effect on H1</th><th>Response</th></tr></thead>
+          <tbody>
+            <tr><td>Client ramp-up (6 months to 70%)</td><td>Internal</td><td>A one-month slip costs about USD 100K</td><td>Close Tier 1 by February; adoption plan from day one</td></tr>
+            <tr><td>Busy seasons and Querétaro data centers</td><td>External +</td><td>Q1 triggers for Tier 1</td><td>Sprint audit and pharma from November</td></tr>
+            <tr><td>T-MEC review</td><td>External −</td><td>Auto parts and warehousing delay spend</td><td>Kept in Tier 2; pitch cost control, not growth</td></tr>
+            <tr><td>Calendar: slow January, Easter week Mar 21–28, elections Jun 6</td><td>External −</td><td>Fewer decision days</td><td>Signatures in December; go-lives before mid-March</td></tr>
+            <tr><td>Fares up to 7% after the 2026 platform reform</td><td>External ±</td><td>More GB per trip; price objections</td><td>Lead with control and recovery, not price</td></tr>
+            <tr><td>My ramp, BDR capacity, Legal and CFDI setup</td><td>Internal</td><td>75 meetings in H1, about 3 a week</td><td>Automate Tier 3; standard invoicing playbook with Tax</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="s-foot"><span>Section 3 · Book of Business</span><span class="pg"></span></div>
+    </article>
+
   </div>
 </div>
 <div class="tabpanel" id="salles-review" data-tab="salles-review" hidden>
@@ -1236,7 +1365,7 @@ document.getElementById('reset').addEventListener('click', () => { WK.forEach((k
 drawRank(); drawHeat();
 // Tabs with hash routing
 (() => {
-  const TABS = ['radar', 'panel-deck', 'salles-review', 'internal-brief'];
+  const TABS = ['radar', 'panel-deck', 'book-of-business', 'salles-review', 'internal-brief'];
   const show = (id) => {
     if (id === 'client-deck') id = 'panel-deck';
     if (!TABS.includes(id)) id = 'radar';
@@ -1408,6 +1537,67 @@ window.GB = (() => {
   }
   Object.values(C).forEach((id) => document.getElementById(id).addEventListener('input', draw));
   draw();
+})();
+
+// Section 3 · Book of Business model
+(() => {
+  const scope = document.getElementById('book-of-business'); if (!scope) return;
+  const NS = 'http://www.w3.org/2000/svg';
+  const mk = (tag, attrs, text) => { const e = document.createElementNS(NS, tag); Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, v)); if (text !== undefined) e.textContent = text; return e; };
+  const R = [0.20, 0.35, 0.50, 0.60, 0.65, 0.70]; const CM = ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
+  const mult = (ci) => (ci < 6 ? R.slice(0, 6 - ci).reduce((s, x) => s + x, 0) : 0);
+  const usd = (v) => (v >= 1e6 ? `USD ${(v / 1e6).toFixed(1)}M` : `USD ${Math.round(v / 1000)}K`);
+  const BASE = [
+    { t: 'Tier 1', acc: 40, emp: 950, pe: 240, meet: .75, qual: .70, win: .33, timing: { 0: .4, 1: .3, 2: .3 } },
+    { t: 'Tier 2', acc: 60, emp: 700, pe: 130, meet: .50, qual: .60, win: .25, timing: { 2: .25, 3: .5, 4: .25 } },
+    { t: 'Tier 3', acc: 50, emp: 500, pe: 70, meet: .30, qual: .50, win: .15, timing: { 4: .5, 5: .5 } },
+  ];
+  function model(p) {
+    const tiers = BASE.map((T) => ({ ...T, timing: { ...T.timing } }));
+    tiers[0].win = p.w1 / 100; tiers[1].win = p.w2 / 100; tiers[0].meet = p.m1 / 100; tiers[0].emp = p.e1;
+    const monthly = [0, 0, 0, 0, 0, 0]; const tot = { acc: 0, meet: 0, opp: 0, win: 0, pot: 0, pipe: 0, won: 0, h1: 0, jun: 0 };
+    const rows = tiers.map((T) => {
+      const annual = T.emp * T.pe, mo = annual / 12, meet = T.acc * T.meet, opp = meet * T.qual, win = opp * T.win; let h1 = 0, jun = 0; const closes = [];
+      Object.entries(T.timing).forEach(([c, share]) => {
+        const ci = Number(c) + p.slip, w = win * share; closes.push(CM[Math.min(ci, 6)] || 'H2');
+        h1 += w * mo * mult(ci); for (let k = ci; k < 6; k++) monthly[k] += w * mo * R[k - ci]; if (ci <= 5) jun += w * mo * R[5 - ci];
+      });
+      tot.acc += T.acc; tot.meet += meet; tot.opp += opp; tot.win += win; tot.pot += T.acc * annual; tot.pipe += opp * annual; tot.won += win * annual; tot.h1 += h1; tot.jun += jun;
+      return { t: T.t, acc: T.acc, meet, opp, rate: T.win, win, closes: [...new Set(closes)].join('–'), h1 };
+    });
+    return { rows, tot, monthly, cum: monthly.map((_, i) => monthly.slice(0, i + 1).reduce((s, x) => s + x, 0)) };
+  }
+  const ids = { w1: 'q_w1', w2: 'q_w2', m1: 'q_m1', e1: 'q_e1', slip: 'q_slip' };
+  const fmt = { w1: (v) => v + '%', w2: (v) => v + '%', m1: (v) => v + '%', e1: (v) => num(v) };
+  function draw() {
+    const p = {}; Object.entries(ids).forEach(([k, id]) => { p[k] = Number(document.getElementById(id).value); });
+    Object.entries(fmt).forEach(([k, f]) => scope.querySelectorAll(`[data-o=${ids[k]}]`).forEach((e) => { e.textContent = f(p[k]); }));
+    const r = model(p), t = r.tot;
+    const vals = { portfolio: usd(t.pot), pipe: usd(t.pipe), opps: Math.round(t.opp), won: usd(t.won), wins: Math.round(t.win), rate: Math.round(t.win / t.opp * 100) + '%', h1: usd(t.h1), quota: Math.round(t.h1 / 350000 * 100) + '%', jun: usd(t.jun) };
+    Object.entries(vals).forEach(([k, v]) => scope.querySelectorAll(`[data-kb3=${k}]`).forEach((e) => { e.textContent = v; }));
+    const tb = document.getElementById('bobFunnel'); tb.replaceChildren();
+    r.rows.forEach((x) => { const tr = tb.insertRow(); [x.t, x.acc, Math.round(x.meet), Math.round(x.opp), Math.round(x.rate * 100) + '%', x.win.toFixed(1), x.closes, usd(x.h1)].forEach((v) => { tr.insertCell().textContent = v; }); });
+    const tr = tb.insertRow(); ['Total', t.acc, Math.round(t.meet), Math.round(t.opp), Math.round(t.win / t.opp * 100) + '%', t.win.toFixed(1), '', usd(t.h1)].forEach((v) => { const c = tr.insertCell(); c.textContent = v; c.style.fontWeight = '700'; });
+    // cumulative chart
+    const host = document.getElementById('chartCum'); const W = 560, H = 200, pl = 6, pt = 18, pb = 24; const ML6 = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
+    const max = Math.max(380000, ...r.cum) * 1.08; const bw = (W - pl * 2) / 6; const y = (v) => pt + (H - pt - pb) * (1 - v / max);
+    const svg = mk('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': `Cumulative H1 GB reaches ${usd(t.h1)} against a USD 350K quota` });
+    for (let m = 0; m < 6; m++) { const x = pl + m * bw; svg.appendChild(mk('rect', { x: x + bw * .14, y: y(r.cum[m]), width: bw * .72, height: H - pb - y(r.cum[m]), rx: 2, fill: m === 5 ? 'var(--accent)' : 'var(--b-high)' }));
+      svg.appendChild(mk('text', { x: x + bw / 2, y: y(r.cum[m]) - 5, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': m === 5 ? 700 : 500, fill: 'var(--ink)' }, usd(r.cum[m])));
+      svg.appendChild(mk('text', { x: x + bw / 2, y: H - 7, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--tertiary)' }, ML6[m])); }
+    svg.appendChild(mk('line', { x1: pl, x2: W - pl, y1: y(350000), y2: y(350000), stroke: 'var(--ink)', 'stroke-width': 1.5, 'stroke-dasharray': '5 4' }));
+    svg.appendChild(mk('text', { x: pl + 4, y: y(350000) - 5, 'font-size': 11, 'font-weight': 700, fill: 'var(--ink)' }, 'Quota USD 350K'));
+    host.replaceChildren(svg);
+  }
+  Object.values(ids).forEach((id) => document.getElementById(id).addEventListener('input', draw));
+  draw();
+  // multiplier chart
+  const host = document.getElementById('chartMult'); const W = 560, H = 230, pl = 6, pt = 22, pb = 24; const bw = (W - pl * 2) / 7; const y = (v) => pt + (H - pt - pb) * (1 - v / 3.3);
+  const svg = mk('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'H1 value of a deal by close month: December 3.0 months, May 0.2 months' });
+  CM.forEach((m, i) => { const v = mult(i), x = pl + i * bw; svg.appendChild(mk('rect', { x: x + bw * .14, y: y(v), width: bw * .72, height: Math.max(1, H - pb - y(v)), rx: 2, fill: i <= 2 ? 'var(--accent)' : 'var(--b-mid)' }));
+    svg.appendChild(mk('text', { x: x + bw / 2, y: y(v) - 5, 'text-anchor': 'middle', 'font-size': 12, 'font-weight': 700, fill: 'var(--ink)' }, v.toFixed(2).replace(/0$/, '')));
+    svg.appendChild(mk('text', { x: x + bw / 2, y: H - 7, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--tertiary)' }, m)); });
+  host.replaceChildren(svg);
 })();
 
 </script>

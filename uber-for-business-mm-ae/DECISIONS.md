@@ -25,3 +25,5 @@
 | 2026-11-16 | Mapa de oficinas (9 ciudades) en los decks; logo de SSGT como "Prepared for" en las portadas | Petición del usuario |
 | 2026-11-16 | Nueva slide 12 "Adoption strategy" (5 palancas) y slide 13 "Operating rhythm"; Panel deck = 16 slides; Google Slides v4 | Ver `04_success-plan/adoption-strategy.md` |
 | 2026-11-16 | Sección 3 vivirá en el Radar (pestaña) y en Google Slides; el Radar es el recurso de presentación en vivo | Decisión del usuario |
+| 2026-11-16 | Sección 3 construida: 7 slides (prioridad por tiers, timing de cierre, pipeline, forecast interactivo, productos, factores). Base: 47 oportunidades, 13 cierres a 27%, USD 352K en H1 (101%), run-rate de junio USD 104K/mes | Modelo en `07_deck/bob_model.py`; pestaña "Book of Business" del Radar; Google Slides aparte |
+| 2026-11-16 | Palanca de seguridad (viajes nocturnos compartidos con un contacto de confianza) añadida con poco foco a la palanca 03; Panel deck v5 | Petición del usuario |

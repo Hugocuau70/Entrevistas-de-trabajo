@@ -1,6 +1,6 @@
 // Tabs with hash routing
 (() => {
-  const TABS = ['radar', 'panel-deck', 'salles-review', 'internal-brief'];
+  const TABS = ['radar', 'panel-deck', 'book-of-business', 'salles-review', 'internal-brief'];
   const show = (id) => {
     if (id === 'client-deck') id = 'panel-deck';
     if (!TABS.includes(id)) id = 'radar';
