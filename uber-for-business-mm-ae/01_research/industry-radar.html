@@ -186,7 +186,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 <div class="page">
   <nav class="tabs" role="tablist" aria-label="Views">
     <button type="button" role="tab" data-go="radar" aria-selected="true">Industry radar</button>
-    <button type="button" role="tab" data-go="panel-deck" aria-selected="false">Panel deck · SSGT</button>
+    <button type="button" role="tab" data-go="panel-deck" aria-selected="false">Panel deck</button>
+    <button type="button" role="tab" data-go="salles-review" aria-selected="false">Salles Sainz review</button>
     <button type="button" role="tab" data-go="internal-brief" aria-selected="false">Internal brief</button>
   </nav>
   <div class="tabpanel" id="radar" data-tab="radar">
@@ -714,6 +715,222 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
     </article>
   </div>
 </div>
+<div class="tabpanel" id="salles-review" data-tab="salles-review" hidden>
+  <div class="deck-bar">
+    <p class="deck-intro">Salles Sainz review: the earlier client-facing version of Section 1, kept for comparison. Use ← → to move between slides.</p>
+    <div class="nav"><button type="button" data-act="prev">Previous</button><span class="count"></span><button type="button" data-act="next">Next</button><button type="button" data-act="all" aria-pressed="false">Show all</button></div>
+  </div>
+  <div class="slides" data-deck="review">
+
+    <article class="slide inv" data-title="Cover">
+      <p class="s-eyebrow">Uber for Business · Proposal for Salles Sainz Grant Thornton</p>
+      <div class="s-body" style="justify-content:center">
+        <h2 class="s-title" style="font-size:calc(var(--fs-title)*1.45)">Mobility for busy season 2027</h2>
+        <p class="s-sub">Safe, controlled and rebillable ground travel for about 1,000 professionals across nine offices.</p>
+      </div>
+      <div class="s-foot"><span>Diego Cuauhtémoc · Mid-Market Account Executive</span><span>November 2026</span></div>
+    </article>
+
+    <article class="slide" data-title="What we heard">
+      <p class="s-eyebrow">Discovery recap</p>
+      <h2 class="s-title">What we heard from your team</h2>
+      <div class="s-body">
+        <div class="s-cols c3">
+          <div class="s-col">
+            <ul>
+              <li><b>About 950–1,000 professionals</b> in nine offices: Mexico City, Monterrey, Guadalajara, Querétaro, Puebla, Aguascalientes, Ciudad Juárez, Tijuana and Puerto Vallarta.</li>
+              <li><b>Field work peaks from January to May:</b> year-end audits, annual corporate tax returns and tax opinions.</li>
+              <li><b>Ground travel runs on personal payment:</b> taxis and ride apps paid by staff, then claimed as expenses.</li>
+              <li><b>Late finishes at client sites</b> during closing weeks, often after 9 p.m.</li>
+            </ul>
+          </div>
+          <div class="s-col">
+            <div class="s-card"><span class="k">Your priorities</span><b>Protect engagement margins</b><b>Tighten expense control</b><b>Keep your people safe and engaged</b></div>
+            <span class="s-tag">To confirm today: anything we got wrong?</span>
+          </div>
+        </div>
+      </div>
+      <div class="s-foot"><span>Source: BDR discovery call (assumptions to validate) · grantthornton.mx</span><span class="pg"></span></div>
+    </article>
+
+    <article class="slide" data-title="Busy season">
+      <p class="s-eyebrow">Why now</p>
+      <h2 class="s-title">Your busy season lands in the first half of 2027</h2>
+      <div class="s-body">
+        <div class="s-cols">
+          <div class="s-col s-chart"><span class="s-small">Audit, accounting and tax firms in Mexico · headcount index by month (100 = average month)</span><div id="chartAudit"></div></div>
+          <div class="s-col s-chart"><span class="s-small">Monthly Google searches in Mexico, 2025 · "declaración anual personas morales"</span><div id="chartTax"></div></div>
+        </div>
+        <div class="s-cards c3">
+          <div class="s-card"><span class="k">Mar 31</span><b>Annual corporate tax returns</b></div>
+          <div class="s-card"><span class="k">Apr 30</span><b>Shareholder meetings approve financial statements</b></div>
+          <div class="s-card accent"><span class="k">Implication</span><b>Mobility must be live by mid-January</b></div>
+        </div>
+      </div>
+      <div class="s-foot"><span>Sources: INEGI EMS 2022–2025 (detrended); Google Keyword Planner MX; LGSM art. 181</span><span class="pg"></span></div>
+    </article>
+
+    <article class="slide" data-title="Use cases">
+      <p class="s-eyebrow">Use cases</p>
+      <h2 class="s-title">Five moments when your teams are on the move</h2>
+      <div class="s-body">
+        <div class="s-cards">
+          <div class="s-card"><span class="k">01 · Daily</span><b>Office or home to client site</b><span>Audit and tax teams working on client premises.</span><span class="prod">Uber Travel + engagement codes</span></div>
+          <div class="s-card"><span class="k">02 · Closing weeks</span><b>Late exit after closing</b><span>Rides home after 9 p.m., covered by policy.</span><span class="prod">Ride Policies</span></div>
+          <div class="s-card"><span class="k">03 · Multi-city</span><b>Airport and intercity days</b><span>Monterrey, Guadalajara, Querétaro and border plants.</span><span class="prod">Uber Travel</span></div>
+          <div class="s-card"><span class="k">04 · Guests</span><b>Clients, candidates and visitors</b><span>Booked by assistants or HR on their behalf.</span><span class="prod">Uber Central</span></div>
+          <div class="s-card"><span class="k">05 · Overtime</span><b>Closing nights and weekends</b><span>Meals for teams working late, within set hours and caps.</span><span class="prod">Vouchers · Uber Eats</span></div>
+        </div>
+        <p class="s-small">The numbering follows a typical engagement day, from first visit to closing night.</p>
+      </div>
+      <div class="s-foot"><span>Uber for Business · Salles Sainz Grant Thornton</span><span class="pg"></span></div>
+    </article>
+
+    <article class="slide" data-title="Solution">
+      <p class="s-eyebrow">Solution</p>
+      <h2 class="s-title">One platform, configured to your policies</h2>
+      <div class="s-body">
+        <table class="s-table">
+          <thead><tr><th>Your need</th><th>Uber for Business capability</th><th>Result</th></tr></thead>
+          <tbody>
+            <tr><td>Charge each trip to the right engagement</td><td>Expense codes loaded through SFTP</td><td>Trips ready to rebill to clients</td></tr>
+            <tr><td>Keep nine offices up to date</td><td>Roster sync through SFTP or Concur</td><td>New hires and leavers handled automatically</td></tr>
+            <tr><td>Control when and where people ride</td><td>Ride Policies, trip flagging, manager approval</td><td>Policy compliance by design</td></tr>
+            <tr><td>Fewer expense claims</td><td>Centralized monthly billing</td><td>One invoice instead of hundreds of claims</td></tr>
+            <tr><td>Book rides for others</td><td>Uber Central</td><td>Guests and candidates covered</td></tr>
+            <tr><td>Feed teams on closing nights</td><td>Uber Eats vouchers with hours and caps</td><td>Recognition with controlled spend</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="s-foot"><span>Uber for Business · Salles Sainz Grant Thornton</span><span class="pg"></span></div>
+    </article>
+
+    <article class="slide" data-title="Rebillable travel">
+      <p class="s-eyebrow">Margin</p>
+      <h2 class="s-title">Turn travel cost into recoverable cost</h2>
+      <div class="s-body">
+        <div class="s-flow">
+          <div class="s-step"><span class="n">1</span><b>Select the engagement</b><span>The auditor picks the engagement code in the app before riding.</span></div>
+          <div class="s-step"><span class="n">2</span><b>Bill centrally</b><span>The trip is charged to the firm's account. Nobody pays out of pocket.</span></div>
+          <div class="s-step"><span class="n">3</span><b>Report by engagement</b><span>A monthly file through SFTP lists every trip by engagement code.</span></div>
+          <div class="s-step"><span class="n">4</span><b>Rebill the client</b><span>Billing adds rebillable trips to the client invoice, as the engagement letter allows.</span></div>
+        </div>
+        <div class="s-card" style="margin-top:auto"><b>Every trip carries the engagement code, date, route, time and fare: support your own audit teams would accept.</b></div>
+      </div>
+      <div class="s-foot"><span>Uber for Business · Salles Sainz Grant Thornton</span><span class="pg"></span></div>
+    </article>
+
+    <article class="slide" data-title="Duty of care">
+      <p class="s-eyebrow">People</p>
+      <h2 class="s-title">Duty of care during the hardest weeks of the year</h2>
+      <div class="s-body">
+        <div class="s-cols">
+          <div class="s-col">
+            <ul>
+              <li><b>Covered rides home after late closings,</b> set by time window and destination.</li>
+              <li><b>Every trip is GPS-tracked;</b> staff can share their trip status and reach in-app safety support.</li>
+              <li><b>No cash, no claims:</b> staff stop financing the firm's travel from their own pocket.</li>
+            </ul>
+          </div>
+          <div class="s-col">
+            <ul>
+              <li><b>Uber Eats vouchers on closing nights</b> turn overtime into recognition.</li>
+              <li><b>A visible benefit</b> in a profession where retaining seniors and managers is a constant challenge.</li>
+              <li><b>Clear rules</b> that people understand from day one.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="s-foot"><span>Uber for Business · Salles Sainz Grant Thornton</span><span class="pg"></span></div>
+    </article>
+
+    <article class="slide" data-title="Business case">
+      <p class="s-eyebrow">Business case · Gross Bookings (GB)</p>
+      <h2 class="s-title">What busy season 2027 could be worth</h2>
+      <div class="s-body">
+        <div class="calc" id="calcC">
+          <div class="inputs">
+            <div class="inp"><label for="c_emp">Employees</label><b data-o="c_emp"></b><input type="range" id="c_emp" min="600" max="1400" step="50" value="1000"></div>
+            <div class="inp"><label for="c_field">Client-facing share</label><b data-o="c_field"></b><input type="range" id="c_field" min="40" max="85" step="5" value="65"></div>
+            <div class="inp"><label for="c_busy">Rides per client-facing person / month, Jan–May</label><b data-o="c_busy"></b><input type="range" id="c_busy" min="1" max="10" step="1" value="4"></div>
+            <div class="inp"><label for="c_off">Rides per client-facing person / month, Jun–Dec</label><b data-o="c_off"></b><input type="range" id="c_off" min="0" max="6" step="1" value="2"></div>
+            <div class="inp"><label for="c_eats">Eats vouchers per client-facing person / month, Jan–May</label><b data-o="c_eats"></b><input type="range" id="c_eats" min="0" max="8" step="1" value="2"></div>
+            <div class="inp"><label for="c_part">Eats participation</label><b data-o="c_part"></b><input type="range" id="c_part" min="10" max="80" step="5" value="35"></div>
+            <div class="inp"><label for="c_go">Go-live</label><select id="c_go"><option value="0">January 2027</option><option value="1">February 2027</option><option value="2">March 2027</option></select></div>
+          </div>
+          <div class="out">
+            <div class="kpis">
+              <div class="kpi"><span class="v" data-k="annual">—</span><span class="l">Annual GB potential at full adoption</span></div>
+              <div class="kpi"><span class="v" data-k="h1pot">—</span><span class="l">H1 2027 potential</span></div>
+              <div class="kpi main"><span class="v" data-k="h1">—</span><span class="l">H1 2027 projected with phased rollout · <span data-k="quota"></span> of a USD 350K quota</span></div>
+            </div>
+            <div class="s-chart" id="chartC"></div>
+            <p class="s-small">Assumptions: USD 10 average ride and USD 15 average Eats basket (case inputs). Non-client-facing staff take 0.5 rides a month. Eats outside busy season equals 0.1 orders per employee a month. Adoption reaches 20%, 35%, 50%, 60%, 65% and 70% of potential in months 1–6 after go-live. All inputs are estimates to validate with your team.</p>
+          </div>
+        </div>
+      </div>
+      <div class="s-foot"><span>Uber for Business · Salles Sainz Grant Thornton</span><span class="pg"></span></div>
+    </article>
+
+    <article class="slide" data-title="Rollout">
+      <p class="s-eyebrow">Mutual plan</p>
+      <h2 class="s-title">Live before busy season: a six-step rollout</h2>
+      <div class="s-body">
+        <div class="s-time">
+          <div class="t"><span class="w">By Dec 4</span><b>Align</b><span>Scope, policies, vendor and independence checks.</span></div>
+          <div class="t"><span class="w">By Dec 11</span><b>Sign</b><span>Agreement and billing setup.</span></div>
+          <div class="t"><span class="w">Dec 14–18</span><b>Configure</b><span>Roster and engagement codes through SFTP, ride policies.</span></div>
+          <div class="t go"><span class="w">Jan 4</span><b>Pilot</b><span>Mexico City and Monterrey teams.</span></div>
+          <div class="t"><span class="w">Jan 18</span><b>Scale</b><span>All nine offices; Eats vouchers for closing nights.</span></div>
+          <div class="t"><span class="w">Mar 2027</span><b>Review</b><span>Usage, rebilled trips and policy exceptions.</span></div>
+        </div>
+        <p class="s-small">Dates assume a decision in the first week of December. Each step has an owner on both sides; the full success plan is in Section 2.</p>
+      </div>
+      <div class="s-foot"><span>Uber for Business · Salles Sainz Grant Thornton</span><span class="pg"></span></div>
+    </article>
+
+    <article class="slide" data-title="Next steps">
+      <p class="s-eyebrow">Next steps</p>
+      <h2 class="s-title">To move forward, help us understand your process</h2>
+      <div class="s-body">
+        <div class="s-cols">
+          <div class="s-col">
+            <ul>
+              <li>Who approves a new vendor, and up to what amount can each person sign?</li>
+              <li>Does the independence check or vendor due diligence apply to us, and how long does it take?</li>
+              <li>Will Legal review our standard terms and data-privacy addendum, or use your own template?</li>
+              <li>Which expense tool do you use today (Concur or another), and who owns the travel policy?</li>
+              <li>What decision date gets you live before January?</li>
+            </ul>
+          </div>
+          <div class="s-col">
+            <div class="s-card accent"><span class="k">Proposed next step</span><b>A 30-minute working session this week with Finance, HR and IT to confirm policies and the engagement-code file.</b></div>
+          </div>
+        </div>
+      </div>
+      <div class="s-foot"><span>Uber for Business · Salles Sainz Grant Thornton</span><span class="pg"></span></div>
+    </article>
+
+    <article class="slide" data-title="Appendix: questions">
+      <p class="s-eyebrow">Appendix</p>
+      <h2 class="s-title">Questions we often hear</h2>
+      <div class="s-body">
+        <table class="s-table">
+          <thead><tr><th>Question</th><th>Short answer</th></tr></thead>
+          <tbody>
+            <tr><td>Is it deductible?</td><td>We will set up company invoicing (CFDI) with your tax team before go-live and confirm the format in writing.</td></tr>
+            <tr><td>Does the platform-worker reform affect the service?</td><td>Drivers are now registered with IMSS under the 2025 reform. The service continues normally; fares adjusted in mid-2026 are reflected in the forecast.</td></tr>
+            <tr><td>What happens to our employees' data?</td><td>We sync only what the account needs (name, email, group). A data-processing addendum covers Mexico's privacy law.</td></tr>
+            <tr><td>What about personal trips?</td><td>Business and personal profiles stay separate; policies, flags and approvals stop misuse.</td></tr>
+            <tr><td>Are there drivers near industrial parks?</td><td>Coverage varies by area; Uber Central lets assistants schedule trips in advance where needed.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="s-foot"><span>Answers to confirm with Uber Legal and Tax before the meeting</span><span class="pg"></span></div>
+    </article>
+
+  </div>
+</div>
 <div class="tabpanel" id="internal-brief" data-tab="internal-brief" hidden>
   <div class="deck-bar">
     <p class="deck-intro">Internal account brief for the Uber team: the opportunity, the buying committee and the role-play plan for Salles Sainz Grant Thornton.</p>
@@ -1056,7 +1273,7 @@ document.getElementById('reset').addEventListener('click', () => { WK.forEach((k
 drawRank(); drawHeat();
 // Tabs with hash routing
 (() => {
-  const TABS = ['radar', 'panel-deck', 'internal-brief'];
+  const TABS = ['radar', 'panel-deck', 'salles-review', 'internal-brief'];
   const show = (id) => {
     if (id === 'client-deck') id = 'panel-deck';
     if (!TABS.includes(id)) id = 'radar';
@@ -1196,6 +1413,38 @@ window.GB = (() => {
   const plus = GB.calc({ ...GB.DEF, busy: GB.DEF.busy + 1 }).h1 - d.h1; const slip = d.h1 - GB.calc({ ...GB.DEF, go: 1 }).h1;
   brief.querySelectorAll('[data-k=sens]').forEach((e) => { e.textContent = GB.usd(plus); });
   brief.querySelectorAll('[data-k=slip]').forEach((e) => { e.textContent = GB.usd(slip); });
+})();
+
+// Salles Sainz review calculator (earlier version)
+(() => {
+  const scope = document.getElementById('salles-review'); if (!scope) return;
+  const NS = 'http://www.w3.org/2000/svg';
+  const mk = (tag, attrs, text) => { const e = document.createElementNS(NS, tag); Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, v)); if (text !== undefined) e.textContent = text; return e; };
+  const C = { emp: 'c_emp', field: 'c_field', busy: 'c_busy', off: 'c_off', eats: 'c_eats', part: 'c_part', go: 'c_go' };
+  const fmt = { emp: (v) => num(v), field: (v) => v + '%', busy: (v) => v, off: (v) => v, eats: (v) => v, part: (v) => v + '%' };
+  function draw() {
+    const p = { ceil: 70 }; Object.entries(C).forEach(([k, id]) => { p[k] = Number(document.getElementById(id).value); });
+    Object.entries(fmt).forEach(([k, f]) => { scope.querySelectorAll(`[data-o=${C[k]}]`).forEach((e) => { e.textContent = f(p[k]); }); });
+    const r = GB.calc(p);
+    scope.querySelectorAll('[data-k=annual]').forEach((e) => { e.textContent = GB.usd(r.annual); });
+    scope.querySelectorAll('[data-k=h1pot]').forEach((e) => { e.textContent = GB.usd(r.h1pot); });
+    scope.querySelectorAll('[data-k=h1]').forEach((e) => { e.textContent = GB.usd(r.h1); });
+    scope.querySelectorAll('[data-k=quota]').forEach((e) => { e.textContent = GB.pct(r.quota); });
+    const host = document.getElementById('chartC'); const W = 560, H = 190, pl = 4, pt = 20, pb = 24; const ML6 = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
+    const max = Math.max(...r.pot.slice(0, 6)) * 1.12; const bw = (W - pl * 2) / 6; const y = (v) => pt + (H - pt - pb) * (1 - v / max);
+    const svg = mk('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': `Projected GB by month, H1 2027 total ${GB.usd(r.h1)}` });
+    for (let m = 0; m < 6; m++) {
+      const x = pl + m * bw;
+      svg.appendChild(mk('rect', { x: x + bw * 0.12, y: y(r.pot[m]), width: bw * 0.76, height: H - pb - y(r.pot[m]), rx: 2, fill: 'var(--b-mid)' }));
+      if (r.proj[m] > 0) svg.appendChild(mk('rect', { x: x + bw * 0.12, y: y(r.proj[m]), width: bw * 0.76, height: H - pb - y(r.proj[m]), rx: 2, fill: 'var(--accent)' }));
+      svg.appendChild(mk('text', { x: x + bw / 2, y: y(r.pot[m]) - 6, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--tertiary)' }, GB.usd(r.pot[m])));
+      if (r.proj[m] > 0) svg.appendChild(mk('text', { x: x + bw / 2, y: Math.min(y(r.proj[m]) + 15, H - pb - 4), 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 700, fill: '#FFFFFF' }, GB.usd(r.proj[m])));
+      svg.appendChild(mk('text', { x: x + bw / 2, y: H - 7, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--tertiary)' }, ML6[m]));
+    }
+    host.replaceChildren(svg);
+  }
+  Object.values(C).forEach((id) => document.getElementById(id).addEventListener('input', draw));
+  draw();
 })();
 
 </script>

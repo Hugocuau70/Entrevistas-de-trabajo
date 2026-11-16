@@ -9,6 +9,7 @@ from pptx.enum.chart import XL_CHART_TYPE, XL_LABEL_POSITION
 from pptx.enum.dml import MSO_LINE_DASH_STYLE
 
 OUT, SEAS_PATH, KW_PATH = sys.argv[1], sys.argv[2], sys.argv[3]
+LOGO_W, LOGO_B = '/tmp/claude-0/-home-user-Entrevistas-de-trabajo/88e3197a-7a0a-53b4-a474-d84a37e1b8be/scratchpad/logos/logo_white.png', '/tmp/claude-0/-home-user-Entrevistas-de-trabajo/88e3197a-7a0a-53b4-a474-d84a37e1b8be/scratchpad/logos/logo_black.png'
 BLACK, WHITE = RGBColor(0,0,0), RGBColor(255,255,255)
 G2, G3, SURF, LINE, ACC = RGBColor(0x54,0x54,0x54), RGBColor(0x75,0x75,0x75), RGBColor(0xF6,0xF6,0xF6), RGBColor(0xE2,0xE2,0xE2), RGBColor(0x27,0x6E,0xF1)
 MID, LOWC = RGBColor(0xEE,0xEE,0xEE), RGBColor(0xFF,0xD9,0xB0)
@@ -39,9 +40,12 @@ def rect(s, x, y, w, h, fill=SURF, line=None, shape=MSO_SHAPE.RECTANGLE):
     if shape == MSO_SHAPE.ROUNDED_RECTANGLE: r.adjustments[0] = 0.06
     return r
 
-def new(title=None, eyebrow=None, inv=False, foot=None, notes=None):
+def new(title=None, eyebrow=None, inv=False, foot=None, notes=None, logo=True):
     state['n'] += 1; s = prs.slides.add_slide(BL)
     bg = s.background.fill; bg.solid(); bg.fore_color.rgb = BLACK if inv else WHITE
+    if logo:
+        pic = s.shapes.add_picture(LOGO_W if inv else LOGO_B, 0, 0, height=Inches(0.42))
+        pic.left = Inches(W - ML) - pic.width; pic.top = Inches(0.42)
     fg = WHITE if inv else BLACK; sub = RGBColor(0xB0,0xB0,0xB0) if inv else G3
     if eyebrow: tb(s, ML, 0.55, CW, 0.3, eyebrow, 11, True, sub, caps=True)
     if title: tb(s, ML, 0.85, CW, 1.0, title, 30, True, fg)
@@ -127,12 +131,11 @@ kw = json.load(open(KW_PATH))
 F1, FB, F2 = '1 · Account plan · Internal view', '1 · Role play · Salles Sainz Grant Thornton', '2 · Mutual success plan'
 
 # 1 Cover
-s = new(inv=True, foot='Diego Cuauhtémoc · Mid-Market Account Executive', notes='Presentación: 1) por qué esta cuenta, 2) role play con el comité de SSGT, 3) mutual success plan.')
-tb(s, ML, 0.55, 8, 0.3, 'Uber for Business · Mid-Market Mexico · H1 2027', 11, True, RGBColor(0xB0,0xB0,0xB0), caps=True)
-tb(s, ML, 2.3, 10.5, 1.8, 'Salles Sainz Grant Thornton: winning busy season 2027', 44, True, WHITE)
-tb(s, ML, 4.3, 10, 0.8, 'Section 1 · Company profile, acquisition strategy and role play   ·   Section 2 · Mutual success plan', 16, False, RGBColor(0xB0,0xB0,0xB0))
-lg = rect(s, W - ML - 2.6, 0.45, 2.6, 0.8, BLACK, line=RGBColor(0x75,0x75,0x75)); lg.line.dash_style = MSO_LINE_DASH_STYLE.DASH
-tb(s, W - ML - 2.6, 0.45, 2.6, 0.8, 'Insert Uber for Business logo', 10, False, RGBColor(0xB0,0xB0,0xB0), PP_ALIGN.CENTER, MSO_ANCHOR.MIDDLE)
+s = new(inv=True, foot='Diego Cuauhtémoc · Mid-Market Account Executive', logo=False, notes='Presentación: 1) por qué esta cuenta, 2) role play con el comité de SSGT, 3) mutual success plan.')
+pic = s.shapes.add_picture(LOGO_W, Inches(ML), Inches(0.6), height=Inches(0.85))
+tb(s, ML, 2.05, 8, 0.3, 'Mid-Market Mexico · H1 2027', 11, True, RGBColor(0xB0,0xB0,0xB0), caps=True)
+tb(s, ML, 2.45, 10.5, 1.8, 'Salles Sainz Grant Thornton: winning busy season 2027', 44, True, WHITE)
+tb(s, ML, 4.45, 10, 0.8, 'Section 1 · Company profile, acquisition strategy and role play   ·   Section 2 · Mutual success plan', 16, False, RGBColor(0xB0,0xB0,0xB0))
 
 # 2 Why this account
 s = new('The data points to audit, and audit points to H1', '1 · Account selection', foot='Sources: INEGI EMS, EMIM, ENEC and Economic Census 2024; Google Keyword Planner MX',

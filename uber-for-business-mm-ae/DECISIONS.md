@@ -18,3 +18,5 @@
 | 2026-11-16 | Escenario conservador: 2/1 viajes, techo 50% → USD 40K en H1 (12% de la cuota) | Defender la concentración de la cuenta |
 | 2026-11-16 | Plantilla: 950–1,000 (Revelio Labs mar-2026 y sitio de la firma) | Validación |
 | 2026-11-16 | Google Slides en Drive: https://docs.google.com/presentation/d/16gxu0sqzFxV0Djh6qSDH4laAD2N1KAGguCKlizWNWIk/edit | Entregable; el logo de Uber lo inserta el usuario |
+| 2026-11-16 | Pestañas: Panel deck (22 slides, unificado) + Salles Sainz review (deck anterior de 11 slides, restaurado) | El usuario prefiere el deck anterior para comparar |
+| 2026-11-16 | Logos de Uber for Business (provistos por el usuario) integrados en el pptx y en Google Slides v2: https://docs.google.com/presentation/d/1I2L3wbRUcg6AYzO6o2STs_xoPeOTGySlg4rFgy-Gehs/edit | La v1 sin logos queda renombrada en Drive |
