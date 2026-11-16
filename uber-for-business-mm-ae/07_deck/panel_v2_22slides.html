@@ -1,0 +1,405 @@
+<div class="tabpanel" id="panel-deck" data-tab="panel-deck" hidden>
+  <div class="deck-bar">
+    <p class="deck-intro">Panel deck: Section 1 (account plan, then role play with the panel as Salles Sainz Grant Thornton) and Section 2 (mutual success plan). Use ← → to move between slides.</p>
+    <div class="nav"><button type="button" data-act="prev">Previous</button><span class="count"></span><button type="button" data-act="next">Next</button><button type="button" data-act="all" aria-pressed="false">Show all</button></div>
+  </div>
+  <div class="slides" data-deck="panel">
+
+    <article class="slide inv" data-title="Cover">
+      <p class="s-eyebrow">Uber for Business · Mid-Market Mexico · H1 2027</p>
+      <div class="s-body" style="justify-content:center">
+        <h2 class="s-title" style="font-size:calc(var(--fs-title)*1.4)">Salles Sainz Grant Thornton: winning busy season 2027</h2>
+        <p class="s-sub">Section 1 · Company profile, acquisition strategy and role play · Section 2 · Mutual success plan</p>
+      </div>
+      <div class="s-foot"><span>Diego Cuauhtémoc · Mid-Market Account Executive</span><span>November 2026</span></div>
+    </article>
+
+    <article class="slide" data-title="Why this account">
+      <p class="s-eyebrow">1 · Account selection</p>
+      <h2 class="s-title">The data points to audit, and audit points to H1</h2>
+      <div class="s-body">
+        <div class="s-cards c4">
+          <div class="s-card"><span class="k">Industry rank</span><span class="s-hero">#1</span><span>Audit, accounting and tax leads our opportunity scorer across 19 industries (87.8 of 100).</span></div>
+          <div class="s-card"><span class="k">People peak</span><span class="s-hero">Jan–Feb</span><span>Audit-firm headcount peaks in Q1 (INEGI), while revenue peaks in December.</span></div>
+          <div class="s-card"><span class="k">Deadline spike</span><span class="s-hero">~10x</span><span>Searches for annual corporate tax returns in March vs. the rest of the year.</span></div>
+          <div class="s-card"><span class="k">Category momentum</span><span class="s-hero">+32%</span><span>"uber empresas" searches, Jan–Aug 2026 vs. 2025; "didi empresas" −21%.</span></div>
+        </div>
+        <p class="s-small">Considered and set aside: pharma (fleets in place; HCP compliance limits Eats), data-center engineering (remote sites, enterprise contractors), firms with 30+ small offices. Full analysis in the Industry radar tab.</p>
+      </div>
+      <div class="s-foot"><span>Sources: INEGI EMS, EMIM, ENEC and Economic Census 2024; Google Keyword Planner MX</span><span class="pg"></span></div>
+    </article>
+
+    <article class="slide" data-title="Company profile">
+      <p class="s-eyebrow">1 · Company profile</p>
+      <h2 class="s-title">Salles Sainz Grant Thornton at a glance</h2>
+      <div class="s-body">
+        <div class="s-cols c3">
+          <div class="s-col">
+            <ul>
+              <li><b>Largest Grant Thornton member firm in Latin America;</b> audit, tax, advisory and outsourcing.</li>
+              <li><b>Nine offices</b> along Mexico's business corridors: Mexico City, Monterrey, Guadalajara, Querétaro, Puebla, Aguascalientes, Ciudad Juárez, Tijuana and Puerto Vallarta.</li>
+              <li><b>Growing in the north</b> from Monterrey, close to nearshoring clients.</li>
+              <li><b>Work happens at the client:</b> audit and tax teams spend busy season on client premises and plants.</li>
+            </ul>
+          </div>
+          <div class="s-col">
+            <div class="s-cards c2">
+              <div class="s-card"><span class="k">Employees</span><span class="s-hero">950–1,000</span></div>
+              <div class="s-card"><span class="k">Urgency</span><b>High: busy season starts in January</b></div>
+              <div class="s-card"><span class="k">Main use cases</span><b>Client sites, late returns, intercity days, guests, closing-night meals</b></div>
+              <div class="s-card accent"><span class="k">Potential spend</span><span class="s-hero" data-ka="annual">—</span><span>a year at full adoption</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="s-foot"><span>Sources: grantthornton.mx; Revelio Labs (Mar 2026); Líder Empresarial · 1 · Account plan · Internal view</span><span class="pg"></span></div>
+    </article>
+
+    <article class="slide" data-title="GB forecast">
+      <p class="s-eyebrow">1 · Revenue analysis · Gross Bookings (GB)</p>
+      <h2 class="s-title">What the account is worth, and what we can capture in H1</h2>
+      <div class="s-body">
+        <div class="calc" id="calcA">
+          <div class="inputs">
+            <div class="inp"><label>Scenario</label><b></b><div class="scen" style="grid-column:1/-1;display:flex;gap:.4em"><button type="button" data-scen="base" aria-pressed="true">Base</button><button type="button" data-scen="cons" aria-pressed="false">Conservative</button></div></div>
+            <div class="inp"><label for="a_emp">Employees</label><b data-o="a_emp"></b><input type="range" id="a_emp" min="600" max="1400" step="50" value="1000"></div>
+            <div class="inp"><label for="a_field">Client-facing share</label><b data-o="a_field"></b><input type="range" id="a_field" min="40" max="85" step="5" value="65"></div>
+            <div class="inp"><label for="a_busy">Rides per client-facing person / month, Jan–May</label><b data-o="a_busy"></b><input type="range" id="a_busy" min="1" max="10" step="1" value="4"></div>
+            <div class="inp"><label for="a_off">Rides per client-facing person / month, Jun–Dec</label><b data-o="a_off"></b><input type="range" id="a_off" min="0" max="6" step="1" value="2"></div>
+            <div class="inp"><label for="a_eats">Eats vouchers per client-facing person / month, Jan–May</label><b data-o="a_eats"></b><input type="range" id="a_eats" min="0" max="8" step="1" value="2"></div>
+            <div class="inp"><label for="a_part">Eats participation</label><b data-o="a_part"></b><input type="range" id="a_part" min="10" max="80" step="5" value="35"></div>
+            <div class="inp"><label for="a_ceil">Adoption by month 6</label><b data-o="a_ceil"></b><input type="range" id="a_ceil" min="30" max="90" step="5" value="70"></div>
+            <div class="inp"><label for="a_go">Go-live</label><select id="a_go"><option value="0">January 2027</option><option value="1">February 2027</option><option value="2">March 2027</option></select></div>
+          </div>
+          <div class="out">
+            <div class="kpis">
+              <div class="kpi"><span class="v" data-ka="annual">—</span><span class="l">Annual GB potential at full adoption</span></div>
+              <div class="kpi"><span class="v" data-ka="h1pot">—</span><span class="l">H1 2027 potential</span></div>
+              <div class="kpi main"><span class="v" data-ka="h1">—</span><span class="l">H1 2027 projected · <span data-ka="quota"></span> of the USD 350K quota</span></div>
+            </div>
+            <div class="s-chart" id="chartA"></div>
+            <p class="s-small">GB = gross value of rides and Eats orders billed through Uber. Monthly GB = rides × USD 10 + Eats orders × USD 15 (case inputs). Other staff take 0.5 rides a month; off-season Eats is 0.1 orders per employee. Adoption ramps from month 1 (pilot in two offices) to the month-6 ceiling; it stays below 100% because some staff drive, some clients provide transport and some prefer other apps. Conservative: 2 and 1 rides, 50% ceiling.</p>
+          </div>
+        </div>
+      </div>
+      <div class="s-foot"><span>1 · Account plan · Internal view</span><span class="pg"></span></div>
+    </article>
+
+    <article class="slide" data-title="Acquisition strategy">
+      <p class="s-eyebrow">1 · Acquisition strategy</p>
+      <h2 class="s-title">Land before busy season, expand after it, replicate across the vertical</h2>
+      <div class="s-body">
+        <div class="s-flow">
+          <div class="s-step"><span class="n">Today</span><b>Stakeholder meeting</b><span>BDR discovery done. Confirm pains, map the committee and the paper process.</span></div>
+          <div class="s-step"><span class="n">Land · Dec</span><b>Travel for client-site work</b><span>Ride Policies and engagement codes; pilot in Mexico City and Monterrey on Jan 4.</span></div>
+          <div class="s-step"><span class="n">Expand · Q1–Q2</span><b>All nine offices</b><span>Uber Eats vouchers for closing nights; Central for guests and candidates.</span></div>
+          <div class="s-step"><span class="n">Replicate · H2</span><b>Reference in audit and tax</b><span>Use the case with BDO, Crowe, RSM, Forvis Mazars and Baker Tilly.</span></div>
+        </div>
+        <div class="s-cards c3">
+          <div class="s-card"><span class="k">Why they buy</span><b>Margin (rebillable trips), control (one invoice), duty of care</b></div>
+          <div class="s-card"><span class="k">Why now</span><b>Busy season starts in January; a December signature is the only way to capture it</b></div>
+          <div class="s-card"><span class="k">Concentration check</span><b>The H1 plan closes without this account; it is upside and a vertical reference</b></div>
+        </div>
+      </div>
+      <div class="s-foot"><span>1 · Account plan · Internal view</span><span class="pg"></span></div>
+    </article>
+
+    <article class="slide" data-title="Buying committee">
+      <p class="s-eyebrow">1 · Role-play preparation</p>
+      <h2 class="s-title">Who we expect in the room</h2>
+      <div class="s-body">
+        <table class="s-table">
+          <thead><tr><th>Role</th><th>Likely title</th><th>Cares about</th><th>What we need from them</th></tr></thead>
+          <tbody>
+            <tr><td>Economic buyer</td><td>Managing Partner / CFO</td><td>Margin, recovery, control</td><td>Budget owner and signature</td></tr>
+            <tr><td>Champion</td><td>Administration or HR Director</td><td>Fewer claims, staff safety</td><td>Sponsor the policy internally</td></tr>
+            <tr><td>Technical evaluator</td><td>IT Manager</td><td>SFTP, SSO, Concur, data</td><td>Roster and engagement-code files</td></tr>
+            <tr><td>Risk / Legal</td><td>Quality &amp; Risk Partner</td><td>Independence, privacy, terms</td><td>Vendor and independence clearance</td></tr>
+            <tr><td>User / possible blocker</td><td>Audit Partner</td><td>Client acceptance, no extra admin</td><td>Agree on rebilling rules</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="s-foot"><span>1 · Account plan · Internal view</span><span class="pg"></span></div>
+    </article>
+
+    <article class="slide inv" data-title="Role play">
+      <p class="s-eyebrow">Role play</p>
+      <div class="s-body" style="justify-content:center">
+        <h2 class="s-title" style="font-size:calc(var(--fs-title)*1.3)">Meeting with Salles Sainz Grant Thornton leadership</h2>
+        <p class="s-sub">From here on, the panel is the buying committee.</p>
+      </div>
+      <div class="s-foot"><span>Uber for Business · Proposal for Salles Sainz Grant Thornton</span><span class="pg"></span></div>
+    </article>
+    <article class="slide" data-title="What we heard">
+      <p class="s-eyebrow">Discovery recap</p>
+      <h2 class="s-title">What we heard from your team</h2>
+      <div class="s-body">
+        <div class="s-cols c3">
+          <div class="s-col">
+            <ul>
+              <li><b>About 950–1,000 professionals</b> in nine offices: Mexico City, Monterrey, Guadalajara, Querétaro, Puebla, Aguascalientes, Ciudad Juárez, Tijuana and Puerto Vallarta.</li>
+              <li><b>Field work peaks from January to May:</b> year-end audits, annual corporate tax returns and tax opinions.</li>
+              <li><b>Ground travel runs on personal payment:</b> taxis and ride apps paid by staff, then claimed as expenses.</li>
+              <li><b>Late finishes at client sites</b> during closing weeks, often after 9 p.m.</li>
+            </ul>
+          </div>
+          <div class="s-col">
+            <div class="s-card"><span class="k">Your priorities</span><b>Protect engagement margins</b><b>Tighten expense control</b><b>Keep your people safe and engaged</b></div>
+            <span class="s-tag">To confirm today: anything we got wrong?</span>
+          </div>
+        </div>
+      </div>
+      <div class="s-foot"><span>Source: BDR discovery call (to validate) · grantthornton.mx · Revelio Labs (Mar 2026)</span><span class="pg"></span></div>
+    </article>
+    <article class="slide" data-title="Busy season">
+      <p class="s-eyebrow">Why now</p>
+      <h2 class="s-title">Your busy season lands in the first half of 2027</h2>
+      <div class="s-body">
+        <div class="s-cols">
+          <div class="s-col s-chart"><span class="s-small">Audit, accounting and tax firms in Mexico · headcount index by month (100 = average month)</span><div id="chartAudit"></div></div>
+          <div class="s-col s-chart"><span class="s-small">Monthly Google searches in Mexico, 2025 · "declaración anual personas morales"</span><div id="chartTax"></div></div>
+        </div>
+        <div class="s-cards c3">
+          <div class="s-card"><span class="k">Mar 31</span><b>Annual corporate tax returns</b></div>
+          <div class="s-card"><span class="k">Apr 30</span><b>Shareholder meetings approve financial statements</b></div>
+          <div class="s-card accent"><span class="k">Implication</span><b>Mobility must be live by mid-January</b></div>
+        </div>
+      </div>
+      <div class="s-foot"><span>Sources: INEGI EMS 2022–2025 (detrended); Google Keyword Planner MX; LGSM art. 181</span><span class="pg"></span></div>
+    </article>
+    <article class="slide" data-title="Use cases">
+      <p class="s-eyebrow">Use cases</p>
+      <h2 class="s-title">Five moments when your teams are on the move</h2>
+      <div class="s-body">
+        <div class="s-cards">
+          <div class="s-card"><span class="k">01 · Daily</span><b>Office or home to client site</b><span>Audit and tax teams working on client premises.</span><span class="prod">Uber Travel + engagement codes</span></div>
+          <div class="s-card"><span class="k">02 · Closing weeks</span><b>Late exit after closing</b><span>Rides home after 9 p.m., covered by policy.</span><span class="prod">Ride Policies</span></div>
+          <div class="s-card"><span class="k">03 · Multi-city</span><b>Airport and intercity days</b><span>Monterrey, Guadalajara, Querétaro and border plants.</span><span class="prod">Uber Travel</span></div>
+          <div class="s-card"><span class="k">04 · Guests</span><b>Clients, candidates and visitors</b><span>Booked by assistants or HR on their behalf.</span><span class="prod">Uber Central</span></div>
+          <div class="s-card"><span class="k">05 · Overtime</span><b>Closing nights and weekends</b><span>Meals for teams working late, within set hours and caps.</span><span class="prod">Vouchers · Uber Eats</span></div>
+        </div>
+        <p class="s-small">The numbering follows a typical engagement day, from first visit to closing night.</p>
+      </div>
+      <div class="s-foot"><span>1 · Role play · Salles Sainz Grant Thornton</span><span class="pg"></span></div>
+    </article>
+    <article class="slide" data-title="Solution">
+      <p class="s-eyebrow">Solution</p>
+      <h2 class="s-title">One platform, configured to your policies</h2>
+      <div class="s-body">
+        <table class="s-table">
+          <thead><tr><th>Your need</th><th>Uber for Business capability</th><th>Result</th></tr></thead>
+          <tbody>
+            <tr><td>Charge each trip to the right engagement</td><td>Expense codes loaded through SFTP</td><td>Trips ready to rebill to clients</td></tr>
+            <tr><td>Keep nine offices up to date</td><td>Roster sync through SFTP or Concur</td><td>New hires and leavers handled automatically</td></tr>
+            <tr><td>Control when and where people ride</td><td>Ride Policies, trip flagging, manager approval</td><td>Policy compliance by design</td></tr>
+            <tr><td>Fewer expense claims</td><td>Centralized monthly billing</td><td>One invoice instead of hundreds of claims</td></tr>
+            <tr><td>Book rides for others</td><td>Uber Central</td><td>Guests and candidates covered</td></tr>
+            <tr><td>Feed teams on closing nights</td><td>Uber Eats vouchers with hours and caps</td><td>Recognition with controlled spend</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="s-foot"><span>1 · Role play · Salles Sainz Grant Thornton</span><span class="pg"></span></div>
+    </article>
+    <article class="slide" data-title="Rebillable travel">
+      <p class="s-eyebrow">Margin</p>
+      <h2 class="s-title">Turn travel cost into recoverable cost</h2>
+      <div class="s-body">
+        <div class="s-flow">
+          <div class="s-step"><span class="n">1</span><b>Select the engagement</b><span>The auditor picks the engagement code in the app before riding.</span></div>
+          <div class="s-step"><span class="n">2</span><b>Bill centrally</b><span>The trip is charged to the firm's account. Nobody pays out of pocket.</span></div>
+          <div class="s-step"><span class="n">3</span><b>Report by engagement</b><span>A monthly file through SFTP lists every trip by engagement code.</span></div>
+          <div class="s-step"><span class="n">4</span><b>Rebill the client</b><span>Billing adds rebillable trips to the client invoice, as the engagement letter allows.</span></div>
+        </div>
+        <div class="s-card" style="margin-top:auto"><b>Every trip carries the engagement code, date, route, time and fare: support your own audit teams would accept.</b></div>
+      </div>
+      <div class="s-foot"><span>1 · Role play · Salles Sainz Grant Thornton</span><span class="pg"></span></div>
+    </article>
+    <article class="slide" data-title="Duty of care">
+      <p class="s-eyebrow">People</p>
+      <h2 class="s-title">Duty of care during the hardest weeks of the year</h2>
+      <div class="s-body">
+        <div class="s-cols">
+          <div class="s-col">
+            <ul>
+              <li><b>Covered rides home after late closings,</b> set by time window and destination.</li>
+              <li><b>Every trip is GPS-tracked;</b> staff can share their trip status and reach in-app safety support.</li>
+              <li><b>No cash, no claims:</b> staff stop financing the firm's travel from their own pocket.</li>
+            </ul>
+          </div>
+          <div class="s-col">
+            <ul>
+              <li><b>Uber Eats vouchers on closing nights</b> turn overtime into recognition.</li>
+              <li><b>A visible benefit</b> in a profession where retaining seniors and managers is a constant challenge.</li>
+              <li><b>Clear rules</b> that people understand from day one.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="s-foot"><span>1 · Role play · Salles Sainz Grant Thornton</span><span class="pg"></span></div>
+    </article>
+
+    <article class="slide" data-title="Your mobility in numbers">
+      <p class="s-eyebrow">Your numbers</p>
+      <h2 class="s-title">Your mobility in numbers</h2>
+      <div class="s-body">
+        <div class="calc" id="calcB">
+          <div class="inputs">
+            <div class="inp"><label for="b_emp">Professionals</label><b data-o="b_emp"></b><input type="range" id="b_emp" min="600" max="1400" step="50" value="1000"></div>
+            <div class="inp"><label for="b_field">Working at client sites</label><b data-o="b_field"></b><input type="range" id="b_field" min="40" max="85" step="5" value="65"></div>
+            <div class="inp"><label for="b_busy">Trips per person a month, busy season</label><b data-o="b_busy"></b><input type="range" id="b_busy" min="1" max="10" step="1" value="4"></div>
+            <div class="inp"><label for="b_off">Trips per person a month, rest of the year</label><b data-o="b_off"></b><input type="range" id="b_off" min="0" max="6" step="1" value="2"></div>
+            <div class="inp"><label for="b_reb">Trips that clients would accept on the invoice</label><b data-o="b_reb"></b><input type="range" id="b_reb" min="0" max="100" step="10" value="60"></div>
+            <div class="inp"><label for="b_eats">Closing-night meals per person a month, busy season</label><b data-o="b_eats"></b><input type="range" id="b_eats" min="0" max="8" step="1" value="1"></div>
+          </div>
+          <div class="out">
+            <table class="s-table nums">
+              <thead><tr><th></th><th>Busy-season month</th><th>Rest of the year</th></tr></thead>
+              <tbody>
+                <tr><td>Trips your people pay out of pocket and claim back today</td><td data-kb="trips0">—</td><td data-kb="trips1">—</td></tr>
+                <tr><td>Trips you could charge to clients</td><td data-kb="reb0">—</td><td data-kb="reb1">—</td></tr>
+                <tr><td>Estimated monthly budget, on one invoice</td><td data-kb="bud0">—</td><td data-kb="bud1">—</td></tr>
+                <tr><td>Of which could be recovered from clients</td><td data-kb="rec0">—</td><td data-kb="rec1">—</td></tr>
+              </tbody>
+            </table>
+            <p class="s-small">We fill these in with your team: how many people work at client sites, how often they travel, and what your engagement letters allow. Estimates use an average trip of USD 10 and an average meal of USD 15. Other staff take 0.5 trips a month.</p>
+          </div>
+        </div>
+      </div>
+      <div class="s-foot"><span>1 · Role play · Salles Sainz Grant Thornton</span><span class="pg"></span></div>
+    </article>
+    <article class="slide" data-title="Rollout">
+      <p class="s-eyebrow">Mutual plan</p>
+      <h2 class="s-title">Live before busy season: a six-step rollout</h2>
+      <div class="s-body">
+        <div class="s-time">
+          <div class="t"><span class="w">By Dec 4</span><b>Align</b><span>Scope, policies, vendor and independence checks.</span></div>
+          <div class="t"><span class="w">By Dec 11</span><b>Sign</b><span>Agreement and billing setup.</span></div>
+          <div class="t"><span class="w">Dec 14–18</span><b>Configure</b><span>Roster and engagement codes through SFTP, ride policies.</span></div>
+          <div class="t go"><span class="w">Jan 4</span><b>Pilot</b><span>Mexico City and Monterrey teams.</span></div>
+          <div class="t"><span class="w">Jan 18</span><b>Scale</b><span>All nine offices; Eats vouchers for closing nights.</span></div>
+          <div class="t"><span class="w">Mar 2027</span><b>Review</b><span>Usage, rebilled trips and policy exceptions.</span></div>
+        </div>
+        <p class="s-small">Dates assume a decision in the first week of December. Each step has an owner on both sides; the full success plan is in Section 2.</p>
+      </div>
+      <div class="s-foot"><span>1 · Role play · Salles Sainz Grant Thornton</span><span class="pg"></span></div>
+    </article>
+    <article class="slide" data-title="Next steps">
+      <p class="s-eyebrow">Next steps</p>
+      <h2 class="s-title">To move forward, help us understand your process</h2>
+      <div class="s-body">
+        <div class="s-cols">
+          <div class="s-col">
+            <ul>
+              <li>Who approves a new vendor, and up to what amount can each person sign?</li>
+              <li>Does the independence check or vendor due diligence apply to us, and how long does it take?</li>
+              <li>Will Legal review our standard terms and data-privacy addendum, or use your own template?</li>
+              <li>Which expense tool do you use today (Concur or another), and who owns the travel policy?</li>
+              <li>What decision date gets you live before January?</li>
+            </ul>
+          </div>
+          <div class="s-col">
+            <div class="s-card accent"><span class="k">Proposed next step</span><b>A 30-minute working session this week with Finance, HR and IT to confirm policies and the engagement-code file.</b></div>
+          </div>
+        </div>
+      </div>
+      <div class="s-foot"><span>1 · Role play · Salles Sainz Grant Thornton</span><span class="pg"></span></div>
+    </article>
+
+    <article class="slide inv" data-title="Section 2">
+      <p class="s-eyebrow">Section 2</p>
+      <div class="s-body" style="justify-content:center">
+        <h2 class="s-title" style="font-size:calc(var(--fs-title)*1.3)">Mutual success plan</h2>
+        <p class="s-sub">From signature to habit in eight weeks, with owners on both sides.</p>
+      </div>
+      <div class="s-foot"><span>Uber for Business · Salles Sainz Grant Thornton</span><span class="pg"></span></div>
+    </article>
+
+    <article class="slide" data-title="Plan and owners">
+      <p class="s-eyebrow">2 · The plan</p>
+      <h2 class="s-title">Five phases, one owner on each side</h2>
+      <div class="s-body">
+        <table class="s-table">
+          <thead><tr><th>Phase</th><th>When</th><th>SSGT owner</th><th>Uber owner</th><th>Done when</th></tr></thead>
+          <tbody>
+            <tr><td>Sign</td><td>By Dec 11</td><td>CFO</td><td>Account Executive</td><td>Agreement signed; billing and invoicing (CFDI) agreed with Tax</td></tr>
+            <tr><td>Configure</td><td>Dec 14–18</td><td>IT Manager</td><td>Implementation lead</td><td>Roster and engagement codes loaded via SFTP; ride and Eats policies live</td></tr>
+            <tr><td>Pilot</td><td>Jan 4–15</td><td>Admin Director</td><td>Account Manager</td><td>60% of Mexico City and Monterrey staff activated; first trips with codes</td></tr>
+            <tr><td>Scale</td><td>Jan 18 – Feb 28</td><td>Office champions</td><td>Account Manager</td><td>All nine offices live; 85% activation; Eats vouchers on closing nights</td></tr>
+            <tr><td>Review</td><td>Mar and May</td><td>CFO + HR</td><td>Account Executive</td><td>Busy-season results; H2 expansion plan agreed</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="s-foot"><span>2 · Mutual success plan</span><span class="pg"></span></div>
+    </article>
+
+    <article class="slide" data-title="Adoption KPIs">
+      <p class="s-eyebrow">2 · Time to value</p>
+      <h2 class="s-title">Success measured in your terms, reviewed every week of busy season</h2>
+      <div class="s-body">
+        <div class="s-cards c3">
+          <div class="s-card"><span class="k">Activation</span><span class="s-hero">85%</span><span>of client-facing staff with a linked business profile by Feb 28.</span></div>
+          <div class="s-card"><span class="k">First trip</span><span class="s-hero">14 days</span><span>Half of invited staff take a business trip within two weeks.</span></div>
+          <div class="s-card"><span class="k">Coded trips</span><span class="s-hero">90%+</span><span>of trips carry an engagement code, ready to rebill.</span></div>
+          <div class="s-card"><span class="k">Claims replaced</span><span class="s-hero">−70%</span><span>ground-transport expense claims vs. busy season 2026.</span></div>
+          <div class="s-card"><span class="k">Policy exceptions</span><span class="s-hero">&lt;5%</span><span>of trips flagged outside policy after week 4.</span></div>
+          <div class="s-card accent"><span class="k">First value</span><span class="s-hero">Week 1</span><span>Day-one trip report by engagement for the pilot offices.</span></div>
+        </div>
+        <p class="s-small">Proposed targets, to agree with SSGT at signature.</p>
+      </div>
+      <div class="s-foot"><span>2 · Mutual success plan</span><span class="pg"></span></div>
+    </article>
+
+    <article class="slide" data-title="Launch playbook">
+      <p class="s-eyebrow">2 · Driving adoption</p>
+      <h2 class="s-title">How we turn a contract into a habit</h2>
+      <div class="s-body">
+        <div class="s-cards c4">
+          <div class="s-card"><span class="k">Sponsor</span><b>Partner kickoff</b><span>A two-minute message from the Managing Partner at the busy-season kickoff.</span></div>
+          <div class="s-card"><span class="k">Access</span><b>Join in one scan</b><span>QR invite at office meetings; profiles linked in under two minutes.</span></div>
+          <div class="s-card"><span class="k">People</span><b>One champion per office</b><span>Nine go-to contacts who answer questions and spot friction.</span></div>
+          <div class="s-card"><span class="k">Rules</span><b>One-page policy</b><span>When rides and meals are covered, and how to pick the engagement code.</span></div>
+        </div>
+        <div class="s-cards c2">
+          <div class="s-card"><span class="k">Weekly in Jan–Feb</span><b>Usage report by office, shared with champions and the Admin Director</b></div>
+          <div class="s-card"><span class="k">Visible moment</span><b>First closing night with Uber Eats vouchers: the benefit people talk about</b></div>
+        </div>
+      </div>
+      <div class="s-foot"><span>2 · Mutual success plan</span><span class="pg"></span></div>
+    </article>
+
+    <article class="slide" data-title="Adoption risks">
+      <p class="s-eyebrow">2 · Risks to adoption</p>
+      <h2 class="s-title">What could slow adoption, and what we do about it</h2>
+      <div class="s-body">
+        <table class="s-table">
+          <thead><tr><th>Risk</th><th>Early signal</th><th>Response</th></tr></thead>
+          <tbody>
+            <tr><td>Staff do not link profiles</td><td>Activation below 40% after week 1</td><td>Champion follow-up and manager reminders by office</td></tr>
+            <tr><td>Policies too tight</td><td>Many declined or flagged trips</td><td>Policy review in week 2 with HR and Finance</td></tr>
+            <tr><td>Invoicing doubts</td><td>Finance holds the first invoice</td><td>Tax sign-off on the invoicing setup before go-live</td></tr>
+            <tr><td>Thin coverage near plants</td><td>Long waits in industrial parks</td><td>Scheduled trips through Uber Central</td></tr>
+            <tr><td>Codes left blank</td><td>Fewer than 90% of trips coded</td><td>Make the code mandatory; weekly report to engagement managers</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="s-foot"><span>2 · Mutual success plan</span><span class="pg"></span></div>
+    </article>
+    <article class="slide" data-title="Appendix: questions">
+      <p class="s-eyebrow">Appendix</p>
+      <h2 class="s-title">Questions we often hear</h2>
+      <div class="s-body">
+        <table class="s-table">
+          <thead><tr><th>Question</th><th>Short answer</th></tr></thead>
+          <tbody>
+            <tr><td>Is it deductible?</td><td>We will set up company invoicing (CFDI) with your tax team before go-live and confirm the format in writing.</td></tr>
+            <tr><td>Does the platform-worker reform affect the service?</td><td>Drivers are now registered with IMSS under the 2025 reform. The service continues normally; fares adjusted in mid-2026 are reflected in the forecast.</td></tr>
+            <tr><td>What happens to our employees' data?</td><td>We sync only what the account needs (name, email, group). A data-processing addendum covers Mexico's privacy law.</td></tr>
+            <tr><td>What about personal trips?</td><td>Business and personal profiles stay separate; policies, flags and approvals stop misuse.</td></tr>
+            <tr><td>Are there drivers near industrial parks?</td><td>Coverage varies by area; Uber Central lets assistants schedule trips in advance where needed.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="s-foot"><span>Answers to confirm with Uber Legal and Tax before the meeting</span><span class="pg"></span></div>
+    </article>
+  </div>
+</div>

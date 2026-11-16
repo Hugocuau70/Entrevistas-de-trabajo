@@ -20,3 +20,5 @@
 | 2026-11-16 | Google Slides en Drive: https://docs.google.com/presentation/d/16gxu0sqzFxV0Djh6qSDH4laAD2N1KAGguCKlizWNWIk/edit | Entregable; el logo de Uber lo inserta el usuario |
 | 2026-11-16 | Pestañas: Panel deck (22 slides, unificado) + Salles Sainz review (deck anterior de 11 slides, restaurado) | El usuario prefiere el deck anterior para comparar |
 | 2026-11-16 | Logos de Uber for Business (provistos por el usuario) integrados en el pptx y en Google Slides v2: https://docs.google.com/presentation/d/1I2L3wbRUcg6AYzO6o2STs_xoPeOTGySlg4rFgy-Gehs/edit | La v1 sin logos queda renombrada en Drive |
+| 2026-11-16 | Panel deck v3 (lean): 12 slides + 3 de anexo, storytelling según la estructura del caso; About me incluido; comité y selección de industria pasan al anexo | Registro ejecutivo, foco AE; la v2 de 22 slides queda en `07_deck/panel_v2_22slides.html` |
+| 2026-11-16 | Sección 3 (Book of Business) irá en un deck aparte, con todo el Industry Radar | Decisión del usuario |
