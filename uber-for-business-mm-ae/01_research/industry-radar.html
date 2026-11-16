@@ -420,7 +420,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
               <div class="kpi main"><span class="v" data-ka="h1">—</span><span class="l">H1 2027 projected · <span data-ka="quota"></span> of the USD 350K quota</span></div>
             </div>
             <div class="s-chart" id="chartA"></div>
-            <p class="s-small">GB = gross value of rides and Eats orders billed through Uber. Monthly GB = rides × USD 10 + Eats orders × USD 15 (case inputs). Other staff take 0.5 rides a month; off-season Eats is 0.1 orders per employee. Adoption ramps from month 1 (pilot in two offices) to the month-6 ceiling; it stays below 100% because some staff drive, some clients provide transport and some prefer other apps. Conservative: 2 and 1 rides, 50% ceiling.</p>
+            <p class="s-small">GB = gross value of rides and Eats orders billed through Uber. Monthly GB = rides × USD 10 + Eats orders × USD 15 (case inputs). Other staff take 0.5 rides a month; off-season Eats is 0.1 orders per employee. Adoption ramps from month 1 (pilot in two offices) to the month-6 ceiling; it stays below 100% because some staff drive, some clients provide transport and some prefer other apps (ground-transport policy compliance averages 67%; top performers reach 85%). Conservative: 2 and 1 rides, 50% ceiling.</p>
           </div>
         </div>
       </div>
@@ -699,7 +699,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
           <div class="s-col">
             <div class="s-card"><span class="k">Why</span><b>GB is recognized when people ride, not at signature. Adoption ramps from 20% in month 1 to 70% by month 6.</b></div>
             <div class="s-card accent"><span class="k">So</span><span class="s-hero">15x</span><span>A December close is worth 15 times a May close inside H1.</span></div>
-            <div class="s-card"><span class="k">Rule</span><b>About 90% of H1 GB has to come from deals closed by February.</b></div>
+            <div class="s-card"><span class="k">Rule</span><b>More than 90% of H1 GB has to come from deals closed by February.</b></div>
           </div>
         </div>
       </div>
@@ -708,7 +708,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 
     <article class="slide" data-title="Pipeline">
       <p class="s-eyebrow">Section 3 · Portfolio and pipeline</p>
-      <h2 class="s-title">A USD 16M portfolio; 47 opportunities and 13 wins reach the quota</h2>
+      <h2 class="s-title">A USD 16M portfolio; 51 opportunities and 12 wins reach the quota</h2>
       <div class="s-body">
         <div class="kpis" style="grid-template-columns:repeat(4,1fr)">
           <div class="kpi"><span class="v" data-kb3="portfolio">—</span><span class="l">Portfolio potential a year (all 150 at full adoption)</span></div>
@@ -720,7 +720,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
           <thead><tr><th>Tier</th><th>Accounts</th><th>Meetings</th><th>Opportunities</th><th>Win rate</th><th>Wins</th><th>Closes</th><th>H1 GB</th></tr></thead>
           <tbody id="bobFunnel"></tbody>
         </table>
-        <p class="s-small">Annual potential per account = employees × GB per employee a year at full adoption (Tier 1: 950 × USD 240, calibrated on Salles Sainz Grant Thornton; Tier 2: 700 × USD 130; Tier 3: 500 × USD 70). Salles Sainz is one of the Tier 1 December wins, counted at the Tier 1 average; its extra value is upside.</p>
+        <p class="s-small">Annual potential per account = employees × GB per employee a year at full adoption (Tier 1: 950 × USD 240, calibrated on Salles Sainz Grant Thornton; Tier 2: 700 × USD 130; Tier 3: 500 × USD 70). Salles Sainz is one of the Tier 1 December wins, counted at the Tier 1 average; its extra value is upside. Win rates set against B2B benchmarks: mid-market median 24% (interquartile 20–28%); Tier 1 at 28% for warm, trigger-based deals. Adoption of 70% by month 6 matches the ground-transport policy-compliance average (67%); top performers reach 85%.</p>
       </div>
       <div class="s-foot"><span>Section 3 · Book of Business</span><span class="pg"></span></div>
     </article>
@@ -731,9 +731,9 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
       <div class="s-body">
         <div class="calc">
           <div class="inputs">
-            <div class="inp"><label for="q_w1">Tier 1 win rate</label><b data-o="q_w1"></b><input type="range" id="q_w1" min="15" max="50" step="1" value="33"></div>
-            <div class="inp"><label for="q_w2">Tier 2 win rate</label><b data-o="q_w2"></b><input type="range" id="q_w2" min="10" max="40" step="1" value="25"></div>
-            <div class="inp"><label for="q_m1">Tier 1 accounts that take a meeting</label><b data-o="q_m1"></b><input type="range" id="q_m1" min="40" max="95" step="5" value="75"></div>
+            <div class="inp"><label for="q_w1">Tier 1 win rate</label><b data-o="q_w1"></b><input type="range" id="q_w1" min="15" max="50" step="1" value="28"></div>
+            <div class="inp"><label for="q_w2">Tier 2 win rate</label><b data-o="q_w2"></b><input type="range" id="q_w2" min="10" max="40" step="1" value="20"></div>
+            <div class="inp"><label for="q_m1">Tier 1 accounts that take a meeting</label><b data-o="q_m1"></b><input type="range" id="q_m1" min="40" max="95" step="5" value="85"></div>
             <div class="inp"><label for="q_e1">Tier 1 average employees</label><b data-o="q_e1"></b><input type="range" id="q_e1" min="400" max="1500" step="50" value="950"></div>
             <div class="inp"><label for="q_slip">Closes slip by</label><select id="q_slip"><option value="0">0 months (plan)</option><option value="1">1 month</option><option value="2">2 months</option></select></div>
           </div>
@@ -776,7 +776,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
             <tr><td>T-MEC review</td><td>External −</td><td>Auto parts and warehousing delay spend</td><td>Kept in Tier 2; pitch cost control, not growth</td></tr>
             <tr><td>Calendar: slow January, Easter week Mar 21–28, elections Jun 6</td><td>External −</td><td>Fewer decision days</td><td>Signatures in December; go-lives before mid-March</td></tr>
             <tr><td>Fares up to 7% after the 2026 platform reform</td><td>External ±</td><td>More GB per trip; price objections</td><td>Lead with control and recovery, not price</td></tr>
-            <tr><td>My ramp, BDR capacity, Legal and CFDI setup</td><td>Internal</td><td>75 meetings in H1, about 3 a week</td><td>Automate Tier 3; standard invoicing playbook with Tax</td></tr>
+            <tr><td>My ramp, BDR capacity, Legal and CFDI setup</td><td>Internal</td><td>About 80 meetings in H1, 3 a week</td><td>Automate Tier 3; standard invoicing playbook with Tax</td></tr>
           </tbody>
         </table>
       </div>
@@ -1548,9 +1548,9 @@ window.GB = (() => {
   const mult = (ci) => (ci < 6 ? R.slice(0, 6 - ci).reduce((s, x) => s + x, 0) : 0);
   const usd = (v) => (v >= 1e6 ? `USD ${(v / 1e6).toFixed(1)}M` : `USD ${Math.round(v / 1000)}K`);
   const BASE = [
-    { t: 'Tier 1', acc: 40, emp: 950, pe: 240, meet: .75, qual: .70, win: .33, timing: { 0: .4, 1: .3, 2: .3 } },
-    { t: 'Tier 2', acc: 60, emp: 700, pe: 130, meet: .50, qual: .60, win: .25, timing: { 2: .25, 3: .5, 4: .25 } },
-    { t: 'Tier 3', acc: 50, emp: 500, pe: 70, meet: .30, qual: .50, win: .15, timing: { 4: .5, 5: .5 } },
+    { t: 'Tier 1', acc: 40, emp: 950, pe: 240, meet: .85, qual: .75, win: .28, timing: { 0: .4, 1: .3, 2: .3 } },
+    { t: 'Tier 2', acc: 60, emp: 700, pe: 130, meet: .50, qual: .60, win: .20, timing: { 2: .25, 3: .5, 4: .25 } },
+    { t: 'Tier 3', acc: 50, emp: 500, pe: 70, meet: .30, qual: .50, win: .12, timing: { 4: .5, 5: .5 } },
   ];
   function model(p) {
     const tiers = BASE.map((T) => ({ ...T, timing: { ...T.timing } }));
@@ -1576,8 +1576,8 @@ window.GB = (() => {
     const vals = { portfolio: usd(t.pot), pipe: usd(t.pipe), opps: Math.round(t.opp), won: usd(t.won), wins: Math.round(t.win), rate: Math.round(t.win / t.opp * 100) + '%', h1: usd(t.h1), quota: Math.round(t.h1 / 350000 * 100) + '%', jun: usd(t.jun) };
     Object.entries(vals).forEach(([k, v]) => scope.querySelectorAll(`[data-kb3=${k}]`).forEach((e) => { e.textContent = v; }));
     const tb = document.getElementById('bobFunnel'); tb.replaceChildren();
-    r.rows.forEach((x) => { const tr = tb.insertRow(); [x.t, x.acc, Math.round(x.meet), Math.round(x.opp), Math.round(x.rate * 100) + '%', x.win.toFixed(1), x.closes, usd(x.h1)].forEach((v) => { tr.insertCell().textContent = v; }); });
-    const tr = tb.insertRow(); ['Total', t.acc, Math.round(t.meet), Math.round(t.opp), Math.round(t.win / t.opp * 100) + '%', t.win.toFixed(1), '', usd(t.h1)].forEach((v) => { const c = tr.insertCell(); c.textContent = v; c.style.fontWeight = '700'; });
+    r.rows.forEach((x) => { const tr = tb.insertRow(); [x.t, x.acc, Math.round(x.meet), x.opp.toFixed(1), Math.round(x.rate * 100) + '%', x.win.toFixed(1), x.closes, usd(x.h1)].forEach((v) => { tr.insertCell().textContent = v; }); });
+    const tr = tb.insertRow(); ['Total', t.acc, Math.round(t.meet), t.opp.toFixed(1), Math.round(t.win / t.opp * 100) + '%', t.win.toFixed(1), '', usd(t.h1)].forEach((v) => { const c = tr.insertCell(); c.textContent = v; c.style.fontWeight = '700'; });
     // cumulative chart
     const host = document.getElementById('chartCum'); const W = 560, H = 200, pl = 6, pt = 18, pb = 24; const ML6 = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
     const max = Math.max(380000, ...r.cum) * 1.08; const bw = (W - pl * 2) / 6; const y = (v) => pt + (H - pt - pb) * (1 - v / max);

@@ -7,9 +7,9 @@
   const mult = (ci) => (ci < 6 ? R.slice(0, 6 - ci).reduce((s, x) => s + x, 0) : 0);
   const usd = (v) => (v >= 1e6 ? `USD ${(v / 1e6).toFixed(1)}M` : `USD ${Math.round(v / 1000)}K`);
   const BASE = [
-    { t: 'Tier 1', acc: 40, emp: 950, pe: 240, meet: .75, qual: .70, win: .33, timing: { 0: .4, 1: .3, 2: .3 } },
-    { t: 'Tier 2', acc: 60, emp: 700, pe: 130, meet: .50, qual: .60, win: .25, timing: { 2: .25, 3: .5, 4: .25 } },
-    { t: 'Tier 3', acc: 50, emp: 500, pe: 70, meet: .30, qual: .50, win: .15, timing: { 4: .5, 5: .5 } },
+    { t: 'Tier 1', acc: 40, emp: 950, pe: 240, meet: .85, qual: .75, win: .28, timing: { 0: .4, 1: .3, 2: .3 } },
+    { t: 'Tier 2', acc: 60, emp: 700, pe: 130, meet: .50, qual: .60, win: .20, timing: { 2: .25, 3: .5, 4: .25 } },
+    { t: 'Tier 3', acc: 50, emp: 500, pe: 70, meet: .30, qual: .50, win: .12, timing: { 4: .5, 5: .5 } },
   ];
   function model(p) {
     const tiers = BASE.map((T) => ({ ...T, timing: { ...T.timing } }));
@@ -35,8 +35,8 @@
     const vals = { portfolio: usd(t.pot), pipe: usd(t.pipe), opps: Math.round(t.opp), won: usd(t.won), wins: Math.round(t.win), rate: Math.round(t.win / t.opp * 100) + '%', h1: usd(t.h1), quota: Math.round(t.h1 / 350000 * 100) + '%', jun: usd(t.jun) };
     Object.entries(vals).forEach(([k, v]) => scope.querySelectorAll(`[data-kb3=${k}]`).forEach((e) => { e.textContent = v; }));
     const tb = document.getElementById('bobFunnel'); tb.replaceChildren();
-    r.rows.forEach((x) => { const tr = tb.insertRow(); [x.t, x.acc, Math.round(x.meet), Math.round(x.opp), Math.round(x.rate * 100) + '%', x.win.toFixed(1), x.closes, usd(x.h1)].forEach((v) => { tr.insertCell().textContent = v; }); });
-    const tr = tb.insertRow(); ['Total', t.acc, Math.round(t.meet), Math.round(t.opp), Math.round(t.win / t.opp * 100) + '%', t.win.toFixed(1), '', usd(t.h1)].forEach((v) => { const c = tr.insertCell(); c.textContent = v; c.style.fontWeight = '700'; });
+    r.rows.forEach((x) => { const tr = tb.insertRow(); [x.t, x.acc, Math.round(x.meet), x.opp.toFixed(1), Math.round(x.rate * 100) + '%', x.win.toFixed(1), x.closes, usd(x.h1)].forEach((v) => { tr.insertCell().textContent = v; }); });
+    const tr = tb.insertRow(); ['Total', t.acc, Math.round(t.meet), t.opp.toFixed(1), Math.round(t.win / t.opp * 100) + '%', t.win.toFixed(1), '', usd(t.h1)].forEach((v) => { const c = tr.insertCell(); c.textContent = v; c.style.fontWeight = '700'; });
     // cumulative chart
     const host = document.getElementById('chartCum'); const W = 560, H = 200, pl = 6, pt = 18, pb = 24; const ML6 = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
     const max = Math.max(380000, ...r.cum) * 1.08; const bw = (W - pl * 2) / 6; const y = (v) => pt + (H - pt - pb) * (1 - v / max);

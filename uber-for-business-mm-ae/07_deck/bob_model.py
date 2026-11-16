@@ -6,9 +6,9 @@ def h1_mult(ci):  # ci: 0=Dec ... 6=Jun ; months of H1 usage captured per $1 of 
     return sum(R[m - live] for m in range(live, 6)) if live < 6 else 0.0
 MULT = [round(h1_mult(i), 2) for i in range(7)]
 TIERS = [
-  dict(t='Tier 1', inds='Audit & tax, engineering, pharma, consulting, data centers, construction', acc=40, emp=950, pe=240, meet=.75, qual=.70, win=.33, timing={'Dec': .4, 'Jan': .3, 'Feb': .3}, product='Uber Travel + Ride Policies + expense codes', motion='AE-led, BDR-supported; busy-season triggers'),
-  dict(t='Tier 2', inds='Food, electronics, advertising, auto parts, warehousing, IT, legal', acc=60, emp=700, pe=130, meet=.50, qual=.60, win=.25, timing={'Feb': .25, 'Mar': .5, 'Apr': .25}, product='Uber Travel + Uber Central', motion='BDR-led sequences; AE from first meeting'),
-  dict(t='Tier 3', inds='Telecom, hospitals, labs, staffing, security, trucking', acc=50, emp=500, pe=70, meet=.30, qual=.50, win=.15, timing={'Apr': .5, 'May': .5}, product='Vouchers (rides and Eats)', motion='Automated nurture; builds H2 pipeline'),
+  dict(t='Tier 1', inds='Audit & tax, engineering, pharma, consulting, data centers, construction', acc=40, emp=950, pe=240, meet=.85, qual=.75, win=.28, timing={'Dec': .4, 'Jan': .3, 'Feb': .3}, product='Uber Travel + Ride Policies + expense codes', motion='AE-led, BDR-supported; busy-season triggers'),
+  dict(t='Tier 2', inds='Food, electronics, advertising, auto parts, warehousing, IT, legal', acc=60, emp=700, pe=130, meet=.50, qual=.60, win=.20, timing={'Feb': .25, 'Mar': .5, 'Apr': .25}, product='Uber Travel + Uber Central', motion='BDR-led sequences; AE from first meeting'),
+  dict(t='Tier 3', inds='Telecom, hospitals, labs, staffing, security, trucking', acc=50, emp=500, pe=70, meet=.30, qual=.50, win=.12, timing={'Apr': .5, 'May': .5}, product='Vouchers (rides and Eats)', motion='Automated nurture; builds H2 pipeline'),
 ]
 out = {'mult': dict(zip(MONTHS, MULT)), 'tiers': []}
 tot = dict(acc=0, meet=0, opp=0, win=0, pot=0, pipe=0, wonpot=0, h1=0, jun=0)

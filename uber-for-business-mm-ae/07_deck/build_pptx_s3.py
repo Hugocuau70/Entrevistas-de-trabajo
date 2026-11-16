@@ -154,25 +154,25 @@ s = new('In H1, when a deal closes matters more than how big it is', 'Section 3 
 bar_chart(s, ML, 2.3, 7.4, 3.9, ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], [3.0, 2.3, 1.65, 1.05, 0.55, 0.2, 0.0], [0, 1, 2], '0.0#', 'Months of GB captured in H1 per USD 1 of monthly potential, by close month')
 card(s, 8.5, 2.0, W - ML - 8.5, 1.3, 'Why', None, 'GB is recognized when people ride, not at signature. Adoption ramps from 20% to 70% by month 6.', bodysize=13)
 card(s, 8.5, 3.45, W - ML - 8.5, 1.55, 'So', '15x', 'A December close is worth 15 times a May close inside H1.', accent=True, bigsize=30, bodysize=13)
-card(s, 8.5, 5.15, W - ML - 8.5, 1.1, 'Rule', None, 'About 90% of H1 GB has to come from deals closed by February.', bodysize=13)
+card(s, 8.5, 5.15, W - ML - 8.5, 1.1, 'Rule', None, 'More than 90% of H1 GB has to come from deals closed by February.', bodysize=13)
 # 4 Pipeline
-s = new('A USD 16M portfolio; 47 opportunities and 13 wins reach the quota', 'Section 3 · Portfolio and pipeline', foot=F3,
-        notes='Potencial del portafolio USD 16.3M/año. Crear 47 oportunidades (USD 6.7M de potencial anual); cerrar 13 (USD 2.0M) a 27%; en H1 se reconocen USD 352K por la rampa. SSGT es uno de los cierres de diciembre, contado al promedio de Tier 1; su valor extra es upside.')
-kp = [('USD 16.3M', 'Portfolio potential a year (all 150 at full adoption)'), ('USD 6.7M', 'Pipeline to create: 47 opportunities'), ('USD 2.0M', 'Pipeline to close: 13 deals at 27%'), ('USD 352K', 'GB recognized in H1 · 101% of quota')]
+s = new('A USD 16M portfolio; 51 opportunities and 12 wins reach the quota', 'Section 3 · Portfolio and pipeline', foot=F3,
+        notes='Potencial del portafolio USD 16.3M/año. Crear 51 oportunidades (USD 7.7M de potencial anual); cerrar 12 (USD 2.0M) a 23%, en línea con la mediana de mercado (24%); en H1 se reconocen USD 354K por la rampa. La palanca es generar pipeline: reunirse con 85% de Tier 1. SSGT es uno de los cierres de diciembre, contado al promedio de Tier 1; su valor extra es upside.')
+kp = [('USD 16.3M', 'Portfolio potential a year (all 150 at full adoption)'), ('USD 7.7M', 'Pipeline to create: 51 opportunities'), ('USD 2.0M', 'Pipeline to close: 12 deals at 23%'), ('USD 354K', 'GB recognized in H1 · 101% of quota')]
 for i, (v, l) in enumerate(kp):
     x = ML + i * 3.0; rect(s, x, 2.0, 0.06, 0.95, ACC if i == 3 else LINE)
     tb(s, x + 0.2, 1.95, 2.8, 0.55, v, 24, True, BLACK); tb(s, x + 0.2, 2.5, 2.7, 0.5, l, 10, False, G3)
 table(s, 3.25, ['Tier', 'Accounts', 'Meetings', 'Opportunities', 'Win rate', 'Wins', 'Closes', 'H1 GB'], [
-  ['Tier 1', '40', '30', '21', '33%', '6.9', 'Dec–Feb', 'USD 314K'], ['Tier 2', '60', '30', '18', '25%', '4.5', 'Feb–Apr', 'USD 37K'],
-  ['Tier 3', '50', '15', '8', '15%', '1.1', 'Apr–May', 'USD 1K'], ['Total', '150', '75', '47', '27%', '12.6', '', 'USD 352K']], [1, 1, 1, 1.2, 1, 0.8, 1.1, 1.1], 13)
-tb(s, ML, 5.6, CW, 0.9, 'Annual potential per account = employees × GB per employee a year at full adoption (Tier 1: 950 × USD 240, calibrated on Salles Sainz Grant Thornton; Tier 2: 700 × USD 130; Tier 3: 500 × USD 70). Salles Sainz is one of the Tier 1 December wins, counted at the Tier 1 average; its extra value is upside.', 10, False, G3)
+  ['Tier 1', '40', '34', '25.5', '28%', '7.1', 'Dec–Feb', 'USD 324K'], ['Tier 2', '60', '30', '18.0', '20%', '3.6', 'Feb–Apr', 'USD 29K'],
+  ['Tier 3', '50', '15', '7.5', '12%', '0.9', 'Apr–May', 'USD 1K'], ['Total', '150', '79', '51.0', '23%', '11.6', '', 'USD 354K']], [1, 1, 1, 1.2, 1, 0.8, 1.1, 1.1], 13)
+tb(s, ML, 5.6, CW, 0.9, 'Annual potential per account = employees × GB per employee a year at full adoption (Tier 1: 950 × USD 240, calibrated on Salles Sainz Grant Thornton; Tier 2: 700 × USD 130; Tier 3: 500 × USD 70). Salles Sainz is one of the Tier 1 December wins, counted at the Tier 1 average; its extra value is upside. Win rates set against B2B benchmarks: mid-market median 24% (interquartile 20–28%); Tier 1 at 28% for warm, trigger-based deals. Adoption of 70% by month 6 matches the ground-transport policy-compliance average (67%); top performers reach 85%.', 9.5, False, G3)
 # 5 Forecast
 s = new('The forecast: front-load Tier 1, exit June with a strong run-rate', 'Section 3 · Forecast', foot='Cumulative GB recognized vs. quota, Jan–Jun 2027 · ' + F3,
-        notes='Acumulado: ene 11K, feb 37K, mar 87K, abr 158K, may 248K, jun 352K. Run-rate de junio USD 104K/mes: base para H2. Si los cierres se retrasan un mes, H1 cae a ~USD 248K. Versión interactiva en el Radar.')
-ch = bar_chart(s, ML, 2.35, 8.2, 4.0, ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], [11, 37, 87, 158, 248, 352], [5], '"USD "0"K"', 'Cumulative GB recognized in H1 2027 (USD thousands) · quota USD 350K')
+        notes='Acumulado: ene 11K, feb 38K, mar 89K, abr 161K, may 251K, jun 354K. Run-rate de junio USD 103K/mes: base para H2. Si los cierres se retrasan un mes, H1 cae a ~USD 251K. Versión interactiva en el Radar.')
+ch = bar_chart(s, ML, 2.35, 8.2, 4.0, ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], [11, 38, 89, 161, 251, 354], [5], '"USD "0"K"', 'Cumulative GB recognized in H1 2027 (USD thousands) · quota USD 350K')
 ln = s.shapes.add_connector(1, Inches(ML), Inches(2.6), Inches(ML + 8.2), Inches(2.6)); ln.line.color.rgb = BLACK; ln.line.dash_style = MSO_LINE_DASH_STYLE.DASH; ln.line.width = Pt(1.25)
 tb(s, ML + 0.1, 2.32, 3, 0.25, 'Quota USD 350K', 10, True)
-for i, (v, l) in enumerate([('USD 352K', 'H1 GB · 101% of quota'), ('13 wins', 'from 47 opportunities'), ('USD 104K', 'June monthly run-rate, the base for H2')]):
+for i, (v, l) in enumerate([('USD 354K', 'H1 GB · 101% of quota'), ('12 wins', 'from 51 opportunities'), ('USD 103K', 'June monthly run-rate, the base for H2')]):
     y = 2.0 + i * 1.45; rect(s, 9.3, y, 0.06, 1.1, ACC if i == 0 else LINE)
     tb(s, 9.5, y, 3.2, 0.6, v, 26, True); tb(s, 9.5, y + 0.6, 3.2, 0.5, l, 11, False, G3)
 # 6 Products
@@ -189,6 +189,6 @@ table(s, 2.0, ['Factor', 'Type', 'Effect on H1', 'Response'], [
   ['T-MEC review', 'External −', 'Auto parts and warehousing delay spend', 'Kept in Tier 2; pitch cost control, not growth'],
   ['Calendar: slow January, Easter week Mar 21–28, elections Jun 6', 'External −', 'Fewer decision days', 'Signatures in December; go-lives before mid-March'],
   ['Fares up to 7% after the 2026 platform reform', 'External ±', 'More GB per trip; price objections', 'Lead with control and recovery, not price'],
-  ['My ramp, BDR capacity, Legal and CFDI setup', 'Internal', '75 meetings in H1, about 3 a week', 'Automate Tier 3; standard invoicing playbook with Tax']], [2.0, 0.9, 1.6, 2.0], 12)
+  ['My ramp, BDR capacity, Legal and CFDI setup', 'Internal', 'About 80 meetings in H1, 3 a week', 'Automate Tier 3; standard invoicing playbook with Tax']], [2.0, 0.9, 1.6, 2.0], 12)
 assert state['n'] == TOTAL, state['n']
 prs.save(OUT); print('saved', OUT)
