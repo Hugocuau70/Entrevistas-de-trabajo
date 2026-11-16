@@ -1,6 +1,6 @@
 // Section 3 · Book of Business model
 (() => {
-  const scope = document.getElementById('book-of-business'); if (!scope) return;
+  const scope = document.getElementById('final-deck'); if (!scope) return;
   const NS = 'http://www.w3.org/2000/svg';
   const mk = (tag, attrs, text) => { const e = document.createElementNS(NS, tag); Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, v)); if (text !== undefined) e.textContent = text; return e; };
   const R = [0.20, 0.35, 0.50, 0.60, 0.65, 0.70]; const CM = ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];

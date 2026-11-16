@@ -1,8 +1,8 @@
 // Tabs with hash routing
 (() => {
-  const TABS = ['radar', 'panel-deck', 'book-of-business', 'salles-review', 'internal-brief'];
+  const TABS = ['radar', 'final-deck', 'salles-review', 'internal-brief'];
   const show = (id) => {
-    if (id === 'client-deck') id = 'panel-deck';
+    if (['client-deck', 'panel-deck', 'book-of-business'].includes(id)) id = 'final-deck';
     if (!TABS.includes(id)) id = 'radar';
     document.querySelectorAll('[data-tab]').forEach((p) => { p.hidden = p.dataset.tab !== id; });
     document.querySelectorAll('.tabs button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.go === id)));

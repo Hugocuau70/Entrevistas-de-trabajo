@@ -29,3 +29,4 @@
 | 2026-11-16 | Palanca de seguridad (viajes nocturnos compartidos con un contacto de confianza) añadida con poco foco a la palanca 03; Panel deck v5 | Petición del usuario |
 | 2026-11-16 | Win rates calibrados con benchmarks (mediana mid-market 24%, rango intercuartil 20–28%): Tier 1 28%, Tier 2 20%, Tier 3 12% (combinado 23%). Para sostener 101% se cubre 85% de Tier 1 con reuniones: 51 oportunidades, 12 cierres, USD 354K en H1 | Benchmark (Optifai 939 empresas; HubSpot 21%); adopción de 70% ≈ promedio de cumplimiento en transporte terrestre (67%) |
 | 2026-11-16 | Entregable unificado (23 slides): https://docs.google.com/presentation/d/1za-SvN9Quw-JErtx6jBFffMfld6BNmtPtI-DkkFpmBA/edit · v1–v4 enviadas a la papelera de Drive | Link para el correo a la reclutadora |
+| 2026-11-16 | Radar: pestañas Panel deck y Book of Business unidas en "Final deck" (23 slides, mismo orden que Google Slides) | Presentar en vivo sin cambiar de pestaña |

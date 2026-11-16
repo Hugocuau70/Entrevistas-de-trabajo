@@ -203,8 +203,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 <div class="page">
   <nav class="tabs" role="tablist" aria-label="Views">
     <button type="button" role="tab" data-go="radar" aria-selected="true">Industry radar</button>
-    <button type="button" role="tab" data-go="panel-deck" aria-selected="false">Panel deck</button>
-    <button type="button" role="tab" data-go="book-of-business" aria-selected="false">Book of Business</button>
+    <button type="button" role="tab" data-go="final-deck" aria-selected="false">Final deck</button>
     <button type="button" role="tab" data-go="salles-review" aria-selected="false">Salles Sainz review</button>
     <button type="button" role="tab" data-go="internal-brief" aria-selected="false">Internal brief</button>
   </nav>
@@ -328,23 +327,21 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
     <p class="sources">Sources: <a href="https://www.inegi.org.mx/programas/ems/2018/" target="_blank" rel="noopener">INEGI EMS</a> · <a href="https://www.inegi.org.mx/programas/emim/2018/" target="_blank" rel="noopener">INEGI EMIM</a> · <a href="https://www.inegi.org.mx/programas/enec/2018/" target="_blank" rel="noopener">INEGI ENEC</a> · <a href="https://www.inegi.org.mx/programas/ce/2024/" target="_blank" rel="noopener">INEGI Censos Económicos 2024</a>. Data downloaded 15 Nov 2026.</p>
   </details>
   </div>
-<div class="tabpanel" id="panel-deck" data-tab="panel-deck" hidden>
+<div class="tabpanel" id="final-deck" data-tab="final-deck" hidden>
   <div class="deck-bar">
-    <p class="deck-intro">Panel deck · Section 1 (company profile, strategy and role play) and Section 2 (mutual success plan), followed by a three-slide appendix for Q&amp;A. Use ← → to move between slides.</p>
+    <p class="deck-intro">Final deck · Sections 1–2 (company profile, strategy, role play and mutual success plan), Section 3 (Book of Business) and the appendix, in the same order as the Google Slides sent by email. Use ← → to move between slides.</p>
     <div class="nav"><button type="button" data-act="prev">Previous</button><span class="count"></span><button type="button" data-act="next">Next</button><button type="button" data-act="all" aria-pressed="false">Show all</button></div>
   </div>
-  <div class="slides" data-deck="panel">
-
+  <div class="slides" data-deck="final">
     <article class="slide inv" data-title="Cover">
       <div class="s-client"><span>Prepared for</span><img src="data:image/png;base64,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" alt="Salles Sainz Grant Thornton"></div>
       <p class="s-eyebrow">Uber for Business · Mid-Market Mexico · H1 2027</p>
       <div class="s-body" style="justify-content:center">
         <h2 class="s-title" style="font-size:calc(var(--fs-title)*1.4)">Salles Sainz Grant Thornton: winning busy season 2027</h2>
-        <p class="s-sub">Section 1 · Company profile, strategy and role play · Section 2 · Mutual success plan</p>
+        <p class="s-sub">Section 1 · Company profile, strategy and role play · Section 2 · Mutual success plan · Section 3 · Book of Business</p>
       </div>
       <div class="s-foot"><span>Diego Cuauhtémoc · Mid-Market Account Executive</span><span>November 2026</span></div>
     </article>
-
     <article class="slide" data-title="About me">
       <p class="s-eyebrow">About me</p>
       <h2 class="s-title">A consultative seller who grows accounts with data</h2>
@@ -358,7 +355,6 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
       </div>
       <div class="s-foot"><span>Diego Cuauhtémoc · Mid-Market Account Executive</span><span class="pg"></span></div>
     </article>
-
     <article class="slide profile" data-title="Company profile">
       <p class="s-eyebrow">Section 1 · Company profile</p>
       <h2 class="s-title">Salles Sainz Grant Thornton: an ideal mid-market account</h2>
@@ -460,7 +456,6 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
       </div>
       <div class="s-foot"><span>Sources: INEGI EMS 2022–2025 (detrended); Google Keyword Planner MX; LGSM art. 181 · Section 1 · Role play · Salles Sainz Grant Thornton</span><span class="pg"></span></div>
     </article>
-
     <article class="slide" data-title="Five moments">
       <p class="s-eyebrow">Section 1 · Role play · Solution</p>
       <h2 class="s-title">Five moments, one platform configured to your policies</h2>
@@ -519,7 +514,6 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
       </div>
       <div class="s-foot"><span>Section 1 · Role play · Salles Sainz Grant Thornton</span><span class="pg"></span></div>
     </article>
-
     <article class="slide" data-title="Rollout">
       <p class="s-eyebrow">Section 1 · Role play · Next steps</p>
       <h2 class="s-title">Live before busy season, with a decision in early December</h2>
@@ -539,7 +533,6 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
       </div>
       <div class="s-foot"><span>Section 1 · Role play · Salles Sainz Grant Thornton</span><span class="pg"></span></div>
     </article>
-
     <article class="slide" data-title="Mutual success plan">
       <p class="s-eyebrow">Section 2 · Mutual success plan</p>
       <h2 class="s-title">From signature to habit in eight weeks, with owners on both sides</h2>
@@ -560,8 +553,6 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
       </div>
       <div class="s-foot"><span>Proposed targets, to agree at signature · Section 2 · Mutual success plan</span><span class="pg"></span></div>
     </article>
-
-
     <article class="slide" data-title="Adoption strategy">
       <p class="s-eyebrow">Section 2 · Adoption strategy</p>
       <h2 class="s-title">Five levers that turn 1,000 invitations into a daily habit</h2>
@@ -606,6 +597,118 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
         </div>
       </div>
       <div class="s-foot"><span>Section 2 · Mutual success plan</span><span class="pg"></span></div>
+    </article>
+    <article class="slide inv" data-title="Section 3">
+      <p class="s-eyebrow">Section 3</p>
+      <div class="s-body" style="justify-content:center">
+        <h2 class="s-title" style="font-size:calc(var(--fs-title)*1.35)">Book of Business: 150 accounts to USD 350K in H1 2027</h2>
+        <p class="s-sub">Prioritization, products, forecast and what can move the number.</p>
+      </div>
+      <div class="s-foot"><span>Diego Cuauhtémoc · Mid-Market Account Executive</span><span class="pg"></span></div>
+    </article>
+    <article class="slide" data-title="Prioritization">
+      <p class="s-eyebrow">Section 3 · Prioritization</p>
+      <h2 class="s-title">Prioritize by trigger, not by size: three tiers from the Industry radar</h2>
+      <div class="s-body">
+        <table class="s-table">
+          <thead><tr><th>Tier</th><th>Industries</th><th>Accounts</th><th>Why now</th><th>Motion</th></tr></thead>
+          <tbody>
+            <tr><td>Tier 1</td><td>Audit and tax, engineering, pharma, consulting, data centers, construction</td><td>40</td><td>Busy seasons and projects that start in Q1</td><td>AE-led with BDR support; work all 40 by January</td></tr>
+            <tr><td>Tier 2</td><td>Food, electronics, advertising, auto parts, warehousing, IT, legal</td><td>60</td><td>Steady travel; auto parts and warehousing slowed by the T-MEC review</td><td>BDR sequences; AE joins from the first meeting</td></tr>
+            <tr><td>Tier 3</td><td>Telecom, hospitals, labs, staffing, security, trucking</td><td>50</td><td>Low ride intensity or enterprise-size players</td><td>Automated nurture with intent signals; builds H2 pipeline</td></tr>
+          </tbody>
+        </table>
+        <p class="s-small">Tiers come from the opportunity scorer (Tier 1 ≥ 55, Tier 2 40–55, Tier 3 &lt; 40). The split of the 150 accounts by industry is an assumption to replace with the real book in Salesforce.</p>
+      </div>
+      <div class="s-foot"><span>Sources: Industry radar (INEGI, Economic Census 2024, Google Keyword Planner) · Section 3</span><span class="pg"></span></div>
+    </article>
+    <article class="slide" data-title="Timing">
+      <p class="s-eyebrow">Section 3 · Business model</p>
+      <h2 class="s-title">In H1, when a deal closes matters more than how big it is</h2>
+      <div class="s-body">
+        <div class="s-cols c3">
+          <div class="s-col s-chart"><span class="s-small">Months of GB captured in H1 per USD 1 of a client's monthly potential, by close month</span><div id="chartMult"></div></div>
+          <div class="s-col">
+            <div class="s-card"><span class="k">Why</span><b>GB is recognized when people ride, not at signature. Adoption ramps from 20% in month 1 to 70% by month 6.</b></div>
+            <div class="s-card accent"><span class="k">So</span><span class="s-hero">15x</span><span>A December close is worth 15 times a May close inside H1.</span></div>
+            <div class="s-card"><span class="k">Rule</span><b>More than 90% of H1 GB has to come from deals closed by February.</b></div>
+          </div>
+        </div>
+      </div>
+      <div class="s-foot"><span>Go-live the month after close; adoption curve from the account model · Section 3</span><span class="pg"></span></div>
+    </article>
+    <article class="slide" data-title="Pipeline">
+      <p class="s-eyebrow">Section 3 · Portfolio and pipeline</p>
+      <h2 class="s-title">A USD 16M portfolio; 51 opportunities and 12 wins reach the quota</h2>
+      <div class="s-body">
+        <div class="kpis" style="grid-template-columns:repeat(4,1fr)">
+          <div class="kpi"><span class="v" data-kb3="portfolio">—</span><span class="l">Portfolio potential a year (all 150 at full adoption)</span></div>
+          <div class="kpi"><span class="v" data-kb3="pipe">—</span><span class="l">Pipeline to create: <b data-kb3="opps">—</b> opportunities</span></div>
+          <div class="kpi"><span class="v" data-kb3="won">—</span><span class="l">Pipeline to close: <b data-kb3="wins">—</b> deals at <b data-kb3="rate">—</b></span></div>
+          <div class="kpi main"><span class="v" data-kb3="h1">—</span><span class="l">GB recognized in H1 · <b data-kb3="quota">—</b> of quota</span></div>
+        </div>
+        <table class="s-table">
+          <thead><tr><th>Tier</th><th>Accounts</th><th>Meetings</th><th>Opportunities</th><th>Win rate</th><th>Wins</th><th>Closes</th><th>H1 GB</th></tr></thead>
+          <tbody id="bobFunnel"></tbody>
+        </table>
+        <p class="s-small">Annual potential per account = employees × GB per employee a year at full adoption (Tier 1: 950 × USD 240, calibrated on Salles Sainz Grant Thornton; Tier 2: 700 × USD 130; Tier 3: 500 × USD 70). Salles Sainz is one of the Tier 1 December wins, counted at the Tier 1 average; its extra value is upside. Win rates set against B2B benchmarks: mid-market median 24% (interquartile 20–28%); Tier 1 at 28% for warm, trigger-based deals. Adoption of 70% by month 6 matches the ground-transport policy-compliance average (67%); top performers reach 85%.</p>
+      </div>
+      <div class="s-foot"><span>Section 3 · Book of Business</span><span class="pg"></span></div>
+    </article>
+    <article class="slide" data-title="Forecast">
+      <p class="s-eyebrow">Section 3 · Forecast</p>
+      <h2 class="s-title">The forecast: front-load Tier 1, exit June with a strong run-rate</h2>
+      <div class="s-body">
+        <div class="calc">
+          <div class="inputs">
+            <div class="inp"><label for="q_w1">Tier 1 win rate</label><b data-o="q_w1"></b><input type="range" id="q_w1" min="15" max="50" step="1" value="28"></div>
+            <div class="inp"><label for="q_w2">Tier 2 win rate</label><b data-o="q_w2"></b><input type="range" id="q_w2" min="10" max="40" step="1" value="20"></div>
+            <div class="inp"><label for="q_m1">Tier 1 accounts that take a meeting</label><b data-o="q_m1"></b><input type="range" id="q_m1" min="40" max="95" step="5" value="85"></div>
+            <div class="inp"><label for="q_e1">Tier 1 average employees</label><b data-o="q_e1"></b><input type="range" id="q_e1" min="400" max="1500" step="50" value="950"></div>
+            <div class="inp"><label for="q_slip">Closes slip by</label><select id="q_slip"><option value="0">0 months (plan)</option><option value="1">1 month</option><option value="2">2 months</option></select></div>
+          </div>
+          <div class="out">
+            <div class="kpis">
+              <div class="kpi main"><span class="v" data-kb3="h1">—</span><span class="l">H1 GB · <b data-kb3="quota">—</b> of the USD 350K quota</span></div>
+              <div class="kpi"><span class="v" data-kb3="wins">—</span><span class="l">Wins from <b data-kb3="opps">—</b> opportunities</span></div>
+              <div class="kpi"><span class="v" data-kb3="jun">—</span><span class="l">June monthly run-rate, the base for H2</span></div>
+            </div>
+            <div class="s-chart" id="chartCum"></div>
+          </div>
+        </div>
+      </div>
+      <div class="s-foot"><span>Cumulative GB recognized vs. quota, Jan–Jun 2027 · Section 3</span><span class="pg"></span></div>
+    </article>
+    <article class="slide" data-title="Products">
+      <p class="s-eyebrow">Section 3 · Products</p>
+      <h2 class="s-title">Lead with Uber Travel, open doors with Vouchers, scale with Central</h2>
+      <div class="s-body">
+        <div class="s-cards c3">
+          <div class="s-card accent"><span class="k">Core · all tiers</span><b>Uber Travel</b><span>Recurring rides are where GB compounds month after month. Expense codes and Ride Policies make it a CFO decision, not an app.</span><span class="prod">Most of the GB</span></div>
+          <div class="s-card"><span class="k">Door opener · Tier 3 and adoption</span><b>Vouchers (Eats and rides)</b><span>Low-friction first deal for events, overtime and closing nights; the fastest way to get profiles linked.</span><span class="prod">Fast to sign, fast to use</span></div>
+          <div class="s-card"><span class="k">Scale · Tier 1 and 2</span><b>Uber Central</b><span>Assistants and front desks book for guests, candidates and staff without the app.</span><span class="prod">Expands use beyond app users</span></div>
+        </div>
+        <div class="s-card"><span class="k">Land and expand</span><b>Land with Travel for the busiest team, expand with Vouchers and Central once the first invoice proves the control story.</b></div>
+      </div>
+      <div class="s-foot"><span>Section 3 · Book of Business</span><span class="pg"></span></div>
+    </article>
+    <article class="slide" data-title="Factors">
+      <p class="s-eyebrow">Section 3 · Risks and tailwinds</p>
+      <h2 class="s-title">What can move the number, and what I do about it</h2>
+      <div class="s-body">
+        <table class="s-table">
+          <thead><tr><th>Factor</th><th>Type</th><th>Effect on H1</th><th>Response</th></tr></thead>
+          <tbody>
+            <tr><td>Client ramp-up (6 months to 70%)</td><td>Internal</td><td>A one-month slip costs about USD 100K</td><td>Close Tier 1 by February; adoption plan from day one</td></tr>
+            <tr><td>Busy seasons and Querétaro data centers</td><td>External +</td><td>Q1 triggers for Tier 1</td><td>Sprint audit and pharma from November</td></tr>
+            <tr><td>T-MEC review</td><td>External −</td><td>Auto parts and warehousing delay spend</td><td>Kept in Tier 2; pitch cost control, not growth</td></tr>
+            <tr><td>Calendar: slow January, Easter week Mar 21–28, elections Jun 6</td><td>External −</td><td>Fewer decision days</td><td>Signatures in December; go-lives before mid-March</td></tr>
+            <tr><td>Fares up to 7% after the 2026 platform reform</td><td>External ±</td><td>More GB per trip; price objections</td><td>Lead with control and recovery, not price</td></tr>
+            <tr><td>My ramp, BDR capacity, Legal and CFDI setup</td><td>Internal</td><td>About 80 meetings in H1, 3 a week</td><td>Automate Tier 3; standard invoicing playbook with Tax</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="s-foot"><span>Section 3 · Book of Business</span><span class="pg"></span></div>
     </article>
     <article class="slide" data-title="Appendix: questions">
       <p class="s-eyebrow">Appendix · Q&amp;A</p>
@@ -655,134 +758,6 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
       </div>
       <div class="s-foot"><span>Sources: INEGI EMS, EMIM, ENEC and Economic Census 2024; Google Keyword Planner MX · Appendix</span><span class="pg"></span></div>
     </article>
-  </div>
-</div>
-<div class="tabpanel" id="book-of-business" data-tab="book-of-business" hidden>
-  <div class="deck-bar">
-    <p class="deck-intro">Section 3 · Book of Business and sales strategy: 150 net-new accounts, prioritized with the Industry radar, and the path to a USD 350K Gross Bookings quota in H1 2027. Use ← → to move between slides.</p>
-    <div class="nav"><button type="button" data-act="prev">Previous</button><span class="count"></span><button type="button" data-act="next">Next</button><button type="button" data-act="all" aria-pressed="false">Show all</button></div>
-  </div>
-  <div class="slides" data-deck="bob">
-
-    <article class="slide inv" data-title="Cover">
-      <p class="s-eyebrow">Section 3</p>
-      <div class="s-body" style="justify-content:center">
-        <h2 class="s-title" style="font-size:calc(var(--fs-title)*1.35)">Book of Business: 150 accounts to USD 350K in H1 2027</h2>
-        <p class="s-sub">Prioritization, products, forecast and what can move the number.</p>
-      </div>
-      <div class="s-foot"><span>Diego Cuauhtémoc · Mid-Market Account Executive</span><span class="pg"></span></div>
-    </article>
-
-    <article class="slide" data-title="Prioritization">
-      <p class="s-eyebrow">Section 3 · Prioritization</p>
-      <h2 class="s-title">Prioritize by trigger, not by size: three tiers from the Industry radar</h2>
-      <div class="s-body">
-        <table class="s-table">
-          <thead><tr><th>Tier</th><th>Industries</th><th>Accounts</th><th>Why now</th><th>Motion</th></tr></thead>
-          <tbody>
-            <tr><td>Tier 1</td><td>Audit and tax, engineering, pharma, consulting, data centers, construction</td><td>40</td><td>Busy seasons and projects that start in Q1</td><td>AE-led with BDR support; work all 40 by January</td></tr>
-            <tr><td>Tier 2</td><td>Food, electronics, advertising, auto parts, warehousing, IT, legal</td><td>60</td><td>Steady travel; auto parts and warehousing slowed by the T-MEC review</td><td>BDR sequences; AE joins from the first meeting</td></tr>
-            <tr><td>Tier 3</td><td>Telecom, hospitals, labs, staffing, security, trucking</td><td>50</td><td>Low ride intensity or enterprise-size players</td><td>Automated nurture with intent signals; builds H2 pipeline</td></tr>
-          </tbody>
-        </table>
-        <p class="s-small">Tiers come from the opportunity scorer (Tier 1 ≥ 55, Tier 2 40–55, Tier 3 &lt; 40). The split of the 150 accounts by industry is an assumption to replace with the real book in Salesforce.</p>
-      </div>
-      <div class="s-foot"><span>Sources: Industry radar (INEGI, Economic Census 2024, Google Keyword Planner) · Section 3</span><span class="pg"></span></div>
-    </article>
-
-    <article class="slide" data-title="Timing">
-      <p class="s-eyebrow">Section 3 · Business model</p>
-      <h2 class="s-title">In H1, when a deal closes matters more than how big it is</h2>
-      <div class="s-body">
-        <div class="s-cols c3">
-          <div class="s-col s-chart"><span class="s-small">Months of GB captured in H1 per USD 1 of a client's monthly potential, by close month</span><div id="chartMult"></div></div>
-          <div class="s-col">
-            <div class="s-card"><span class="k">Why</span><b>GB is recognized when people ride, not at signature. Adoption ramps from 20% in month 1 to 70% by month 6.</b></div>
-            <div class="s-card accent"><span class="k">So</span><span class="s-hero">15x</span><span>A December close is worth 15 times a May close inside H1.</span></div>
-            <div class="s-card"><span class="k">Rule</span><b>More than 90% of H1 GB has to come from deals closed by February.</b></div>
-          </div>
-        </div>
-      </div>
-      <div class="s-foot"><span>Go-live the month after close; adoption curve from the account model · Section 3</span><span class="pg"></span></div>
-    </article>
-
-    <article class="slide" data-title="Pipeline">
-      <p class="s-eyebrow">Section 3 · Portfolio and pipeline</p>
-      <h2 class="s-title">A USD 16M portfolio; 51 opportunities and 12 wins reach the quota</h2>
-      <div class="s-body">
-        <div class="kpis" style="grid-template-columns:repeat(4,1fr)">
-          <div class="kpi"><span class="v" data-kb3="portfolio">—</span><span class="l">Portfolio potential a year (all 150 at full adoption)</span></div>
-          <div class="kpi"><span class="v" data-kb3="pipe">—</span><span class="l">Pipeline to create: <b data-kb3="opps">—</b> opportunities</span></div>
-          <div class="kpi"><span class="v" data-kb3="won">—</span><span class="l">Pipeline to close: <b data-kb3="wins">—</b> deals at <b data-kb3="rate">—</b></span></div>
-          <div class="kpi main"><span class="v" data-kb3="h1">—</span><span class="l">GB recognized in H1 · <b data-kb3="quota">—</b> of quota</span></div>
-        </div>
-        <table class="s-table">
-          <thead><tr><th>Tier</th><th>Accounts</th><th>Meetings</th><th>Opportunities</th><th>Win rate</th><th>Wins</th><th>Closes</th><th>H1 GB</th></tr></thead>
-          <tbody id="bobFunnel"></tbody>
-        </table>
-        <p class="s-small">Annual potential per account = employees × GB per employee a year at full adoption (Tier 1: 950 × USD 240, calibrated on Salles Sainz Grant Thornton; Tier 2: 700 × USD 130; Tier 3: 500 × USD 70). Salles Sainz is one of the Tier 1 December wins, counted at the Tier 1 average; its extra value is upside. Win rates set against B2B benchmarks: mid-market median 24% (interquartile 20–28%); Tier 1 at 28% for warm, trigger-based deals. Adoption of 70% by month 6 matches the ground-transport policy-compliance average (67%); top performers reach 85%.</p>
-      </div>
-      <div class="s-foot"><span>Section 3 · Book of Business</span><span class="pg"></span></div>
-    </article>
-
-    <article class="slide" data-title="Forecast">
-      <p class="s-eyebrow">Section 3 · Forecast</p>
-      <h2 class="s-title">The forecast: front-load Tier 1, exit June with a strong run-rate</h2>
-      <div class="s-body">
-        <div class="calc">
-          <div class="inputs">
-            <div class="inp"><label for="q_w1">Tier 1 win rate</label><b data-o="q_w1"></b><input type="range" id="q_w1" min="15" max="50" step="1" value="28"></div>
-            <div class="inp"><label for="q_w2">Tier 2 win rate</label><b data-o="q_w2"></b><input type="range" id="q_w2" min="10" max="40" step="1" value="20"></div>
-            <div class="inp"><label for="q_m1">Tier 1 accounts that take a meeting</label><b data-o="q_m1"></b><input type="range" id="q_m1" min="40" max="95" step="5" value="85"></div>
-            <div class="inp"><label for="q_e1">Tier 1 average employees</label><b data-o="q_e1"></b><input type="range" id="q_e1" min="400" max="1500" step="50" value="950"></div>
-            <div class="inp"><label for="q_slip">Closes slip by</label><select id="q_slip"><option value="0">0 months (plan)</option><option value="1">1 month</option><option value="2">2 months</option></select></div>
-          </div>
-          <div class="out">
-            <div class="kpis">
-              <div class="kpi main"><span class="v" data-kb3="h1">—</span><span class="l">H1 GB · <b data-kb3="quota">—</b> of the USD 350K quota</span></div>
-              <div class="kpi"><span class="v" data-kb3="wins">—</span><span class="l">Wins from <b data-kb3="opps">—</b> opportunities</span></div>
-              <div class="kpi"><span class="v" data-kb3="jun">—</span><span class="l">June monthly run-rate, the base for H2</span></div>
-            </div>
-            <div class="s-chart" id="chartCum"></div>
-          </div>
-        </div>
-      </div>
-      <div class="s-foot"><span>Cumulative GB recognized vs. quota, Jan–Jun 2027 · Section 3</span><span class="pg"></span></div>
-    </article>
-
-    <article class="slide" data-title="Products">
-      <p class="s-eyebrow">Section 3 · Products</p>
-      <h2 class="s-title">Lead with Uber Travel, open doors with Vouchers, scale with Central</h2>
-      <div class="s-body">
-        <div class="s-cards c3">
-          <div class="s-card accent"><span class="k">Core · all tiers</span><b>Uber Travel</b><span>Recurring rides are where GB compounds month after month. Expense codes and Ride Policies make it a CFO decision, not an app.</span><span class="prod">Most of the GB</span></div>
-          <div class="s-card"><span class="k">Door opener · Tier 3 and adoption</span><b>Vouchers (Eats and rides)</b><span>Low-friction first deal for events, overtime and closing nights; the fastest way to get profiles linked.</span><span class="prod">Fast to sign, fast to use</span></div>
-          <div class="s-card"><span class="k">Scale · Tier 1 and 2</span><b>Uber Central</b><span>Assistants and front desks book for guests, candidates and staff without the app.</span><span class="prod">Expands use beyond app users</span></div>
-        </div>
-        <div class="s-card"><span class="k">Land and expand</span><b>Land with Travel for the busiest team, expand with Vouchers and Central once the first invoice proves the control story.</b></div>
-      </div>
-      <div class="s-foot"><span>Section 3 · Book of Business</span><span class="pg"></span></div>
-    </article>
-
-    <article class="slide" data-title="Factors">
-      <p class="s-eyebrow">Section 3 · Risks and tailwinds</p>
-      <h2 class="s-title">What can move the number, and what I do about it</h2>
-      <div class="s-body">
-        <table class="s-table">
-          <thead><tr><th>Factor</th><th>Type</th><th>Effect on H1</th><th>Response</th></tr></thead>
-          <tbody>
-            <tr><td>Client ramp-up (6 months to 70%)</td><td>Internal</td><td>A one-month slip costs about USD 100K</td><td>Close Tier 1 by February; adoption plan from day one</td></tr>
-            <tr><td>Busy seasons and Querétaro data centers</td><td>External +</td><td>Q1 triggers for Tier 1</td><td>Sprint audit and pharma from November</td></tr>
-            <tr><td>T-MEC review</td><td>External −</td><td>Auto parts and warehousing delay spend</td><td>Kept in Tier 2; pitch cost control, not growth</td></tr>
-            <tr><td>Calendar: slow January, Easter week Mar 21–28, elections Jun 6</td><td>External −</td><td>Fewer decision days</td><td>Signatures in December; go-lives before mid-March</td></tr>
-            <tr><td>Fares up to 7% after the 2026 platform reform</td><td>External ±</td><td>More GB per trip; price objections</td><td>Lead with control and recovery, not price</td></tr>
-            <tr><td>My ramp, BDR capacity, Legal and CFDI setup</td><td>Internal</td><td>About 80 meetings in H1, 3 a week</td><td>Automate Tier 3; standard invoicing playbook with Tax</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="s-foot"><span>Section 3 · Book of Business</span><span class="pg"></span></div>
-    </article>
-
   </div>
 </div>
 <div class="tabpanel" id="salles-review" data-tab="salles-review" hidden>
@@ -1365,9 +1340,9 @@ document.getElementById('reset').addEventListener('click', () => { WK.forEach((k
 drawRank(); drawHeat();
 // Tabs with hash routing
 (() => {
-  const TABS = ['radar', 'panel-deck', 'book-of-business', 'salles-review', 'internal-brief'];
+  const TABS = ['radar', 'final-deck', 'salles-review', 'internal-brief'];
   const show = (id) => {
-    if (id === 'client-deck') id = 'panel-deck';
+    if (['client-deck', 'panel-deck', 'book-of-business'].includes(id)) id = 'final-deck';
     if (!TABS.includes(id)) id = 'radar';
     document.querySelectorAll('[data-tab]').forEach((p) => { p.hidden = p.dataset.tab !== id; });
     document.querySelectorAll('.tabs button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.go === id)));
@@ -1541,7 +1516,7 @@ window.GB = (() => {
 
 // Section 3 · Book of Business model
 (() => {
-  const scope = document.getElementById('book-of-business'); if (!scope) return;
+  const scope = document.getElementById('final-deck'); if (!scope) return;
   const NS = 'http://www.w3.org/2000/svg';
   const mk = (tag, attrs, text) => { const e = document.createElementNS(NS, tag); Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, v)); if (text !== undefined) e.textContent = text; return e; };
   const R = [0.20, 0.35, 0.50, 0.60, 0.65, 0.70]; const CM = ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
