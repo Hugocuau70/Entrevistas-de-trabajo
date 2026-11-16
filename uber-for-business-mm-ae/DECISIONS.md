@@ -22,3 +22,6 @@
 | 2026-11-16 | Logos de Uber for Business (provistos por el usuario) integrados en el pptx y en Google Slides v2: https://docs.google.com/presentation/d/1I2L3wbRUcg6AYzO6o2STs_xoPeOTGySlg4rFgy-Gehs/edit | La v1 sin logos queda renombrada en Drive |
 | 2026-11-16 | Panel deck v3 (lean): 12 slides + 3 de anexo, storytelling según la estructura del caso; About me incluido; comité y selección de industria pasan al anexo | Registro ejecutivo, foco AE; la v2 de 22 slides queda en `07_deck/panel_v2_22slides.html` |
 | 2026-11-16 | Sección 3 (Book of Business) irá en un deck aparte, con todo el Industry Radar | Decisión del usuario |
+| 2026-11-16 | Mapa de oficinas (9 ciudades) en los decks; logo de SSGT como "Prepared for" en las portadas | Petición del usuario |
+| 2026-11-16 | Nueva slide 12 "Adoption strategy" (5 palancas) y slide 13 "Operating rhythm"; Panel deck = 16 slides; Google Slides v4 | Ver `04_success-plan/adoption-strategy.md` |
+| 2026-11-16 | Sección 3 vivirá en el Radar (pestaña) y en Google Slides; el Radar es el recurso de presentación en vivo | Decisión del usuario |
