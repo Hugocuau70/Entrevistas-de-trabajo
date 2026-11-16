@@ -1,7 +1,8 @@
 // Tabs with hash routing
 (() => {
-  const TABS = ['radar', 'client-deck', 'internal-brief'];
+  const TABS = ['radar', 'panel-deck', 'internal-brief'];
   const show = (id) => {
+    if (id === 'client-deck') id = 'panel-deck';
     if (!TABS.includes(id)) id = 'radar';
     document.querySelectorAll('[data-tab]').forEach((p) => { p.hidden = p.dataset.tab !== id; });
     document.querySelectorAll('.tabs button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.go === id)));
@@ -60,39 +61,43 @@ document.querySelectorAll('.tabpanel .slides').forEach((deck) => {
     bars(document.getElementById('chartTax'), ML1, v, { base: 0, fmt: (x) => (x >= 1000 ? (x / 1000).toFixed(1) + 'K' : String(x)), hl: [1, 2, 3], label: 'Searches for annual corporate tax return peak in March 2025 at 9,900' }); }
 })();
 
-// Business-case calculator
+// Business-case engine
 window.GB = (() => {
-  const RIDE = 10, EATS = 15, ADOPT = [0.20, 0.35, 0.50, 0.60, 0.65, 0.70], QUOTA = 350000;
+  const RIDE = 10, EATS = 15, CURVE = [0.20, 0.35, 0.50, 0.60, 0.65, 0.70], QUOTA = 350000;
   const calc = (p) => {
+    const ceil = (p.ceil ?? 70) / 70;
     const field = p.emp * p.field / 100, other = p.emp - field;
     const busy = (field * p.busy + other * 0.5) * RIDE + field * p.eats * (p.part / 100) * EATS;
     const off = (field * p.off + other * 0.5) * RIDE + p.emp * 0.1 * EATS;
     const pot = Array.from({ length: 12 }, (_, m) => (m < 5 ? busy : off));
-    const proj = pot.slice(0, 6).map((v, m) => (m >= p.go ? v * ADOPT[m - p.go] : 0));
+    const proj = pot.slice(0, 6).map((v, m) => (m >= p.go ? v * CURVE[m - p.go] * ceil : 0));
     const sum = (a) => a.reduce((s, x) => s + x, 0);
     return { pot, proj, annual: sum(pot), h1pot: sum(pot.slice(0, 6)), h1: sum(proj), quota: sum(proj) / QUOTA };
   };
-  const DEF = { emp: 1000, field: 65, busy: 4, off: 2, eats: 2, part: 35, go: 0 };
-  const usd = (v) => (v >= 1e6 ? `USD ${(v / 1e6).toFixed(2)}M` : `USD ${Math.round(v / 1000)}K`);
+  const DEF = { emp: 1000, field: 65, busy: 4, off: 2, eats: 2, part: 35, ceil: 70, go: 0 };
+  const CONS = { ...DEF, busy: 2, off: 1, ceil: 50 };
+  const usd = (v) => (v >= 1e6 ? `USD ${(v / 1e6).toFixed(2)}M` : v >= 1000 ? `USD ${Math.round(v / 1000)}K` : `USD ${Math.round(v)}`);
   const pct = (v) => `${Math.round(v * 100)}%`;
-  return { calc, DEF, usd, pct };
+  return { calc, DEF, CONS, usd, pct };
 })();
 (() => {
-  const ids = { emp: 'c_emp', field: 'c_field', busy: 'c_busy', off: 'c_off', eats: 'c_eats', part: 'c_part', go: 'c_go' };
-  const fmtIn = { emp: (v) => num(v), field: (v) => v + '%', busy: (v) => v, off: (v) => v, eats: (v) => v, part: (v) => v + '%' };
-  const read = () => { const p = {}; Object.entries(ids).forEach(([k, id]) => { p[k] = Number(document.getElementById(id).value); }); return p; };
   const NS = 'http://www.w3.org/2000/svg';
   const mk = (tag, attrs, text) => { const e = document.createElementNS(NS, tag); Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, v)); if (text !== undefined) e.textContent = text; return e; };
-  function fill(scope, r) {
-    scope.querySelectorAll('[data-k=annual]').forEach((e) => { e.textContent = GB.usd(r.annual); });
-    scope.querySelectorAll('[data-k=h1pot]').forEach((e) => { e.textContent = GB.usd(r.h1pot); });
-    scope.querySelectorAll('[data-k=h1]').forEach((e) => { e.textContent = GB.usd(r.h1); });
-    scope.querySelectorAll('[data-k=quota]').forEach((e) => { e.textContent = GB.pct(r.quota); });
-  }
-  function draw() {
-    const p = read(); Object.entries(fmtIn).forEach(([k, f]) => { document.querySelectorAll(`[data-o=${ids[k]}]`).forEach((e) => { e.textContent = f(p[k]); }); });
-    const r = GB.calc(p); fill(document.getElementById('client-deck'), r);
-    const host = document.getElementById('calcChart'); const W = 560, H = 190, pl = 4, pt = 20, pb = 24; const ML6 = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
+  // Internal GB calculator
+  const A = { emp: 'a_emp', field: 'a_field', busy: 'a_busy', off: 'a_off', eats: 'a_eats', part: 'a_part', ceil: 'a_ceil', go: 'a_go' };
+  const fmtA = { emp: (v) => num(v), field: (v) => v + '%', busy: (v) => v, off: (v) => v, eats: (v) => v, part: (v) => v + '%', ceil: (v) => v + '%' };
+  const readA = () => { const p = {}; Object.entries(A).forEach(([k, id]) => { p[k] = Number(document.getElementById(id).value); }); return p; };
+  const setA = (p) => { Object.entries(A).forEach(([k, id]) => { document.getElementById(id).value = p[k]; }); };
+  function drawA() {
+    const p = readA(); Object.entries(fmtA).forEach(([k, f]) => { document.querySelectorAll(`[data-o=${A[k]}]`).forEach((e) => { e.textContent = f(p[k]); }); });
+    const r = GB.calc(p);
+    document.querySelectorAll('[data-ka=annual]').forEach((e) => { e.textContent = GB.usd(r.annual); });
+    document.querySelectorAll('[data-ka=h1pot]').forEach((e) => { e.textContent = GB.usd(r.h1pot); });
+    document.querySelectorAll('[data-ka=h1]').forEach((e) => { e.textContent = GB.usd(r.h1); });
+    document.querySelectorAll('[data-ka=quota]').forEach((e) => { e.textContent = GB.pct(r.quota); });
+    const isCons = ['busy', 'off', 'ceil'].every((k) => p[k] === GB.CONS[k]); const isBase = ['busy', 'off', 'ceil'].every((k) => p[k] === GB.DEF[k]);
+    document.querySelectorAll('#calcA [data-scen]').forEach((b) => b.setAttribute('aria-pressed', String((b.dataset.scen === 'cons' && isCons) || (b.dataset.scen === 'base' && isBase))));
+    const host = document.getElementById('chartA'); const W = 560, H = 190, pl = 4, pt = 20, pb = 24; const ML6 = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
     const max = Math.max(...r.pot.slice(0, 6)) * 1.12; const bw = (W - pl * 2) / 6; const y = (v) => pt + (H - pt - pb) * (1 - v / max);
     const svg = mk('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': `Projected GB by month, H1 2027 total ${GB.usd(r.h1)}` });
     for (let m = 0; m < 6; m++) {
@@ -100,15 +105,38 @@ window.GB = (() => {
       svg.appendChild(mk('rect', { x: x + bw * 0.12, y: y(r.pot[m]), width: bw * 0.76, height: H - pb - y(r.pot[m]), rx: 2, fill: 'var(--b-mid)' }));
       if (r.proj[m] > 0) svg.appendChild(mk('rect', { x: x + bw * 0.12, y: y(r.proj[m]), width: bw * 0.76, height: H - pb - y(r.proj[m]), rx: 2, fill: 'var(--accent)' }));
       svg.appendChild(mk('text', { x: x + bw / 2, y: y(r.pot[m]) - 6, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--tertiary)' }, GB.usd(r.pot[m])));
-      if (r.proj[m] > 0) svg.appendChild(mk('text', { x: x + bw / 2, y: Math.min(y(r.proj[m]) + 15, H - pb - 4), 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 700, fill: '#FFFFFF' }, GB.usd(r.proj[m])));
+      if (r.proj[m] > 0) { const ty = y(r.proj[m]) + 15; const inside = H - pb - y(r.proj[m]) > 20;
+        svg.appendChild(mk('text', { x: x + bw / 2, y: inside ? ty : y(r.proj[m]) - 4, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 700, fill: inside ? '#FFFFFF' : 'var(--accent)' }, GB.usd(r.proj[m]))); }
       svg.appendChild(mk('text', { x: x + bw / 2, y: H - 7, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--tertiary)' }, ML6[m]));
     }
     host.replaceChildren(svg);
   }
-  Object.values(ids).forEach((id) => document.getElementById(id).addEventListener('input', draw));
-  draw();
-  // Internal brief uses defaults so its numbers stay fixed
-  const d = GB.calc(GB.DEF); const brief = document.getElementById('internal-brief'); fill(brief, d);
+  Object.values(A).forEach((id) => document.getElementById(id).addEventListener('input', drawA));
+  document.querySelectorAll('#calcA [data-scen]').forEach((b) => b.addEventListener('click', () => { const keep = readA(); const s = b.dataset.scen === 'cons' ? GB.CONS : GB.DEF; setA({ ...keep, busy: s.busy, off: s.off, ceil: s.ceil }); drawA(); }));
+  drawA();
+  // Client numbers calculator
+  const B = { emp: 'b_emp', field: 'b_field', busy: 'b_busy', off: 'b_off', reb: 'b_reb', eats: 'b_eats' };
+  const fmtB = { emp: (v) => num(v), field: (v) => v + '%', busy: (v) => v, off: (v) => v, reb: (v) => v + '%', eats: (v) => v };
+  function drawB() {
+    const p = {}; Object.entries(B).forEach(([k, id]) => { p[k] = Number(document.getElementById(id).value); });
+    Object.entries(fmtB).forEach(([k, f]) => { document.querySelectorAll(`[data-o=${B[k]}]`).forEach((e) => { e.textContent = f(p[k]); }); });
+    const field = p.emp * p.field / 100, other = p.emp - field;
+    [[p.busy, p.eats * field, 0], [p.off, p.emp * 0.1, 1]].forEach(([rides, meals, i]) => {
+      const trips = field * rides + other * 0.5; const reb = field * rides * p.reb / 100; const bud = trips * 10 + meals * 15; const rec = reb * 10;
+      document.querySelectorAll(`[data-kb=trips${i}]`).forEach((e) => { e.textContent = num(Math.round(trips)); });
+      document.querySelectorAll(`[data-kb=reb${i}]`).forEach((e) => { e.textContent = num(Math.round(reb)); });
+      document.querySelectorAll(`[data-kb=bud${i}]`).forEach((e) => { e.textContent = GB.usd(bud); });
+      document.querySelectorAll(`[data-kb=rec${i}]`).forEach((e) => { e.textContent = GB.usd(rec); });
+    });
+  }
+  Object.values(B).forEach((id) => document.getElementById(id).addEventListener('input', drawB));
+  drawB();
+  // Internal brief uses fixed defaults
+  const d = GB.calc(GB.DEF); const brief = document.getElementById('internal-brief');
+  brief.querySelectorAll('[data-k=annual]').forEach((e) => { e.textContent = GB.usd(d.annual); });
+  brief.querySelectorAll('[data-k=h1pot]').forEach((e) => { e.textContent = GB.usd(d.h1pot); });
+  brief.querySelectorAll('[data-k=h1]').forEach((e) => { e.textContent = GB.usd(d.h1); });
+  brief.querySelectorAll('[data-k=quota]').forEach((e) => { e.textContent = GB.pct(d.quota); });
   const plus = GB.calc({ ...GB.DEF, busy: GB.DEF.busy + 1 }).h1 - d.h1; const slip = d.h1 - GB.calc({ ...GB.DEF, go: 1 }).h1;
   brief.querySelectorAll('[data-k=sens]').forEach((e) => { e.textContent = GB.usd(plus); });
   brief.querySelectorAll('[data-k=slip]').forEach((e) => { e.textContent = GB.usd(slip); });

@@ -13,3 +13,8 @@
 | 2026-11-15 | Cuenta recomendada: Salles Sainz Grant Thornton (alternativa: BDO México), pendiente de validación del usuario | Ver `02_account/recommendation.md` |
 | _pendiente_ | Empresa real vs. anónima | Recomendación: real, con supuestos marcados (ver respuesta del 15-nov) |
 | 2026-11-16 | Cuenta final: Salles Sainz Grant Thornton. Dos decks: Client deck (panel = SSGT, role play) e Internal brief (equipo Uber), como pestañas del Radar | Decisión del usuario |
+| 2026-11-16 | Deck unificado (22 slides): Parte A interna (perfil, GB con escenarios, estrategia, comité) → transición → role play con lenguaje del cliente → Sección 2 (Mutual success plan) → anexo | Aprobado por el usuario; se conserva "Your busy season lands in the first half of 2027" |
+| 2026-11-16 | GB solo en la parte interna; en el role play, "Your mobility in numbers" (viajes reembolsados hoy, viajes refacturables, presupuesto mensual en una factura) | No anclar el gasto del cliente ni revelar el upside |
+| 2026-11-16 | Escenario conservador: 2/1 viajes, techo 50% → USD 40K en H1 (12% de la cuota) | Defender la concentración de la cuenta |
+| 2026-11-16 | Plantilla: 950–1,000 (Revelio Labs mar-2026 y sitio de la firma) | Validación |
+| 2026-11-16 | Google Slides en Drive: https://docs.google.com/presentation/d/16gxu0sqzFxV0Djh6qSDH4laAD2N1KAGguCKlizWNWIk/edit | Entregable; el logo de Uber lo inserta el usuario |

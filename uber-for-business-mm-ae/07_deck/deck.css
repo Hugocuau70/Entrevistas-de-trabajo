@@ -69,3 +69,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
   .s-flow { grid-template-columns: 1fr 1fr; } .s-time { grid-template-columns: 1fr 1fr; } .kpis { grid-template-columns: 1fr; }
   .s-step { border-top-width: 3px; } .kpi { border-left-width: 3px; }
 }
+.scen button { font: inherit; font-size: var(--fs-small); font-weight: 600; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); border-radius: 999px; padding: .2em .8em; cursor: pointer; }
+.scen button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.s-table.nums td:not(:first-child) { font-variant-numeric: tabular-nums; font-weight: 700; font-size: calc(var(--fs-body) * 1.25); white-space: nowrap; }
+.s-table.nums td:first-child { font-weight: 500; }
+.s-table.nums tr:nth-child(3) td:not(:first-child) { color: var(--accent); }
