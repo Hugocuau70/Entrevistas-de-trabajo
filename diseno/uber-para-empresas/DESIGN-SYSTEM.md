@@ -12,6 +12,8 @@ Usa la firma **Uber for Business** en el deck en inglés y aplica la escala de U
 
 ## Identidad y firmas de marca
 
+Consulta la [biblioteca de logos del caso](LOGOS.md) para elegir la variante inglesa de Uber for Business y la firma de Salles Sainz Grant Thornton. En el deck, Uber identifica a quien presenta y la firma mexicana identifica a la cuenta prospecto.
+
 | Recurso | Archivo | Aplicación |
 | --- | --- | --- |
 | Uber para Empresas, firma apilada blanca | [SVG en español](assets/uber-para-empresas-blanco.svg) | Versión principal de este kit para cierre, portada y fondos negros. |

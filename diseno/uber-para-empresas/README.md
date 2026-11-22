@@ -4,6 +4,7 @@ Abre [referencia-visual.html](referencia-visual.html) en el navegador para ver l
 
 - [Reglas del business case](BUSINESS-CASE.md) — Entregables, logística del panel, productos, cuota y modelo de Gross Bookings.
 - [Guía de diseño](DESIGN-SYSTEM.md) — Identidad, escala tipográfica, componentes y aplicación audiovisual.
+- [Biblioteca de logos del caso](LOGOS.md) — SVG y PNG de Uber for Business y Salles Sainz Grant Thornton, con ejemplos de uso.
 - [Recursos de marca](assets/) — Firmas vectoriales en español e inglés, íconos y fotografía.
 - [Tokens](tokens.json) — Color, tipografía, espaciado, layout y movimiento.
 - [Procedencia de los recursos](assets/FUENTES.md) — URLs y contexto de cada archivo.

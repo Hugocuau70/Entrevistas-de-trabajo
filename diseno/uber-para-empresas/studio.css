@@ -117,3 +117,23 @@ footer { padding: 20px 0 28px; color: var(--mid); border-top: 1px solid var(--ru
   nav { gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
   .top img { width: 100px; }
 }
+
+.logo-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 248px), 1fr));
+  gap: 16px;
+}
+.logo-surface {
+  display: grid;
+  place-items: center;
+  min-height: 164px;
+  padding: 16px;
+  background: var(--white);
+  border: 1px solid var(--rule);
+}
+.logo-surface img { width: min(100%, 190px); max-height: 124px; object-fit: contain; }
+.logo-surface--dark { background: var(--black); border-color: var(--black); }
+.logo-surface--square { background: var(--inverse); }
+.logo-surface--square img,
+.logo-surface--symbol img { width: 124px; }
+.logo-surface--wide img { width: min(100%, 272px); }

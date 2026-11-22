@@ -1,5 +1,7 @@
 # Recursos de Uber
 
+La [biblioteca de logos del caso](../LOGOS.md) reúne las variantes inglesas de Uber for Business y los logos de la cuenta prospecto, con su procedencia.
+
 Los archivos de esta carpeta son referencias para el caso de entrevista y conservan el arte publicado por Uber. Los nombres locales describen su rol dentro del kit.
 
 | Archivo | Procedencia |
