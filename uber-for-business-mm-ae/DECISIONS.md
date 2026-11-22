@@ -34,3 +34,4 @@
 | 2026-11-22 | Portada de Sección 2 añadida directamente en el Google Slides del correo (mismo link), slide 11; numeración actualizada a 24 slides | Petición del usuario; conector de Google Slides activo |
 | 2026-11-22 | "Your mobility in numbers": desglose en vivo bajo cada slider (personas, multiplicaciones) y fórmula de presupuesto y recuperación | Transparencia total de los números (petición del usuario) |
 | 2026-11-22 | Botón "Present" (pantalla completa) en los decks del Radar: flechas, espacio o clic para avanzar; Esc para salir | Petición del usuario |
+| 2026-11-22 | Radar: portada de Sección 2 y slide de adopción reescrita con cómo / dueño en SSGT y canal / qué pone Uber / cuándo | El "cómo" quedaba en el aire (feedback del usuario) |

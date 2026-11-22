@@ -218,6 +218,11 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .present-ui span { font-size: 12px; color: #bbb; font-variant-numeric: tabular-nums; min-width: 4.5em; text-align: center; }
 @media (max-width: 760px) { .slides.presenting .slide { aspect-ratio: auto; max-height: 100vh; overflow: auto; } }
 
+.s-table.adopt { font-size: calc(var(--fs-body) * .82); }
+.s-table.adopt td { padding: .42em .5em; }
+.s-table.adopt td:first-child { white-space: nowrap; }
+.s-table.adopt td:nth-child(5) { white-space: nowrap; color: var(--accent); font-weight: 600; }
+
 </style>
 
 <div class="page">
@@ -555,6 +560,14 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
       </div>
       <div class="s-foot"><span>Section 1 · Role play · Salles Sainz Grant Thornton</span><span class="pg"></span></div>
     </article>
+    <article class="slide inv" data-title="Section 2">
+      <p class="s-eyebrow">Section 2</p>
+      <div class="s-body" style="justify-content:center">
+        <h2 class="s-title" style="font-size:calc(var(--fs-title)*1.35)">Mutual success plan: from signature to habit in eight weeks</h2>
+        <p class="s-sub">Onboarding plan, adoption strategy and the metrics we review together.</p>
+      </div>
+      <div class="s-foot"><span>Diego Cuauhtémoc · Mid-Market Account Executive</span><span class="pg"></span></div>
+    </article>
     <article class="slide" data-title="Mutual success plan">
       <p class="s-eyebrow">Section 2 · Mutual success plan</p>
       <h2 class="s-title">From signature to habit in eight weeks, with owners on both sides</h2>
@@ -577,18 +590,21 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
     </article>
     <article class="slide" data-title="Adoption strategy">
       <p class="s-eyebrow">Section 2 · Adoption strategy</p>
-      <h2 class="s-title">Five levers that turn 1,000 invitations into a daily habit</h2>
+      <h2 class="s-title">How we turn 1,000 invitations into a daily habit</h2>
       <div class="s-body">
-        <div class="s-cards">
-          <div class="s-card"><span class="k">01 · Make it the default</span><b>Retire the taxi claim</b><span>From Feb 1, claims for client-visit rides need an exception. Defaults beat discounts.</span><span class="prod">Travel policy</span></div>
-          <div class="s-card"><span class="k">02 · Lead with dinner</span><b>First touch is a meal</b><span>Closing-night Eats vouchers require a linked business profile; rides follow.</span><span class="prod">Vouchers · Uber Eats</span></div>
-          <div class="s-card"><span class="k">03 · Book it for them</span><b>A zero-effort first ride</b><span>Assistants schedule closing-night rides home; late trips are shared with a trusted contact.</span><span class="prod">Uber Central</span></div>
-          <div class="s-card"><span class="k">04 · Reward the right behavior</span><b>Milestones, not mileage</b><span>5 coded trips unlock a 3-month Uber One trial; rides after 10 p.m. get priority pickup.</span><span class="prod">Uber-funded, capped</span></div>
-          <div class="s-card"><span class="k">05 · Make managers pull</span><b>Recovery they can see</b><span>Trip reports by engagement; office with the highest activation wins a team dinner.</span><span class="prod">Engagement reports</span></div>
-        </div>
-        <div class="s-card accent"><span class="k">How adoption moves my number</span><b>GB = active riders × trips × fare. Every 10 points of adoption adds about USD 13K of GB in H1 2027.</b></div>
+        <table class="s-table adopt">
+          <thead><tr><th>Lever</th><th>How it works</th><th>SSGT owner and channel</th><th>Uber provides</th><th>When</th></tr></thead>
+          <tbody>
+            <tr><td>01 · Make it the default</td><td>Client-visit rides go through Uber; a taxi claim needs an exception code in the expense tool.</td><td>CFO signs the policy; Managing Partner announces it in the busy-season kickoff email.</td><td>Policy template and email copy</td><td>Email Jan 4 · rule Feb 1</td></tr>
+            <tr><td>02 · Lead with dinner</td><td>Closing-night meal voucher (USD 15, 8–11 p.m., Mon–Fri) arrives in the same email as the business-profile invite: one tap claims dinner, one tap joins the account.</td><td>Engagement managers request it for their team; Admin Director sends it.</td><td>Voucher setup and email template</td><td>From the first closing, mid-January</td></tr>
+            <tr><td>03 · Book it for them</td><td>The office champion schedules rides home for the team at closing time; riders get an SMS, no app needed, and the trip can be shared with a trusted contact.</td><td>One assistant per office (9 champions).</td><td>30-minute Uber Central training</td><td>Pilot week, Jan 4</td></tr>
+            <tr><td>04 · Reward the right behavior</td><td>Staff with 5 coded trips in a month unlock a 3-month Uber One trial; rides after 10 p.m. allow priority pickup.</td><td>Admin Director shares the monthly list from the dashboard.</td><td>Trial codes, funded by Uber and capped</td><td>Monthly, from February</td></tr>
+            <tr><td>05 · Make managers pull</td><td>Each engagement manager sees trips by engagement and rebills them; offices compete on activation for a team dinner.</td><td>Finance (billing) and engagement managers; leaderboard in the Monday usage report.</td><td>Monthly SFTP report by engagement code</td><td>Weekly, Jan–Feb</td></tr>
+          </tbody>
+        </table>
+        <div class="s-card accent"><span class="k">How adoption moves my number</span><b>GB = active riders × trips × fare. Every 10 points of adoption add about USD 13K of GB in H1 2027.</b></div>
       </div>
-      <div class="s-foot"><span>Incentives subject to Uber approval and market availability · Section 2 · Mutual success plan</span><span class="pg"></span></div>
+      <div class="s-foot"><span>Incentives from Uber subject to approval and availability in Mexico · Section 2 · Mutual success plan</span><span class="pg"></span></div>
     </article>
     <article class="slide" data-title="Operating rhythm">
       <p class="s-eyebrow">Section 2 · Mutual success plan</p>
