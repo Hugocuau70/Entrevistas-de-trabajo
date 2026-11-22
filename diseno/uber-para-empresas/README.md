@@ -1,7 +1,8 @@
-# Uber para Empresas · Kit de diseño v2.0
+# Uber para Empresas · Kit de diseño y business case
 
 Abre [referencia-visual.html](referencia-visual.html) en el navegador para ver las firmas, la paleta, las tipografías, los íconos y las aplicaciones. [Referencia visual en PNG](referencia-visual.png).
 
+- [Reglas del business case](BUSINESS-CASE.md) — Entregables, logística del panel, productos, cuota y modelo de Gross Bookings.
 - [Guía de diseño](DESIGN-SYSTEM.md) — Identidad, escala tipográfica, componentes y aplicación audiovisual.
 - [Recursos de marca](assets/) — Firmas vectoriales en español e inglés, íconos y fotografía.
 - [Tokens](tokens.json) — Color, tipografía, espaciado, layout y movimiento.
@@ -11,4 +12,6 @@ Abre [referencia-visual.html](referencia-visual.html) en el navegador para ver l
 
 En el repositorio `Hugocuau70/Entrevistas-de-trabajo`, usa la rama `uber-for-business` y apunta a `diseno/uber-para-empresas/`. Para Claude Design puedes adjuntar la guía, la imagen y los recursos que necesite el encargo.
 
-> Lee `diseno/uber-para-empresas/DESIGN-SYSTEM.md` y `tokens.json`. Usa los SVG y los íconos de `assets/` según su función. Toma `referencia-visual.html` como muestra de los componentes. Con mi brief, prepara un storyboard en español mexicano con tiempos, imagen, texto, audio, transición y CTA. Marca las visualizaciones conceptuales. Usa las cifras u ofertas que estén respaldadas por el brief y sus fuentes. Si falta el objetivo o la audiencia, pregúntame antes de fijar el concepto.
+> Lee `diseno/uber-para-empresas/BUSINESS-CASE.md` y `DESIGN-SYSTEM.md` antes de trabajar en mi caso. Usa los recursos de `assets/` y los tokens visuales. Para slides o materiales del panel, escribe en inglés. Prepara las notas de exposición y práctica del role play en español. En los cálculos de Gross Bookings, muestra los supuestos y el consumo por mes dentro de H1.
+
+Para una pieza audiovisual complementaria, usa el muestrario HTML como referencia y aplica los rótulos y el idioma que correspondan a su destino.

@@ -12,7 +12,7 @@ Trabajo guiado con Diego. Horizonte: enero–junio de 2027. Estado: selección d
 ## Materiales
 - `brief/`: documento original, extracción y requisitos.
 - `investigacion/`: candidatos por verificar y preguntas para decidir.
-- `diseno/`: sistema visual y encargo reutilizable para Claude.
+- [Design System y business case](diseno/uber-para-empresas/README.md): recursos visuales, entregables del panel y reglas de Gross Bookings.
 - `presentacion/`: plantilla editable, no presentación final.
 - `scripts/`: generador reproducible de la plantilla.
 

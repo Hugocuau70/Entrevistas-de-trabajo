@@ -1,8 +1,14 @@
 # Uber para Empresas · Sistema de diseño para entrevista
 
-México · v2.0 · Referencia para piezas audiovisuales, storyboards y prototipos.
+México · Kit de entrevista · Deck ejecutivo, piezas audiovisuales, storyboards y prototipos.
 
 La identidad se basa en los recursos publicados por Uber para Empresas México, la guía de Base y la captura de campaña compartida. Las reglas de encuadre y movimiento son propuestas para el caso.
+
+## Preparación del caso y presentación ejecutiva
+
+Usa [BUSINESS-CASE.md](BUSINESS-CASE.md) para armar y revisar cualquier entregable de entrevista. Ahí están el alcance de México, la estructura y el idioma del panel, los tres bloques evaluados, las reglas de Gross Bookings y el modelo de cuenta y portafolio.
+
+Usa la firma **Uber for Business** en el deck en inglés y aplica la escala de Uber Move a títulos y datos clave. En el forecast, usa negro y blanco para lectura, con menta como acento para destacar cuota, brecha o un hito. Mantén a la vista el periodo, la unidad y si cada dato es un supuesto o un forecast. Los ejemplos audiovisuales de esta guía sirven como referencia visual.
 
 ## Identidad y firmas de marca
 
