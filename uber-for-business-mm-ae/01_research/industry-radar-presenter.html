@@ -207,6 +207,17 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .calc-how b { color: var(--ink); }
 #calcB .inputs { gap: calc(var(--gap) * .35); }
 
+.deck-bar .present-btn { background: var(--ink); color: var(--paper); }
+.slides.presenting { position: fixed; inset: 0; z-index: 1000; background: #000; display: flex; align-items: center; justify-content: center; padding: 0; gap: 0; }
+.slides:fullscreen { background: #000; display: flex; align-items: center; justify-content: center; padding: 0; gap: 0; }
+.slides.presenting .slide, .slides:fullscreen .slide { box-sizing: border-box; width: min(100vw, calc(100vh * 16 / 9)); max-height: 100vh; aspect-ratio: 16 / 9; border-radius: 0; border: 0; flex: none; }
+.slides.presenting .slide[hidden], .slides:fullscreen .slide[hidden] { display: none !important; }
+.present-ui { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: max(14px, env(safe-area-inset-bottom, 0px)); z-index: 1001; display: flex; gap: 8px; align-items: center; opacity: .25; transition: opacity .2s; }
+.present-ui:hover, .present-ui:focus-within { opacity: 1; }
+.present-ui button { font: inherit; font-size: 13px; font-weight: 600; border: 1px solid #555; background: #111; color: #fff; border-radius: 999px; padding: 6px 12px; cursor: pointer; }
+.present-ui span { font-size: 12px; color: #bbb; font-variant-numeric: tabular-nums; min-width: 4.5em; text-align: center; }
+@media (max-width: 760px) { .slides.presenting .slide { aspect-ratio: auto; max-height: 100vh; overflow: auto; } }
+
 .s-uber { position: absolute; top: var(--pad); right: calc(var(--pad) * 1.15); display: block; line-height: 0; }
 .s-uber i { display: inline-block; height: 2.5cqw; aspect-ratio: 715 / 244; background: no-repeat center / contain; }
 .s-uber .lb { background-image: var(--uber-b); } .s-uber .lw { background-image: var(--uber-w); aspect-ratio: 640 / 216; }
@@ -352,7 +363,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 <div class="tabpanel" id="final-deck" data-tab="final-deck" hidden>
   <div class="deck-bar">
     <p class="deck-intro">Final deck · Sections 1–2 (company profile, strategy, role play and mutual success plan), Section 3 (Book of Business) and the appendix, in the same order as the Google Slides sent by email. Use ← → to move between slides.</p>
-    <div class="nav"><button type="button" data-act="prev">Previous</button><span class="count"></span><button type="button" data-act="next">Next</button><button type="button" data-act="all" aria-pressed="false">Show all</button></div>
+    <div class="nav"><button type="button" data-act="prev">Previous</button><span class="count"></span><button type="button" data-act="next">Next</button><button type="button" data-act="all" aria-pressed="false">Show all</button><button type="button" data-act="present" class="present-btn">Present ⛶</button></div>
   </div>
   <div class="slides" data-deck="final">
     <article class="slide inv" data-title="Cover">
@@ -810,7 +821,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 <div class="tabpanel" id="salles-review" data-tab="salles-review" hidden>
   <div class="deck-bar">
     <p class="deck-intro">Salles Sainz review: the earlier client-facing version of Section 1, kept for comparison. Use ← → to move between slides.</p>
-    <div class="nav"><button type="button" data-act="prev">Previous</button><span class="count"></span><button type="button" data-act="next">Next</button><button type="button" data-act="all" aria-pressed="false">Show all</button></div>
+    <div class="nav"><button type="button" data-act="prev">Previous</button><span class="count"></span><button type="button" data-act="next">Next</button><button type="button" data-act="all" aria-pressed="false">Show all</button><button type="button" data-act="present" class="present-btn">Present ⛶</button></div>
   </div>
   <div class="slides" data-deck="review">
 
@@ -1059,7 +1070,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 <div class="tabpanel" id="internal-brief" data-tab="internal-brief" hidden>
   <div class="deck-bar">
     <p class="deck-intro">Internal account brief for the Uber team: the opportunity, the buying committee and the role-play plan for Salles Sainz Grant Thornton.</p>
-    <div class="nav"><button type="button" data-act="prev">Previous</button><span class="count"></span><button type="button" data-act="next">Next</button><button type="button" data-act="all" aria-pressed="false">Show all</button></div>
+    <div class="nav"><button type="button" data-act="prev">Previous</button><span class="count"></span><button type="button" data-act="next">Next</button><button type="button" data-act="all" aria-pressed="false">Show all</button><button type="button" data-act="present" class="present-btn">Present ⛶</button></div>
   </div>
   <div class="slides" data-deck="brief">
 
@@ -1438,6 +1449,41 @@ document.querySelectorAll('.tabpanel .slides').forEach((deck) => {
     if (panel.hidden || showAll || /INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)) return;
     if (e.key === 'ArrowRight' || e.key === 'PageDown') { cur = Math.min(slides.length - 1, cur + 1); render(); }
     if (e.key === 'ArrowLeft' || e.key === 'PageUp') { cur = Math.max(0, cur - 1); render(); }
+  });
+  // Presentation mode (fullscreen, with in-page fallback)
+  const presentBtn = panel.querySelector('[data-act=present]');
+  let ui = null;
+  const isOn = () => deck.classList.contains('presenting') || document.fullscreenElement === deck;
+  const updUi = () => { if (ui) ui.querySelector('span').textContent = `${cur + 1} / ${slides.length}`; };
+  function enter() {
+    showAll = false; render(); deck.classList.add('presenting');
+    ui = document.createElement('div'); ui.className = 'present-ui';
+    const b1 = document.createElement('button'); b1.type = 'button'; b1.textContent = '‹'; b1.setAttribute('aria-label', 'Previous slide');
+    const sp = document.createElement('span');
+    const b2 = document.createElement('button'); b2.type = 'button'; b2.textContent = '›'; b2.setAttribute('aria-label', 'Next slide');
+    const bx = document.createElement('button'); bx.type = 'button'; bx.textContent = 'Exit (Esc)';
+    b1.onclick = () => { cur = Math.max(0, cur - 1); render(); updUi(); };
+    b2.onclick = () => { cur = Math.min(slides.length - 1, cur + 1); render(); updUi(); };
+    bx.onclick = exit; ui.append(b1, sp, b2, bx); deck.appendChild(ui); updUi();
+    if (deck.requestFullscreen) { const pr = deck.requestFullscreen(); if (pr && pr.catch) pr.catch(() => {}); }
+  }
+  function exit() {
+    deck.classList.remove('presenting'); if (ui) { ui.remove(); ui = null; }
+    if (document.fullscreenElement === deck && document.exitFullscreen) { const pr = document.exitFullscreen(); if (pr && pr.catch) pr.catch(() => {}); }
+    render();
+  }
+  if (presentBtn) presentBtn.addEventListener('click', enter);
+  document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement && deck.classList.contains('presenting')) exit(); });
+  document.addEventListener('keydown', (e) => {
+    if (!isOn()) return;
+    if (e.key === 'Escape') { exit(); return; }
+    if (/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)) return;
+    if (e.key === ' ' ) { e.preventDefault(); cur = Math.min(slides.length - 1, cur + 1); render(); }
+    updUi();
+  });
+  deck.addEventListener('click', (e) => {
+    if (!isOn() || e.target.closest('input, select, button, label, a, .present-ui')) return;
+    const r = deck.getBoundingClientRect(); cur = e.clientX > r.left + r.width / 2 ? Math.min(slides.length - 1, cur + 1) : Math.max(0, cur - 1); render(); updUi();
   });
   render();
 });

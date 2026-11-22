@@ -33,3 +33,4 @@
 | 2026-11-22 | Logo de Salles Sainz Grant Thornton en alta resolución (portadas y perfil) en el Radar y en el pptx. Logo de Uber: en el pptx y en una copia local del Radar (`01_research/industry-radar-presenter.html`); no en la página pública | La página pública con marca de Uber podría pasar por material oficial |
 | 2026-11-22 | Portada de Sección 2 añadida directamente en el Google Slides del correo (mismo link), slide 11; numeración actualizada a 24 slides | Petición del usuario; conector de Google Slides activo |
 | 2026-11-22 | "Your mobility in numbers": desglose en vivo bajo cada slider (personas, multiplicaciones) y fórmula de presupuesto y recuperación | Transparencia total de los números (petición del usuario) |
+| 2026-11-22 | Botón "Present" (pantalla completa) en los decks del Radar: flechas, espacio o clic para avanzar; Esc para salir | Petición del usuario |

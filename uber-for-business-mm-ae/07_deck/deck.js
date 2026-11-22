@@ -33,6 +33,41 @@ document.querySelectorAll('.tabpanel .slides').forEach((deck) => {
     if (e.key === 'ArrowRight' || e.key === 'PageDown') { cur = Math.min(slides.length - 1, cur + 1); render(); }
     if (e.key === 'ArrowLeft' || e.key === 'PageUp') { cur = Math.max(0, cur - 1); render(); }
   });
+  // Presentation mode (fullscreen, with in-page fallback)
+  const presentBtn = panel.querySelector('[data-act=present]');
+  let ui = null;
+  const isOn = () => deck.classList.contains('presenting') || document.fullscreenElement === deck;
+  const updUi = () => { if (ui) ui.querySelector('span').textContent = `${cur + 1} / ${slides.length}`; };
+  function enter() {
+    showAll = false; render(); deck.classList.add('presenting');
+    ui = document.createElement('div'); ui.className = 'present-ui';
+    const b1 = document.createElement('button'); b1.type = 'button'; b1.textContent = '‹'; b1.setAttribute('aria-label', 'Previous slide');
+    const sp = document.createElement('span');
+    const b2 = document.createElement('button'); b2.type = 'button'; b2.textContent = '›'; b2.setAttribute('aria-label', 'Next slide');
+    const bx = document.createElement('button'); bx.type = 'button'; bx.textContent = 'Exit (Esc)';
+    b1.onclick = () => { cur = Math.max(0, cur - 1); render(); updUi(); };
+    b2.onclick = () => { cur = Math.min(slides.length - 1, cur + 1); render(); updUi(); };
+    bx.onclick = exit; ui.append(b1, sp, b2, bx); deck.appendChild(ui); updUi();
+    if (deck.requestFullscreen) { const pr = deck.requestFullscreen(); if (pr && pr.catch) pr.catch(() => {}); }
+  }
+  function exit() {
+    deck.classList.remove('presenting'); if (ui) { ui.remove(); ui = null; }
+    if (document.fullscreenElement === deck && document.exitFullscreen) { const pr = document.exitFullscreen(); if (pr && pr.catch) pr.catch(() => {}); }
+    render();
+  }
+  if (presentBtn) presentBtn.addEventListener('click', enter);
+  document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement && deck.classList.contains('presenting')) exit(); });
+  document.addEventListener('keydown', (e) => {
+    if (!isOn()) return;
+    if (e.key === 'Escape') { exit(); return; }
+    if (/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)) return;
+    if (e.key === ' ' ) { e.preventDefault(); cur = Math.min(slides.length - 1, cur + 1); render(); }
+    updUi();
+  });
+  deck.addEventListener('click', (e) => {
+    if (!isOn() || e.target.closest('input, select, button, label, a, .present-ui')) return;
+    const r = deck.getBoundingClientRect(); cur = e.clientX > r.left + r.width / 2 ? Math.min(slides.length - 1, cur + 1) : Math.max(0, cur - 1); render(); updUi();
+  });
   render();
 });
 

@@ -100,3 +100,14 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .calc-how { margin: 0; font-size: var(--fs-small); color: var(--muted); font-variant-numeric: tabular-nums; line-height: 1.45; border-left: 2px solid var(--accent); padding-left: .7em; }
 .calc-how b { color: var(--ink); }
 #calcB .inputs { gap: calc(var(--gap) * .35); }
+
+.deck-bar .present-btn { background: var(--ink); color: var(--paper); }
+.slides.presenting { position: fixed; inset: 0; z-index: 1000; background: #000; display: flex; align-items: center; justify-content: center; padding: 0; gap: 0; }
+.slides:fullscreen { background: #000; display: flex; align-items: center; justify-content: center; padding: 0; gap: 0; }
+.slides.presenting .slide, .slides:fullscreen .slide { box-sizing: border-box; width: min(100vw, calc(100vh * 16 / 9)); max-height: 100vh; aspect-ratio: 16 / 9; border-radius: 0; border: 0; flex: none; }
+.slides.presenting .slide[hidden], .slides:fullscreen .slide[hidden] { display: none !important; }
+.present-ui { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: max(14px, env(safe-area-inset-bottom, 0px)); z-index: 1001; display: flex; gap: 8px; align-items: center; opacity: .25; transition: opacity .2s; }
+.present-ui:hover, .present-ui:focus-within { opacity: 1; }
+.present-ui button { font: inherit; font-size: 13px; font-weight: 600; border: 1px solid #555; background: #111; color: #fff; border-radius: 999px; padding: 6px 12px; cursor: pointer; }
+.present-ui span { font-size: 12px; color: #bbb; font-variant-numeric: tabular-nums; min-width: 4.5em; text-align: center; }
+@media (max-width: 760px) { .slides.presenting .slide { aspect-ratio: auto; max-height: 100vh; overflow: auto; } }
