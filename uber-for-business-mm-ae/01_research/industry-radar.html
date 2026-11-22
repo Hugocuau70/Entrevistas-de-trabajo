@@ -3,20 +3,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <style>
-/* Layout: single column report-tool — summary, heatmap, findings, scorer, market depth, method. Monochrome after Uber's Base system; ink density encodes intensity; one blue accent for "our pick". */
+/* Layout: single column report-tool — summary, heatmap, findings, scorer, market depth, method. Uber for Business design system: black and white, carbon #232B32 and mint #A4D9C3 accents; one blue accent for "our pick". */
 :root {
   --ink: #000000; --paper: #FFFFFF; --muted: #545454; --tertiary: #757575;
-  --surface: #F6F6F6; --surface-2: #EEEEEE; --line: #E2E2E2; --accent: #276EF1;
-  --b-peak: #276EF1; --b-peak-fg: #FFFFFF; --b-high: #B4CCF9; --b-high-fg: #000000; --b-mid: #EEEEEE; --b-mid-fg: #000000;
+  --surface: #F6F6F6; --surface-2: #EEEEEE; --line: #E2E2E2; --accent: #232B32; --mint: #A4D9C3; --card: #232B32; --mint-surface: #EAFAEB;
+  --b-peak: #232B32; --b-peak-fg: #FFFFFF; --b-high: #A4D9C3; --b-high-fg: #000000; --b-mid: #EEEEEE; --b-mid-fg: #000000;
   --b-low: #FFD9B0; --b-low-fg: #000000; --b-trough: #FF6937; --b-trough-fg: #000000;
   --font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
   --ink: #FFFFFF; --paper: #000000; --muted: #AFAFAF; --tertiary: #8A8A8A;
-  --surface: #141414; --surface-2: #1F1F1F; --line: #2B2B2B; --accent: #5B91F5; --b-peak: #276EF1; --b-peak-fg: #FFFFFF; --b-high: #2F4F8F; --b-high-fg: #FFFFFF; --b-mid: #262626; --b-mid-fg: #FFFFFF; --b-low: #7A4420; --b-low-fg: #FFFFFF; --b-trough: #FF6937; --b-trough-fg: #000000; color-scheme: dark; } }
+  --surface: #141414; --surface-2: #1F1F1F; --line: #2B2B2B; --accent: #A4D9C3; --mint: #A4D9C3; --card: #232B32; --mint-surface: #1C2B25; --b-peak: #A4D9C3; --b-peak-fg: #000000; --b-high: #3E6B5B; --b-high-fg: #FFFFFF; --b-mid: #262626; --b-mid-fg: #FFFFFF; --b-low: #7A4420; --b-low-fg: #FFFFFF; --b-trough: #FF6937; --b-trough-fg: #000000; color-scheme: dark; } }
 :root[data-theme="dark"] {
   --ink: #FFFFFF; --paper: #000000; --muted: #AFAFAF; --tertiary: #8A8A8A;
-  --surface: #141414; --surface-2: #1F1F1F; --line: #2B2B2B; --accent: #5B91F5; --b-peak: #276EF1; --b-peak-fg: #FFFFFF; --b-high: #2F4F8F; --b-high-fg: #FFFFFF; --b-mid: #262626; --b-mid-fg: #FFFFFF; --b-low: #7A4420; --b-low-fg: #FFFFFF; --b-trough: #FF6937; --b-trough-fg: #000000; color-scheme: dark; }
+  --surface: #141414; --surface-2: #1F1F1F; --line: #2B2B2B; --accent: #A4D9C3; --mint: #A4D9C3; --card: #232B32; --mint-surface: #1C2B25; --b-peak: #A4D9C3; --b-peak-fg: #000000; --b-high: #3E6B5B; --b-high-fg: #FFFFFF; --b-mid: #262626; --b-mid-fg: #FFFFFF; --b-low: #7A4420; --b-low-fg: #FFFFFF; --b-trough: #FF6937; --b-trough-fg: #000000; color-scheme: dark; }
 body { background: var(--paper); color: var(--ink); font-family: var(--font); font-size: 15px; line-height: 1.5;
   padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 32px 64px; }
 .page { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px; }
@@ -140,7 +140,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .s-card b { font-size: var(--fs-body); }
 .s-card .k { font-size: var(--fs-small); color: var(--tertiary); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
 .s-card .prod { font-size: var(--fs-small); font-weight: 600; color: var(--accent); margin-top: auto; }
-.s-card.accent { background: var(--accent); color: #fff; } .s-card.accent .k, .s-card.accent .prod { color: rgba(255,255,255,.85); }
+.s-card.accent { background: var(--card); color: #fff; } .s-card.accent .k, .s-card.accent .prod { color: var(--mint) !important; } .s-card.accent .k, .s-card.accent .prod { color: rgba(255,255,255,.85); }
 .s-hero { font-size: var(--fs-hero); font-weight: 700; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
 .s-table { width: 100%; border-collapse: collapse; font-size: var(--fs-body); }
 .s-table th { text-align: left; font-size: var(--fs-small); color: var(--tertiary); text-transform: uppercase; letter-spacing: .06em; font-weight: 600; padding: .4em .5em; border-bottom: 1.5px solid var(--ink); }
@@ -151,7 +151,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .s-step .n { font-size: var(--fs-sub); font-weight: 700; color: var(--accent); }
 .s-time { display: grid; grid-template-columns: repeat(6, 1fr); gap: calc(var(--gap) * .6); }
 .s-time .t { background: var(--surface); border-radius: 6px; padding: calc(var(--gap) * .7); display: flex; flex-direction: column; gap: .3em; }
-.s-time .t.go { background: var(--accent); color: #fff; } .s-time .t.go .w { color: rgba(255,255,255,.85); }
+.s-time .t.go { background: var(--card); color: #fff; } .s-time .t.go .w { color: rgba(255,255,255,.85); }
 .s-time .w { font-size: var(--fs-small); font-weight: 700; color: var(--tertiary); text-transform: uppercase; letter-spacing: .06em; }
 .s-chart svg { width: 100%; height: auto; display: block; }
 .calc { display: grid; grid-template-columns: 34% 1fr; gap: calc(var(--gap) * 1.4); flex: 1; min-height: 0; }
@@ -164,7 +164,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .calc .out { display: flex; flex-direction: column; gap: var(--gap); min-width: 0; }
 .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
 .kpi { border-left: .3cqw solid var(--line); padding-left: calc(var(--gap) * .7); display: flex; flex-direction: column; gap: .2em; }
-.kpi.main { border-color: var(--accent); }
+.kpi.main { border-color: var(--mint); }
 .kpi .v { font-size: calc(var(--fs-hero) * .78); font-weight: 700; letter-spacing: -0.02em; line-height: 1; font-variant-numeric: tabular-nums; }
 .kpi .l { font-size: var(--fs-small); color: var(--tertiary); }
 .brief-note { border-left: 3px solid var(--accent); padding: 4px 0 4px 12px; color: var(--muted); font-size: 14px; max-width: 80ch; margin: 0; }
@@ -203,7 +203,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .s-client-lite img { height: 2.4cqw; }
 
 .calc .inp .calc-x { grid-column: 1 / -1; font-size: calc(var(--fs-small) * .92); color: var(--tertiary); font-variant-numeric: tabular-nums; line-height: 1.3; margin-top: .1em; }
-.calc-how { margin: 0; font-size: var(--fs-small); color: var(--muted); font-variant-numeric: tabular-nums; line-height: 1.45; border-left: 2px solid var(--accent); padding-left: .7em; }
+.calc-how { margin: 0; font-size: var(--fs-small); color: var(--muted); font-variant-numeric: tabular-nums; line-height: 1.45; border-left: 2px solid var(--accent); padding-left: .7em; border-left-color: var(--mint); }
 .calc-how b { color: var(--ink); }
 #calcB .inputs { gap: calc(var(--gap) * .35); }
 
@@ -222,6 +222,18 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .s-table.adopt td { padding: .42em .5em; }
 .s-table.adopt td:first-child { white-space: nowrap; }
 .s-table.adopt td:nth-child(5) { white-space: nowrap; color: var(--accent); font-weight: 600; }
+
+.kit { display: grid; grid-template-columns: 1fr 1.25fr; gap: var(--gap); flex: 1; min-height: 0; }
+.kit-card { display: flex; gap: var(--gap); background: var(--surface); border-radius: 6px; padding: calc(var(--gap) * .8); min-width: 0; min-height: 0; }
+.kit-shot { flex: 0 0 44%; border-radius: 4px; overflow: hidden; background: var(--card); color: var(--mint); display: flex; align-items: center; justify-content: center; text-align: center; font-size: var(--fs-small); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; min-height: 0; position: relative; }
+.kit-video { flex-basis: 52%; }
+.kit-shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+a.kit-shot::after { content: "Open ↗"; position: absolute; right: .5em; bottom: .5em; background: #000; color: #fff; font-size: calc(var(--fs-small) * .85); padding: .2em .6em; border-radius: 999px; text-transform: none; letter-spacing: 0; }
+.kit-txt { display: flex; flex-direction: column; gap: calc(var(--gap) * .4); min-width: 0; font-size: calc(var(--fs-body) * .92); }
+.kit-txt .k { font-size: var(--fs-small); color: var(--tertiary); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+.kit-txt ul { margin: 0; padding-left: 1.1em; display: flex; flex-direction: column; gap: .3em; }
+.kit-txt .prod { margin-top: auto; font-size: var(--fs-small); font-weight: 600; color: var(--accent); }
+@media (max-width: 760px) { .kit { grid-template-columns: 1fr; } .kit-card { flex-direction: column; } .kit-shot { min-height: 200px; } }
 
 </style>
 
@@ -605,6 +617,34 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
         <div class="s-card accent"><span class="k">How adoption moves my number</span><b>GB = active riders × trips × fare. Every 10 points of adoption add about USD 13K of GB in H1 2027.</b></div>
       </div>
       <div class="s-foot"><span>Incentives from Uber subject to approval and availability in Mexico · Section 2 · Mutual success plan</span><span class="pg"></span></div>
+    </article>
+    <article class="slide" data-title="Launch kit">
+      <p class="s-eyebrow">Section 2 · Launch kit</p>
+      <h2 class="s-title">The launch kit that puts the five levers in front of every employee</h2>
+      <div class="s-body">
+        <div class="kit">
+          <div class="kit-card">
+            <div class="kit-shot kit-email" data-kit="email"><span>Launch email<br>mock-up</span></div>
+            <div class="kit-txt">
+              <span class="k">Launch email · January 4</span>
+              <b>From the Head of People to all 950–1,000 staff</b>
+              <ul><li>Announces the new default for client visits (lever 01).</li><li>One tap claims dinner, one tap joins the account (lever 02).</li><li>Explains the five levers and a three-step setup.</li></ul>
+              <span class="prod">SSGT sends · Uber drafts</span>
+            </div>
+          </div>
+          <div class="kit-card">
+            <div class="kit-shot kit-video" data-kit="video"><span>Lever video<br>mock-up · 15 s</span></div>
+            <div class="kit-txt">
+              <span class="k">Lever videos · 15 seconds each</span>
+              <b>One clip per lever for the kickoff, Teams and office screens</b>
+              <ul><li>Shows the change inside the employee's own tools.</li><li>Ends on one action: find your invite in your inbox.</li></ul>
+              <span class="prod">SSGT internal comms · Uber produces</span>
+            </div>
+          </div>
+        </div>
+        <div class="s-card accent"><span class="k">One message, three touchpoints</span><b>Launch email on January 4 → kickoff video in every office → first closing-night dinner voucher.</b></div>
+      </div>
+      <div class="s-foot"><span>Mock-ups for illustration; final copy approved by SSGT · Section 2 · Mutual success plan</span><span class="pg"></span></div>
     </article>
     <article class="slide" data-title="Operating rhythm">
       <p class="s-eyebrow">Section 2 · Mutual success plan</p>
@@ -1360,7 +1400,7 @@ document.getElementById('reset').addEventListener('click', () => { WK.forEach((k
       const r = document.createElementNS(NS, 'rect'); r.setAttribute('x', x(i) - 3); r.setAttribute('y', pt - 4); r.setAttribute('width', Math.min(x(Math.min(i + 5, MS.length - 1)) + 3, W) - x(i) + 3); r.setAttribute('height', H - pt - pb + 8); r.setAttribute('fill', 'var(--surface-2)'); svg.appendChild(r);
       const tx = document.createElementNS(NS, 'text'); tx.setAttribute('x', x(i)); tx.setAttribute('y', H - 3); tx.setAttribute('font-size', '10'); tx.setAttribute('fill', 'var(--tertiary)'); tx.textContent = 'H1 ' + m.slice(0, 4); svg.appendChild(tx); } });
     const path = document.createElementNS(NS, 'path'); path.setAttribute('d', s.values.map((v, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(''));
-    path.setAttribute('fill', 'none'); path.setAttribute('stroke', s.group === 'Industry triggers' ? 'var(--ink)' : 'var(--accent)'); path.setAttribute('stroke-width', '2'); path.setAttribute('stroke-linejoin', 'round'); svg.appendChild(path);
+    path.setAttribute('fill', 'none'); path.setAttribute('stroke', s.group === 'Industry triggers' ? 'var(--ink)' : 'var(--mint)'); path.setAttribute('stroke-width', '2'); path.setAttribute('stroke-linejoin', 'round'); svg.appendChild(path);
     const pk = s.values.indexOf(Math.max(...s.values));
     const dot = document.createElementNS(NS, 'circle'); dot.setAttribute('r', '3.5'); dot.setAttribute('fill', 'var(--ink)'); dot.setAttribute('cx', x(pk)); dot.setAttribute('cy', y(s.values[pk])); svg.appendChild(dot);
     const pt2 = document.createElementNS(NS, 'text'); pt2.setAttribute('font-size', '10.5'); pt2.setAttribute('font-weight', '600'); pt2.setAttribute('fill', 'var(--ink)');
@@ -1460,7 +1500,7 @@ document.querySelectorAll('.tabpanel .slides').forEach((deck) => {
     const svg = mk('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': opt.label });
     values.forEach((v, i) => {
       const hl = opt.hl.includes(i);
-      svg.appendChild(mk('rect', { x: pl + i * bw + bw * 0.14, y: y(v), width: bw * 0.72, height: Math.max(1, H - pb - y(v)), rx: 2, fill: hl ? 'var(--accent)' : 'var(--b-mid)' }));
+      svg.appendChild(mk('rect', { x: pl + i * bw + bw * 0.14, y: y(v), width: bw * 0.72, height: Math.max(1, H - pb - y(v)), rx: 2, fill: hl ? 'var(--mint)' : 'var(--b-mid)' }));
       svg.appendChild(mk('text', { x: pl + i * bw + bw / 2, y: y(v) - 5, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': hl ? 700 : 500, fill: 'var(--ink)' }, opt.fmt(v)));
       svg.appendChild(mk('text', { x: pl + i * bw + bw / 2, y: H - 6, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--tertiary)' }, labels[i]));
     });
@@ -1516,10 +1556,10 @@ window.GB = (() => {
     for (let m = 0; m < 6; m++) {
       const x = pl + m * bw;
       svg.appendChild(mk('rect', { x: x + bw * 0.12, y: y(r.pot[m]), width: bw * 0.76, height: H - pb - y(r.pot[m]), rx: 2, fill: 'var(--b-mid)' }));
-      if (r.proj[m] > 0) svg.appendChild(mk('rect', { x: x + bw * 0.12, y: y(r.proj[m]), width: bw * 0.76, height: H - pb - y(r.proj[m]), rx: 2, fill: 'var(--accent)' }));
+      if (r.proj[m] > 0) svg.appendChild(mk('rect', { x: x + bw * 0.12, y: y(r.proj[m]), width: bw * 0.76, height: H - pb - y(r.proj[m]), rx: 2, fill: 'var(--mint)' }));
       svg.appendChild(mk('text', { x: x + bw / 2, y: y(r.pot[m]) - 6, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--tertiary)' }, GB.usd(r.pot[m])));
       if (r.proj[m] > 0) { const ty = y(r.proj[m]) + 15; const inside = H - pb - y(r.proj[m]) > 20;
-        svg.appendChild(mk('text', { x: x + bw / 2, y: inside ? ty : y(r.proj[m]) - 4, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 700, fill: inside ? '#FFFFFF' : 'var(--accent)' }, GB.usd(r.proj[m]))); }
+        svg.appendChild(mk('text', { x: x + bw / 2, y: inside ? ty : y(r.proj[m]) - 4, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 700, fill: inside ? '#000000' : 'var(--ink)' }, GB.usd(r.proj[m]))); }
       svg.appendChild(mk('text', { x: x + bw / 2, y: H - 7, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--tertiary)' }, ML6[m]));
     }
     host.replaceChildren(svg);
@@ -1598,9 +1638,9 @@ window.GB = (() => {
     for (let m = 0; m < 6; m++) {
       const x = pl + m * bw;
       svg.appendChild(mk('rect', { x: x + bw * 0.12, y: y(r.pot[m]), width: bw * 0.76, height: H - pb - y(r.pot[m]), rx: 2, fill: 'var(--b-mid)' }));
-      if (r.proj[m] > 0) svg.appendChild(mk('rect', { x: x + bw * 0.12, y: y(r.proj[m]), width: bw * 0.76, height: H - pb - y(r.proj[m]), rx: 2, fill: 'var(--accent)' }));
+      if (r.proj[m] > 0) svg.appendChild(mk('rect', { x: x + bw * 0.12, y: y(r.proj[m]), width: bw * 0.76, height: H - pb - y(r.proj[m]), rx: 2, fill: 'var(--mint)' }));
       svg.appendChild(mk('text', { x: x + bw / 2, y: y(r.pot[m]) - 6, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--tertiary)' }, GB.usd(r.pot[m])));
-      if (r.proj[m] > 0) svg.appendChild(mk('text', { x: x + bw / 2, y: Math.min(y(r.proj[m]) + 15, H - pb - 4), 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 700, fill: '#FFFFFF' }, GB.usd(r.proj[m])));
+      if (r.proj[m] > 0) svg.appendChild(mk('text', { x: x + bw / 2, y: Math.min(y(r.proj[m]) + 15, H - pb - 4), 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 700, fill: '#000000' }, GB.usd(r.proj[m])));
       svg.appendChild(mk('text', { x: x + bw / 2, y: H - 7, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--tertiary)' }, ML6[m]));
     }
     host.replaceChildren(svg);
@@ -1652,7 +1692,7 @@ window.GB = (() => {
     const host = document.getElementById('chartCum'); const W = 560, H = 200, pl = 6, pt = 18, pb = 24; const ML6 = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
     const max = Math.max(380000, ...r.cum) * 1.08; const bw = (W - pl * 2) / 6; const y = (v) => pt + (H - pt - pb) * (1 - v / max);
     const svg = mk('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': `Cumulative H1 GB reaches ${usd(t.h1)} against a USD 350K quota` });
-    for (let m = 0; m < 6; m++) { const x = pl + m * bw; svg.appendChild(mk('rect', { x: x + bw * .14, y: y(r.cum[m]), width: bw * .72, height: H - pb - y(r.cum[m]), rx: 2, fill: m === 5 ? 'var(--accent)' : 'var(--b-high)' }));
+    for (let m = 0; m < 6; m++) { const x = pl + m * bw; svg.appendChild(mk('rect', { x: x + bw * .14, y: y(r.cum[m]), width: bw * .72, height: H - pb - y(r.cum[m]), rx: 2, fill: m === 5 ? 'var(--mint)' : 'var(--b-mid)' }));
       svg.appendChild(mk('text', { x: x + bw / 2, y: y(r.cum[m]) - 5, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': m === 5 ? 700 : 500, fill: 'var(--ink)' }, usd(r.cum[m])));
       svg.appendChild(mk('text', { x: x + bw / 2, y: H - 7, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--tertiary)' }, ML6[m])); }
     svg.appendChild(mk('line', { x1: pl, x2: W - pl, y1: y(350000), y2: y(350000), stroke: 'var(--ink)', 'stroke-width': 1.5, 'stroke-dasharray': '5 4' }));
@@ -1664,7 +1704,7 @@ window.GB = (() => {
   // multiplier chart
   const host = document.getElementById('chartMult'); const W = 560, H = 230, pl = 6, pt = 22, pb = 24; const bw = (W - pl * 2) / 7; const y = (v) => pt + (H - pt - pb) * (1 - v / 3.3);
   const svg = mk('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'H1 value of a deal by close month: December 3.0 months, May 0.2 months' });
-  CM.forEach((m, i) => { const v = mult(i), x = pl + i * bw; svg.appendChild(mk('rect', { x: x + bw * .14, y: y(v), width: bw * .72, height: Math.max(1, H - pb - y(v)), rx: 2, fill: i <= 2 ? 'var(--accent)' : 'var(--b-mid)' }));
+  CM.forEach((m, i) => { const v = mult(i), x = pl + i * bw; svg.appendChild(mk('rect', { x: x + bw * .14, y: y(v), width: bw * .72, height: Math.max(1, H - pb - y(v)), rx: 2, fill: i <= 2 ? 'var(--mint)' : 'var(--b-mid)' }));
     svg.appendChild(mk('text', { x: x + bw / 2, y: y(v) - 5, 'text-anchor': 'middle', 'font-size': 12, 'font-weight': 700, fill: 'var(--ink)' }, v.toFixed(2).replace(/0$/, '')));
     svg.appendChild(mk('text', { x: x + bw / 2, y: H - 7, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--tertiary)' }, m)); });
   host.replaceChildren(svg);

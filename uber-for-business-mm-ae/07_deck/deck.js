@@ -82,7 +82,7 @@ document.querySelectorAll('.tabpanel .slides').forEach((deck) => {
     const svg = mk('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': opt.label });
     values.forEach((v, i) => {
       const hl = opt.hl.includes(i);
-      svg.appendChild(mk('rect', { x: pl + i * bw + bw * 0.14, y: y(v), width: bw * 0.72, height: Math.max(1, H - pb - y(v)), rx: 2, fill: hl ? 'var(--accent)' : 'var(--b-mid)' }));
+      svg.appendChild(mk('rect', { x: pl + i * bw + bw * 0.14, y: y(v), width: bw * 0.72, height: Math.max(1, H - pb - y(v)), rx: 2, fill: hl ? 'var(--mint)' : 'var(--b-mid)' }));
       svg.appendChild(mk('text', { x: pl + i * bw + bw / 2, y: y(v) - 5, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': hl ? 700 : 500, fill: 'var(--ink)' }, opt.fmt(v)));
       svg.appendChild(mk('text', { x: pl + i * bw + bw / 2, y: H - 6, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--tertiary)' }, labels[i]));
     });
@@ -138,10 +138,10 @@ window.GB = (() => {
     for (let m = 0; m < 6; m++) {
       const x = pl + m * bw;
       svg.appendChild(mk('rect', { x: x + bw * 0.12, y: y(r.pot[m]), width: bw * 0.76, height: H - pb - y(r.pot[m]), rx: 2, fill: 'var(--b-mid)' }));
-      if (r.proj[m] > 0) svg.appendChild(mk('rect', { x: x + bw * 0.12, y: y(r.proj[m]), width: bw * 0.76, height: H - pb - y(r.proj[m]), rx: 2, fill: 'var(--accent)' }));
+      if (r.proj[m] > 0) svg.appendChild(mk('rect', { x: x + bw * 0.12, y: y(r.proj[m]), width: bw * 0.76, height: H - pb - y(r.proj[m]), rx: 2, fill: 'var(--mint)' }));
       svg.appendChild(mk('text', { x: x + bw / 2, y: y(r.pot[m]) - 6, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--tertiary)' }, GB.usd(r.pot[m])));
       if (r.proj[m] > 0) { const ty = y(r.proj[m]) + 15; const inside = H - pb - y(r.proj[m]) > 20;
-        svg.appendChild(mk('text', { x: x + bw / 2, y: inside ? ty : y(r.proj[m]) - 4, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 700, fill: inside ? '#FFFFFF' : 'var(--accent)' }, GB.usd(r.proj[m]))); }
+        svg.appendChild(mk('text', { x: x + bw / 2, y: inside ? ty : y(r.proj[m]) - 4, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 700, fill: inside ? '#000000' : 'var(--ink)' }, GB.usd(r.proj[m]))); }
       svg.appendChild(mk('text', { x: x + bw / 2, y: H - 7, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--tertiary)' }, ML6[m]));
     }
     host.replaceChildren(svg);
@@ -220,9 +220,9 @@ window.GB = (() => {
     for (let m = 0; m < 6; m++) {
       const x = pl + m * bw;
       svg.appendChild(mk('rect', { x: x + bw * 0.12, y: y(r.pot[m]), width: bw * 0.76, height: H - pb - y(r.pot[m]), rx: 2, fill: 'var(--b-mid)' }));
-      if (r.proj[m] > 0) svg.appendChild(mk('rect', { x: x + bw * 0.12, y: y(r.proj[m]), width: bw * 0.76, height: H - pb - y(r.proj[m]), rx: 2, fill: 'var(--accent)' }));
+      if (r.proj[m] > 0) svg.appendChild(mk('rect', { x: x + bw * 0.12, y: y(r.proj[m]), width: bw * 0.76, height: H - pb - y(r.proj[m]), rx: 2, fill: 'var(--mint)' }));
       svg.appendChild(mk('text', { x: x + bw / 2, y: y(r.pot[m]) - 6, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--tertiary)' }, GB.usd(r.pot[m])));
-      if (r.proj[m] > 0) svg.appendChild(mk('text', { x: x + bw / 2, y: Math.min(y(r.proj[m]) + 15, H - pb - 4), 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 700, fill: '#FFFFFF' }, GB.usd(r.proj[m])));
+      if (r.proj[m] > 0) svg.appendChild(mk('text', { x: x + bw / 2, y: Math.min(y(r.proj[m]) + 15, H - pb - 4), 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 700, fill: '#000000' }, GB.usd(r.proj[m])));
       svg.appendChild(mk('text', { x: x + bw / 2, y: H - 7, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--tertiary)' }, ML6[m]));
     }
     host.replaceChildren(svg);

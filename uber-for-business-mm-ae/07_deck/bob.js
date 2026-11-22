@@ -41,7 +41,7 @@
     const host = document.getElementById('chartCum'); const W = 560, H = 200, pl = 6, pt = 18, pb = 24; const ML6 = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
     const max = Math.max(380000, ...r.cum) * 1.08; const bw = (W - pl * 2) / 6; const y = (v) => pt + (H - pt - pb) * (1 - v / max);
     const svg = mk('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': `Cumulative H1 GB reaches ${usd(t.h1)} against a USD 350K quota` });
-    for (let m = 0; m < 6; m++) { const x = pl + m * bw; svg.appendChild(mk('rect', { x: x + bw * .14, y: y(r.cum[m]), width: bw * .72, height: H - pb - y(r.cum[m]), rx: 2, fill: m === 5 ? 'var(--accent)' : 'var(--b-high)' }));
+    for (let m = 0; m < 6; m++) { const x = pl + m * bw; svg.appendChild(mk('rect', { x: x + bw * .14, y: y(r.cum[m]), width: bw * .72, height: H - pb - y(r.cum[m]), rx: 2, fill: m === 5 ? 'var(--mint)' : 'var(--b-mid)' }));
       svg.appendChild(mk('text', { x: x + bw / 2, y: y(r.cum[m]) - 5, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': m === 5 ? 700 : 500, fill: 'var(--ink)' }, usd(r.cum[m])));
       svg.appendChild(mk('text', { x: x + bw / 2, y: H - 7, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--tertiary)' }, ML6[m])); }
     svg.appendChild(mk('line', { x1: pl, x2: W - pl, y1: y(350000), y2: y(350000), stroke: 'var(--ink)', 'stroke-width': 1.5, 'stroke-dasharray': '5 4' }));
@@ -53,7 +53,7 @@
   // multiplier chart
   const host = document.getElementById('chartMult'); const W = 560, H = 230, pl = 6, pt = 22, pb = 24; const bw = (W - pl * 2) / 7; const y = (v) => pt + (H - pt - pb) * (1 - v / 3.3);
   const svg = mk('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'H1 value of a deal by close month: December 3.0 months, May 0.2 months' });
-  CM.forEach((m, i) => { const v = mult(i), x = pl + i * bw; svg.appendChild(mk('rect', { x: x + bw * .14, y: y(v), width: bw * .72, height: Math.max(1, H - pb - y(v)), rx: 2, fill: i <= 2 ? 'var(--accent)' : 'var(--b-mid)' }));
+  CM.forEach((m, i) => { const v = mult(i), x = pl + i * bw; svg.appendChild(mk('rect', { x: x + bw * .14, y: y(v), width: bw * .72, height: Math.max(1, H - pb - y(v)), rx: 2, fill: i <= 2 ? 'var(--mint)' : 'var(--b-mid)' }));
     svg.appendChild(mk('text', { x: x + bw / 2, y: y(v) - 5, 'text-anchor': 'middle', 'font-size': 12, 'font-weight': 700, fill: 'var(--ink)' }, v.toFixed(2).replace(/0$/, '')));
     svg.appendChild(mk('text', { x: x + bw / 2, y: H - 7, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--tertiary)' }, m)); });
   host.replaceChildren(svg);

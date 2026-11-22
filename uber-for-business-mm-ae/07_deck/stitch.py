@@ -34,6 +34,10 @@ if variant == 'presenter':
     tag = '<span class="s-uber" aria-hidden="true"><i class="lb"></i><i class="lw"></i></span>'
     t = t.replace('</style>', f':root {{ --uber-b: url("{lb}"); --uber-w: url("{lw}"); }}\n</style>', 1)
     decks = re.sub(r'(<article class="slide[^"]*" data-title="[^"]+">)', r'\1\n      ' + tag.replace('\\', '\\\\'), decks)
+    em = 'data:image/jpeg;base64,' + base64.b64encode(open(f'{S}/av/kit_email.jpg', 'rb').read()).decode()
+    vi = 'data:image/jpeg;base64,' + base64.b64encode(open(f'{S}/av/kit_video.jpg', 'rb').read()).decode()
+    decks = decks.replace('<div class="kit-shot kit-email" data-kit="email"><span>Launch email<br>mock-up</span></div>', f'<a class="kit-shot kit-email" href="../04_success-plan/launch-kit/launch-email.html" target="_blank" rel="noopener"><img src="{em}" alt="Launch email mock-up"></a>')
+    decks = decks.replace('<div class="kit-shot kit-video" data-kit="video"><span>Lever video<br>mock-up · 15 s</span></div>', f'<a class="kit-shot kit-video" href="../04_success-plan/launch-kit/lever-videos.html" target="_blank" rel="noopener"><img src="{vi}" alt="Lever video mock-up"></a>')
 i = t.index('</details>') + len('</details>')
 t = t[:i] + '\n  </div>\n' + decks + t[i:]
 t = t.replace('drawRank(); drawHeat();\n</script>', 'drawRank(); drawHeat();\n' + open(f'{D}/deck.js').read() + '\n' + open(f'{D}/bob.js').read() + '\n</script>', 1)
