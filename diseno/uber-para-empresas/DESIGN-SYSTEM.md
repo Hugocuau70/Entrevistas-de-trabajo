@@ -1,74 +1,93 @@
-# Uber para Empresas
-## Sistema de diseño audiovisual · México · v1.0
+# Uber para Empresas · Sistema de diseño para entrevista
 
-Adaptación independiente para un ejercicio de entrevista, elaborada a partir de fuentes públicas. Audiencia y mercado iniciales: equipos de Finanzas, Operaciones, Viajes y RR. HH. en México. La guía sirve para producir conceptos, storyboards, piezas gráficas y prototipos de motion cuando se defina el brief.
+México · v2.0 · Referencia para piezas audiovisuales, storyboards y prototipos.
 
-## Identidad y reglas visuales
+La identidad se basa en los recursos publicados por Uber para Empresas México, la guía de Base y la captura de campaña compartida. Las reglas de encuadre y movimiento son propuestas para el caso.
 
-La referencia de marca es la comunicación comercial pública de Uber para Empresas México. En español usa «Uber para Empresas» y, para una pieza en inglés, «Uber for Business». En el sitio mexicano se observan titulares de alto contraste, módulos de producto, fotografía de personas en situaciones laborales y acentos azules en iconos. MCKL identifica Uber Move como la tipografía diseñada a medida para Uber, con variantes Display y Text.
+## Identidad y firmas de marca
 
-| Rol | Valor / aplicación |
-| --- | --- |
-| Fondo claro y texto inverso | Blanco #FFFFFF |
-| Fondo oscuro y texto principal | Negro #000000 |
-| Superficie de apoyo | Gris claro #F3F3F3. Tarjetas, pasos y datos secundarios. Token propuesto |
-| Texto secundario sobre blanco | Gris #545454. Metadatos y aclaraciones. Token propuesto |
-| Acento para rutas e iconos | Azul #276EF1. Referencia de la marca matriz adoptada como acento de esta propuesta. Reserva el azul para uno o dos elementos de énfasis por escena |
-| Separador decorativo en claro | Gris #D9D9D9. Conserva bordes más oscuros cuando indiquen significado. Token propuesto |
+| Recurso | Archivo | Aplicación |
+| --- | --- | --- |
+| Uber para Empresas, firma apilada blanca | [SVG en español](assets/uber-para-empresas-blanco.svg) | Versión principal de este kit para cierre, portada y fondos negros. |
+| Uber for Business, firma apilada blanca | [SVG en inglés](assets/uber-for-business-blanco.svg) | Variante de la captura y opción cuando el brief pide inglés. |
+| Demostración en negro | [Muestrario HTML](referencia-visual.html#identidad) | Prueba de contraste con filtro CSS. Para producción sobre fondo claro, usa el archivo aprobado por el equipo de marca. |
 
-Usa negro sobre blanco o blanco sobre negro para mensajes y subtítulos. El azul funciona como apoyo en gráficos y nunca como única señal. Usa Uber Move Display para títulos y Uber Move Text para cuerpo si dispones de los archivos autorizados. Alternativa de prototipo: Arial, Helvetica, sans-serif. El kit muestra esa alternativa y usa una firma textual sencilla, «Uber para Empresas». Si adjuntas el lockup oficial adecuado desde Uber Brand, conserva proporciones, color original y el área de protección que indique su archivo. Evita reconstruir la marca con una tipografía o animar sus letras por separado.
+La unidad de marca es la **firma tipográfica apilada**. Conserva el archivo en bloque y su proporción aproximada de **3.1:1**. Los pictogramas de producto viven fuera de la firma. Aplica una sola versión lingüística por pieza.
 
-Trabaja con una retícula de 12 columnas en horizontal y 6 en vertical. Usa alineación izquierda, un foco principal por cuadro, amplios espacios libres y un solo llamado a la acción. Combina escenas sobre blanco o negro según lo que necesite la narrativa. Sobre una toma, coloca el texto en espacio negativo o sobre una placa sólida para sostener la legibilidad. Las medidas de esta guía son presets del ejercicio.
+Para este prototipo, reserva alrededor de la firma un margen mínimo igual a **¼ de su altura** y pruébala desde **120 px de ancho** en web. Estos son valores de implementación del kit. Para video, parte de un ancho de **288 px en un lienzo de 1920 × 1080** y valida el cierre en reproducción móvil.
 
-| Formato | Lienzo | Márgenes de trabajo (izq./der./sup./inf.) | Titular / apoyo / subtítulos |
+## Tipografía y acceso a archivos
+
+| Rol | Familia y peso | Tamaño / interlínea |
+| --- | --- | --- |
+| Titular principal | Uber Move Bold · 700 | 36/44 móvil · 44/52 mediano · 52/64 amplio |
+| Encabezado | Uber Move Bold · 700 | 28/36 móvil · 32/40 mediano · 36/44 amplio |
+| Título de beneficio | Uber Move Text Medium · 500 | 18/24 |
+| Cuerpo | Uber Move Text Regular · 400 | 16/24 |
+| CTA | Uber Move Text Medium · 500 | 16/20 |
+| Legal | Uber Move Text Regular · 400 | 14/20 |
+
+El HTML carga los archivos WOFF2 que publica Uber. Para uso offline, el CSS también reconoce las fuentes instaladas con el nombre correspondiente. Para software de diseño o edición, obtén tu copia de escritorio en el portal de marca de Uber y usa el formato que requiera tu aplicación. La previsualización PDF o PNG que se genere a partir del HTML debe renderizarse con la fuente cargada.
+
+- [Uber Move Bold · WOFF2 de Uber](https://tb-static.uber.com/prod/uber-static/UberMove-Bold.woff2)
+- [Uber Move Text Regular · WOFF2 de Uber](https://tb-static.uber.com/prod/uber-static/UberMoveText-Regular.woff2)
+- [Uber Move Text Medium · WOFF2 de Uber](https://tb-static.uber.com/prod/uber-static/UberMoveText-Medium.woff2)
+- [Tipografía oficial de Base](https://base.uber.com/6d2425e9f/p/976582-typography/b/98142c)
+- [Portal de marca de Uber](https://brand.uber.com/)
+
+## Color
+
+| Token | Valor | Aplicación | Origen |
 | --- | --- | --- | --- |
-| Horizontal 16:9 | 1920 × 1080 | 96 / 96 / 64 / 64 px | 92 / 44 / 40 px |
-| Vertical 9:16 | 1080 × 1920 | 80 / 160 / 200 / 320 px | 80 / 44 / 44 px |
-| Cuadrado 1:1 | 1080 × 1080 | 72 / 72 / 72 / 72 px | 72 / 38 / 38 px |
+| Negro | `#000000` | Firma sobre negro, texto y cierre | Referencias web y captura |
+| Blanco | `#FFFFFF` | Fondo y texto invertido | Referencias web y captura |
+| Acción oscura | `#121212` | CTA de alto contraste | Captura |
+| Acción clara | `#F5F5F5` | CTA secundario sobre fondo oscuro | Captura |
+| Fondo menta | `#EAFAEB` | Franja contextual | Captura |
+| Acción menta | `#A4D9C3` | CTA de la franja | Captura |
+| Carbón | `#232B32` | Campo dominante del hero | Captura |
+| Gris del hero | `#454A50` | Plano secundario del hero | Captura |
 
-Punto de partida: titular en negrita 700 con interlineado 1.03; cuerpo 400 con interlineado 1.3; rótulos 700. Usa escritura de oración, dos líneas para titulares cuando sea posible y dos líneas como máximo para subtítulos. Verifica la zona segura con la vista previa del canal elegido. En el recorte vertical, protege manos, rostros y detalles de producto. Recompón el cuadro.
+Usa texto negro sobre blanco o menta. En carbón y gris del hero, usa blanco y verifica el contraste sobre el plano más claro cuando haya fotografía. Reserva el menta para una llamada contextual. El color de la captura se mide en píxeles planos.
 
-## Componentes audiovisuales
+## Íconos y fotografía
 
-| Componente | Composición | Uso |
+| Rol | Recursos reutilizables | Tamaño de partida |
 | --- | --- | --- |
-| Apertura | Titular de hasta 8 palabras y un sujeto, objeto o escena reconocible | Presenta una fricción o un beneficio en los primeros 2–3 s |
-| Beneficio | Frase breve más un dato, una acción o una toma de apoyo | Enseña un beneficio por escena |
-| Demostración | Toma / captura verificada y llamada breve a la función | Muestra un paso a la vez. Una maqueta debe llevar la etiqueta «Ilustración de producto» |
-| Rótulo | Placa negra o blanca, nombre en negrita y cargo o contexto debajo | Identifica personas, situaciones o etapas |
-| Subtítulo | Dos líneas dentro del área segura, en placa negra si el fondo varía | Incluye subtítulos sincronizados y conserva un SRT separado cuando se pueda |
-| Ruta | Punto de partida, línea y destino cuadrado en un módulo independiente | Explica desplazamiento, transición o secuencia en una escena |
-| Cierre | Fondo sólido, nombre o lockup autorizado y una acción | «Conoce las soluciones» para exploración o «Habla con ventas» para intención alta |
+| Pictogramas de beneficio | [Costos](assets/icono-costes.svg) · [Vehículos](assets/icono-viajes.svg) · [Monitoreo](assets/icono-panel.svg) · [Calendario](assets/icono-calendario.png) | 48 × 48 px |
+| Íconos de navegación y orientación | [Casos de uso](assets/icono-programas.svg) · [Industrias](assets/icono-industria.svg) · [Soporte](assets/icono-soporte.svg) | 24 × 24 px |
+| Imagen editorial de movilidad | [Fotografía publicada para Uber Central](assets/fotografia-central.jpg) | Recorte de referencia 3:2 |
 
-## Movimiento, imagen y audio
+Los pictogramas del kit proceden de las páginas públicas de Uber. La captura aporta el patrón de tres beneficios con un pictograma sobre cada título. La selección incluida ilustra los casos de uso con recursos verificables de las páginas públicas actuales. Mantén el estilo consistente en cada fila. Cuando el rótulo ya describe el concepto, deja el ícono decorativo fuera del nombre accesible. Usa fotografías que muestren a la persona, el vehículo y la acción en relación entre sí. Conserva el rostro y la puerta visibles en recortes verticales.
 
-- Entrada de texto: desplazamiento vertical de 16 px y opacidad de 0 a 100% en 240 ms, curva ease-out `cubic-bezier(.2,.8,.2,1)`. Usa un desfase de 80 ms entre titular y apoyo si ambos entran juntos.
-- Salida de texto: fundido de 160 ms. Corta en la acción para pasar de un plano humano a un detalle operativo. Usa disolvencias de aproximadamente 200 ms si ayudan a unir escenas.
-- Ruta: revela el trazo en 480 ms. Mantén visible el destino para que se entienda hasta sin animación.
-- Lectura: deja un mensaje breve al menos 2 s cuando el montaje lo permita y una pantalla de cierre entre 2 y 3 s. Revisa el ritmo en móvil con audio apagado. Usa una alternativa estática para prototipos con movimiento reducido.
-- Fotografía y footage: manos en acción, interacción natural, luz plausible y contexto reconocible de trabajo, aeropuerto, oficina o evento. Prioriza el gesto operativo, como programar un viaje, recoger a un invitado o revisar un gasto. Evita exponer datos reales en pantallas.
-- Audio: voz en español de México si aporta contexto, música instrumental discreta, voz claramente por encima de la música. Usa audio autorizado. Prescinde de simular la firma sonora de Uber.
-- Entrega recomendada para un piloto: storyboard y guion, vista estática por formato, archivo maestro editable en la herramienta elegida y una versión subtitulada. Si el medio pide video, define códec y especificación de entrega con ese canal. La muestra incluida es un prototipo HTML.
+## Componentes
 
-## Mensajes B2B y criterio de evidencia
-
-| Audiencia | Problema operativo | Mensaje de muestra |
+| Componente | Especificación | Uso |
 | --- | --- | --- |
-| Finanzas / Adquisiciones | Gastos dispersos y conciliación manual | «Consulta los gastos de viajes y comidas desde un solo panel». |
-| Viajes / Operaciones | Políticas difíciles de aplicar | «Define reglas para los viajes de tu equipo». |
-| RR. HH. / Workplace | Coordinar comidas y traslados de empleados | «Organiza comidas y traslados para tu equipo». |
-| Eventos / Atención a clientes | Coordinar viajes para invitados | «Solicita viajes para tus invitados con Central». |
+| Franja contextual | Superficie menta, título 18/24, nota legal 14/20, acción menta de 48 px en forma de píldora | Información temporal con condiciones visibles. |
+| Bloque principal | Titular 52/64 y cuerpo 16/24 en escritorio, fondo carbón y acciones de 48 px | Presenta la promesa, un apoyo y hasta dos rutas. |
+| CTA | Texto 16/20, alto mínimo 48 px, relleno horizontal 24 px, radio 8 px | Oscuro sobre claro, claro sobre oscuro y menta para campaña. |
+| Trío de beneficios | Ícono 48 px, título 18/24, cuerpo 16/24, separación base 16 px | En escritorio, tres columnas. En móvil, apiladas. |
+| Cierre audiovisual | Firma blanca sobre negro, beneficio y un CTA por pieza | Mantén la firma y el CTA legibles durante dos segundos como punto de partida. |
 
-Escribe en español claro, con verbos concretos y un beneficio por pieza. Las frases son muestras de redacción, no eslóganes oficiales. Verifica cada función y su disponibilidad local en la fuente apropiada. Si no hay evidencia para un porcentaje, ahorro, testimonio, promoción o precio, omítelo. Usa material propio o autorizado para la pieza final y conserva las páginas oficiales como referencia. En la presentación del caso, identifica el trabajo como «Concepto para entrevista».
+La muestra HTML aplica anchos de contenido de hasta 1152 px y puntos de quiebre en 600 y 1136 px. La versión estática está en [referencia-visual.png](referencia-visual.png).
 
-## Referencias y materiales
+## Aplicación al caso audiovisual
 
-| Referencia | Para qué usarla |
-| --- | --- |
-| [Uber para Empresas México](https://www.uber.com/mx/es/business/) | Mensajes B2B locales, casos de uso, imágenes, panel en español y video público de un caso de cliente |
-| [Central en México](https://www.uber.com/mx/es/business/products/central/) | Funciones y lenguaje para viajes de clientes e invitados |
-| [Uber Brand](https://brand.uber.com/) | Entrada para consultar guías y recursos oficiales según acceso |
-| [MCKL · Uber Move](https://www.mckltype.com/custom/uber) | Autoría de la tipografía, ejemplos de Display y Text |
-| [Wolff Olins · Uber](https://www.wolffolins.com/work/uber) | Contexto de la identidad y sus aplicaciones visuales |
-| [Base Design System](https://base.uber.com/6d2425e9f/v/0/p/76be65-design-language) | Referencia pública de lenguaje de producto; para motion audiovisual aplica los presets de este ejercicio |
-| [Get started with Claude Design](https://support.claude.com/en/articles/14604416-get-started-with-claude-design) | Importación de sistemas y archivos de referencia |
+| Tiempo | Imagen | Mensaje |
+| --- | --- | --- |
+| 0–3 s | Plano de acceso o recepción. Inserto de una persona que espera el traslado. | ¿Cómo organizas los viajes de tus invitados? |
+| 3–8 s | Corte entre recepción y vehículo. Pictograma de calendario como apoyo. | Programa el traslado desde un solo lugar. |
+| 8–12 s | Composición de ejemplo con estado del viaje. Rotula cualquier pantalla conceptual como «Visualización ilustrativa». | Consulta el estado del traslado. |
+| 12–15 s | Placa negra, firma y CTA. | Conoce Uber Central. |
+
+Para adaptar a 9:16, centra la acción dentro del tercio medio y coloca los rótulos en una zona que siga siendo legible con los controles de la plataforma. Para 1:1, reduce el texto antes de reducir el tamaño. Los tiempos de transición, fotogramas y cierre en [tokens.json](tokens.json) son valores de partida para el storyboard. Si el brief requiere cifras, testimonios u ofertas, agrega el respaldo, mercado y vigencia antes de incorporarlos al guion.
+
+## Fuentes de los recursos
+
+- [Uber Central México](https://www.uber.com/mx/es/business/products/central/) · Firma española, pictogramas vectoriales, íconos de navegación y fotografía.
+- [Uber Central EE. UU.](https://www.uber.com/us/en/business/products/central/) · Firma inglesa.
+- [Uber para Empresas México](https://www.uber.com/mx/es/business/) · Pictograma de calendario para viajes de cortesía y posicionamiento del producto.
+- [Base, lenguaje de diseño](https://base.uber.com/6d2425e9f/v/0/p/76be65-design-language) · Familias y funciones del sistema visual.
+- Captura compartida para el caso, 1279 × 934 px · Paleta de campaña, disposición de la franja, acciones y fila de beneficios.
+- [Inventario de archivos y procedencia](assets/FUENTES.md).
