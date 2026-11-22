@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Uber para Empresas · Sistema audiovisual</title>
+<style>
+:root {
+  color-scheme: light;
+  --ink: #000; --paper: #fff; --surface: #f3f3f3; --secondary: #545454;
+  --border: #d9d9d9; --accent: #276ef1; --curve: cubic-bezier(.2,.8,.2,1);
+  font-family: Arial, Helvetica, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--surface); color: var(--ink); }
+main { max-width: 1344px; padding: 46px 52px 34px; margin: auto; }
+header { display: flex; justify-content: space-between; gap: 24px; align-items: baseline; margin-bottom: 28px; }
+header strong { font-size: 21px; letter-spacing: -.035em; }
+header span, footer { font-size: 14px; color: var(--secondary); }
+.hero { display: grid; grid-template-columns: 1.05fr 1fr; min-height: 370px; background: var(--ink); color: var(--paper); }
+.hero-copy { padding: 48px 24px 42px 44px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
+.tag { font-size: 14px; margin: 0; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { font-size: clamp(48px, 6vw, 83px); line-height: .97; letter-spacing: -.07em; margin: 18px 0; }
+.hero-copy p:last-child { font-size: 20px; color: #ddd; margin-bottom: 0; }
+.hero-art { display: grid; align-items: center; margin: 30px 44px 30px 8px; }
+.track { position: relative; height: 168px; margin: 0 21px; }
+.track .path { position: absolute; inset: 24px 0; }
+.route-start { position: absolute; width: 21px; height: 21px; border-radius: 50%; background: var(--paper); bottom: 18px; left: -9px; }
+.route-end { position: absolute; width: 21px; height: 21px; background: var(--paper); top: 18px; right: -9px; }
+.route-bottom, .route-up, .route-top { position: absolute; background: var(--accent); }
+.route-bottom { left: 0; bottom: 0; height: 4px; width: 50%; transform-origin: left; }
+.route-up { left: 50%; bottom: 0; width: 4px; height: 100%; transform-origin: bottom; }
+.route-top { left: 50%; top: 0; height: 4px; width: 50%; transform-origin: left; }
+.hero-art .track-labels { display: flex; justify-content: space-between; color: #ddd; font-size: 13px; }
+.demo .animated-text { animation: enter 240ms var(--curve) both; }
+.demo .animated-text + .animated-text { animation-delay: 80ms; }
+.demo .route-bottom { animation: reveal-x 160ms linear both; }
+.demo .route-up { animation: reveal-y 160ms linear 160ms both; }
+.demo .route-top { animation: reveal-x 160ms linear 320ms both; }
+@keyframes enter { from { transform: translateY(16px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes reveal-x { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes reveal-y { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; } }
+.section-head { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin: 32px 0 16px; }
+h2 { font-size: 27px; letter-spacing: -.04em; margin-bottom: 0; }
+button { font: inherit; font-size: 14px; background: var(--paper); padding: 10px 14px; border: 1px solid var(--ink); cursor: pointer; }
+button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; }
+.card { min-width: 0; }
+.frame { aspect-ratio: 16/9; background: var(--paper); padding: 7%; display: flex; flex-direction: column; justify-content: space-between; }
+.frame p { margin-bottom: 0; }
+.frame h3 { font-size: clamp(22px, 3.4vw, 43px); line-height: 1; letter-spacing: -.055em; margin: 0; }
+.frame .small { font-size: 13px; }
+.inverse { background: var(--ink); color: var(--paper); }
+.caption { background: var(--ink); color: var(--paper); align-self: flex-start; padding: 7px 10px; font-size: 13px; }
+.lower { background: var(--paper); color: var(--ink); align-self: flex-start; padding: 8px 12px; font-size: 13px; }
+.lower strong, .lower span { display: block; }
+.lower span { margin-top: 4px; color: var(--secondary); }
+.cta { border-top: 1px solid var(--ink); padding-top: 10px; font-size: 16px; font-weight: 700; }
+.card > p { color: var(--secondary); margin: 9px 0 0; font-size: 14px; }
+.foundation { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.foundation > div { background: var(--paper); padding: 22px; min-width: 0; }
+.swatches { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 8px; }
+.swatch { margin: 0; font-size: 12px; }
+.swatch i { display: block; height: 48px; border: 1px solid var(--border); margin-bottom: 8px; }
+.swatch span { display: block; margin-top: 3px; color: var(--secondary); }
+.type-sample { display: block; font-size: 36px; font-weight: 700; letter-spacing: -.055em; line-height: 1; margin-bottom: 12px; }
+.type-note { font-size: 14px; color: var(--secondary); margin-bottom: 0; }
+footer { margin-top: 21px; }
+@media (max-width: 800px) {
+  main { padding: 26px 20px; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-copy { padding: 32px 24px 12px; }
+  .hero-art { margin: 10px 26px 24px; }
+  .track { height: 115px; }
+  .cards, .foundation { grid-template-columns: 1fr; }
+  .frame { padding: 6%; }
+  .frame h3 { font-size: clamp(25px, 7vw, 54px); }
+}
+</style>
+</head>
+<body>
+<main>
+<header><strong>Uber para Empresas</strong><span>Concepto para entrevista · México</span></header>
+<section class="hero" id="motion">
+  <div class="hero-copy">
+    <p class="tag">Sistema de diseño audiovisual</p>
+    <h1 class="animated-text">Viajes de trabajo.<br>Un solo lugar.</h1>
+    <p class="animated-text">Coordina los traslados de tu equipo.</p>
+  </div>
+  <div class="hero-art" aria-label="Gráfico de ruta en azul entre un punto de partida y un destino">
+    <div>
+      <div class="track" aria-hidden="true">
+        <div class="path"><i class="route-bottom"></i><i class="route-up"></i><i class="route-top"></i></div>
+        <i class="route-start"></i><i class="route-end"></i>
+      </div>
+      <div class="track-labels" aria-hidden="true"><span>Salida</span><span>Destino</span></div>
+    </div>
+  </div>
+</section>
+<div class="section-head"><h2>Componentes audiovisuales</h2><button type="button" id="play">Reproducir entrada</button></div>
+<section class="cards" aria-label="Muestras de componentes">
+  <article class="card">
+    <div class="frame">
+      <p class="small">Viajes corporativos</p>
+      <h3>Define las reglas de cada viaje.</h3>
+      <p class="caption">Establece límites para tu equipo.</p>
+    </div>
+    <p>Titular de beneficio y subtítulo</p>
+  </article>
+  <article class="card">
+    <div class="frame inverse">
+      <p class="small">Central</p>
+      <h3>Organiza un viaje para tu invitado.</h3>
+      <p class="lower"><strong>Viajes de cortesía</strong><span>Operaciones y atención a clientes</span></p>
+    </div>
+    <p>Rótulo de contexto</p>
+  </article>
+  <article class="card">
+    <div class="frame">
+      <p class="small">Uber para Empresas</p>
+      <h3>Más control sobre tus traslados.</h3>
+      <p class="cta">Conoce las soluciones</p>
+    </div>
+    <p>Pantalla de cierre</p>
+  </article>
+</section>
+<div class="section-head"><h2>Paleta y tipografía</h2></div>
+<section class="foundation" aria-label="Paleta y tipografía del prototipo">
+  <div class="swatches">
+    <p class="swatch"><i style="background:var(--ink)"></i>Negro<span>#000000</span></p>
+    <p class="swatch"><i style="background:var(--paper)"></i>Blanco<span>#FFFFFF</span></p>
+    <p class="swatch"><i style="background:var(--surface)"></i>Gris claro<span>#F3F3F3</span></p>
+    <p class="swatch"><i style="background:var(--accent)"></i>Azul<span>#276EF1</span></p>
+  </div>
+  <div><strong class="type-sample">Viajes de trabajo</strong><p class="type-note">Uber Move Display y Text como referencia. Muestra compuesta en Arial.</p></div>
+</section>
+<footer>Adaptación independiente basada en materiales públicos de Uber.</footer>
+</main>
+<script>
+const sample = document.getElementById('motion');
+document.getElementById('play').addEventListener('click', () => {
+  sample.classList.remove('demo');
+  requestAnimationFrame(() => requestAnimationFrame(() => sample.classList.add('demo')));
+});
+</script>
+</body>
+</html>
