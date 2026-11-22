@@ -230,3 +230,14 @@ window.GB = (() => {
   Object.values(C).forEach((id) => document.getElementById(id).addEventListener('input', draw));
   draw();
 })();
+
+/* Launch-kit videos: play while visible, pause when off screen */
+(() => {
+  const vids = document.querySelectorAll('.kit-shot video');
+  if (!vids.length) return;
+  const play = (v) => { v.muted = true; const pr = v.play(); if (pr && pr.catch) pr.catch(() => {}); };
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((es) => es.forEach((e) => (e.isIntersecting ? play(e.target) : e.target.pause())), { threshold: 0.2 });
+    vids.forEach((v) => io.observe(v));
+  } else vids.forEach(play);
+})();

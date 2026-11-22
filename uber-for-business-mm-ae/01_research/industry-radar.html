@@ -223,17 +223,31 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .s-table.adopt td:first-child { white-space: nowrap; }
 .s-table.adopt td:nth-child(5) { white-space: nowrap; color: var(--accent); font-weight: 600; }
 
-.kit { display: grid; grid-template-columns: 1fr 1.25fr; gap: var(--gap); flex: 1; min-height: 0; }
-.kit-card { display: flex; gap: var(--gap); background: var(--surface); border-radius: 6px; padding: calc(var(--gap) * .8); min-width: 0; min-height: 0; }
-.kit-shot { flex: 0 0 44%; border-radius: 4px; overflow: hidden; background: var(--card); color: var(--mint); display: flex; align-items: center; justify-content: center; text-align: center; font-size: var(--fs-small); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; min-height: 0; position: relative; }
-.kit-video { flex-basis: 52%; }
-.kit-shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
-a.kit-shot::after { content: "Open ↗"; position: absolute; right: .5em; bottom: .5em; background: #000; color: #fff; font-size: calc(var(--fs-small) * .85); padding: .2em .6em; border-radius: 999px; text-transform: none; letter-spacing: 0; }
-.kit-txt { display: flex; flex-direction: column; gap: calc(var(--gap) * .4); min-width: 0; font-size: calc(var(--fs-body) * .92); }
+.kit { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); flex: 1; min-height: 0; }
+.kit-card { display: flex; flex-direction: column; gap: calc(var(--gap) * .6); background: var(--surface); border-radius: 6px; padding: calc(var(--gap) * .7); min-width: 0; min-height: 0; }
+.kit-shot { aspect-ratio: 16 / 8.4; flex: none; border-radius: 4px; overflow: hidden; background: var(--card); color: var(--mint); display: flex; align-items: center; justify-content: center; text-align: center; font-size: var(--fs-small); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; position: relative; }
+.kit-shot video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.kit-shot.scroll { background-color: #fff; background-repeat: no-repeat; background-size: 100% auto; background-position: 50% 0; animation: kitscroll 16s ease-in-out infinite alternate; }
+@keyframes kitscroll { 0%, 8% { background-position: 50% 0; } 92%, 100% { background-position: 50% 100%; } }
+@media (prefers-reduced-motion: reduce) { .kit-shot.scroll { animation: none; } }
+a.kit-open { position: absolute; right: .5em; bottom: .5em; background: #000; color: #fff; font-size: calc(var(--fs-small) * .85); padding: .2em .6em; border-radius: 999px; text-transform: none; letter-spacing: 0; text-decoration: none; z-index: 2; }
+.kit-txt { display: flex; flex-direction: column; gap: calc(var(--gap) * .3); min-width: 0; font-size: calc(var(--fs-body) * .82); flex: 1; }
 .kit-txt .k { font-size: var(--fs-small); color: var(--tertiary); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
-.kit-txt ul { margin: 0; padding-left: 1.1em; display: flex; flex-direction: column; gap: .3em; }
+.kit-txt ul { margin: 0; padding-left: 1.1em; display: flex; flex-direction: column; gap: .25em; }
 .kit-txt .prod { margin-top: auto; font-size: var(--fs-small); font-weight: 600; color: var(--accent); }
-@media (max-width: 760px) { .kit { grid-template-columns: 1fr; } .kit-card { flex-direction: column; } .kit-shot { min-height: 200px; } }
+@media (max-width: 760px) { .kit { grid-template-columns: 1fr; } }
+.s-table tr.tot td { background: var(--mint); color: #000; border-bottom: 0; }
+.s-table tr.tot td:first-child { border-radius: 4px 0 0 4px; } .s-table tr.tot td:last-child { border-radius: 0 4px 4px 0; }
+.prodc .ico { width: 2.4em; height: 2.4em; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; margin-bottom: .3em; }
+.prodc .s-card.accent .ico { stroke: var(--mint); }
+.bye .s-uber { display: none; }
+.bye-logo { height: calc(var(--fs-title) * 2.4); aspect-ratio: 640 / 216; background: var(--uber-w) no-repeat left center / contain; margin-bottom: var(--gap); }
+.bye-take { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); margin-top: calc(var(--gap) * 1.5); max-width: 60em; }
+.bye-take div { border-left: 2px solid var(--mint); padding-left: .8em; font-size: var(--fs-body); color: color-mix(in srgb, var(--paper) 80%, var(--ink)); }
+.bye-take span { display: block; font-size: calc(var(--fs-title) * .9); font-weight: 700; color: var(--mint); line-height: 1.1; margin-bottom: .2em; }
+@media (max-width: 760px) { .bye-take { grid-template-columns: 1fr; } }
+.prodc + .s-flow { grid-template-columns: repeat(3, 1fr); }
+.kit-card { overflow: hidden; }
 
 </style>
 
@@ -366,7 +380,7 @@ a.kit-shot::after { content: "Open ↗"; position: absolute; right: .5em; bottom
   </div>
 <div class="tabpanel" id="final-deck" data-tab="final-deck" hidden>
   <div class="deck-bar">
-    <p class="deck-intro">Final deck · Sections 1–2 (company profile, strategy, role play and mutual success plan), Section 3 (Book of Business) and the appendix, in the same order as the Google Slides sent by email. Use ← → to move between slides.</p>
+    <p class="deck-intro">Final deck · Section 1 (company profile, strategy and role play), Section 2 (mutual success plan), Section 3 (Book of Business), closing slide and an optional appendix. Use ← → to move between slides.</p>
     <div class="nav"><button type="button" data-act="prev">Previous</button><span class="count"></span><button type="button" data-act="next">Next</button><button type="button" data-act="all" aria-pressed="false">Show all</button><button type="button" data-act="present" class="present-btn">Present ⛶</button></div>
   </div>
   <div class="slides" data-deck="final">
@@ -431,6 +445,22 @@ a.kit-shot::after { content: "Open ↗"; position: absolute; right: .5em; bottom
       </div>
       <div class="s-foot"><span>Sources: grantthornton.mx; Revelio Labs (Mar 2026); selected from 19 industries with INEGI and Google search data (appendix) · Section 1 · Company profile and strategy</span><span class="pg"></span></div>
     </article>
+    <article class="slide" data-title="Busy season">
+      <p class="s-eyebrow">Section 1 · Why now</p>
+      <h2 class="s-title">Their busy season lands in the first half of 2027</h2>
+      <div class="s-body">
+        <div class="s-cols">
+          <div class="s-col s-chart"><span class="s-small">Audit, accounting and tax firms in Mexico · headcount index by month (100 = average month)</span><div id="chartAudit"></div></div>
+          <div class="s-col s-chart"><span class="s-small">Monthly Google searches in Mexico, 2025 · "declaración anual personas morales"</span><div id="chartTax"></div></div>
+        </div>
+        <div class="s-cards c3">
+          <div class="s-card"><span class="k">Mar 31</span><b>Annual corporate tax returns</b></div>
+          <div class="s-card"><span class="k">Apr 30</span><b>Shareholder meetings approve financial statements</b></div>
+          <div class="s-card accent"><span class="k">Implication</span><b>Mobility must be live by mid-January</b></div>
+        </div>
+      </div>
+      <div class="s-foot"><span>Sources: INEGI EMS 2022–2025 (detrended); Google Keyword Planner MX; LGSM art. 181 · Section 1 · Company profile and strategy</span><span class="pg"></span></div>
+    </article>
     <article class="slide" data-title="GB forecast">
       <p class="s-eyebrow">Section 1 · Revenue analysis · internal view</p>
       <h2 class="s-title">Base case: USD 287K a year, USD 91K inside H1 because usage ramps</h2>
@@ -477,22 +507,6 @@ a.kit-shot::after { content: "Open ↗"; position: absolute; right: .5em; bottom
         </div>
       </div>
       <div class="s-foot"><span>Section 1 · Company profile and strategy</span><span class="pg"></span></div>
-    </article>
-    <article class="slide" data-title="Busy season">
-      <p class="s-eyebrow">Section 1 · Role play · What we see in your market</p>
-      <h2 class="s-title">Your busy season lands in the first half of 2027</h2>
-      <div class="s-body">
-        <div class="s-cols">
-          <div class="s-col s-chart"><span class="s-small">Audit, accounting and tax firms in Mexico · headcount index by month (100 = average month)</span><div id="chartAudit"></div></div>
-          <div class="s-col s-chart"><span class="s-small">Monthly Google searches in Mexico, 2025 · "declaración anual personas morales"</span><div id="chartTax"></div></div>
-        </div>
-        <div class="s-cards c3">
-          <div class="s-card"><span class="k">Mar 31</span><b>Annual corporate tax returns</b></div>
-          <div class="s-card"><span class="k">Apr 30</span><b>Shareholder meetings approve financial statements</b></div>
-          <div class="s-card accent"><span class="k">Implication</span><b>Mobility must be live by mid-January</b></div>
-        </div>
-      </div>
-      <div class="s-foot"><span>Sources: INEGI EMS 2022–2025 (detrended); Google Keyword Planner MX; LGSM art. 181 · Section 1 · Role play · Salles Sainz Grant Thornton</span><span class="pg"></span></div>
     </article>
     <article class="slide" data-title="Five moments">
       <p class="s-eyebrow">Section 1 · Role play · Solution</p>
@@ -620,29 +634,38 @@ a.kit-shot::after { content: "Open ↗"; position: absolute; right: .5em; bottom
     </article>
     <article class="slide" data-title="Launch kit">
       <p class="s-eyebrow">Section 2 · Launch kit</p>
-      <h2 class="s-title">The launch kit that puts the five levers in front of every employee</h2>
+      <h2 class="s-title">Three launch assets put the five levers in front of every employee</h2>
       <div class="s-body">
         <div class="kit">
           <div class="kit-card">
-            <div class="kit-shot kit-email" data-kit="email"><span>Launch email<br>mock-up</span></div>
+            <div class="kit-shot" data-kit="webinar"><span>Admin onboarding<br>webinar · mock-up</span></div>
             <div class="kit-txt">
-              <span class="k">Launch email · January 4</span>
-              <b>From the Head of People to all 950–1,000 staff</b>
-              <ul><li>Announces the new default for client visits (lever 01).</li><li>One tap claims dinner, one tap joins the account (lever 02).</li><li>Explains the five levers and a three-step setup.</li></ul>
+              <span class="k">1 · Admin webinar · Dec</span>
+              <b>Admins and approvers set up the account</b>
+              <ul><li>Dinner voucher, trips by engagement code, weekly adoption.</li></ul>
+              <span class="prod">Uber hosts · SSGT admins attend</span>
+            </div>
+          </div>
+          <div class="kit-card">
+            <div class="kit-shot" data-kit="email"><span>Launch email<br>mock-up</span></div>
+            <div class="kit-txt">
+              <span class="k">2 · Launch email · January 4</span>
+              <b>The Head of People invites all 950–1,000 staff</b>
+              <ul><li>One tap joins the account, one tap claims dinner; a three-step setup for the five levers.</li></ul>
               <span class="prod">SSGT sends · Uber drafts</span>
             </div>
           </div>
           <div class="kit-card">
-            <div class="kit-shot kit-video" data-kit="video"><span>Lever video<br>mock-up · 15 s</span></div>
+            <div class="kit-shot" data-kit="video"><span>Lever video<br>mock-up · 15 s</span></div>
             <div class="kit-txt">
-              <span class="k">Lever videos · 15 seconds each</span>
-              <b>One clip per lever for the kickoff, Teams and office screens</b>
-              <ul><li>Shows the change inside the employee's own tools.</li><li>Ends on one action: find your invite in your inbox.</li></ul>
+              <span class="k">3 · Lever videos · busy-season kickoff</span>
+              <b>One 15-second clip per lever for Teams and office screens</b>
+              <ul><li>Ends on one action: find your invite in your inbox.</li></ul>
               <span class="prod">SSGT internal comms · Uber produces</span>
             </div>
           </div>
         </div>
-        <div class="s-card accent"><span class="k">One message, three touchpoints</span><b>Launch email on January 4 → kickoff video in every office → first closing-night dinner voucher.</b></div>
+        <div class="s-card accent"><span class="k">One message, three touchpoints</span><b>Admins trained in December → every employee invited on January 4 → the levers shown at the kickoff in every office.</b></div>
       </div>
       <div class="s-foot"><span>Mock-ups for illustration; final copy approved by SSGT · Section 2 · Mutual success plan</span><span class="pg"></span></div>
     </article>
@@ -761,12 +784,16 @@ a.kit-shot::after { content: "Open ↗"; position: absolute; right: .5em; bottom
       <p class="s-eyebrow">Section 3 · Products</p>
       <h2 class="s-title">Lead with Uber Travel, open doors with Vouchers, scale with Central</h2>
       <div class="s-body">
-        <div class="s-cards c3">
-          <div class="s-card accent"><span class="k">Core · all tiers</span><b>Uber Travel</b><span>Recurring rides are where GB compounds month after month. Expense codes and Ride Policies make it a CFO decision, not an app.</span><span class="prod">Most of the GB</span></div>
-          <div class="s-card"><span class="k">Door opener · Tier 3 and adoption</span><b>Vouchers (Eats and rides)</b><span>Low-friction first deal for events, overtime and closing nights; the fastest way to get profiles linked.</span><span class="prod">Fast to sign, fast to use</span></div>
-          <div class="s-card"><span class="k">Scale · Tier 1 and 2</span><b>Uber Central</b><span>Assistants and front desks book for guests, candidates and staff without the app.</span><span class="prod">Expands use beyond app users</span></div>
+        <div class="s-cards c3 prodc">
+          <div class="s-card accent"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 30l4-11a4 4 0 0 1 4-3h16a4 4 0 0 1 4 3l4 11v8h-6v-4H14v4H8z"/><circle cx="15" cy="30" r="2.5"/><circle cx="33" cy="30" r="2.5"/></svg><span class="k">Core · all tiers</span><b>Uber Travel</b><span>Recurring rides compound GB every month. Expense codes and Ride Policies make it a CFO decision.</span><span class="prod">Most of the GB</span></div>
+          <div class="s-card"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 14h36v7a4 4 0 0 0 0 8v7H6v-7a4 4 0 0 0 0-8z"/><path d="M30 14v22" stroke-dasharray="3 3"/></svg><span class="k">Door opener · Tier 3</span><b>Vouchers (Eats and rides)</b><span>A low-friction first deal for events, overtime and closing nights.</span><span class="prod">Fast to sign, fast to use</span></div>
+          <div class="s-card"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M12 24a12 12 0 0 1 24 0"/><rect x="8" y="24" width="7" height="10" rx="2"/><rect x="33" y="24" width="7" height="10" rx="2"/><path d="M36 34c0 4-4 6-10 6"/></svg><span class="k">Scale · Tier 1 and 2</span><b>Uber Central</b><span>Front desks book for guests and candidates, no app needed.</span><span class="prod">Use beyond app users</span></div>
         </div>
-        <div class="s-card"><span class="k">Land and expand</span><b>Land with Travel for the busiest team, expand with Vouchers and Central once the first invoice proves the control story.</b></div>
+        <div class="s-flow">
+          <div class="s-step"><span class="n">Land · month 0</span><b>Travel</b><span>For the team that moves the most</span></div>
+          <div class="s-step"><span class="n">Expand · after the first invoice</span><b>Vouchers</b><span>Closing nights, events, overtime</span></div>
+          <div class="s-step"><span class="n">Scale · Q2</span><b>Central</b><span>Assistants and front desks</span></div>
+        </div>
       </div>
       <div class="s-foot"><span>Section 3 · Book of Business</span><span class="pg"></span></div>
     </article>
@@ -788,8 +815,21 @@ a.kit-shot::after { content: "Open ↗"; position: absolute; right: .5em; bottom
       </div>
       <div class="s-foot"><span>Section 3 · Book of Business</span><span class="pg"></span></div>
     </article>
+    <article class="slide inv bye" data-title="Thank you">
+      <p class="s-eyebrow">Uber for Business · Mid-Market Mexico · H1 2027</p>
+      <div class="s-body" style="justify-content:center">
+        <!--bye-logo-->
+        <h2 class="s-title" style="font-size:calc(var(--fs-title)*1.6)">Thank you</h2>
+        <div class="bye-take">
+          <div><span>Jan 4</span>Salles Sainz live before busy season</div>
+          <div><span>1,000</span>invitations turned into a daily habit</div>
+          <div><span>101%</span>of the H1 quota from 12 wins</div>
+        </div>
+      </div>
+      <div class="s-foot"><span>Diego Cuauhtémoc · Mid-Market Account Executive</span><span>Questions · Optional appendix follows</span></div>
+    </article>
     <article class="slide" data-title="Appendix: questions">
-      <p class="s-eyebrow">Appendix · Q&amp;A</p>
+      <p class="s-eyebrow">Appendix · Optional · Q&amp;A</p>
       <h2 class="s-title">Questions we often hear</h2>
       <div class="s-body">
         <table class="s-table">
@@ -806,7 +846,7 @@ a.kit-shot::after { content: "Open ↗"; position: absolute; right: .5em; bottom
       <div class="s-foot"><span>Answers to confirm with Uber Legal and Tax before the meeting</span><span class="pg"></span></div>
     </article>
     <article class="slide" data-title="Buying committee">
-      <p class="s-eyebrow">Appendix · Role-play preparation</p>
+      <p class="s-eyebrow">Appendix · Optional · Role-play preparation</p>
       <h2 class="s-title">Who we expect in the room</h2>
       <div class="s-body">
         <table class="s-table">
@@ -823,7 +863,7 @@ a.kit-shot::after { content: "Open ↗"; position: absolute; right: .5em; bottom
       <div class="s-foot"><span>Appendix</span><span class="pg"></span></div>
     </article>
     <article class="slide" data-title="Why this account">
-      <p class="s-eyebrow">Appendix · Account selection</p>
+      <p class="s-eyebrow">Appendix · Optional · Account selection</p>
       <h2 class="s-title">The data points to audit, and audit points to H1</h2>
       <div class="s-body">
         <div class="s-cards c4">
@@ -1649,6 +1689,17 @@ window.GB = (() => {
   draw();
 })();
 
+/* Launch-kit videos: play while visible, pause when off screen */
+(() => {
+  const vids = document.querySelectorAll('.kit-shot video');
+  if (!vids.length) return;
+  const play = (v) => { v.muted = true; const pr = v.play(); if (pr && pr.catch) pr.catch(() => {}); };
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((es) => es.forEach((e) => (e.isIntersecting ? play(e.target) : e.target.pause())), { threshold: 0.2 });
+    vids.forEach((v) => io.observe(v));
+  } else vids.forEach(play);
+})();
+
 // Section 3 · Book of Business model
 (() => {
   const scope = document.getElementById('final-deck'); if (!scope) return;
@@ -1687,7 +1738,7 @@ window.GB = (() => {
     Object.entries(vals).forEach(([k, v]) => scope.querySelectorAll(`[data-kb3=${k}]`).forEach((e) => { e.textContent = v; }));
     const tb = document.getElementById('bobFunnel'); tb.replaceChildren();
     r.rows.forEach((x) => { const tr = tb.insertRow(); [x.t, x.acc, Math.round(x.meet), x.opp.toFixed(1), Math.round(x.rate * 100) + '%', x.win.toFixed(1), x.closes, usd(x.h1)].forEach((v) => { tr.insertCell().textContent = v; }); });
-    const tr = tb.insertRow(); ['Total', t.acc, Math.round(t.meet), t.opp.toFixed(1), Math.round(t.win / t.opp * 100) + '%', t.win.toFixed(1), '', usd(t.h1)].forEach((v) => { const c = tr.insertCell(); c.textContent = v; c.style.fontWeight = '700'; });
+    const tr = tb.insertRow(); tr.className = 'tot'; ['Total', t.acc, Math.round(t.meet), t.opp.toFixed(1), Math.round(t.win / t.opp * 100) + '%', t.win.toFixed(1), '', usd(t.h1)].forEach((v) => { const c = tr.insertCell(); c.textContent = v; c.style.fontWeight = '700'; });
     // cumulative chart
     const host = document.getElementById('chartCum'); const W = 560, H = 200, pl = 6, pt = 18, pb = 24; const ML6 = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
     const max = Math.max(380000, ...r.cum) * 1.08; const bw = (W - pl * 2) / 6; const y = (v) => pt + (H - pt - pb) * (1 - v / max);

@@ -36,7 +36,7 @@
     Object.entries(vals).forEach(([k, v]) => scope.querySelectorAll(`[data-kb3=${k}]`).forEach((e) => { e.textContent = v; }));
     const tb = document.getElementById('bobFunnel'); tb.replaceChildren();
     r.rows.forEach((x) => { const tr = tb.insertRow(); [x.t, x.acc, Math.round(x.meet), x.opp.toFixed(1), Math.round(x.rate * 100) + '%', x.win.toFixed(1), x.closes, usd(x.h1)].forEach((v) => { tr.insertCell().textContent = v; }); });
-    const tr = tb.insertRow(); ['Total', t.acc, Math.round(t.meet), t.opp.toFixed(1), Math.round(t.win / t.opp * 100) + '%', t.win.toFixed(1), '', usd(t.h1)].forEach((v) => { const c = tr.insertCell(); c.textContent = v; c.style.fontWeight = '700'; });
+    const tr = tb.insertRow(); tr.className = 'tot'; ['Total', t.acc, Math.round(t.meet), t.opp.toFixed(1), Math.round(t.win / t.opp * 100) + '%', t.win.toFixed(1), '', usd(t.h1)].forEach((v) => { const c = tr.insertCell(); c.textContent = v; c.style.fontWeight = '700'; });
     // cumulative chart
     const host = document.getElementById('chartCum'); const W = 560, H = 200, pl = 6, pt = 18, pb = 24; const ML6 = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
     const max = Math.max(380000, ...r.cum) * 1.08; const bw = (W - pl * 2) / 6; const y = (v) => pt + (H - pt - pb) * (1 - v / max);

@@ -34,10 +34,19 @@ if variant == 'presenter':
     tag = '<span class="s-uber" aria-hidden="true"><i class="lb"></i><i class="lw"></i></span>'
     t = t.replace('</style>', f':root {{ --uber-b: url("{lb}"); --uber-w: url("{lw}"); }}\n</style>', 1)
     decks = re.sub(r'(<article class="slide[^"]*" data-title="[^"]+">)', r'\1\n      ' + tag.replace('\\', '\\\\'), decks)
-    em = 'data:image/jpeg;base64,' + base64.b64encode(open(f'{S}/av/kit_email.jpg', 'rb').read()).decode()
-    vi = 'data:image/jpeg;base64,' + base64.b64encode(open(f'{S}/av/kit_video.jpg', 'rb').read()).decode()
-    decks = decks.replace('<div class="kit-shot kit-email" data-kit="email"><span>Launch email<br>mock-up</span></div>', f'<a class="kit-shot kit-email" href="../04_success-plan/launch-kit/launch-email.html" target="_blank" rel="noopener"><img src="{em}" alt="Launch email mock-up"></a>')
-    decks = decks.replace('<div class="kit-shot kit-video" data-kit="video"><span>Lever video<br>mock-up · 15 s</span></div>', f'<a class="kit-shot kit-video" href="../04_success-plan/launch-kit/lever-videos.html" target="_blank" rel="noopener"><img src="{vi}" alt="Lever video mock-up"></a>')
+    def b64(n, mime): return f'data:{mime};base64,' + base64.b64encode(open(f'{S}/av/{n}', 'rb').read()).decode()
+    kit = '../04_success-plan/launch-kit/'
+    def vid(n, poster, label, href):
+        return (f'<div class="kit-shot"><video autoplay muted loop playsinline preload="auto" poster="{b64(poster, "image/jpeg")}" aria-label="{label}"><source src="{b64(n, "video/mp4")}" type="video/mp4"></video>'
+                f'<a class="kit-open" href="{kit}{href}" target="_blank" rel="noopener">Open ↗</a></div>')
+    reps = {
+        '<div class="kit-shot" data-kit="webinar"><span>Admin onboarding<br>webinar · mock-up</span></div>': vid('webinar.mp4', 'webinar_poster.jpg', 'Admin onboarding webinar mock-up', 'webinar-onboarding.mp4'),
+        '<div class="kit-shot" data-kit="video"><span>Lever video<br>mock-up · 15 s</span></div>': vid('lever01.mp4', 'lever_poster.jpg', 'Lever video mock-up', 'lever-videos.html'),
+        '<div class="kit-shot" data-kit="email"><span>Launch email<br>mock-up</span></div>': f'<div class="kit-shot scroll" role="img" aria-label="Launch email mock-up" style="background-image:url({b64("kit_email_tall.jpg", "image/jpeg")})"><a class="kit-open" href="{kit}launch-email.html" target="_blank" rel="noopener">Open ↗</a></div>',
+        '<!--bye-logo-->': '<div class="bye-logo" aria-hidden="true"></div>',
+    }
+    for k, v in reps.items():
+        assert k in decks, k; decks = decks.replace(k, v)
 i = t.index('</details>') + len('</details>')
 t = t[:i] + '\n  </div>\n' + decks + t[i:]
 t = t.replace('drawRank(); drawHeat();\n</script>', 'drawRank(); drawHeat();\n' + open(f'{D}/deck.js').read() + '\n' + open(f'{D}/bob.js').read() + '\n</script>', 1)
