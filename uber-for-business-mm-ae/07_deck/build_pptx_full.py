@@ -9,7 +9,7 @@ from pptx.enum.chart import XL_CHART_TYPE, XL_LABEL_POSITION
 from pptx.enum.dml import MSO_LINE_DASH_STYLE
 
 OUT, SEAS_PATH, KW_PATH = sys.argv[1], sys.argv[2], sys.argv[3]
-SSGT_LOGO, MAP_PNG = '/tmp/claude-0/-home-user-Entrevistas-de-trabajo/88e3197a-7a0a-53b4-a474-d84a37e1b8be/scratchpad/logos/ssgt.png', '/tmp/claude-0/-home-user-Entrevistas-de-trabajo/88e3197a-7a0a-53b4-a474-d84a37e1b8be/scratchpad/logos/mexico_offices.png'
+SSGT_LOGO, MAP_PNG = '/tmp/claude-0/-home-user-Entrevistas-de-trabajo/88e3197a-7a0a-53b4-a474-d84a37e1b8be/scratchpad/logos2/ssgt_lockup.png', '/tmp/claude-0/-home-user-Entrevistas-de-trabajo/88e3197a-7a0a-53b4-a474-d84a37e1b8be/scratchpad/logos/mexico_offices.png'
 LOGO_W, LOGO_B = '/tmp/claude-0/-home-user-Entrevistas-de-trabajo/88e3197a-7a0a-53b4-a474-d84a37e1b8be/scratchpad/logos/logo_white.png', '/tmp/claude-0/-home-user-Entrevistas-de-trabajo/88e3197a-7a0a-53b4-a474-d84a37e1b8be/scratchpad/logos/logo_black.png'
 BLACK, WHITE = RGBColor(0,0,0), RGBColor(255,255,255)
 G2, G3, SURF, LINE, ACC = RGBColor(0x54,0x54,0x54), RGBColor(0x75,0x75,0x75), RGBColor(0xF6,0xF6,0xF6), RGBColor(0xE2,0xE2,0xE2), RGBColor(0x27,0x6E,0xF1)
@@ -141,7 +141,7 @@ tb(s, ML, 2.45, 10.5, 1.8, 'Salles Sainz Grant Thornton: winning busy season 202
 tb(s, ML, 4.45, 10, 0.8, 'Section 1 · Company profile, strategy and role play   ·   Section 2 · Mutual success plan   ·   Section 3 · Book of Business', 16, False, GREY)
 chipw = 3.3; rect(s, W - ML - chipw, 0.62, chipw, 0.62, WHITE, shape=MSO_SHAPE.ROUNDED_RECTANGLE)
 tb(s, W - ML - chipw + 0.2, 0.62, 1.2, 0.62, 'Prepared for', 9, True, G3, anchor=MSO_ANCHOR.MIDDLE, caps=True)
-lp = s.shapes.add_picture(SSGT_LOGO, 0, 0, height=Inches(0.36)); lp.left = Inches(W - ML - 0.2) - lp.width; lp.top = Inches(0.75)
+lp = s.shapes.add_picture(SSGT_LOGO, 0, 0, height=Inches(0.42)); lp.left = Inches(W - ML - 0.18) - lp.width; lp.top = Inches(0.72)
 
 # 2 About me
 s = new('A consultative seller who grows accounts with data', 'About me', foot='Diego Cuauhtémoc · Mid-Market Account Executive', notes='Máximo 40 segundos. Mensaje: vendo de forma consultiva y crezco cuentas con datos.')
@@ -153,6 +153,7 @@ card(s, ML, 4.95, CW, 1.15, 'What I bring to Uber for Business', None, "Discover
 # 3 Company profile
 s = new('Salles Sainz Grant Thornton: an ideal mid-market account', 'Section 1 · Company profile', foot='Sources: grantthornton.mx; Revelio Labs (Mar 2026); selected from 19 industries with INEGI and Google search data (appendix)',
         notes='Los 4 datos del caso: empleados, casos de uso, gasto potencial, urgencia. Gasto: USD 287K/año a adopción plena, USD 91K en H1 (caso base).')
+cl = s.shapes.add_picture(SSGT_LOGO, 0, 0, height=Inches(0.42)); cl.left = Inches(W - ML) - Inches(1.6) - cl.width; cl.top = Inches(0.42)
 grid(s, 2.0, 2.55, [dict(k='Employees', big='950–1,000', body="Nine offices in the North, Bajío and Center; Grant Thornton's largest member firm in Latin America.", bigsize=26),
   dict(k='Main use cases', body='Client-site travel, late returns after closings, intercity days, closing-night meals', bodysize=15),
   dict(k='Potential spend', big='USD 287K', body='a year at full adoption; USD 91K inside H1 2027 (base case).', accent=True, bigsize=28),

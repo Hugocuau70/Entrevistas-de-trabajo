@@ -91,3 +91,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .slide.profile .s-cards.rowmap { flex: 1; min-height: 0; grid-template-columns: 1fr 2.1fr 1fr; }
 .slide.profile .map-card .txt { flex: 0 0 34%; }
 .slide.profile .map-card .mxmap { flex: 1 1 66%; width: 66%; max-height: 17cqw; }
+
+.s-client img { height: 2.9cqw; }
+.s-client-lite { padding: .45em .7em; border: 1px solid var(--line); }
+.s-client-lite img { height: 2.4cqw; }
