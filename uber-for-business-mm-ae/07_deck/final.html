@@ -163,12 +163,12 @@
       <div class="s-body">
         <div class="calc" id="calcB">
           <div class="inputs">
-            <div class="inp"><label for="b_emp">Professionals</label><b data-o="b_emp"></b><input type="range" id="b_emp" min="600" max="1400" step="50" value="1000"></div>
-            <div class="inp"><label for="b_field">Working at client sites</label><b data-o="b_field"></b><input type="range" id="b_field" min="40" max="85" step="5" value="65"></div>
-            <div class="inp"><label for="b_busy">Trips per person a month, busy season</label><b data-o="b_busy"></b><input type="range" id="b_busy" min="1" max="10" step="1" value="4"></div>
-            <div class="inp"><label for="b_off">Trips per person a month, rest of the year</label><b data-o="b_off"></b><input type="range" id="b_off" min="0" max="6" step="1" value="2"></div>
-            <div class="inp"><label for="b_reb">Trips that clients would accept on the invoice</label><b data-o="b_reb"></b><input type="range" id="b_reb" min="0" max="100" step="10" value="60"></div>
-            <div class="inp"><label for="b_eats">Closing-night meals per person a month, busy season</label><b data-o="b_eats"></b><input type="range" id="b_eats" min="0" max="8" step="1" value="1"></div>
+            <div class="inp"><label for="b_emp">Professionals</label><b data-o="b_emp"></b><input type="range" id="b_emp" min="600" max="1400" step="50" value="1000"><small class="calc-x" data-x="b_emp"></small></div>
+            <div class="inp"><label for="b_field">Working at client sites</label><b data-o="b_field"></b><input type="range" id="b_field" min="40" max="85" step="5" value="65"><small class="calc-x" data-x="b_field"></small></div>
+            <div class="inp"><label for="b_busy">Trips per person a month, busy season</label><b data-o="b_busy"></b><input type="range" id="b_busy" min="1" max="10" step="1" value="4"><small class="calc-x" data-x="b_busy"></small></div>
+            <div class="inp"><label for="b_off">Trips per person a month, rest of the year</label><b data-o="b_off"></b><input type="range" id="b_off" min="0" max="6" step="1" value="2"><small class="calc-x" data-x="b_off"></small></div>
+            <div class="inp"><label for="b_reb">Trips that clients would accept on the invoice</label><b data-o="b_reb"></b><input type="range" id="b_reb" min="0" max="100" step="10" value="60"><small class="calc-x" data-x="b_reb"></small></div>
+            <div class="inp"><label for="b_eats">Closing-night meals per person a month, busy season</label><b data-o="b_eats"></b><input type="range" id="b_eats" min="0" max="8" step="1" value="1"><small class="calc-x" data-x="b_eats"></small></div>
           </div>
           <div class="out">
             <table class="s-table nums">
@@ -180,6 +180,7 @@
                 <tr><td>Of which could be recovered from clients</td><td data-kb="rec0">—</td><td data-kb="rec1">—</td></tr>
               </tbody>
             </table>
+            <p class="calc-how" data-x="b_how"></p>
             <p class="s-small">We fill these in with your team: how many people work at client sites, how often they travel, and what your engagement letters allow. Estimates use an average trip of USD 10 and an average meal of USD 15. Other staff take 0.5 trips a month.</p>
           </div>
         </div>

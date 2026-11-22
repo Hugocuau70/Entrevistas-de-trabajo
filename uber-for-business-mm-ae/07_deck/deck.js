@@ -130,6 +130,28 @@ window.GB = (() => {
     });
   }
   Object.values(B).forEach((id) => document.getElementById(id).addEventListener('input', drawB));
+  function explainB() {
+    const p = {}; Object.entries(B).forEach(([k, id]) => { p[k] = Number(document.getElementById(id).value); });
+    const n = (v) => num(Math.round(v)); const field = p.emp * p.field / 100, other = p.emp - field;
+    const fb = field * p.busy, fo = field * p.off, oo = other * 0.5, meals = field * p.eats, offMeals = p.emp * 0.1;
+    const set = (k, txt) => document.querySelectorAll(`[data-x=${k}]`).forEach((e) => { e.textContent = txt; });
+    set('b_emp', `${n(p.emp)} people in total`);
+    set('b_field', `${n(p.emp)} × ${p.field}% = ${n(field)} at client sites · ${n(other)} in offices`);
+    set('b_busy', `${n(field)} × ${p.busy} = ${n(fb)} trips + ${n(other)} office staff × 0.5 = ${n(oo)} → ${n(fb + oo)} a month`);
+    set('b_off', `${n(field)} × ${p.off} = ${n(fo)} trips + ${n(oo)} office trips → ${n(fo + oo)} a month`);
+    set('b_reb', `${n(fb)} × ${p.reb}% = ${n(fb * p.reb / 100)} busy-season trips · ${n(fo)} × ${p.reb}% = ${n(fo * p.reb / 100)} the rest of the year`);
+    set('b_eats', `${n(field)} × ${p.eats} = ${n(meals)} meals in busy season · ${n(p.emp)} × 0.1 = ${n(offMeals)} the rest of the year`);
+    const bud0 = (fb + oo) * 10 + meals * 15, rec0 = fb * p.reb / 100 * 10;
+    const how = document.querySelector('[data-x=b_how]');
+    if (how) { how.replaceChildren();
+      const line = (label, txt) => { const b = document.createElement('b'); b.textContent = label; how.append(b, document.createTextNode(' ' + txt), document.createElement('br')); };
+      line('Busy-season budget:', `${n(fb + oo)} trips × USD 10 + ${n(meals)} meals × USD 15 = USD ${n(bud0)}`);
+      line('Recoverable:', `${n(fb * p.reb / 100)} rebillable trips × USD 10 = USD ${n(rec0)}`);
+      how.lastChild.remove(); }
+  }
+  Object.values(B).forEach((id) => document.getElementById(id).addEventListener('input', explainB));
+  explainB();
+
   drawB();
   // Internal brief uses fixed defaults
   const d = GB.calc(GB.DEF); const brief = document.getElementById('internal-brief');
