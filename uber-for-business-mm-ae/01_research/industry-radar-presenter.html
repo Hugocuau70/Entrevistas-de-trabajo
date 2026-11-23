@@ -340,6 +340,8 @@ a.kit-open { position: absolute; right: .5em; bottom: .5em; background: #000; co
 .fx-play { margin-top: auto; background: var(--card); color: #fff; border-radius: 4px; padding: .65em .7em; display: flex; flex-direction: column; gap: .3em; line-height: 1.35; }
 .fx-pn { color: var(--mint); font-weight: 700; font-size: calc(var(--fs-body) * .98); }
 @media (max-width: 760px) { .fxs { grid-template-columns: 1fr; } }
+.slide[data-title="Appendix: objections"] .cn-q { font-size: calc(var(--fs-body) * 1.15); }
+.slide[data-title="Appendix: objections"] .cn-a { font-size: calc(var(--fs-body) * .92); }
 
 .s-uber { position: absolute; top: var(--pad); right: calc(var(--pad) * 1.15); display: block; line-height: 0; }
 .s-uber i { display: inline-block; height: 2.5cqw; aspect-ratio: 715 / 244; background: no-repeat center / contain; }
@@ -565,7 +567,7 @@ a.kit-open { position: absolute; right: .5em; bottom: .5em; background: #000; co
               <div class="kpi main"><span class="v" data-ka="h1">—</span><span class="l">H1 2027 projected · <span data-ka="quota"></span> of the USD 350K quota</span></div>
             </div>
             <div class="s-chart" id="chartA"></div>
-            <p class="s-small">GB = rides × USD 10 + Eats orders × USD 15 (case inputs). Other staff: 0.5 rides a month; off-season Eats: 0.1 orders per employee. Adoption ramps to the month-6 ceiling, below 100% because some staff drive or clients provide transport (policy compliance averages 67%; top performers 85%). Conservative: 2 and 1 rides, 50% ceiling.</p>
+            <p class="s-small">GB = rides × USD 10 + Eats orders × USD 15 (case inputs). Adoption ramps to a month-6 ceiling below 100% (policy compliance averages 67%). Conservative: 2 and 1 rides, 50% ceiling.</p>
           </div>
         </div>
       </div>
@@ -957,6 +959,21 @@ a.kit-open { position: absolute; right: .5em; bottom: .5em; background: #000; co
         </table>
       </div>
       <div class="s-foot"><span>Answers to confirm with Uber Legal and Tax before the meeting</span><span class="pg"></span></div>
+    </article>
+    <article class="slide" data-title="Appendix: objections">
+      <span class="s-uber" aria-hidden="true"><i class="lb"></i><i class="lw"></i></span>
+      <p class="s-eyebrow">Appendix · Optional · Objection handling</p>
+      <h2 class="s-title">Objections we expect in the room, and the ready answer</h2>
+      <div class="s-body">
+        <div class="concerns">
+          <div class="cn"><span class="cn-who">Finance</span><b class="cn-q">“Will it cost more than today’s reimbursements?”</b><span class="cn-a">30-day proof in two offices vs. last quarter’s claims; same fare as a personal ride, no platform fee.</span></div>
+          <div class="cn"><span class="cn-who">HR</span><b class="cn-q">“Who runs it in busy season?”</b><span class="cn-a">Launch kit ready; one champion per office; Uber drafts every message.</span></div>
+          <div class="cn"><span class="cn-who">IT</span><b class="cn-q">“What data leaves, and how do people get access?”</b><span class="cn-a">CSV or SFTP roster, SSO, data-processing addendum, expense-tool integrations.</span></div>
+          <div class="cn"><span class="cn-who">Operations</span><b class="cn-q">“No bandwidth before busy season.”</b><span class="cn-a">Live in about 48 hours; the client decides ride policy and engagement codes, Uber does the rest.</span></div>
+          <div class="cn"><span class="cn-who">Audit partners</span><b class="cn-q">“My clients won’t accept travel on the invoice.”</b><span class="cn-a">Rebill only where the engagement letter allows; every trip carries code, date, route and fare.</span></div>
+        </div>
+      </div>
+      <div class="s-foot"><span>Answers to confirm with Uber Legal, Tax and IT before the meeting · Appendix</span><span class="pg"></span></div>
     </article>
     <article class="slide" data-title="Buying committee">
       <span class="s-uber" aria-hidden="true"><i class="lb"></i><i class="lw"></i></span>

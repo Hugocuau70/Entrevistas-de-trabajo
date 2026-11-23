@@ -231,3 +231,5 @@ a.kit-open { position: absolute; right: .5em; bottom: .5em; background: #000; co
 .fx-play { margin-top: auto; background: var(--card); color: #fff; border-radius: 4px; padding: .65em .7em; display: flex; flex-direction: column; gap: .3em; line-height: 1.35; }
 .fx-pn { color: var(--mint); font-weight: 700; font-size: calc(var(--fs-body) * .98); }
 @media (max-width: 760px) { .fxs { grid-template-columns: 1fr; } }
+.slide[data-title="Appendix: objections"] .cn-q { font-size: calc(var(--fs-body) * 1.15); }
+.slide[data-title="Appendix: objections"] .cn-a { font-size: calc(var(--fs-body) * .92); }
