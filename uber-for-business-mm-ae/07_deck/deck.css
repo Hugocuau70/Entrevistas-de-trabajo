@@ -220,3 +220,14 @@ a.kit-open { position: absolute; right: .5em; bottom: .5em; background: #000; co
 .cn-q { font-size: calc(var(--fs-body) * 1.5); }
 .cn-a { font-size: calc(var(--fs-body) * 1.05); }
 .concerns { max-height: 72%; }
+
+.fxs { display: grid; grid-template-columns: repeat(5, 1fr); gap: calc(var(--gap) * .7); flex: 1; min-height: 0; }
+.fx { background: var(--surface); border-radius: 6px; padding: calc(var(--gap) * .75); display: flex; flex-direction: column; gap: .6em; min-width: 0; font-size: calc(var(--fs-body) * .82); }
+.fx-top { display: flex; flex-direction: column; gap: .35em; }
+.fx-top b { font-size: calc(var(--fs-body) * 1.12); line-height: 1.2; }
+.fx-tag { align-self: flex-start; font-size: calc(var(--fs-small) * .92); font-weight: 600; padding: .2em .55em; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+.fx-tag.both { border-color: var(--mint); }
+.fx-eff { color: var(--muted); line-height: 1.4; }
+.fx-play { margin-top: auto; background: var(--card); color: #fff; border-radius: 4px; padding: .65em .7em; display: flex; flex-direction: column; gap: .3em; line-height: 1.35; }
+.fx-pn { color: var(--mint); font-weight: 700; font-size: calc(var(--fs-body) * .98); }
+@media (max-width: 760px) { .fxs { grid-template-columns: 1fr; } }

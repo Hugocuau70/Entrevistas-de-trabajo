@@ -330,6 +330,17 @@ a.kit-open { position: absolute; right: .5em; bottom: .5em; background: #000; co
 .cn-a { font-size: calc(var(--fs-body) * 1.05); }
 .concerns { max-height: 72%; }
 
+.fxs { display: grid; grid-template-columns: repeat(5, 1fr); gap: calc(var(--gap) * .7); flex: 1; min-height: 0; }
+.fx { background: var(--surface); border-radius: 6px; padding: calc(var(--gap) * .75); display: flex; flex-direction: column; gap: .6em; min-width: 0; font-size: calc(var(--fs-body) * .82); }
+.fx-top { display: flex; flex-direction: column; gap: .35em; }
+.fx-top b { font-size: calc(var(--fs-body) * 1.12); line-height: 1.2; }
+.fx-tag { align-self: flex-start; font-size: calc(var(--fs-small) * .92); font-weight: 600; padding: .2em .55em; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+.fx-tag.both { border-color: var(--mint); }
+.fx-eff { color: var(--muted); line-height: 1.4; }
+.fx-play { margin-top: auto; background: var(--card); color: #fff; border-radius: 4px; padding: .65em .7em; display: flex; flex-direction: column; gap: .3em; line-height: 1.35; }
+.fx-pn { color: var(--mint); font-weight: 700; font-size: calc(var(--fs-body) * .98); }
+@media (max-width: 760px) { .fxs { grid-template-columns: 1fr; } }
+
 .s-uber { position: absolute; top: var(--pad); right: calc(var(--pad) * 1.15); display: block; line-height: 0; }
 .s-uber i { display: inline-block; height: 2.5cqw; aspect-ratio: 715 / 244; background: no-repeat center / contain; }
 .s-uber .lb { background-image: var(--uber-b); } .s-uber .lw { background-image: var(--uber-w); aspect-ratio: 640 / 216; }
@@ -484,7 +495,7 @@ a.kit-open { position: absolute; right: .5em; bottom: .5em; background: #000; co
           <div class="ag"><span class="ag-n">02</span><b>Mutual success plan</b><span class="ag-t">9 min</span>
             <ol><li><i>2.1</i>Joint plan and milestones</li><li><i>2.2</i>Adoption strategy and launch kit</li><li><i>2.3</i>Operating rhythm</li></ol></div>
           <div class="ag"><span class="ag-n">03</span><b>Book of Business and sales strategy</b><span class="ag-t">13 min</span>
-            <ol><li><i>3.1</i>Portfolio and prioritization</li><li><i>3.2</i>Pipeline and forecast</li><li><i>3.3</i>Products, risks and mitigation</li></ol></div>
+            <ol><li><i>3.1</i>Portfolio and prioritization</li><li><i>3.2</i>Pipeline and forecast</li><li><i>3.3</i>Products, factors and mitigation</li></ol></div>
         </div>
       </div>
       <div class="s-foot"><span>Diego Cuauhtémoc · Mid-Market Account Executive</span><span class="pg"></span></div>
@@ -900,19 +911,19 @@ a.kit-open { position: absolute; right: .5em; bottom: .5em; background: #000; co
     </article>
     <article class="slide" data-title="Factors">
       <span class="s-uber" aria-hidden="true"><i class="lb"></i><i class="lw"></i></span>
-      <p class="s-eyebrow">Section 3 · Risks and mitigation</p>
-      <h2 class="s-title">Five objections, five ready answers</h2>
+      <p class="s-eyebrow">Section 3 · Factors and mitigation</p>
+      <h2 class="s-title">What can move my quota, and how I play it</h2>
       <div class="s-body">
-        <div class="concerns">
-          <div class="cn"><span class="cn-who">Finance</span><b class="cn-q">“Will it cost more?”</b><span class="cn-a">30-day proof in two offices vs. last quarter’s claims.</span><span class="cn-r">Risk: signature slips, −USD 100K a month</span></div>
-          <div class="cn"><span class="cn-who">HR</span><b class="cn-q">“Who runs it?”</b><span class="cn-a">Launch kit ready; one champion per office.</span><span class="cn-r">Risk: slow ramp</span></div>
-          <div class="cn"><span class="cn-who">IT</span><b class="cn-q">“What data leaves?”</b><span class="cn-a">CSV or SFTP roster, SSO, data addendum.</span><span class="cn-r">Risk: weeks of review</span></div>
-          <div class="cn"><span class="cn-who">Operations</span><b class="cn-q">“No time before busy season.”</b><span class="cn-a">Live in about 48 hours; two decisions from you.</span><span class="cn-r">Risk: go-live in February</span></div>
-          <div class="cn"><span class="cn-who">AE (me)</span><b class="cn-q">“Invited is not active.”</b><span class="cn-a">Weekly activation report; champions chase the rest.</span><span class="cn-r">Risk: −USD 13K per 10 points</span></div>
+        <div class="fxs">
+          <div class="fx"><div class="fx-top"><b>Client ramp</b><span class="fx-tag risk">Internal · Risk</span></div><span class="fx-eff">GB lags signature: 6 months to reach 70%. One month late ≈ −USD 100K.</span><div class="fx-play"><span class="fx-pn">Day-one habit</span><span>Launch kit ready before signature; the dinner voucher rides in the invite, so GB starts in week 1.</span></div></div>
+          <div class="fx"><div class="fx-top"><b>Seasonality and calendar</b><span class="fx-tag both">External · Risk + tailwind</span></div><span class="fx-eff">Q1 busy seasons help; slow January, Easter (Mar 21–28) and the Jun 6 election cost decision days.</span><div class="fx-play"><span class="fx-pn">Sign-by-December sprint</span><span>Every Tier 1 meeting booked by Nov 30; go-lives before mid-March.</span></div></div>
+          <div class="fx"><div class="fx-top"><b>Buying committee</b><span class="fx-tag risk">External · Risk</span></div><span class="fx-eff">Finance, HR, IT and Legal each add weeks; audit firms also run independence checks.</span><div class="fx-play"><span class="fx-pn">Pre-cleared deal room</span><span>Security, CFDI, data addendum and policy templates in one shared folder; mutual plan agreed in meeting 2.</span></div></div>
+          <div class="fx"><div class="fx-top"><b>My capacity</b><span class="fx-tag risk">Internal · Risk</span></div><span class="fx-eff">One AE, about 80 meetings in H1: Tier 1 gets the time, the long tail waits.</span><div class="fx-play"><span class="fx-pn">Clone the win</span><span>Salles Sainz hosts a CFO breakfast for audit firms in February; Tier 3 gets a self-serve voucher offer.</span></div></div>
+          <div class="fx"><div class="fx-top"><b>Price and competition</b><span class="fx-tag both">External · Risk + tailwind</span></div><span class="fx-eff">DiDi, taxis and fares up to 7% push back; "uber empresas" searches +32% while "didi empresas" fall 21%.</span><div class="fx-play"><span class="fx-pn">Sell recovery, not rides</span><span>Every first meeting runs the client's numbers live: trips they can rebill, one invoice instead of claims.</span></div></div>
         </div>
-        <div class="dyn2"><span class="k">Make it social</span><span><b>Dinner drops</b> on deadline nights</span><span><b>Office league</b> with QR to join</span><span><b>Busy Season Wrapped</b> in May</span></div>
+        <div class="dyn2"><span class="k">What I watch every week</span><span><b>Tier 1 meetings booked</b> by Nov 30</span><span><b>Signatures</b> by Dec 15</span><span><b>Activation</b> above 40% in week 1</span></div>
       </div>
-      <div class="s-foot"><span>Dynamics to validate with Uber marketing and SSGT · Section 3 · Book of Business</span><span class="pg"></span></div>
+      <div class="s-foot"><span>Slip cost from the forecast model; search data from Google Keyword Planner MX · Section 3 · Book of Business</span><span class="pg"></span></div>
     </article>
     <article class="slide inv bye" data-title="Thank you">
       <span class="s-uber" aria-hidden="true"><i class="lb"></i><i class="lw"></i></span>
