@@ -65,3 +65,4 @@
 | 2026-11-23 | (Pendiente) Co-inversión de Uber (50% de las cenas de enero, tope ~USD 3.5K, si la activación llega a 40% al 31-ene) solo como respuesta en el Q&A, no en el slide | Que se lea como negociación, no como oferta de entrada |
 | 2026-11-23 | (Pendiente) "Pit stop" de temporada alta en el lobby (CDMX y Monterrey, semana del 4-ene) como slide propia después del launch kit, con render de Claude Design; sin ranking de oficinas en el render | Preferencia del usuario; no tocar ppt hasta su indicación |
 | 2026-11-23 | Slide 16 "Launch week" (pit stop) en el deck; Google Slides re-sincronizado a 29 slides con el mismo link | Decisión del usuario |
+| 2026-11-23 | HTML para presentar como página única (solo Final deck, sin pestañas); corregido que en vista normal se veían todas las slides apiladas | Petición del usuario |
