@@ -62,10 +62,7 @@ for k, f in [('SEAS','seasonality'),('CEN','census'),('SCORES','scores')]:
     t = t.replace(f'/*{k}*/[]', json.dumps(json.load(open(f'{S}/dash_files/{f}.json'))['rows'], separators=(',',':')))
 kw = json.load(open(f'{S}/html/keywords.json')); kw['series'] = [x for x in kw['series'] if x['keyword'] != 'data center queretaro']
 t = t.replace('/*KW*/{}', json.dumps(kw, separators=(',',':')))
-if variant == 'presenter':  # ONE-PAGER: only the Final deck, no tab bar
-    t = t.replace('</style>', '.tabs, [data-tab]:not(#final-deck) { display: none !important; }\n</style>', 1)
-    t = t.replace('</script>', "\n;(() => { try { history.replaceState(null, '', '#final-deck'); } catch (e) {} document.querySelectorAll('[data-tab]').forEach((p) => { p.hidden = p.dataset.tab !== 'final-deck'; }); window.__activeTab = 'final-deck'; })();\n</script>", 1) if t.count('</script>') == 1 else t
-    import re as _re
-    t = _re.sub(r'<title>[^<]*</title>', '<title>Salles Sainz Grant Thornton · Uber for Business</title>', t, count=1)
+if variant == 'presenter':  # two tabs only: Industry radar and Final deck
+    t = t.replace('</style>', '[data-go="salles-review"], [data-go="internal-brief"], #salles-review, #internal-brief { display: none !important; }\n</style>', 1)
 out = f'{R}/industry-radar.html' if variant == 'public' else f'{R}/industry-radar-presenter.html'
 open(out, 'w').write(t); print(out, len(t))
