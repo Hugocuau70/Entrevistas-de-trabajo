@@ -44,6 +44,7 @@ if variant == 'presenter':
         '<div class="kit-shot" data-kit="video"><span>Lever videos<br>mock-up · 5 × 15 s</span></div>': vid('levers_all.mp4', 'levers_poster.jpg', 'Lever videos mock-up', 'lever-videos.html'),
         '<div class="kit-shot" data-kit="email"><span>Launch email<br>mock-up</span></div>': vid('email_video.mp4', 'email_poster.jpg', 'Launch email mock-up', 'launch-email-video.html'),
         '<!--bye-logo-->': '<div class="bye-logo" aria-hidden="true"></div>',
+        '<!--launchweek-img-->': f'<img class="full-slide" src="{b64("launch_week.jpg", "image/jpeg")}" alt="Launch week: busy season pit stop in the lobby">',
         '<!--intro-logo-->': '<div class="bye-logo intro-logo" aria-hidden="true"></div>',
         '<!--intro-u4b-->': ', Uber for Business',
         '<!--intro-photo--><span class="intro-init" aria-hidden="true">DC</span>': f'<img src="{b64("diego.jpg", "image/jpeg")}" alt="Diego Cuauhtémoc Guerrero">',

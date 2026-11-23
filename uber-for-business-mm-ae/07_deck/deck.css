@@ -233,3 +233,13 @@ a.kit-open { position: absolute; right: .5em; bottom: .5em; background: #000; co
 @media (max-width: 760px) { .fxs { grid-template-columns: 1fr; } }
 .slide[data-title="Appendix: objections"] .cn-q { font-size: calc(var(--fs-body) * 1.15); }
 .slide[data-title="Appendix: objections"] .cn-a { font-size: calc(var(--fs-body) * .92); }
+
+.lw { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--gap); flex: 1; min-height: 0; }
+.lw-art { background: var(--surface); border-radius: 6px; padding: var(--gap); display: flex; flex-direction: column; justify-content: center; gap: .5em; }
+.lw-art .k { font-size: var(--fs-small); color: var(--tertiary); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+.lw-art b { font-size: calc(var(--fs-body) * 1.15); line-height: 1.3; } .lw-art span:last-child { color: var(--muted); }
+.lw-steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; justify-content: center; }
+.lw-steps li { display: flex; align-items: center; gap: .8em; padding: .55em 0; border-bottom: 1px solid var(--line); font-size: calc(var(--fs-body) * 1.05); }
+.lw-steps i { font-style: normal; font-weight: 700; background: var(--mint); color: #000; width: 1.8em; height: 1.8em; display: inline-flex; align-items: center; justify-content: center; border-radius: 3px; flex: none; }
+.slide .full-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 3; }
+@media (max-width: 760px) { .lw { grid-template-columns: 1fr; } .slide .full-slide { position: static; height: auto; } }

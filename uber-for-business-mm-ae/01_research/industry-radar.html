@@ -343,6 +343,16 @@ a.kit-open { position: absolute; right: .5em; bottom: .5em; background: #000; co
 .slide[data-title="Appendix: objections"] .cn-q { font-size: calc(var(--fs-body) * 1.15); }
 .slide[data-title="Appendix: objections"] .cn-a { font-size: calc(var(--fs-body) * .92); }
 
+.lw { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--gap); flex: 1; min-height: 0; }
+.lw-art { background: var(--surface); border-radius: 6px; padding: var(--gap); display: flex; flex-direction: column; justify-content: center; gap: .5em; }
+.lw-art .k { font-size: var(--fs-small); color: var(--tertiary); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+.lw-art b { font-size: calc(var(--fs-body) * 1.15); line-height: 1.3; } .lw-art span:last-child { color: var(--muted); }
+.lw-steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; justify-content: center; }
+.lw-steps li { display: flex; align-items: center; gap: .8em; padding: .55em 0; border-bottom: 1px solid var(--line); font-size: calc(var(--fs-body) * 1.05); }
+.lw-steps i { font-style: normal; font-weight: 700; background: var(--mint); color: #000; width: 1.8em; height: 1.8em; display: inline-flex; align-items: center; justify-content: center; border-radius: 3px; flex: none; }
+.slide .full-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 3; }
+@media (max-width: 760px) { .lw { grid-template-columns: 1fr; } .slide .full-slide { position: static; height: auto; } }
+
 </style>
 
 <div class="page">
@@ -747,6 +757,19 @@ a.kit-open { position: absolute; right: .5em; bottom: .5em; background: #000; co
         <div class="s-card accent"><span class="k">One message, three touchpoints</span><b>Admins trained in December → every employee invited on January 4 → the levers shown at the kickoff in every office.</b></div>
       </div>
       <div class="s-foot"><span>Mock-ups for illustration; final copy approved by SSGT · Section 2 · Mutual success plan</span><span class="pg"></span></div>
+    </article>
+    <article class="slide" data-title="Launch week">
+      <!--launchweek-img-->
+      <p class="s-eyebrow">Section 2 · Launch week</p>
+      <h2 class="s-title">Launch week: activation happens in the lobby</h2>
+      <div class="s-body">
+        <div class="lw">
+          <div class="lw-art"><span class="k">Busy season pit stop · concept</span><b>A pop-up booth in the lobby: sign "Join in 2 minutes", QR stand, coffee counter and busy-season kits.</b><span>Screen: "Your closing-night dinner starts here".</span></div>
+          <ol class="lw-steps"><li><i>1</i>Scan the QR</li><li><i>2</i>Join the SSGT account (same Uber login)</li><li><i>3</i>Order tonight's dinner or schedule the ride home</li><li><i>4</i>Take your busy-season kit</li></ol>
+        </div>
+        <div class="dyn2"><span><b>2 min</b> from QR to first order</span><span><b>40%</b> activation by January 31</span><span><b>2 offices</b> Mexico City and Monterrey, week of January 4</span></div>
+      </div>
+      <div class="s-foot"><span>Concept for illustration; final design approved by SSGT · Section 2 · Mutual success plan</span><span class="pg"></span></div>
     </article>
     <article class="slide" data-title="Operating rhythm">
       <p class="s-eyebrow">Section 2 · Mutual success plan</p>
