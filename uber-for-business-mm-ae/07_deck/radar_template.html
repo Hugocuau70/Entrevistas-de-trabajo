@@ -106,6 +106,7 @@ details li b { color: var(--ink); }
 @media (prefers-reduced-motion: no-preference) { .bar i { transition: width .25s ease-out; } }
 .depth-fold > summary { cursor: pointer; font-weight: 600; font-size: 15px; color: var(--muted); padding: 6px 0; }
 .depth-fold[open] > summary { margin-bottom: 8px; }
+.legend-top { margin: 4px 0 10px; }
 </style>
 
 <div class="page">
@@ -139,8 +140,7 @@ details li b { color: var(--ink); }
         </select>
       </label>
     </div>
-    <div class="wrap" id="heatWrap"><div id="heat"></div><div class="tip" id="tip" hidden></div></div>
-    <div class="legend" aria-hidden="true">
+    <div class="legend legend-top" aria-hidden="true">
       <span class="sw b-trough"></span><span>Trough</span>
       <span class="sw b-low"></span><span>Low</span>
       <span class="sw b-mid"></span><span>Normal</span>
@@ -148,6 +148,7 @@ details li b { color: var(--ink); }
       <span class="sw b-peak"></span><span>Peak</span>
       <span id="legendNote"></span>
     </div>
+    <div class="wrap" id="heatWrap"><div id="heat"></div><div class="tip" id="tip" hidden></div></div>
   </section>
 
   <section id="findings">
