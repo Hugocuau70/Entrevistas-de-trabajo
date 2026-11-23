@@ -40,9 +40,9 @@ if variant == 'presenter':
         return (f'<div class="kit-shot"><video autoplay muted loop playsinline preload="auto" poster="{b64(poster, "image/jpeg")}" aria-label="{label}"><source src="{b64(n, "video/mp4")}" type="video/mp4"></video>'
                 f'<a class="kit-open" href="{kit}{href}" target="_blank" rel="noopener">Open ↗</a></div>')
     reps = {
-        '<div class="kit-shot" data-kit="webinar"><span>Admin onboarding<br>webinar · mock-up</span></div>': vid('webinar.mp4', 'webinar_poster.jpg', 'Admin onboarding webinar mock-up', 'webinar-onboarding.mp4'),
-        '<div class="kit-shot" data-kit="video"><span>Lever video<br>mock-up · 15 s</span></div>': vid('lever01.mp4', 'lever_poster.jpg', 'Lever video mock-up', 'lever-videos.html'),
-        '<div class="kit-shot" data-kit="email"><span>Launch email<br>mock-up</span></div>': f'<div class="kit-shot scroll" role="img" aria-label="Launch email mock-up" style="background-image:url({b64("kit_email_tall.jpg", "image/jpeg")})"><a class="kit-open" href="{kit}launch-email.html" target="_blank" rel="noopener">Open ↗</a></div>',
+        '<div class="kit-shot" data-kit="webinar"><span>Admin onboarding<br>webinar · mock-up</span></div>': vid('webinar2.mp4', 'webinar2_poster.jpg', 'Admin onboarding webinar mock-up', 'webinar-onboarding.html'),
+        '<div class="kit-shot" data-kit="video"><span>Lever videos<br>mock-up · 5 × 15 s</span></div>': vid('levers_all.mp4', 'levers_poster.jpg', 'Lever videos mock-up', 'lever-videos.html'),
+        '<div class="kit-shot" data-kit="email"><span>Launch email<br>mock-up</span></div>': vid('email_video.mp4', 'email_poster.jpg', 'Launch email mock-up', 'launch-email-video.html'),
         '<!--bye-logo-->': '<div class="bye-logo" aria-hidden="true"></div>',
     }
     for k, v in reps.items():

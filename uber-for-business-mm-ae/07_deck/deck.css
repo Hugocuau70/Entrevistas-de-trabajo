@@ -142,3 +142,24 @@ a.kit-open { position: absolute; right: .5em; bottom: .5em; background: #000; co
 @media (max-width: 760px) { .bye-take { grid-template-columns: 1fr; } }
 .prodc + .s-flow { grid-template-columns: repeat(3, 1fr); }
 .kit-card { overflow: hidden; }
+
+.slide { position: relative; }
+.hide-btn { position: absolute; top: .55em; left: .55em; z-index: 4; font: inherit; font-size: 11px; font-weight: 600; line-height: 1; padding: 4px 9px; border-radius: 999px; border: 1px solid var(--line); background: var(--paper); color: var(--muted); opacity: .5; cursor: pointer; }
+.hide-btn:hover, .hide-btn:focus-visible { opacity: 1; }
+.slide.is-hidden > :not(.hide-btn) { opacity: .35; }
+.slide.is-hidden .hide-btn { opacity: 1; background: var(--mint); border-color: var(--mint); color: #000; }
+.slides.presenting .hide-btn, .slides:fullscreen .hide-btn { display: none; }
+.calc .x-det { display: none; } .calc.details-on .x-det { display: inline; } .calc.details-on .x-tot { display: none; }
+.calc .calc-how { display: none; } .calc.details-on .calc-how { display: block; }
+.calc .x-tot { font-weight: 600; color: var(--muted); }
+.det-btn { align-self: flex-start; font: inherit; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--tertiary); cursor: pointer; }
+.det-btn:hover { color: var(--ink); border-color: var(--ink); }
+.agenda { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); flex: 1; align-content: center; }
+.ag { border-top: 3px solid var(--ink); padding-top: calc(var(--gap) * .7); display: flex; flex-direction: column; gap: .35em; }
+.ag-n { font-size: calc(var(--fs-title) * 1.5); font-weight: 700; line-height: 1; color: var(--accent); }
+.ag b { font-size: calc(var(--fs-body) * 1.2); }
+.ag-t { font-size: var(--fs-small); color: var(--tertiary); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+.ag ol { list-style: none; margin: .6em 0 0; padding: 0; display: flex; flex-direction: column; gap: .55em; }
+.ag li { display: flex; gap: .7em; font-size: var(--fs-body); padding-bottom: .5em; border-bottom: 1px solid var(--line); }
+.ag li i { font-style: normal; font-weight: 700; color: var(--tertiary); font-variant-numeric: tabular-nums; min-width: 2em; }
+@media (max-width: 760px) { .agenda { grid-template-columns: 1fr; } }

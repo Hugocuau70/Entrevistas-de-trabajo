@@ -1,0 +1,29 @@
+SSGT x Uber for Business - entregables audiovisuales
+=====================================================
+
+Cada archivo .html es autonomo: abrelo con doble clic en Chrome o Safari.
+Lleva dentro las fuentes Uber Move, el design system, las imagenes y el
+motor de animacion, asi que funciona sin internet y se puede compartir
+por correo o Drive tal cual.
+
+  Lever Videos.html          Las 5 palancas en video. En el panel de la
+                             derecha eliges la palanca (01 a 05) y el
+                             formato (16:9, 9:16, 1:1).
+  Launch Email (correo).html El correo de lanzamiento, para revisar o
+                             imprimir a PDF.
+  Launch Email Video.html    El correo en video: scroll, clic en
+                             "Claim dinner" y apertura de Uber Eats.
+                             Formatos 16:9 y 9:16.
+  Webinar Onboarding.html    El onboarding del panel en video, con la
+                             portada y el avatar. Formatos 16:9 y 9:16.
+
+Sobre el MP4
+------------
+Estos archivos reproducen la animacion en el navegador; no son MP4. Para
+tener el archivo de video hay dos caminos:
+  1. Exportarlo desde el editor del proyecto en claude.ai (boton de
+     descarga de la pagina), donde si esta la exportacion de video.
+  2. Grabar la pantalla mientras se reproduce (QuickTime en Mac,
+     Cmd+Shift+5), encuadrando solo el area de la animacion.
+
+Las pantallas que aparecen son visualizaciones ilustrativas.

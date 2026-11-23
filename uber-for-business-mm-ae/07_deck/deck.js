@@ -13,41 +13,64 @@
   show(location.hash.slice(1));
 })();
 
-// Deck navigation
+// Deck navigation, with per-slide "Hide" for Present mode
 document.querySelectorAll('.tabpanel .slides').forEach((deck) => {
-  const panel = deck.closest('.tabpanel'); const slides = [...deck.querySelectorAll('.slide')];
+  const panel = deck.closest('.tabpanel'); const slides = [...deck.querySelectorAll('.slide')]; const N = slides.length;
   const count = panel.querySelector('.count'); const prev = panel.querySelector('[data-act=prev]'); const next = panel.querySelector('[data-act=next]'); const all = panel.querySelector('[data-act=all]');
-  slides.forEach((s, i) => { s.querySelectorAll('.pg').forEach((p) => { p.textContent = `${i + 1} / ${slides.length}`; }); s.setAttribute('aria-label', `Slide ${i + 1}: ${s.dataset.title}`); });
-  let cur = 0, showAll = false;
+  const key = 'deck-hidden-' + (deck.dataset.deck || panel.id);
+  let hid = new Set(); try { hid = new Set(JSON.parse(localStorage.getItem(key) || '[]')); } catch (e) { hid = new Set(); }
+  const save = () => { try { localStorage.setItem(key, JSON.stringify([...hid])); } catch (e) { /* storage unavailable */ } };
+  const isHid = (s) => hid.has(s.dataset.title);
+  const presenting = () => deck.classList.contains('presenting');
+  const vis = () => slides.filter((s) => !isHid(s));
+  let cur = 0, showAll = false, ui = null;
+  const number = () => {
+    const v = vis();
+    slides.forEach((s, i) => {
+      const n = v.indexOf(s); s.classList.toggle('is-hidden', n < 0);
+      s.querySelectorAll('.pg').forEach((pg) => { pg.textContent = n < 0 ? 'Hidden in Present' : `${n + 1} / ${v.length}`; });
+      s.setAttribute('aria-label', `Slide ${i + 1}: ${s.dataset.title}${n < 0 ? ' (hidden in Present)' : ''}`);
+      const hb = s.querySelector('.hide-btn'); if (hb) { hb.textContent = n < 0 ? 'Unhide' : 'Hide'; hb.setAttribute('aria-pressed', String(n < 0)); }
+    });
+  };
+  const target = (d) => { let j2 = cur + d; while (j2 >= 0 && j2 < N && presenting() && isHid(slides[j2])) j2 += d; return j2 >= 0 && j2 < N ? j2 : -1; };
+  const updUi = () => { if (!ui) return; const v = vis(); ui.querySelector('span').textContent = `${v.indexOf(slides[cur]) + 1} / ${v.length}`; };
   const render = () => {
     slides.forEach((s, i) => { s.hidden = !showAll && i !== cur; });
-    count.textContent = showAll ? `${slides.length} slides` : `${cur + 1} / ${slides.length}`;
-    prev.disabled = showAll || cur === 0; next.disabled = showAll || cur === slides.length - 1;
+    count.textContent = showAll ? `${N} slides · ${N - vis().length} hidden in Present` : `${cur + 1} / ${N}${isHid(slides[cur]) ? ' · hidden in Present' : ''}`;
+    prev.disabled = showAll || target(-1) < 0; next.disabled = showAll || target(1) < 0;
     all.setAttribute('aria-pressed', String(showAll)); all.textContent = showAll ? 'One at a time' : 'Show all';
+    updUi();
   };
-  prev.addEventListener('click', () => { cur = Math.max(0, cur - 1); render(); });
-  next.addEventListener('click', () => { cur = Math.min(slides.length - 1, cur + 1); render(); });
+  const go = (d) => { const t = target(d); if (t >= 0) { cur = t; render(); } };
+  slides.forEach((s) => {
+    const hb = document.createElement('button'); hb.type = 'button'; hb.className = 'hide-btn'; hb.title = 'Skip this slide in Present mode';
+    hb.addEventListener('click', (e) => { e.stopPropagation(); const t = s.dataset.title; if (hid.has(t)) hid.delete(t); else hid.add(t); save(); number(); render(); });
+    s.prepend(hb);
+  });
+  prev.addEventListener('click', () => go(-1));
+  next.addEventListener('click', () => go(1));
   all.addEventListener('click', () => { showAll = !showAll; render(); });
   document.addEventListener('keydown', (e) => {
     if (panel.hidden || showAll || /INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)) return;
-    if (e.key === 'ArrowRight' || e.key === 'PageDown') { cur = Math.min(slides.length - 1, cur + 1); render(); }
-    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { cur = Math.max(0, cur - 1); render(); }
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') go(1);
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') go(-1);
+    if (presenting() && e.key === ' ') { e.preventDefault(); go(1); }
+    if (presenting() && e.key === 'Escape') exit();
   });
-  // Presentation mode (fullscreen, with in-page fallback)
+  // Presentation mode (fullscreen, with in-page fallback); hidden slides are skipped
   const presentBtn = panel.querySelector('[data-act=present]');
-  let ui = null;
-  const isOn = () => deck.classList.contains('presenting') || document.fullscreenElement === deck;
-  const updUi = () => { if (ui) ui.querySelector('span').textContent = `${cur + 1} / ${slides.length}`; };
   function enter() {
-    showAll = false; render(); deck.classList.add('presenting');
+    if (!vis().length) return;
+    showAll = false; deck.classList.add('presenting');
+    if (isHid(slides[cur])) { const f2 = target(1); cur = f2 >= 0 ? f2 : target(-1); }
     ui = document.createElement('div'); ui.className = 'present-ui';
     const b1 = document.createElement('button'); b1.type = 'button'; b1.textContent = '‹'; b1.setAttribute('aria-label', 'Previous slide');
     const sp = document.createElement('span');
     const b2 = document.createElement('button'); b2.type = 'button'; b2.textContent = '›'; b2.setAttribute('aria-label', 'Next slide');
     const bx = document.createElement('button'); bx.type = 'button'; bx.textContent = 'Exit (Esc)';
-    b1.onclick = () => { cur = Math.max(0, cur - 1); render(); updUi(); };
-    b2.onclick = () => { cur = Math.min(slides.length - 1, cur + 1); render(); updUi(); };
-    bx.onclick = exit; ui.append(b1, sp, b2, bx); deck.appendChild(ui); updUi();
+    b1.onclick = () => go(-1); b2.onclick = () => go(1); bx.onclick = exit;
+    ui.append(b1, sp, b2, bx); deck.appendChild(ui); render();
     if (deck.requestFullscreen) { const pr = deck.requestFullscreen(); if (pr && pr.catch) pr.catch(() => {}); }
   }
   function exit() {
@@ -56,19 +79,12 @@ document.querySelectorAll('.tabpanel .slides').forEach((deck) => {
     render();
   }
   if (presentBtn) presentBtn.addEventListener('click', enter);
-  document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement && deck.classList.contains('presenting')) exit(); });
-  document.addEventListener('keydown', (e) => {
-    if (!isOn()) return;
-    if (e.key === 'Escape') { exit(); return; }
-    if (/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)) return;
-    if (e.key === ' ' ) { e.preventDefault(); cur = Math.min(slides.length - 1, cur + 1); render(); }
-    updUi();
-  });
+  document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement && presenting()) exit(); });
   deck.addEventListener('click', (e) => {
-    if (!isOn() || e.target.closest('input, select, button, label, a, .present-ui')) return;
-    const r = deck.getBoundingClientRect(); cur = e.clientX > r.left + r.width / 2 ? Math.min(slides.length - 1, cur + 1) : Math.max(0, cur - 1); render(); updUi();
+    if (!presenting() || e.target.closest('input, select, button, label, a, video, .present-ui')) return;
+    const r = deck.getBoundingClientRect(); go(e.clientX > r.left + r.width / 2 ? 1 : -1);
   });
-  render();
+  number(); render();
 });
 
 // Slide charts
@@ -169,13 +185,13 @@ window.GB = (() => {
     const p = {}; Object.entries(B).forEach(([k, id]) => { p[k] = Number(document.getElementById(id).value); });
     const n = (v) => num(Math.round(v)); const field = p.emp * p.field / 100, other = p.emp - field;
     const fb = field * p.busy, fo = field * p.off, oo = other * 0.5, meals = field * p.eats, offMeals = p.emp * 0.1;
-    const set = (k, txt) => document.querySelectorAll(`[data-x=${k}]`).forEach((e) => { e.textContent = txt; });
+    const set = (k, txt, tot) => document.querySelectorAll(`[data-x=${k}]`).forEach((e) => { const t = document.createElement('span'); t.className = 'x-tot'; t.textContent = tot || txt; const d = document.createElement('span'); d.className = 'x-det'; d.textContent = txt; e.replaceChildren(t, d); });
     set('b_emp', `${n(p.emp)} people in total`);
-    set('b_field', `${n(p.emp)} × ${p.field}% = ${n(field)} at client sites · ${n(other)} in offices`);
-    set('b_busy', `${n(field)} × ${p.busy} = ${n(fb)} trips + ${n(other)} office staff × 0.5 = ${n(oo)} → ${n(fb + oo)} a month`);
-    set('b_off', `${n(field)} × ${p.off} = ${n(fo)} trips + ${n(oo)} office trips → ${n(fo + oo)} a month`);
-    set('b_reb', `${n(fb)} × ${p.reb}% = ${n(fb * p.reb / 100)} busy-season trips · ${n(fo)} × ${p.reb}% = ${n(fo * p.reb / 100)} the rest of the year`);
-    set('b_eats', `${n(field)} × ${p.eats} = ${n(meals)} meals in busy season · ${n(p.emp)} × 0.1 = ${n(offMeals)} the rest of the year`);
+    set('b_field', `${n(p.emp)} × ${p.field}% = ${n(field)} at client sites · ${n(other)} in offices`, `= ${n(field)} at client sites`);
+    set('b_busy', `${n(field)} × ${p.busy} = ${n(fb)} trips + ${n(other)} office staff × 0.5 = ${n(oo)} → ${n(fb + oo)} a month`, `= ${n(fb + oo)} trips a month`);
+    set('b_off', `${n(field)} × ${p.off} = ${n(fo)} trips + ${n(oo)} office trips → ${n(fo + oo)} a month`, `= ${n(fo + oo)} trips a month`);
+    set('b_reb', `${n(fb)} × ${p.reb}% = ${n(fb * p.reb / 100)} busy-season trips · ${n(fo)} × ${p.reb}% = ${n(fo * p.reb / 100)} the rest of the year`, `= ${n(fb * p.reb / 100)} rebillable trips a busy-season month`);
+    set('b_eats', `${n(field)} × ${p.eats} = ${n(meals)} meals in busy season · ${n(p.emp)} × 0.1 = ${n(offMeals)} the rest of the year`, `= ${n(meals)} meals a busy-season month`);
     const bud0 = (fb + oo) * 10 + meals * 15, rec0 = fb * p.reb / 100 * 10;
     const how = document.querySelector('[data-x=b_how]');
     if (how) { how.replaceChildren();
@@ -241,3 +257,9 @@ window.GB = (() => {
     vids.forEach((v) => io.observe(v));
   } else vids.forEach(play);
 })();
+
+/* Slide 9: totals by default, full arithmetic behind "Details" */
+document.querySelectorAll('.det-btn').forEach((btn) => {
+  const calc = btn.closest('.calc');
+  btn.addEventListener('click', () => { const on = calc.classList.toggle('details-on'); btn.setAttribute('aria-expanded', String(on)); btn.textContent = on ? 'Hide details' : 'Details'; });
+});
