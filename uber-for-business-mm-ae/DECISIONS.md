@@ -67,3 +67,4 @@
 | 2026-11-23 | Slide 16 "Launch week" (pit stop) en el deck; Google Slides re-sincronizado a 29 slides con el mismo link | Decisión del usuario |
 | 2026-11-23 | HTML para presentar como página única (solo Final deck, sin pestañas); corregido que en vista normal se veían todas las slides apiladas | Petición del usuario |
 | 2026-11-23 | Corrección: el HTML para presentar conserva dos pestañas (Industry radar y Final deck); se quitan Salles Sainz review e Internal brief | Aclaración del usuario |
+| 2026-11-23 | HTML para presentar = archivo base del usuario con solo el Final deck (sin pestañas ni Industry radar), slides en una sola página | Aclaración del usuario ("one pager") |
