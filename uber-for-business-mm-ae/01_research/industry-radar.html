@@ -1606,7 +1606,15 @@ drawRank(); drawHeat();
 document.querySelectorAll('.tabpanel .slides').forEach((deck) => {
   const panel = deck.closest('.tabpanel'); let slides = [...deck.querySelectorAll('.slide')]; const N = slides.length;
   const okey = 'deck-order-' + (deck.dataset.deck || panel.id);
-  try { const ord = JSON.parse(localStorage.getItem(okey) || 'null'); if (Array.isArray(ord)) { ord.forEach((t) => { const s = slides.find((x) => x.dataset.title === t); if (s) deck.appendChild(s); }); slides = [...deck.querySelectorAll('.slide')]; } } catch (e) { /* ignore */ }
+  try {
+    const ord = JSON.parse(localStorage.getItem(okey) || 'null');
+    if (Array.isArray(ord)) {
+      const orig = slides.map((x) => x.dataset.title); const seq = ord.filter((t) => orig.includes(t));
+      orig.forEach((t, i) => { if (!seq.includes(t)) { const prevT = orig.slice(0, i).reverse().find((x) => seq.includes(x)); seq.splice(prevT ? seq.indexOf(prevT) + 1 : 0, 0, t); } });
+      seq.forEach((t) => { const s = slides.find((x) => x.dataset.title === t); if (s) deck.appendChild(s); });
+      slides = [...deck.querySelectorAll('.slide')];
+    }
+  } catch (e) { /* ignore */ }
   const saveOrder = () => { try { localStorage.setItem(okey, JSON.stringify(slides.map((s) => s.dataset.title))); } catch (e) { /* storage unavailable */ } };
   const count = panel.querySelector('.count'); const prev = panel.querySelector('[data-act=prev]'); const next = panel.querySelector('[data-act=next]'); const all = panel.querySelector('[data-act=all]');
   const key = 'deck-hidden-' + (deck.dataset.deck || panel.id);
