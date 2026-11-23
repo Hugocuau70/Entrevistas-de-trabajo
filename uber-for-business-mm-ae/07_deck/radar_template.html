@@ -112,13 +112,13 @@ details li b { color: var(--ink); }
   <header id="intro">
     <p class="eyebrow">Uber for Business · Mid-Market Mexico · H1 2027 account selection</p>
     <h1>Where corporate travel moves in H1 2027</h1>
-    <p class="lede">Across 19 B2B industries, the typical gap between the busiest and the quietest month for headcount and hours worked is only <b id="medAmp">—</b> index points (100 = an average month). National seasonality is mild, so the H1 2027 case rests on company-specific triggers and on closing early enough for usage to ramp inside the semester.</p>
-    <div class="meta-row"><span class="chip">Source: INEGI monthly surveys 2022–2025</span><span class="chip">Google Keyword Planner MX 2024–2026</span><span class="chip">Economic Census 2024</span><span class="chip">Analyst scores flagged as assumptions</span></div>
+    <p class="lede">Seasonality is mild: across 19 industries, the busiest month is only <b id="medAmp">—</b> points above the quietest (100 = average month). H1 2027 depends on account triggers and early closes.</p>
+    <div class="meta-row"><span class="chip">Source: INEGI monthly surveys 2022–2025</span><span class="chip">Google Keyword Planner MX 2024–2026</span><span class="chip">Economic Census 2024</span></div>
   </header>
 
   <section id="seasonality">
     <h2>Monthly intensity by industry</h2>
-    <p class="note">Each cell is that month versus an average month (100), with trend and inflation removed. Colors show each row's busiest and quietest months; switch to "vs. average month" to compare intensity across industries, and check the Swing column before reading a strong color as a big effect. The six H1 months carry the quota.</p>
+    <p class="note">Each cell: that month vs. an average month (100), without trend or inflation. Color marks each row's peak; Swing shows how big it is.</p>
     <div class="controls">
       <div class="seg" id="viewSeg" role="group" aria-label="What to measure">
         <button type="button" id="view-people" data-view="people" aria-pressed="true">People moving (headcount / hours)</button>
@@ -156,29 +156,29 @@ details li b { color: var(--ink); }
       <article class="card">
         <h3>Audit firms staff up in Q1 but bill in December</h3>
         <span class="big" data-v="5412|people|jan">—</span>
-        <p>January headcount index for audit, accounting and tax, the highest of the year. Revenue peaks in December at <b data-v="5412|activity|dec">—</b>. People move in Q1; invoices land at year-end.</p>
+        <p>Audit headcount peaks in January; revenue peaks in December (<b data-v="5412|activity|dec">—</b>). People move in Q1.</p>
       </article>
       <article class="card">
         <h3>Pharma's commercial peak is March</h3>
         <span class="big" data-v="3254|activity|mar">—</span>
-        <p>March sales-volume index for pharmaceutical manufacturing, versus <b data-v="3254|activity|jul">—</b> in July. Field forces push hardest in Q1.</p>
+        <p>Pharma sales volume in March, vs. <b data-v="3254|activity|jul">—</b> in July.</p>
       </article>
       <article class="card">
         <h3>Engineering keeps its crews through July</h3>
         <span class="big" data-v="5413|people|h1_share|pct">—</span>
-        <p>Share of the year's engineering and architecture headcount that falls in H1; the low month is <b data-v="5413|people|low_month|txt">—</b>.</p>
+        <p>Share of engineering headcount in H1; low month: <b data-v="5413|people|low_month|txt">—</b>.</p>
       </article>
       <article class="card">
         <h3>March is H1's travel high point</h3>
         <span class="big" data-v="7211|activity|mar">—</span>
-        <p>March hotel revenue index, the H1 maximum. Easter week 2027 falls on March 21–28, so plan go-lives before mid-March.</p>
+        <p>Hotel revenue peaks in March. Easter week is Mar 21–28: go live before mid-March.</p>
       </article>
     </div>
   </section>
 
   <section id="search">
     <h2>Search demand in Mexico: when buyers look and when deadlines hit</h2>
-    <p class="note">Google Keyword Planner, Mexico, monthly searches Aug 2024 – Aug 2026 (volumes are rounded into buckets; latest months lag 2–4 months). H1 months are shaded. Search shows when people research, which helps time prospecting; it does not measure rides.</p>
+    <p class="note">Google Keyword Planner, Mexico, Aug 2024–Aug 2026; H1 shaded. Shows when buyers research, not when people ride.</p>
     <p class="kw-sub">Corporate mobility demand</p>
     <div class="kw-grid" id="kwMobility"></div>
     <p class="kw-sub">Industry triggers</p>
@@ -213,7 +213,7 @@ details li b { color: var(--ink); }
   <section id="depth">
     <details class="depth-fold">
       <summary>How many large employers each industry has (Economic Census 2024)</summary>
-    <p class="note">Economic Census 2024. An establishment is one office or plant, so a multi-office firm counts several times, and the 251+ band also includes enterprise accounts. Read it as relative depth, not as a list of mid-market companies.</p>
+    <p class="note">One establishment = one office or plant; 251+ includes enterprise accounts. Relative depth only.</p>
     <div class="scroll" id="census"></div>
     </details>
   </section>
@@ -221,11 +221,11 @@ details li b { color: var(--ink); }
   <details id="method">
     <summary>Method, accuracy and what each source can and cannot tell us</summary>
     <ul>
-      <li><b>People moving</b> uses INEGI headcount (services) or hours worked (manufacturing and construction), the closest official proxy for when employees are on the road. <b>Business activity</b> uses revenue, sales volume or value of output, which follows invoicing and can lag the work.</li>
-      <li>Seasonal index: ratio to a centered 12-month moving average, averaged by calendar month from 2022 (post-pandemic), rescaled so the 12 months average 100. This removes growth and inflation, which would otherwise make every December look like a peak.</li>
-      <li>National series hide company-level events. A data center contract, a plant opening or a statutory deadline moves one account far more than its industry's average.</li>
-      <li>Search tools (Google Trends, Keyword Planner, SEMrush) measure when people search, usually the buyer's research moment, not the moment employees travel. They help time prospecting, not size usage.</li>
-      <li>Analyst scores are judgments from public research and must be confirmed in discovery before they appear on a slide.</li>
+      <li><b>People moving:</b> INEGI headcount (services) or hours worked (manufacturing, construction). <b>Business activity:</b> revenue or output, which follows invoicing.</li>
+      <li>Seasonal index: ratio to a centered 12-month moving average, averaged by month since 2022 and rescaled to 100. Removes growth and inflation.</li>
+      <li>National data hides company events: a plant opening or a legal deadline moves one account more than its industry.</li>
+      <li>Search data shows when buyers research, not when employees travel.</li>
+      
     </ul>
     <p class="sources">Sources: <a href="https://www.inegi.org.mx/programas/ems/2018/" target="_blank" rel="noopener">INEGI EMS</a> · <a href="https://www.inegi.org.mx/programas/emim/2018/" target="_blank" rel="noopener">INEGI EMIM</a> · <a href="https://www.inegi.org.mx/programas/enec/2018/" target="_blank" rel="noopener">INEGI ENEC</a> · <a href="https://www.inegi.org.mx/programas/ce/2024/" target="_blank" rel="noopener">INEGI Censos Económicos 2024</a>. Data downloaded 15 Nov 2026.</p>
   </details>

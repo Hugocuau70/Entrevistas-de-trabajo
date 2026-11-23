@@ -54,3 +54,4 @@
 | 2026-11-23 | Flechas ↑↓ para reordenar slides y "Reset layout" (se guarda en el navegador); clic en un video del launch kit lo abre en grande en otra pestaña | Petición del usuario |
 | 2026-11-23 | Google Slides se actualiza al final (cuando el usuario diga 100%); si no hay "go", se actualiza el 24-nov a las 12:00 (CDMX) | Instrucción del usuario |
 | 2026-11-23 | Tabla "How many large employers each industry has" plegada por defecto (desplegable) | No suma a la presentación (decisión del usuario) |
+| 2026-11-23 | Limpieza de textos: Radar con párrafos de 1–2 líneas; deck revisado (ortografía, sintaxis, coherencia): Jan 4 = lanzamiento a todo el staff con champions en CDMX y Monterrey (antes "pilot", chocaba con el correo a 1,000 personas); "85% of profiles linked" en vez de "activation" para no confundir con el 70% de adopción; notas largas recortadas | Petición del usuario: concisión y storytelling |
