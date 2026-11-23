@@ -104,6 +104,8 @@ details li b { color: var(--ink); }
 .sources { font-size: 12px; color: var(--tertiary); }
 .sources a { color: var(--ink); }
 @media (prefers-reduced-motion: no-preference) { .bar i { transition: width .25s ease-out; } }
+.depth-fold > summary { cursor: pointer; font-weight: 600; font-size: 15px; color: var(--muted); padding: 6px 0; }
+.depth-fold[open] > summary { margin-bottom: 8px; }
 </style>
 
 <div class="page">
@@ -209,9 +211,11 @@ details li b { color: var(--ink); }
   </section>
 
   <section id="depth">
-    <h2>How many large employers each industry has</h2>
+    <details class="depth-fold">
+      <summary>How many large employers each industry has (Economic Census 2024)</summary>
     <p class="note">Economic Census 2024. An establishment is one office or plant, so a multi-office firm counts several times, and the 251+ band also includes enterprise accounts. Read it as relative depth, not as a list of mid-market companies.</p>
     <div class="scroll" id="census"></div>
+    </details>
   </section>
 
   <details id="method">

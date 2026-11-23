@@ -104,6 +104,8 @@ details li b { color: var(--ink); }
 .sources { font-size: 12px; color: var(--tertiary); }
 .sources a { color: var(--ink); }
 @media (prefers-reduced-motion: no-preference) { .bar i { transition: width .25s ease-out; } }
+.depth-fold > summary { cursor: pointer; font-weight: 600; font-size: 15px; color: var(--muted); padding: 6px 0; }
+.depth-fold[open] > summary { margin-bottom: 8px; }
 .tabs { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--paper); display: flex; gap: 4px; flex-wrap: wrap; padding-block: 10px; border-bottom: 1px solid var(--line); }
 .tabs button { font: inherit; font-size: 14px; font-weight: 600; padding: 8px 14px; border: 0; border-radius: 999px; background: transparent; color: var(--muted); cursor: pointer; }
 .tabs button[aria-selected="true"] { background: var(--ink); color: var(--paper); }
@@ -397,22 +399,11 @@ a.kit-open { position: absolute; right: .5em; bottom: .5em; background: #000; co
 
 
   <section id="depth">
-    <h2>How many large employers each industry has</h2>
+    <details class="depth-fold">
+      <summary>How many large employers each industry has (Economic Census 2024)</summary>
     <p class="note">Economic Census 2024. An establishment is one office or plant, so a multi-office firm counts several times, and the 251+ band also includes enterprise accounts. Read it as relative depth, not as a list of mid-market companies.</p>
     <div class="scroll" id="census"></div>
-  </section>
-
-  <details id="method">
-    <summary>Method, accuracy and what each source can and cannot tell us</summary>
-    <ul>
-      <li><b>People moving</b> uses INEGI headcount (services) or hours worked (manufacturing and construction), the closest official proxy for when employees are on the road. <b>Business activity</b> uses revenue, sales volume or value of output, which follows invoicing and can lag the work.</li>
-      <li>Seasonal index: ratio to a centered 12-month moving average, averaged by calendar month from 2022 (post-pandemic), rescaled so the 12 months average 100. This removes growth and inflation, which would otherwise make every December look like a peak.</li>
-      <li>National series hide company-level events. A data center contract, a plant opening or a statutory deadline moves one account far more than its industry's average.</li>
-      <li>Search tools (Google Trends, Keyword Planner, SEMrush) measure when people search, usually the buyer's research moment, not the moment employees travel. They help time prospecting, not size usage.</li>
-      <li>Analyst scores are judgments from public research and must be confirmed in discovery before they appear on a slide.</li>
-    </ul>
-    <p class="sources">Sources: <a href="https://www.inegi.org.mx/programas/ems/2018/" target="_blank" rel="noopener">INEGI EMS</a> · <a href="https://www.inegi.org.mx/programas/emim/2018/" target="_blank" rel="noopener">INEGI EMIM</a> · <a href="https://www.inegi.org.mx/programas/enec/2018/" target="_blank" rel="noopener">INEGI ENEC</a> · <a href="https://www.inegi.org.mx/programas/ce/2024/" target="_blank" rel="noopener">INEGI Censos Económicos 2024</a>. Data downloaded 15 Nov 2026.</p>
-  </details>
+    </details>
   </div>
 <div class="tabpanel" id="final-deck" data-tab="final-deck" hidden>
   <div class="deck-bar">
@@ -1397,6 +1388,19 @@ a.kit-open { position: absolute; right: .5em; bottom: .5em; background: #000; co
   </section>
 </div>
 
+  </section>
+
+  <details id="method">
+    <summary>Method, accuracy and what each source can and cannot tell us</summary>
+    <ul>
+      <li><b>People moving</b> uses INEGI headcount (services) or hours worked (manufacturing and construction), the closest official proxy for when employees are on the road. <b>Business activity</b> uses revenue, sales volume or value of output, which follows invoicing and can lag the work.</li>
+      <li>Seasonal index: ratio to a centered 12-month moving average, averaged by calendar month from 2022 (post-pandemic), rescaled so the 12 months average 100. This removes growth and inflation, which would otherwise make every December look like a peak.</li>
+      <li>National series hide company-level events. A data center contract, a plant opening or a statutory deadline moves one account far more than its industry's average.</li>
+      <li>Search tools (Google Trends, Keyword Planner, SEMrush) measure when people search, usually the buyer's research moment, not the moment employees travel. They help time prospecting, not size usage.</li>
+      <li>Analyst scores are judgments from public research and must be confirmed in discovery before they appear on a slide.</li>
+    </ul>
+    <p class="sources">Sources: <a href="https://www.inegi.org.mx/programas/ems/2018/" target="_blank" rel="noopener">INEGI EMS</a> · <a href="https://www.inegi.org.mx/programas/emim/2018/" target="_blank" rel="noopener">INEGI EMIM</a> · <a href="https://www.inegi.org.mx/programas/enec/2018/" target="_blank" rel="noopener">INEGI ENEC</a> · <a href="https://www.inegi.org.mx/programas/ce/2024/" target="_blank" rel="noopener">INEGI Censos Económicos 2024</a>. Data downloaded 15 Nov 2026.</p>
+  </details>
 </div>
 
 <script>

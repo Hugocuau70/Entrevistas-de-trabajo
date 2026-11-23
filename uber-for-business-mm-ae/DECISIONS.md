@@ -53,3 +53,4 @@
 | 2026-11-23 | Factors → "Five concerns": Finanzas (PoC de 30 días), RH (launch kit y champions), TI (roster/SSO/datos), Operaciones (ancho de banda: vivo en ~48 h) y adopción; más 3 dinámicas: Dinner drops, Office league con QR, Busy Season Wrapped | Petición del usuario; dinámicas por validar |
 | 2026-11-23 | Flechas ↑↓ para reordenar slides y "Reset layout" (se guarda en el navegador); clic en un video del launch kit lo abre en grande en otra pestaña | Petición del usuario |
 | 2026-11-23 | Google Slides se actualiza al final (cuando el usuario diga 100%); si no hay "go", se actualiza el 24-nov a las 12:00 (CDMX) | Instrucción del usuario |
+| 2026-11-23 | Tabla "How many large employers each industry has" plegada por defecto (desplegable) | No suma a la presentación (decisión del usuario) |
