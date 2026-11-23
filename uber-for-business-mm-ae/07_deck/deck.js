@@ -1,6 +1,6 @@
 // Tabs with hash routing
 (() => {
-  const TABS = ['radar', 'final-deck', 'salles-review', 'internal-brief'];
+  const TABS = ['radar', 'final-deck', 'salles-review', 'internal-brief', 'scorer'];
   const show = (id) => {
     if (['client-deck', 'panel-deck', 'book-of-business'].includes(id)) id = 'final-deck';
     if (!TABS.includes(id)) id = 'radar';
@@ -15,7 +15,10 @@
 
 // Deck navigation, with per-slide "Hide" for Present mode
 document.querySelectorAll('.tabpanel .slides').forEach((deck) => {
-  const panel = deck.closest('.tabpanel'); const slides = [...deck.querySelectorAll('.slide')]; const N = slides.length;
+  const panel = deck.closest('.tabpanel'); let slides = [...deck.querySelectorAll('.slide')]; const N = slides.length;
+  const okey = 'deck-order-' + (deck.dataset.deck || panel.id);
+  try { const ord = JSON.parse(localStorage.getItem(okey) || 'null'); if (Array.isArray(ord)) { ord.forEach((t) => { const s = slides.find((x) => x.dataset.title === t); if (s) deck.appendChild(s); }); slides = [...deck.querySelectorAll('.slide')]; } } catch (e) { /* ignore */ }
+  const saveOrder = () => { try { localStorage.setItem(okey, JSON.stringify(slides.map((s) => s.dataset.title))); } catch (e) { /* storage unavailable */ } };
   const count = panel.querySelector('.count'); const prev = panel.querySelector('[data-act=prev]'); const next = panel.querySelector('[data-act=next]'); const all = panel.querySelector('[data-act=all]');
   const key = 'deck-hidden-' + (deck.dataset.deck || panel.id);
   let hid = new Set(); try { hid = new Set(JSON.parse(localStorage.getItem(key) || '[]')); } catch (e) { hid = new Set(); }
@@ -43,11 +46,22 @@ document.querySelectorAll('.tabpanel .slides').forEach((deck) => {
     updUi();
   };
   const go = (d) => { const t = target(d); if (t >= 0) { cur = t; render(); } };
+  const move = (s, d) => {
+    const i = slides.indexOf(s), k = i + d; if (k < 0 || k >= N) return;
+    if (d < 0) deck.insertBefore(s, slides[k]); else deck.insertBefore(slides[k], s);
+    slides = [...deck.querySelectorAll('.slide')]; cur = slides.indexOf(s); saveOrder(); number(); render();
+  };
   slides.forEach((s) => {
-    const hb = document.createElement('button'); hb.type = 'button'; hb.className = 'hide-btn'; hb.title = 'Skip this slide in Present mode';
-    hb.addEventListener('click', (e) => { e.stopPropagation(); const t = s.dataset.title; if (hid.has(t)) hid.delete(t); else hid.add(t); save(); number(); render(); });
-    s.prepend(hb);
+    const ctl = document.createElement('div'); ctl.className = 'slide-ctl';
+    const mk = (txt, title, fn) => { const b = document.createElement('button'); b.type = 'button'; b.textContent = txt; b.title = title; b.addEventListener('click', (e) => { e.stopPropagation(); fn(); }); ctl.appendChild(b); return b; };
+    const hb = mk('Hide', 'Skip this slide in Present mode', () => { const t = s.dataset.title; if (hid.has(t)) hid.delete(t); else hid.add(t); save(); number(); render(); });
+    hb.className = 'hide-btn';
+    mk('↑', 'Move this slide earlier', () => move(s, -1)); mk('↓', 'Move this slide later', () => move(s, 1));
+    s.prepend(ctl);
   });
+  const navEl = all.parentElement; const rs = document.createElement('button'); rs.type = 'button'; rs.textContent = 'Reset layout'; rs.title = 'Restore the original order and unhide all slides';
+  rs.addEventListener('click', () => { try { localStorage.removeItem(okey); localStorage.removeItem(key); } catch (e) { /* ignore */ } location.reload(); });
+  navEl.insertBefore(rs, all.nextSibling);
   prev.addEventListener('click', () => go(-1));
   next.addEventListener('click', () => go(1));
   all.addEventListener('click', () => { showAll = !showAll; render(); });
@@ -262,4 +276,19 @@ window.GB = (() => {
 document.querySelectorAll('.det-btn').forEach((btn) => {
   const calc = btn.closest('.calc');
   btn.addEventListener('click', () => { const on = calc.classList.toggle('details-on'); btn.setAttribute('aria-expanded', String(on)); btn.textContent = on ? 'Hide details' : 'Details'; });
+});
+
+/* Launch-kit videos: click to open full size in a new tab (in-page fallback if pop-ups are blocked) */
+document.querySelectorAll('.kit-shot video').forEach((v) => {
+  v.style.cursor = 'zoom-in'; v.title = 'Open full size';
+  v.addEventListener('click', (e) => {
+    e.stopPropagation(); const src = (v.querySelector('source') || v).src; const label = v.getAttribute('aria-label') || 'Video';
+    const build = (doc, host) => { const vid = doc.createElement('video'); vid.src = src; vid.controls = true; vid.autoplay = true; vid.loop = true; vid.muted = true; vid.playsInline = true;
+      vid.style.cssText = 'max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain;background:#000'; host.appendChild(vid); const pr = vid.play(); if (pr && pr.catch) pr.catch(() => {}); };
+    const w = window.open('', '_blank');
+    if (w && w.document) { w.document.title = label; const b = w.document.body; b.style.cssText = 'margin:0;height:100vh;background:#000;display:flex;align-items:center;justify-content:center'; build(w.document, b); return; }
+    const ov = document.createElement('div'); ov.style.cssText = 'position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;padding:24px'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-label', label);
+    ov.addEventListener('click', (ev) => { if (ev.target === ov) ov.remove(); }); document.addEventListener('keydown', function esc(ev) { if (ev.key === 'Escape') { ov.remove(); document.removeEventListener('keydown', esc); } });
+    build(document, ov); document.body.appendChild(ov);
+  });
 });

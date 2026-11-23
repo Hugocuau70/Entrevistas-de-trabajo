@@ -47,11 +47,16 @@ if variant == 'presenter':
     }
     for k, v in reps.items():
         assert k in decks, k; decks = decks.replace(k, v)
+m = re.search(r'\n  <section id="scorer">.*?</section>\n', t, re.S); assert m
+t = t.replace(m.group(0), '\n', 1)
+decks += ('<div class="tabpanel" id="scorer-tab" data-tab="scorer" hidden>\n  <p class="note">Hidden tab (open with #scorer). Prospecting tool kept out of the presentation: the role focuses on adoption.</p>'
+          + m.group(0) + '</div>\n')
 i = t.index('</details>') + len('</details>')
 t = t[:i] + '\n  </div>\n' + decks + t[i:]
 t = t.replace('drawRank(); drawHeat();\n</script>', 'drawRank(); drawHeat();\n' + open(f'{D}/deck.js').read() + '\n' + open(f'{D}/bob.js').read() + '\n</script>', 1)
 for k, f in [('SEAS','seasonality'),('CEN','census'),('SCORES','scores')]:
     t = t.replace(f'/*{k}*/[]', json.dumps(json.load(open(f'{S}/dash_files/{f}.json'))['rows'], separators=(',',':')))
-t = t.replace('/*KW*/{}', json.dumps(json.load(open(f'{S}/html/keywords.json')), separators=(',',':')))
+kw = json.load(open(f'{S}/html/keywords.json')); kw['series'] = [x for x in kw['series'] if x['keyword'] != 'data center queretaro']
+t = t.replace('/*KW*/{}', json.dumps(kw, separators=(',',':')))
 out = f'{R}/industry-radar.html' if variant == 'public' else f'{R}/industry-radar-presenter.html'
 open(out, 'w').write(t); print(out, len(t))

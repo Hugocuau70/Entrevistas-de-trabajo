@@ -47,3 +47,9 @@
 | 2026-11-23 | Launch kit en la copia local: webinar, correo en video y las 5 palancas (montaje de 75 s), grabados de los HTML del zip; autoplay al estar visibles. La página pública sigue sin mock-ups con marca | Petición del usuario |
 | 2026-11-23 | Integración con herramientas de gastos (SAP Concur, Expensify): una fila en "Questions we often hear", no una slide | Para SSGT la factura centralizada ya elimina el reembolso; la integración responde a TI/finanzas, no cambia la tesis. Validar disponibilidad en México |
 | 2026-11-23 | Video explicativo del Industry Radar para el usuario: `01_research/industry-radar-explainer.mp4` (86 s, sin audio) | Petición del usuario |
+| 2026-11-23 | Opportunity scorer fuera del Radar visible; queda en una pestaña oculta (`#scorer`). Se quitan "data center querétaro" (búsquedas) y el T-MEC del deck | El rol es de adopción, no de prospección; insights aislados que no suman |
+| 2026-11-23 | Slide 14 (Adoption strategy) pasa de tabla a 5 tarjetas visuales (ícono, cómo, dueño SSGT, qué pone Uber, cuándo) | Mucho texto (feedback) |
+| 2026-11-23 | Products ordenado por detonador: land con el producto que resuelve el detonador → segundo producto tras la primera factura mensual → Central cuando otros reservan | Aprobado por el usuario |
+| 2026-11-23 | Factors → "Five concerns": Finanzas (PoC de 30 días), RH (launch kit y champions), TI (roster/SSO/datos), Operaciones (ancho de banda: vivo en ~48 h) y adopción; más 3 dinámicas: Dinner drops, Office league con QR, Busy Season Wrapped | Petición del usuario; dinámicas por validar |
+| 2026-11-23 | Flechas ↑↓ para reordenar slides y "Reset layout" (se guarda en el navegador); clic en un video del launch kit lo abre en grande en otra pestaña | Petición del usuario |
+| 2026-11-23 | Google Slides se actualiza al final (cuando el usuario diga 100%); si no hay "go", se actualiza el 24-nov a las 12:00 (CDMX) | Instrucción del usuario |
